@@ -1,4 +1,9 @@
 
+# enchantedForest
+
+This game gets its _roots_ (ahhhhhahaha) from anchient Norse Mythology.
+
+# TODO
 ## CRITICAL
 - main character 
    * motion
