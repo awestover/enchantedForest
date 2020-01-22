@@ -10,7 +10,7 @@ const cameraSeekThresh = cameraSpeed * 15;
 const cameraUnseekThresh = cameraSpeed;
 let cameraSeeking = false;
 let falling = false;
-const collisionTollerence = 0.4; 
+const collisionTollerence = 0.0001; 
 
 let TILE_IDS = { }
 
