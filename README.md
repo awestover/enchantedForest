@@ -1,7 +1,7 @@
 
 # enchantedForest
 
-![gameplayimg.png](gameplayimage.png)
+![Game Play Image](gameplayimg.png)
 
 This game gets its _roots_ (ahhhhhahaha) from anchient Norse Mythology.
 
