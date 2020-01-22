@@ -9,7 +9,7 @@ This game gets its _roots_ (ahhhhhahaha) from anchient Norse Mythology.
    * motion
    * collision detection
 - camera
-- figure out how to use tiled
+- figure out how to use tiled [alek made some progress on this]
 
 ## COOL
 - inventorty system
