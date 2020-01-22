@@ -9,6 +9,7 @@ const cameraSeekThresh = cameraSpeed * 15;
 const cameraUnseekThresh = cameraSpeed;
 let cameraSeeking = false;
 let falling = false;
+const collisionTollerence = 0.2; 
 
 let TILE_IDS = { }
 
@@ -70,7 +71,24 @@ function checkKeys() {
 }
 
 function blockCenter(x, y){
-  return createVector(blockSize*(x+1/2-mapTileDims.x/2), blockSize*(y+1/2-mapTileDims.y/2));
+  return createVector(blockSize*(x+0.5-mapTileDims.x/2), blockSize*(y+0.5-mapTileDims.y/2));
+}
+
+// this is a bit more lenient in terms of dy, and a bit stricter in terms of dx than just hitsBlock
+function onBlock(x, y){
+  let bcenter = blockCenter(x, y);
+  let dx = player.pos.x - bcenter.x;
+  let dy = player.pos.y - bcenter.y;
+  let xIntersectSize = blockSize/2 + player.dims.x/2 - Math.abs(dx);
+  let yIntersectSize = blockSize/2 + player.dims.y/2 - Math.abs(dy);
+
+  if (dy < 0 && xIntersectSize > (1+collisionTollerence)*maxVel.x){
+    if(yIntersectSize > -(1+collisionTollerence)*maxVel.y){
+      return true;
+    }
+  }
+  return false;
+
 }
 
 function hitsBlock(x, y){
@@ -81,8 +99,8 @@ function hitsBlock(x, y){
   let yIntersectSize = blockSize/2 + player.dims.y/2 - Math.abs(dy);
 
   if (xIntersectSize > 0 && yIntersectSize > 0){
-    let barelyXCollision = xIntersectSize < maxVel.x;
-    let barelyYCollision = yIntersectSize < maxVel.y;
+    let barelyXCollision = xIntersectSize < maxVel.x*(1+collisionTollerence);
+    let barelyYCollision = yIntersectSize < maxVel.y*(1+collisionTollerence);
 
     if(barelyXCollision && !barelyYCollision){ // left/right border violation
       return {"hit": "x", "fix": Math.sign(dx)*xIntersectSize};
@@ -151,9 +169,11 @@ function draw(){
   image(bg, 0, 0, blockSize*mapTileDims.x, blockSize*mapTileDims.y);
   player.render();
 
+  let onAnyBlock = false;
   for(let x = 0; x < mapTileDims.x; x++){
     for(let y = 0; y < mapTileDims.y; y++){
       if(data.layers.platforms[y][x] == TILE_IDS["collision"]){
+        onAnyBlock = onAnyBlock || onBlock(x, y);
         let hitdata = hitsBlock(x, y);
         if(hitdata.hit == "x"){
           player.pos.x += hitdata.fix;
@@ -173,6 +193,9 @@ function draw(){
       }
     }
   }
+
+  if (!onAnyBlock)
+    falling = true
 
   if(falling)
     player.vel.y = Math.min(player.vel.y + gravity, maxVel.y);
