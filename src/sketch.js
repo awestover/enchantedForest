@@ -1,6 +1,7 @@
 
 const blockSize = 32;
 const gravity = 0.2;
+const friction = 0.03;
 const moveAccel = 0.3;
 const jumpImpulse = 7;
 const maxVel = new p5.Vector(1.5, jumpImpulse);
@@ -9,7 +10,7 @@ const cameraSeekThresh = cameraSpeed * 15;
 const cameraUnseekThresh = cameraSpeed;
 let cameraSeeking = false;
 let falling = false;
-const collisionTollerence = 0.2; 
+const collisionTollerence = 0.4; 
 
 let TILE_IDS = { }
 
@@ -182,7 +183,7 @@ function draw(){
           }
         }
         else if(hitdata.hit == "y"){
-          if(Math.sign(hitdata.fix) < 0){ // hits top surface of a block
+          if(Math.sign(hitdata.fix) < 0 && player.vel.y >= 0){ // hits top surface of a block
             falling = false;
           }
           player.pos.y += hitdata.fix;
@@ -201,6 +202,14 @@ function draw(){
     player.vel.y = Math.min(player.vel.y + gravity, maxVel.y);
   player.pos.x += player.vel.x;
   player.pos.y += player.vel.y;
+
+
+  if(player.vel.x > 0){
+    player.vel.x = Math.max(0, player.vel.x - friction);
+  }
+  else if(player.vel.x < 0){
+    player.vel.x = Math.min(0, player.vel.x + friction);
+  }
 
   checkKeys();
   cameraSeek();
