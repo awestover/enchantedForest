@@ -8,14 +8,18 @@ const maxVel = new p5.Vector(1.5, jumpImpulse);
 const cameraSpeed = 1.2;
 const cameraSeekThresh = cameraSpeed * 15;
 const cameraUnseekThresh = cameraSpeed;
-let cameraSeeking = false;
-let falling = false;
 const collisionTollerence = 0.0001; 
 
-let TILE_IDS = { }
-
+let bg;
 let data;
+let livesImage;
+let cameraSeeking = false;
+let falling = false;
+let TILE_IDS = { }
 let mapTileDims = new p5.Vector(0,0);
+let cameraPos = new p5.Vector(0,0);
+let player = new Entity(0, -100);
+
 $.getJSON('data/tilemap/map.json', function(returnData){ 
   data = returnData; 
   let tileIds = Object.keys(data.tiles);
@@ -26,27 +30,6 @@ $.getJSON('data/tilemap/map.json', function(returnData){
     mapTileDims.y = data.layers.platforms.length;
   }
 });
-let bg;
-
-class Entity {
-  constructor(){
-    this.pos = new p5.Vector(0,0);
-    this.vel = new p5.Vector(0,0);
-    this.dims = new p5.Vector(32, 64);
-		this.lives = 4;
-  }
-  render(){
-    fill(0,255,0);
-    rect(this.pos.x, this.pos.y, this.dims.x, this.dims.y);
-  }
-}
-
-let player = new Entity();
-player.pos.y -= 100;
-
-let livesImage;
-
-let cameraPos = new p5.Vector(0,0);
 
 function setup(){
   createCanvas(512,512);
@@ -61,7 +44,6 @@ function setup(){
   imageMode(CENTER);
   ellipseMode(CENTER);
 }
-
 
 function renderLives(){
 	for (i = 0; i < player.lives; i++){
@@ -85,71 +67,6 @@ function checkKeys() {
 function blockCenter(x, y){
   return createVector(blockSize*(x+0.5-mapTileDims.x/2), blockSize*(y+0.5-mapTileDims.y/2));
 }
-
-// this is a bit more lenient in terms of dy, and a bit stricter in terms of dx than just hitsBlock
-function onBlock(x, y){
-  let bcenter = blockCenter(x, y);
-  let dx = player.pos.x - bcenter.x;
-  let dy = player.pos.y - bcenter.y;
-  let xIntersectSize = blockSize/2 + player.dims.x/2 - Math.abs(dx);
-  let yIntersectSize = blockSize/2 + player.dims.y/2 - Math.abs(dy);
-
-  if (dy < 0 && xIntersectSize > (1+collisionTollerence)*maxVel.x){
-    if(yIntersectSize > -(1+collisionTollerence)*maxVel.y){
-      return true;
-    }
-  }
-  return false;
-
-}
-
-function hitsBlock(x, y){
-  let bcenter = blockCenter(x, y);
-  let dx = player.pos.x - bcenter.x;
-  let dy = player.pos.y - bcenter.y;
-  let xIntersectSize = blockSize/2 + player.dims.x/2 - Math.abs(dx);
-  let yIntersectSize = blockSize/2 + player.dims.y/2 - Math.abs(dy);
-
-  if (xIntersectSize > 0 && yIntersectSize > 0){
-    let barelyXCollision = xIntersectSize < maxVel.x*(1+collisionTollerence);
-    let barelyYCollision = yIntersectSize < maxVel.y*(1+collisionTollerence);
-
-    if(barelyXCollision && !barelyYCollision){ // left/right border violation
-      return {"hit": "x", "fix": Math.sign(dx)*xIntersectSize};
-    }
-    else if(!barelyXCollision && barelyYCollision){ // top/bottom border violation
-      return {"hit": "y", "fix": Math.sign(dy)*yIntersectSize};
-    }
-  }
-  return {"hit": false, "fix": null};
-  
-}
-
-/*
- * this is really temporary code!!!
- */
-
-function hitBottom(){
-  if (player.pos.y > height/2 - 32)
-    return true;
-  return false;
-}
-
-function hitRight(){
-  if (player.pos.x +32 > width/2){
-    return true;
-  }
-  return false;
-}
-
-function hitLeft(){
-  if (player.pos.x < -width/2){
-    return true;
-  }
-  return false;
-}
-// delete these weird things once the real collision detection is up and running 
-
 
 function cameraSeek(){
   let diff = p5.Vector.sub(player.pos, cameraPos);
@@ -187,8 +104,8 @@ function draw(){
   for(let x = 0; x < mapTileDims.x; x++){
     for(let y = 0; y < mapTileDims.y; y++){
       if(data.layers.platforms[y][x] == TILE_IDS["collision"]){
-        onAnyBlock = onAnyBlock || onBlock(x, y);
-        let hitdata = hitsBlock(x, y);
+        onAnyBlock = onAnyBlock || player.onBlock(x, y);
+        let hitdata = player.hitsBlock(x, y);
         if(hitdata.hit == "x"){
           player.pos.x += hitdata.fix;
           if(Math.sign(player.vel.x) != Math.sign(hitdata.fix)){
@@ -231,7 +148,4 @@ function draw(){
 	renderLives();
   pop();
 }
-
-
-
 
