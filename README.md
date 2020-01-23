@@ -14,7 +14,7 @@ This game gets its _roots_ (ahhhhhahaha) from anchient Norse Mythology.
 - figure out how to use tiled [alek made some progress on this]
 
 ## COOL
-- inventorty system
+- inventory system
     * talismans
     * money
 - plot
@@ -22,4 +22,13 @@ This game gets its _roots_ (ahhhhhahaha) from anchient Norse Mythology.
    * dialogue boxes
 - mobs
   * AI ahhhahahahhahahhahahahah
+- map
+
+## MISC
+- increase camera follow speed
+- health system
+- respawn
+- clean up codebase
+- absolute pos for game interface
+- saving the game
 

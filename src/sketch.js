@@ -33,6 +33,7 @@ class Entity {
     this.pos = new p5.Vector(0,0);
     this.vel = new p5.Vector(0,0);
     this.dims = new p5.Vector(32, 64);
+		this.lives = 4;
   }
   render(){
     fill(0,255,0);
@@ -43,11 +44,14 @@ class Entity {
 let player = new Entity();
 player.pos.y -= 100;
 
+let livesImage;
+
 let cameraPos = new p5.Vector(0,0);
 
 function setup(){
   createCanvas(512,512);
   bg = loadImage("data/tilemap/tilemap.png");
+	livesImage = loadImage("data/graphics/hearts.png");
 
   // all shapes must be specified as (x,y,w,h)
   // yay symmetry
@@ -56,6 +60,13 @@ function setup(){
   rectMode(CENTER);
   imageMode(CENTER);
   ellipseMode(CENTER);
+}
+
+
+function renderLives(){
+	for (i = 0; i < player.lives; i++){
+		image(livesImage, -width/2+50*(i+1), -height/2+50, 50, 50);
+	}
 }
 
 function checkKeys() {
@@ -169,6 +180,7 @@ function draw(){
   translate(-cameraPos.x, -cameraPos.y);
   image(bg, 0, 0, blockSize*mapTileDims.x, blockSize*mapTileDims.y);
   player.render();
+	renderLives();
 
   let onAnyBlock = false;
   for(let x = 0; x < mapTileDims.x; x++){
