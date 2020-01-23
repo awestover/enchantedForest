@@ -177,10 +177,11 @@ function draw(){
   background(0);
   push();
   translate(width/2, height/2);
+
+  push();
   translate(-cameraPos.x, -cameraPos.y);
   image(bg, 0, 0, blockSize*mapTileDims.x, blockSize*mapTileDims.y);
   player.render();
-	renderLives();
 
   let onAnyBlock = false;
   for(let x = 0; x < mapTileDims.x; x++){
@@ -225,6 +226,9 @@ function draw(){
 
   checkKeys();
   cameraSeek();
+  pop();
+
+	renderLives();
   pop();
 }
 
