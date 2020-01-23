@@ -1,10 +1,11 @@
 class Entity {
   constructor(xPos, yPos){
-    this.pos = new p5.Vector(xPos,yPos);
+    this.pos = new p5.Vector(xPos, yPos);
     this.vel = new p5.Vector(0,0);
     this.dims = new p5.Vector(32, 64);
 		this.lives = 4;
   }
+
   render(){
     fill(0,255,0);
     rect(this.pos.x, this.pos.y, this.dims.x, this.dims.y);

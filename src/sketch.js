@@ -17,8 +17,10 @@ let TILE_IDS = { }
 let mapTileDims = new p5.Vector(0,0);
 let cameraPos = new p5.Vector(0,0);
 let player = new Entity(0, +64);
+let mobs = [];
 
 function loadRoom(roomName){
+  mobs = [];
   $.getJSON("data/maps/rooms/"+roomName+"/map.json", 
   function(returnData){ 
     data = returnData; 
@@ -28,6 +30,15 @@ function loadRoom(roomName){
       TILE_IDS[curName] = tileIds[k];
       mapTileDims.x = data.layers.platforms[0].length;
       mapTileDims.y = data.layers.platforms.length;
+    }
+
+    for(let x = 0; x < mapTileDims.x; x++){
+      for(let y = 0; y < mapTileDims.y; y++){
+        if(data.layers.mobSpawnPoints[y][x] == TILE_IDS["mob:dino"]){
+          let bc = blockCenter(x, y);
+          mobs.push(new Entity(bc.x, bc.y-blockSize/2));
+        }
+      }
     }
   });
   roomImage = loadImage("data/maps/rooms/"+roomName+"/tilemap.png");
@@ -101,6 +112,9 @@ function draw(){
   translate(-cameraPos.x, -cameraPos.y);
   image(roomImage, 0, 0, blockSize*mapTileDims.x, blockSize*mapTileDims.y);
   player.render();
+  for(let i in mobs){
+    mobs[i].render();
+  }
 
   let showFakeDialogueBox = false;
   let onAnyBlock = false;
@@ -181,7 +195,7 @@ function draw(){
   if (showFakeDialogueBox) {
     fill(128, 128, 128, 100);
     rect(0,height/2 - height/8,width,height/8);
-    fill(0, 255, 255);
+    fill(0);
     textSize(20);
     text("Fake Dialogue Box KEVIN DESIGN THIS,\n note: dialogue box should have a face in it,\n the face of the npc..., \nnote: map.json contains the path to the npcs image...", 0,height/2 - height/8, width,height/8);
   }
