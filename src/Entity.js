@@ -79,32 +79,54 @@ class Entity {
 
   handleMapCollisions(){
     let onAnyBlock = false;
-    for(let x = 0; x < mapTileDims.x; x++){
-      for(let y = 0; y < mapTileDims.y; y++){
-        if(data.layers.platforms[y][x] == TILE_IDS["collision"]){
-          onAnyBlock = onAnyBlock || this.onBlock(x, y);
-          let hitdata = this.barrierViolation(x, y);
-          if(hitdata.hit){
-            if(hitdata.xfix != 0){
-              this.pos.x += hitdata.xfix;
-              if(Math.sign(this.vel.x) != Math.sign(hitdata.xfix))
-                this.vel.x = 0;
-            }
-            if(hitdata.yfix != 0){
-              // hits top surface of a block
-              if(Math.sign(hitdata.yfix) < 0 && this.vel.y >= 0) 
-                this.falling = false;
-              this.pos.y += hitdata.yfix;
-              if(Math.sign(this.vel.y) != Math.sign(hitdata.yfix))
-                this.vel.y = 0;
-            }
+    let boundingTiles = this.gridBoundingBox();
+    for(let i in boundingTiles){
+      let x = boundingTiles[i].x;
+      let y = boundingTiles[i].y;
+      if(data.layers.platforms[y][x] == TILE_IDS["collision"]){
+        onAnyBlock = onAnyBlock || this.onBlock(x, y);
+        let hitdata = this.barrierViolation(x, y);
+        if(hitdata.hit){
+          if(hitdata.xfix != 0){
+            this.pos.x += hitdata.xfix;
+            if(Math.sign(this.vel.x) != Math.sign(hitdata.xfix))
+              this.vel.x = 0;
+          }
+          if(hitdata.yfix != 0){
+            // hits top surface of a block
+            if(Math.sign(hitdata.yfix) < 0 && this.vel.y >= 0) 
+              this.falling = false;
+            this.pos.y += hitdata.yfix;
+            if(Math.sign(this.vel.y) != Math.sign(hitdata.yfix))
+              this.vel.y = 0;
           }
         }
       }
     }
     if (!onAnyBlock)
       this.falling = true
+  }
+
+  // computes the 8 tile indices that are bounding this entity
+  // um should be 6
+  // this is kind of weird 
+  // I was being lazy
+  // but if it works...
+  gridBoundingBox(){
+    let gx = Math.round(this.pos.x / blockSize + mapTileDims.x/2);
+    let gy = Math.round(this.pos.y / blockSize + mapTileDims.y/2);
+    let tiles = [];
+    for (let dx = -1; dx <= 1; dx++){
+      if(gx+dx >= 0 && gx + dx <= mapTileDims.x){
+        for (let dy = -2; dy <= 2; dy++){
+          if(gy+dy >= 0 && gy + dy <= mapTileDims.y){
+            tiles.push({"x": gx+dx, "y": gy+dy});
+          }
+        }
+      }
     }
+    return tiles;
+  }
 
 }
 

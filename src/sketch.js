@@ -20,6 +20,7 @@ let player = new Entity(0, +64);
 let mobs = [];
 
 function loadRoom(roomName){
+  data = null;
   mobs = [];
   $.getJSON("data/maps/rooms/"+roomName+"/map.json", 
   function(returnData){ 
@@ -84,7 +85,9 @@ function blockCenter(x, y){
 function cameraSeek(){
   let diff = p5.Vector.sub(player.pos, cameraPos);
 
-  /// ugh thresholding is !!super!! jerky, make a funciton that is less steep than a step function that still prevents the jiggling when the camera is on the user
+  /// ugh thresholding is !!super!! jerky, make a funciton that is less steep
+  //than a step function that still prevents the jiggling when the camera is on
+  //the user
   // tbh toggligng parameters on this is also kinda low key a viable strategy
   // ok, basically it only looks weird if the player is moving slower than the camera(?)
   if(cameraSeeking){
@@ -104,6 +107,7 @@ function cameraSeek(){
 }
 
 function draw(){
+  if(data){ // We really need a loading screen, this is maad hacky
   background(100);
   push();
   translate(width/2, height/2);
@@ -133,6 +137,7 @@ function draw(){
           else if(data.layers.agents[y][x] == TILE_IDS["teleporter"]){
             // lol this is kinda dumb, think of a better solution later
             loadRoom("alpha");
+            return; // XD this is so hacky, plz no
           }
         }
       }
@@ -142,7 +147,7 @@ function draw(){
   player.handleMapCollisions();
   player.update();
 
-  if(data && player.pos.y > blockSize*mapTileDims.y/2){
+  if(player.pos.y > blockSize*mapTileDims.y/2){
     player.lives -= 1;
     if(player.lives <= 0)
       lost = true;
@@ -166,13 +171,17 @@ function draw(){
 
   if (showFakeDialogueBox) {
     fill(128, 128, 128, 100);
-    rect(0,height/2 - height/8,width,height/8);
+    rect(0,height/2 - height/16,width,height/8);
     fill(0);
     textSize(20);
-    text("Fake Dialogue Box KEVIN DESIGN THIS,\n note: dialogue box should have a face in it,\n the face of the npc..., \nnote: map.json contains the path to the npcs image...", 0,height/2 - height/8, width,height/8);
+    text("Fake Dialogue Box KEVIN DESIGN THIS,\n note: dialogue box should have a face in it,\n the face of the npc..., \nnote: map.json contains the path to the npcs image...", 0,height/2 - height/16, width,height/8);
   }
 
 	renderLives();
   pop();
+  }
+  else{
+    background(255,0,0);
+  }
 }
 
