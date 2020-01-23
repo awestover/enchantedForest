@@ -117,9 +117,9 @@ class Entity {
     let gy = Math.round(this.pos.y / blockSize + mapTileDims.y/2);
     let tiles = [];
     for (let dx = -1; dx <= 1; dx++){
-      if(gx+dx >= 0 && gx + dx <= mapTileDims.x){
+      if(gx+dx >= 0 && gx + dx < mapTileDims.x){
         for (let dy = -2; dy <= 2; dy++){
-          if(gy+dy >= 0 && gy + dy <= mapTileDims.y){
+          if(gy+dy >= 0 && gy + dy < mapTileDims.y){
             tiles.push({"x": gx+dx, "y": gy+dy});
           }
         }

@@ -22,6 +22,7 @@ let mobs = [];
 function loadRoom(roomName){
   data = null;
   mobs = [];
+  setTimeout(function(){
   $.getJSON("data/maps/rooms/"+roomName+"/map.json", 
   function(returnData){ 
     data = returnData; 
@@ -43,6 +44,7 @@ function loadRoom(roomName){
     }
   });
   roomImage = loadImage("data/maps/rooms/"+roomName+"/tilemap.png");
+  }, 250);
 }
 
 function setup(){
@@ -183,8 +185,8 @@ function draw(){
   else{
     background(255,0,0);
     textSize(60);
-    fill(0);
-    text("LOADING", 0, 0);
+    fill(0,0,0);
+    text("LOADING", width/2, height/2);
   }
 }
 
