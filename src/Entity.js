@@ -1,0 +1,52 @@
+class Entity {
+  constructor(xPos, yPos){
+    this.pos = new p5.Vector(xPos,yPos);
+    this.vel = new p5.Vector(0,0);
+    this.dims = new p5.Vector(32, 64);
+		this.lives = 4;
+  }
+  render(){
+    fill(0,255,0);
+    rect(this.pos.x, this.pos.y, this.dims.x, this.dims.y);
+  }
+
+	// this is a bit more lenient in terms of dy, and a bit stricter in terms of dx than just hitsBlock
+	onBlock(x, y){
+		let bcenter = blockCenter(x, y);
+		let dx = this.pos.x - bcenter.x;
+		let dy = this.pos.y - bcenter.y;
+		let xIntersectSize = blockSize/2 + this.dims.x/2 - Math.abs(dx);
+		let yIntersectSize = blockSize/2 + this.dims.y/2 - Math.abs(dy);
+
+		if (dy < 0 && xIntersectSize > (1+collisionTollerence)*maxVel.x){
+			if(yIntersectSize > -(1+collisionTollerence)*maxVel.y){
+				return true;
+			}
+		}
+		return false;
+
+	}
+
+	hitsBlock(x, y){
+		let bcenter = blockCenter(x, y);
+		let dx = this.pos.x - bcenter.x;
+		let dy = this.pos.y - bcenter.y;
+		let xIntersectSize = blockSize/2 + this.dims.x/2 - Math.abs(dx);
+		let yIntersectSize = blockSize/2 + this.dims.y/2 - Math.abs(dy);
+
+		if (xIntersectSize > 0 && yIntersectSize > 0){
+			let barelyXCollision = xIntersectSize < maxVel.x*(1+collisionTollerence);
+			let barelyYCollision = yIntersectSize < maxVel.y*(1+collisionTollerence);
+
+			if(barelyXCollision && !barelyYCollision){ // left/right border violation
+				return {"hit": "x", "fix": Math.sign(dx)*xIntersectSize};
+			}
+			else if(!barelyXCollision && barelyYCollision){ // top/bottom border violation
+				return {"hit": "y", "fix": Math.sign(dy)*yIntersectSize};
+			}
+		}
+		return {"hit": false, "fix": null};
+	}
+
+}
+

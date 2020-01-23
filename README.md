@@ -6,29 +6,47 @@
 This game gets its _roots_ (ahhhhhahaha) from anchient Norse Mythology.
 
 # TODO
-## CRITICAL
-- main character 
-   * motion
-   * collision detection
-- camera
-- figure out how to use tiled [alek made some progress on this]
-
-## COOL
-- inventory system
-    * talismans
-    * money
-- plot
-- graphics
-   * dialogue boxes
+## Alek
+- collision detection (diagonal stuff broken)
+- dialogue boxes (stupid python script)
 - mobs
+  * damage counter
   * AI ahhhahahahhahahhahahahah
-- map
+
+## Kevin
+- concept art (sprite sheets)
+- dialogue boxes (GUI)
+- attacks
+  * coinshot
+  * fireballs
+- movement
+  * teleportation
+
+## Up for grabs
+- attack
+  * mana
+- movement
+  * dashing
+  * markers 
+  * flight
+  * coinshot flight
+- support
+  * shields
+  * healing
+- respawn
+- game interface
+   * dialogue boxes
+   * inventory system
+      * talismans
+      * money
+   * objects
+   * level-up system
+   * quests
+   * minimap
+- map design
+- world system (portals, doors)
+- plot
+- mysql data saving
 
 ## MISC
-- increase camera follow speed
-- health system
-- respawn
-- clean up codebase
-- absolute pos for game interface
-- saving the game
 
