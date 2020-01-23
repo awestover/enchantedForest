@@ -49,7 +49,7 @@ let livesImage;
 let cameraPos = new p5.Vector(0,0);
 
 function setup(){
-  createCanvas(512,512);
+  createCanvas(window.innerWidth,window.innerHeight);
   bg = loadImage("data/tilemap/tilemap.png");
 	livesImage = loadImage("data/graphics/hearts.png");
 
