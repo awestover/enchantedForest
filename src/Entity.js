@@ -4,6 +4,7 @@ class Entity {
     this.vel = new p5.Vector(0,0);
     this.dims = new p5.Vector(32, 64);
 		this.lives = 4;
+    this.falling = false;
   }
 
   render(){
@@ -60,6 +61,50 @@ class Entity {
 		let yIntersectSize = blockSize/2 + this.dims.y/2 - Math.abs(dy);
     return xIntersectSize > 0 && yIntersectSize > 0;
 	}
+
+  update(){
+    if(this.falling)
+      this.vel.y = Math.min(this.vel.y + gravity, maxVel.y);
+    this.pos.x += this.vel.x;
+    this.pos.y += this.vel.y;
+
+
+    if(!this.falling){ // friction
+      if(this.vel.x > 0)
+        this.vel.x = Math.max(0, this.vel.x - friction);
+      else if(this.vel.x < 0)
+        this.vel.x = Math.min(0, this.vel.x + friction);
+    }
+  }
+
+  handleMapCollisions(){
+    let onAnyBlock = false;
+    for(let x = 0; x < mapTileDims.x; x++){
+      for(let y = 0; y < mapTileDims.y; y++){
+        if(data.layers.platforms[y][x] == TILE_IDS["collision"]){
+          onAnyBlock = onAnyBlock || this.onBlock(x, y);
+          let hitdata = this.barrierViolation(x, y);
+          if(hitdata.hit){
+            if(hitdata.xfix != 0){
+              this.pos.x += hitdata.xfix;
+              if(Math.sign(this.vel.x) != Math.sign(hitdata.xfix))
+                this.vel.x = 0;
+            }
+            if(hitdata.yfix != 0){
+              // hits top surface of a block
+              if(Math.sign(hitdata.yfix) < 0 && this.vel.y >= 0) 
+                this.falling = false;
+              this.pos.y += hitdata.yfix;
+              if(Math.sign(this.vel.y) != Math.sign(hitdata.yfix))
+                this.vel.y = 0;
+            }
+          }
+        }
+      }
+    }
+    if (!onAnyBlock)
+      this.falling = true
+    }
 
 }
 

@@ -12,7 +12,7 @@ const collisionTollerence = 0.0001;
 
 let roomImage, heartImage;
 let data;
-let falling = false, cameraSeeking = false, lost = false;
+let cameraSeeking = false, lost = false;
 let TILE_IDS = { }
 let mapTileDims = new p5.Vector(0,0);
 let cameraPos = new p5.Vector(0,0);
@@ -70,9 +70,9 @@ function checkKeys() {
   else if (keyIsDown(RIGHT_ARROW)) 
     player.vel.x = Math.min(player.vel.x+moveAccel, maxVel.x);
   if (keyIsDown(32)) { // space
-    if (!falling){ 
+    if (!player.falling){ 
       player.vel.y -= jumpImpulse;
-      falling = true;
+      player.falling = true;
     }
   }
 }
@@ -114,10 +114,14 @@ function draw(){
   player.render();
   for(let i in mobs){
     mobs[i].render();
+
+    // dumb movement
+    mobs[i].vel.x = Math.sign(player.pos.x - mobs[i].pos.x)*maxVel.x;
+    mobs[i].handleMapCollisions();
+    mobs[i].update();
   }
 
   let showFakeDialogueBox = false;
-  let onAnyBlock = false;
   for(let x = 0; x < mapTileDims.x; x++){
     for(let y = 0; y < mapTileDims.y; y++){
       if(data.layers.agents[y][x] != TILE_IDS["empty"]){
@@ -132,43 +136,11 @@ function draw(){
           }
         }
       }
-      if(data.layers.platforms[y][x] == TILE_IDS["collision"]){
-        onAnyBlock = onAnyBlock || player.onBlock(x, y);
-        let hitdata = player.barrierViolation(x, y);
-        if(hitdata.hit){
-          if(hitdata.xfix != 0){
-            player.pos.x += hitdata.xfix;
-            if(Math.sign(player.vel.x) != Math.sign(hitdata.xfix))
-              player.vel.x = 0;
-          }
-          if(hitdata.yfix != 0){
-            // hits top surface of a block
-            if(Math.sign(hitdata.yfix) < 0 && player.vel.y >= 0) 
-              falling = false;
-            player.pos.y += hitdata.yfix;
-            if(Math.sign(player.vel.y) != Math.sign(hitdata.yfix))
-              player.vel.y = 0;
-          }
-        }
-      }
     }
   }
 
-  if (!onAnyBlock)
-    falling = true
-
-  if(falling)
-    player.vel.y = Math.min(player.vel.y + gravity, maxVel.y);
-  player.pos.x += player.vel.x;
-  player.pos.y += player.vel.y;
-
-
-  if(!falling){ // friction
-    if(player.vel.x > 0)
-      player.vel.x = Math.max(0, player.vel.x - friction);
-    else if(player.vel.x < 0)
-      player.vel.x = Math.min(0, player.vel.x + friction);
-  }
+  player.handleMapCollisions();
+  player.update();
 
   if(data && player.pos.y > blockSize*mapTileDims.y/2){
     player.lives -= 1;

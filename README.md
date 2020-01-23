@@ -8,9 +8,8 @@ This game gets its _roots_ (ahhhhhahaha) from anchient Norse Mythology.
 # TODO
 
 ## Alek
-- mobs
-  * damage counter
-  * AI ahhhahahahhahahhahahahah
+- mobs AI
+- fast collision detection (its a freaking grid! collision detection can be supah fast, literally just check like the 6 squares that the player is touching and see if any of those have things that it's hitting in them)
 
 ## Kevin
 - concept art (sprite sheets)
@@ -44,8 +43,7 @@ This game gets its _roots_ (ahhhhhahaha) from anchient Norse Mythology.
 - map design
 - plot
 - mysql data saving
-- loading screens, trigger past them with a callback function
-
+- loading screen, trigger past it with a callback function
 
 # Done 
 1/23/2020 Alek
@@ -53,7 +51,6 @@ This game gets its _roots_ (ahhhhhahaha) from anchient Norse Mythology.
 - dying / respawn
 - dialogue boxes / npcs
 - world system (portals, doors)
-
 
 ## Game documentation 
 
