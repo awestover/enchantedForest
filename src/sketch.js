@@ -66,9 +66,9 @@ function renderLives(){
 }
 
 function checkKeys() {
-  if (keyIsDown(LEFT_ARROW)) 
+  if (keyIsDown(LEFT_ARROW) || keyIsDown(65))// LEFT / A
     player.vel.x = Math.max(player.vel.x-moveAccel, -maxVel.x);
-  else if (keyIsDown(RIGHT_ARROW)) 
+  else if (keyIsDown(RIGHT_ARROW) || keyIsDown(68))  // RIGHT / D
     player.vel.x = Math.min(player.vel.x+moveAccel, maxVel.x);
   if (keyIsDown(32)) { // space
     if (!player.falling){ 
@@ -107,81 +107,84 @@ function cameraSeek(){
 }
 
 function draw(){
-  if(data){ // We really need a loading screen, this is maad hacky
-  background(100);
-  push();
-  translate(width/2, height/2);
+  if(data){ 
+    background(100);
+    push();
+    translate(width/2, height/2);
 
-  push();
-  translate(-cameraPos.x, -cameraPos.y);
-  image(roomImage, 0, 0, blockSize*mapTileDims.x, blockSize*mapTileDims.y);
-  player.render();
-  for(let i in mobs){
-    mobs[i].render();
+    push();
+    translate(-cameraPos.x, -cameraPos.y);
+    image(roomImage, 0, 0, blockSize*mapTileDims.x, blockSize*mapTileDims.y);
+    player.render();
+    for(let i in mobs){
+      mobs[i].render();
 
-    // dumb movement
-    mobs[i].vel.x = Math.sign(player.pos.x - mobs[i].pos.x)*maxVel.x;
-    mobs[i].handleMapCollisions();
-    mobs[i].update();
-  }
+      // dumb movement
+      mobs[i].vel.x = Math.sign(player.pos.x - mobs[i].pos.x)*maxVel.x;
+      mobs[i].handleMapCollisions();
+      mobs[i].update();
+    }
 
-  let showFakeDialogueBox = false;
-  for(let x = 0; x < mapTileDims.x; x++){
-    for(let y = 0; y < mapTileDims.y; y++){
-      if(data.layers.agents[y][x] != TILE_IDS["empty"]){
-        if(player.hitBlock(x, y)){
-          if(data.layers.agents[y][x] == TILE_IDS["npc:dog"]){
-            // trigger dialogue box
-            showFakeDialogueBox = true;
-          }
-          else if(data.layers.agents[y][x] == TILE_IDS["teleporter"]){
-            // lol this is kinda dumb, think of a better solution later
-            loadRoom("alpha");
-            return; // XD this is so hacky, plz no
+    let showFakeDialogueBox = false;
+    for(let x = 0; x < mapTileDims.x; x++){
+      for(let y = 0; y < mapTileDims.y; y++){
+        if(data.layers.agents[y][x] != TILE_IDS["empty"]){
+          if(player.hitBlock(x, y)){
+            if(data.layers.agents[y][x] == TILE_IDS["npc:dog"]){
+              // trigger dialogue box
+              showFakeDialogueBox = true;
+            }
+            else if(data.layers.agents[y][x] == TILE_IDS["teleporter"]){
+              // lol this is kinda dumb, think of a better solution later
+              loadRoom("alpha");
+              return;
+            }
           }
         }
       }
     }
-  }
 
-  player.handleMapCollisions();
-  player.update();
+    player.handleMapCollisions();
+    player.update();
 
-  if(player.pos.y > blockSize*mapTileDims.y/2){
-    player.lives -= 1;
-    if(player.lives <= 0)
-      lost = true;
-    player.pos.x = 0;
-    player.pos.y = 0;
-    player.vel.x = 0;
-    player.vel.y = 0;
-  }
+    if(player.pos.y > blockSize*mapTileDims.y/2){
+      player.lives -= 1;
+      if(player.lives <= 0)
+        lost = true;
+      player.pos.x = 0;
+      player.pos.y = 0;
+      player.vel.x = 0;
+      player.vel.y = 0;
+    }
 
-  checkKeys();
-  cameraSeek();
-  pop(); // outside of this pop, the camera perspective translate doesnt happen, use this for things that you want absolutely positioned
+    checkKeys();
+    cameraSeek();
+    pop(); // outside of this pop, the camera perspective translate doesnt happen, use this for things that you want absolutely positioned
 
-  if (lost){
-    fill(128, 128, 128, 100);
-    rect(0,0,width,height);
-    fill(0, 255, 255);
-    textSize(60);
-    text("You Lose", 0, 0);
-  }
+    if (lost){
+      fill(128, 128, 128, 100);
+      rect(0,0,width,height);
+      fill(0, 255, 255);
+      textSize(60);
+      text("You Lose", 0, 0);
+    }
 
-  if (showFakeDialogueBox) {
-    fill(128, 128, 128, 100);
-    rect(0,height/2 - height/16,width,height/8);
-    fill(0);
-    textSize(20);
-    text("Fake Dialogue Box KEVIN DESIGN THIS,\n note: dialogue box should have a face in it,\n the face of the npc..., \nnote: map.json contains the path to the npcs image...", 0,height/2 - height/16, width,height/8);
-  }
+    if (showFakeDialogueBox) {
+      fill(128, 128, 128, 100);
+      rect(0,height/2 - height/16,width,height/8);
+      fill(0);
+      textSize(20);
+      text("Fake Dialogue Box KEVIN DESIGN THIS,\n note: dialogue box should have a face in it,\n the face of the npc..., \nnote: map.json contains the path to the npcs image...", 0,height/2 - height/16, width,height/8);
+    }
 
-	renderLives();
-  pop();
+    renderLives();
+    pop();
   }
   else{
     background(255,0,0);
+    textSize(60);
+    fill(0);
+    text("LOADING", 0, 0);
   }
 }
 
