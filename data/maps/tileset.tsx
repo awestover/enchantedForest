@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.2" tiledversion="1.2.4" name="tileset" tilewidth="32" tileheight="32" tilecount="7" columns="0">
+<tileset version="1.2" tiledversion="1.2.4" name="tileset" tilewidth="32" tileheight="32" tilecount="9" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0">
   <properties>
@@ -42,5 +42,17 @@
    <property name="name" value="red"/>
   </properties>
   <image width="32" height="32" source="gimpTiles/red.png"/>
+ </tile>
+ <tile id="7">
+  <properties>
+   <property name="name" value="npc:dog"/>
+  </properties>
+  <image width="32" height="32" source="gimpTiles/dogProfilePic.png"/>
+ </tile>
+ <tile id="8">
+  <properties>
+   <property name="name" value="teleporter"/>
+  </properties>
+  <image width="32" height="32" source="gimpTiles/teleporter.png"/>
  </tile>
 </tileset>

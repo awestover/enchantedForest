@@ -27,25 +27,37 @@ class Entity {
 
 	}
 
-	hitsBlock(x, y){
+	barrierViolation(x, y){
 		let bcenter = blockCenter(x, y);
 		let dx = this.pos.x - bcenter.x;
 		let dy = this.pos.y - bcenter.y;
 		let xIntersectSize = blockSize/2 + this.dims.x/2 - Math.abs(dx);
 		let yIntersectSize = blockSize/2 + this.dims.y/2 - Math.abs(dy);
+    let hitdata = {"hit": false, "xfix": 0, "yfix": 0};
 
 		if (xIntersectSize > 0 && yIntersectSize > 0){
 			let barelyXCollision = xIntersectSize < maxVel.x*(1+collisionTollerence);
 			let barelyYCollision = yIntersectSize < maxVel.y*(1+collisionTollerence);
 
-			if(barelyXCollision && !barelyYCollision){ // left/right border violation
-				return {"hit": "x", "fix": Math.sign(dx)*xIntersectSize};
+			if(barelyXCollision){ // left/right border violation
+        hitdata["hit"] = true;
+				hitdata["xfix"] = Math.sign(dx)*xIntersectSize;
 			}
-			else if(!barelyXCollision && barelyYCollision){ // top/bottom border violation
-				return {"hit": "y", "fix": Math.sign(dy)*yIntersectSize};
+			if(barelyYCollision){ // top/bottom border violation
+        hitdata["hit"] = true;
+				hitdata["yfix"] = Math.sign(dy)*yIntersectSize;
 			}
 		}
-		return {"hit": false, "fix": null};
+		return hitdata; 
+	}
+
+	hitBlock(x, y){
+		let bcenter = blockCenter(x, y);
+		let dx = this.pos.x - bcenter.x;
+		let dy = this.pos.y - bcenter.y;
+		let xIntersectSize = blockSize/2 + this.dims.x/2 - Math.abs(dx);
+		let yIntersectSize = blockSize/2 + this.dims.y/2 - Math.abs(dy);
+    return xIntersectSize > 0 && yIntersectSize > 0;
 	}
 
 }

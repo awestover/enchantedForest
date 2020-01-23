@@ -4,50 +4,52 @@ const gravity = 0.2;
 const friction = 0.03;
 const moveAccel = 0.3;
 const jumpImpulse = 7;
-const maxVel = new p5.Vector(1.5, jumpImpulse);
+const maxVel = new p5.Vector(2, jumpImpulse);
 const cameraSpeed = 1.2;
 const cameraSeekThresh = cameraSpeed * 15;
 const cameraUnseekThresh = cameraSpeed;
 const collisionTollerence = 0.0001; 
 
-let bg;
+let roomImage, heartImage;
 let data;
-let livesImage;
-let cameraSeeking = false;
-let falling = false;
+let falling = false, cameraSeeking = false, lost = false;
 let TILE_IDS = { }
 let mapTileDims = new p5.Vector(0,0);
 let cameraPos = new p5.Vector(0,0);
-let player = new Entity(0, -100);
+let player = new Entity(0, +64);
 
-$.getJSON('data/tilemap/map.json', function(returnData){ 
-  data = returnData; 
-  let tileIds = Object.keys(data.tiles);
-  for(let k in tileIds){
-    let curName = data.tiles[tileIds[k]].tilename;
-    TILE_IDS[curName] = tileIds[k];
-    mapTileDims.x = data.layers.platforms[0].length;
-    mapTileDims.y = data.layers.platforms.length;
-  }
-});
+function loadRoom(roomName){
+  $.getJSON("data/maps/rooms/"+roomName+"/map.json", 
+  function(returnData){ 
+    data = returnData; 
+    let tileIds = Object.keys(data.tiles);
+    for(let k in tileIds){
+      let curName = data.tiles[tileIds[k]].tilename;
+      TILE_IDS[curName] = tileIds[k];
+      mapTileDims.x = data.layers.platforms[0].length;
+      mapTileDims.y = data.layers.platforms.length;
+    }
+  });
+  roomImage = loadImage("data/maps/rooms/"+roomName+"/tilemap.png");
+}
 
 function setup(){
   createCanvas(window.innerWidth, window.innerHeight);
-  bg = loadImage("data/tilemap/tilemap.png");
-	livesImage = loadImage("data/graphics/hearts.png");
+  loadRoom("start");
+	heartImage = loadImage("data/interface/hearts.png");
 
-  // all shapes must be specified as (x,y,w,h)
-  // yay symmetry
+  // all shapes must be specified as (x,y,w,h) [[yay symmetry]]
   // note: for even more symmetry, I'm having 0,0 be the center of everything. woohoo
-  // note: you only really have to worry about this at first, after a while you barely will touch it (I think...)
+  // note: you only really have to worry about this at first, after a while you barely will touch it (I think...) -Alek
   rectMode(CENTER);
   imageMode(CENTER);
   ellipseMode(CENTER);
+  textAlign(CENTER);
 }
 
 function renderLives(){
 	for (i = 0; i < player.lives; i++){
-		image(livesImage, -width/2+50*(i+1), -height/2+50, 50, 50);
+		image(heartImage, -width/2+50*(i+1), -height/2+50, 50, 50);
 	}
 }
 
@@ -91,34 +93,47 @@ function cameraSeek(){
 }
 
 function draw(){
-  background(0);
+  background(100);
   push();
   translate(width/2, height/2);
 
   push();
   translate(-cameraPos.x, -cameraPos.y);
-  image(bg, 0, 0, blockSize*mapTileDims.x, blockSize*mapTileDims.y);
+  image(roomImage, 0, 0, blockSize*mapTileDims.x, blockSize*mapTileDims.y);
   player.render();
 
+  let showFakeDialogueBox = false;
   let onAnyBlock = false;
   for(let x = 0; x < mapTileDims.x; x++){
     for(let y = 0; y < mapTileDims.y; y++){
-      if(data.layers.platforms[y][x] == TILE_IDS["collision"]){
-        onAnyBlock = onAnyBlock || player.onBlock(x, y);
-        let hitdata = player.hitsBlock(x, y);
-        if(hitdata.hit == "x"){
-          player.pos.x += hitdata.fix;
-          if(Math.sign(player.vel.x) != Math.sign(hitdata.fix)){
-            player.vel.x = 0;
+      if(data.layers.agents[y][x] != TILE_IDS["empty"]){
+        if(player.hitBlock(x, y)){
+          if(data.layers.agents[y][x] == TILE_IDS["npc:dog"]){
+            // trigger dialogue box
+            showFakeDialogueBox = true;
+          }
+          else if(data.layers.agents[y][x] == TILE_IDS["teleporter"]){
+            // lol this is kinda dumb, think of a better solution later
+            loadRoom("alpha");
           }
         }
-        else if(hitdata.hit == "y"){
-          if(Math.sign(hitdata.fix) < 0 && player.vel.y >= 0){ // hits top surface of a block
-            falling = false;
+      }
+      if(data.layers.platforms[y][x] == TILE_IDS["collision"]){
+        onAnyBlock = onAnyBlock || player.onBlock(x, y);
+        let hitdata = player.barrierViolation(x, y);
+        if(hitdata.hit){
+          if(hitdata.xfix != 0){
+            player.pos.x += hitdata.xfix;
+            if(Math.sign(player.vel.x) != Math.sign(hitdata.xfix))
+              player.vel.x = 0;
           }
-          player.pos.y += hitdata.fix;
-          if(Math.sign(player.vel.y) != Math.sign(hitdata.fix)){
-            player.vel.y = 0;
+          if(hitdata.yfix != 0){
+            // hits top surface of a block
+            if(Math.sign(hitdata.yfix) < 0 && player.vel.y >= 0) 
+              falling = false;
+            player.pos.y += hitdata.yfix;
+            if(Math.sign(player.vel.y) != Math.sign(hitdata.yfix))
+              player.vel.y = 0;
           }
         }
       }
@@ -134,16 +149,42 @@ function draw(){
   player.pos.y += player.vel.y;
 
 
-  if(player.vel.x > 0){
-    player.vel.x = Math.max(0, player.vel.x - friction);
+  if(!falling){ // friction
+    if(player.vel.x > 0)
+      player.vel.x = Math.max(0, player.vel.x - friction);
+    else if(player.vel.x < 0)
+      player.vel.x = Math.min(0, player.vel.x + friction);
   }
-  else if(player.vel.x < 0){
-    player.vel.x = Math.min(0, player.vel.x + friction);
+
+  if(data && player.pos.y > blockSize*mapTileDims.y/2){
+    player.lives -= 1;
+    if(player.lives <= 0)
+      lost = true;
+    player.pos.x = 0;
+    player.pos.y = 0;
+    player.vel.x = 0;
+    player.vel.y = 0;
   }
 
   checkKeys();
   cameraSeek();
-  pop();
+  pop(); // outside of this pop, the camera perspective translate doesnt happen, use this for things that you want absolutely positioned
+
+  if (lost){
+    fill(128, 128, 128, 100);
+    rect(0,0,width,height);
+    fill(0, 255, 255);
+    textSize(60);
+    text("You Lose", 0, 0);
+  }
+
+  if (showFakeDialogueBox) {
+    fill(128, 128, 128, 100);
+    rect(0,height/2 - height/8,width,height/8);
+    fill(0, 255, 255);
+    textSize(20);
+    text("Fake Dialogue Box KEVIN DESIGN THIS,\n note: dialogue box should have a face in it,\n the face of the npc..., \nnote: map.json contains the path to the npcs image...", 0,height/2 - height/8, width,height/8);
+  }
 
 	renderLives();
   pop();

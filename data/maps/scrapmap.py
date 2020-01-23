@@ -1,5 +1,13 @@
 from bs4 import BeautifulSoup
 import json
+import os
+import sys
+
+try:
+    room = sys.argv[1]
+except:
+    print("ERROR, please provide room as argv")
+    sys.exit()
 
 # INPUT: 
 # a tileset.tsx (composed of images that are layed down to make the map)
@@ -47,14 +55,13 @@ with open("tileset.tsx", "r") as f:
             if tileproperty.get("name") == "name":
                 output["tiles"][tileId]["tilename"] = tileproperty.get("value")
 
-with open("tilemap.tmx", "r") as f:
+with open(os.path.join(room, "tilemap.tmx"), "r") as f:
     data = BeautifulSoup(f, "xml")
     for layer in data.findAll("layer"): 
         mapdata = layer.data.text.strip()+","
         tilemap = [x.strip()[:-1].split(",") for x in mapdata.split('\n')]
         output["layers"][layer.attrs["name"]] = tilemap
 
-
-with open("map.json", "w") as f:
+with open(os.path.join(room, "map.json"), "w") as f:
     json.dump(output, f)
 
