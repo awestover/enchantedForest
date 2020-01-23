@@ -48,5 +48,3 @@ This game gets its _roots_ (ahhhhhahaha) from anchient Norse Mythology.
 - plot
 - mysql data saving
 
-## MISC
-

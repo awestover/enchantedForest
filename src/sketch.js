@@ -32,7 +32,7 @@ $.getJSON('data/tilemap/map.json', function(returnData){
 });
 
 function setup(){
-  createCanvas(window.innerWidth,window.innerHeight);
+  createCanvas(window.innerWidth, window.innerHeight);
   bg = loadImage("data/tilemap/tilemap.png");
 	livesImage = loadImage("data/graphics/hearts.png");
 
