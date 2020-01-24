@@ -46,6 +46,10 @@ This game gets its _roots_ (ahhhhhahaha) from anchient Norse Mythology.
 - mysql data saving
 
 # Done 
+1/24/2020
+- rudimentary fireball tossing
+- using external jsons for game data
+
 1/23/2020
 - collision detection (diagonal stuff broken)
 - dying / respawn

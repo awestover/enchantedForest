@@ -11,7 +11,7 @@ const cameraUnseekThresh = cameraSpeed;
 const collisionTollerence = 0.0001; 
 const levelupReqXP = [100, 1000, 2000, 4000];
 
-let roomImage, heartImage, oplusImage, fireballImage;
+let roomImage, heartImage, oplusImage;
 let data;
 let cameraSeeking = false, lost = false;
 let TILE_IDS = { }
@@ -20,6 +20,7 @@ let cameraPos = new p5.Vector(0,0);
 let player = new Player(0, +64);
 let display = new HUD();
 let mobs = [];
+let arsenal = {};
 
 function loadRoom(roomName){
   data = null;
@@ -54,7 +55,11 @@ function setup(){
   loadRoom("start");
 	heartImage = loadImage("data/interface/hearts.png");
 	oplusImage = loadImage("data/avatars/oplus.png");
-	fireballImage = loadImage("data/attacks/fireball.png");
+
+	$.getJSON( "data/stats/arsenal.json", function( arsenalStats ) {
+		Object.assign(arsenal, arsenalStats);
+		arsenal["fireball"]["img"] = loadImage("data/attacks/fireball.png");
+	});
 
   // all shapes must be specified as (x,y,w,h) [[yay symmetry]]
   // note: for even more symmetry, I'm having 0,0 be the center of everything. woohoo

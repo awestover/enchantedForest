@@ -1,18 +1,11 @@
 
-let arsenal = {
-	"fireball": {
-		"damage": 10,
-		"velocity": 10
-	}
-};
-
 class Projectile extends Entity{
   constructor(type, xPos, yPos){
     super(xPos, yPos);
 		this.friendly = true;
 		this.exist = true;
 		this.type = type;
-		this.image = fireballImage;
+		this.image = arsenal[type]["img"];
 
 
 		// replace

@@ -1,0 +1,7 @@
+{
+	"fireball": {
+		"img": -1,
+		"damage": 10,
+		"velocity": 10
+	}
+}
