@@ -7,9 +7,15 @@ class Entity {
     this.falling = false;
   }
 
+  jump(){
+    if (!this.falling){ 
+      this.vel.y -= jumpImpulse;
+      this.falling = true;
+    }
+  }
+
   render(){
-    fill(0,255,0);
-    rect(this.pos.x, this.pos.y, this.dims.x, this.dims.y);
+    image(oplusImage, this.pos.x, this.pos.y, this.dims.x, this.dims.y);
   }
 
 	// this is a bit more lenient in terms of dy, and a bit stricter in terms of dx than just hitsBlock

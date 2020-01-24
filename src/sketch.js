@@ -9,14 +9,16 @@ const cameraSpeed = 1.2;
 const cameraSeekThresh = cameraSpeed * 15;
 const cameraUnseekThresh = cameraSpeed;
 const collisionTollerence = 0.0001; 
+const levelupReqXP = [100, 1000, 2000, 4000];
 
-let roomImage, heartImage;
+let roomImage, heartImage, oplusImage;
 let data;
 let cameraSeeking = false, lost = false;
 let TILE_IDS = { }
 let mapTileDims = new p5.Vector(0,0);
 let cameraPos = new p5.Vector(0,0);
-let player = new Entity(0, +64);
+let player = new Player(0, +64);
+let display = new HUD();
 let mobs = [];
 
 function loadRoom(roomName){
@@ -51,6 +53,7 @@ function setup(){
   createCanvas(window.innerWidth, window.innerHeight);
   loadRoom("start");
 	heartImage = loadImage("data/interface/hearts.png");
+	oplusImage = loadImage("data/avatars/oplus.png");
 
   // all shapes must be specified as (x,y,w,h) [[yay symmetry]]
   // note: for even more symmetry, I'm having 0,0 be the center of everything. woohoo
@@ -61,23 +64,13 @@ function setup(){
   textAlign(CENTER);
 }
 
-function renderLives(){
-	for (i = 0; i < player.lives; i++){
-		image(heartImage, -width/2+50*(i+1), -height/2+50, 50, 50);
-	}
-}
-
 function checkKeys() {
   if (keyIsDown(LEFT_ARROW) || keyIsDown(65))// LEFT / A
     player.vel.x = Math.max(player.vel.x-moveAccel, -maxVel.x);
   else if (keyIsDown(RIGHT_ARROW) || keyIsDown(68))  // RIGHT / D
     player.vel.x = Math.min(player.vel.x+moveAccel, maxVel.x);
-  if (keyIsDown(32)) { // space
-    if (!player.falling){ 
-      player.vel.y -= jumpImpulse;
-      player.falling = true;
-    }
-  }
+  if (keyIsDown(32)) // space
+    player.jump();
 }
 
 function blockCenter(x, y){
@@ -109,11 +102,11 @@ function cameraSeek(){
 }
 
 function draw(){
+  push();
+  translate(width/2, height/2);
+
   if(data){ 
     background(100);
-    push();
-    translate(width/2, height/2);
-
     push();
     translate(-cameraPos.x, -cameraPos.y);
     image(roomImage, 0, 0, blockSize*mapTileDims.x, blockSize*mapTileDims.y);
@@ -121,26 +114,45 @@ function draw(){
     for(let i in mobs){
       mobs[i].render();
 
-      // dumb movement
-      mobs[i].vel.x = Math.sign(player.pos.x - mobs[i].pos.x)*maxVel.x;
+      // dumb seeking
+      // mobs[i].vel.x = Math.sign(player.pos.x - mobs[i].pos.x)*maxVel.x;
+      // randomly move
+      if(Math.random() < 0.05)
+        mobs[i].jump();
+      if(Math.random() < 0.1){
+        if(mobs[i].vel.x != 0){
+          if(Math.random() < 0.9){
+            mobs[i].vel.x = Math.sign(mobs[i].vel.x)*maxVel.x;
+          }
+          else{
+            mobs[i].vel.x = -Math.sign(mobs[i].vel.x)*maxVel.x;
+          }
+        }
+        else{
+            mobs[i].vel.x = Math.sign(Math.random() - 0.5)*maxVel.x;
+        }
+      }
+      // I guess I should really do a hybrid of seeking and random motion based on players position?
       mobs[i].handleMapCollisions();
       mobs[i].update();
     }
 
     let showFakeDialogueBox = false;
-    for(let x = 0; x < mapTileDims.x; x++){
-      for(let y = 0; y < mapTileDims.y; y++){
-        if(data.layers.agents[y][x] != TILE_IDS["empty"]){
-          if(player.hitBlock(x, y)){
-            if(data.layers.agents[y][x] == TILE_IDS["npc:dog"]){
-              // trigger dialogue box
-              showFakeDialogueBox = true;
-            }
-            else if(data.layers.agents[y][x] == TILE_IDS["teleporter"]){
-              // lol this is kinda dumb, think of a better solution later
-              loadRoom("alpha");
-              return;
-            }
+
+    let boundingTiles = player.gridBoundingBox();
+    for(let i in boundingTiles){
+      let x = boundingTiles[i].x;
+      let y = boundingTiles[i].y;
+      if(data.layers.agents[y][x] != TILE_IDS["empty"]){
+        if(player.hitBlock(x, y)){
+          if(data.layers.agents[y][x] == TILE_IDS["npc:dog"]){
+            // trigger dialogue box
+            showFakeDialogueBox = true;
+          }
+          else if(data.layers.agents[y][x] == TILE_IDS["teleporter"]){
+            // lol this is kinda dumb, think of a better solution later
+            loadRoom("alpha");
+            return;
           }
         }
       }
@@ -151,12 +163,12 @@ function draw(){
 
     if(player.pos.y > blockSize*mapTileDims.y/2){
       player.lives -= 1;
+      player.spawn();
       if(player.lives <= 0)
         lost = true;
-      player.pos.x = 0;
-      player.pos.y = 0;
-      player.vel.x = 0;
-      player.vel.y = 0;
+    }
+    if(player.xp >= levelupReqXP[player.level]){
+      player.levelup();
     }
 
     checkKeys();
@@ -179,14 +191,15 @@ function draw(){
       text("Fake Dialogue Box KEVIN DESIGN THIS,\n note: dialogue box should have a face in it,\n the face of the npc..., \nnote: map.json contains the path to the npcs image...", 0,height/2 - height/16, width,height/8);
     }
 
-    renderLives();
-    pop();
+    display.render();
   }
   else{
     background(255,0,0);
     textSize(60);
     fill(0,0,0);
-    text("LOADING", width/2, height/2);
+    text("LOADING", 0, 0);
   }
+
+  pop(); // translate to screen center is 0,0
 }
 

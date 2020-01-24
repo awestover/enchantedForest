@@ -8,11 +8,11 @@ This game gets its _roots_ (ahhhhhahaha) from anchient Norse Mythology.
 # TODO
 
 ## Alek
-- mobs AI
 
 ## Kevin
 - concept art (sprite sheets)
 - dialogue boxes (GUI)
+- add pictures to the HUD / just make it look nice
 - attacks
   * coinshot
   * fireballs
@@ -20,6 +20,7 @@ This game gets its _roots_ (ahhhhhahaha) from anchient Norse Mythology.
   * teleportation
 
 ## Up for grabs
+- notification system (e.g. for levelups)  (notify.js??)
 - attack
   * mana
 - movement
@@ -31,26 +32,28 @@ This game gets its _roots_ (ahhhhhahaha) from anchient Norse Mythology.
   * shields
   * healing
 - game interface
+   * level-up system [[quests and mob fights should give XP towards leveling up, level ups should unlock upgrades and stuff, probably also give cash reward]]
+   * upgrades
    * dialogue boxes
    * inventory system
       * talismans
       * money
    * objects
-   * level-up system
    * quests
    * minimap
 - map design
-- plot
+- game plot 
 - mysql data saving
 
 # Done 
-1/23/2020 Alek
+1/23/2020
 - collision detection (diagonal stuff broken)
 - dying / respawn
 - dialogue boxes / npcs
 - world system (portals, doors)
 - fast collision detection (its a freaking grid! collision detection can be supah fast, literally just check like the 6 squares that the player is touching and see if any of those have things that it's hitting in them)
 - loading screen, trigger past it with a callback function
+- mobs 
 
 ## Game documentation 
 
