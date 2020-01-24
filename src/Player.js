@@ -4,6 +4,7 @@ class Player extends Entity {
     this.level = 0;
     this.xp = 0;
     this.coins = 100;
+		this.projectiles = [];
   }
   render(){
     fill(0,255,0);
@@ -18,5 +19,8 @@ class Player extends Entity {
     this.xp = 0;
     this.coins += 1000;
   }
+	fireballAttack(){
+		this.projectiles.push(new Projectile("fireball", this.pos.x, this.pos.y+16));
+	}
 
 }

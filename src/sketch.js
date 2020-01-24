@@ -11,7 +11,7 @@ const cameraUnseekThresh = cameraSpeed;
 const collisionTollerence = 0.0001; 
 const levelupReqXP = [100, 1000, 2000, 4000];
 
-let roomImage, heartImage, oplusImage;
+let roomImage, heartImage, oplusImage, fireballImage;
 let data;
 let cameraSeeking = false, lost = false;
 let TILE_IDS = { }
@@ -54,6 +54,7 @@ function setup(){
   loadRoom("start");
 	heartImage = loadImage("data/interface/hearts.png");
 	oplusImage = loadImage("data/avatars/oplus.png");
+	fireballImage = loadImage("data/attacks/fireball.png");
 
   // all shapes must be specified as (x,y,w,h) [[yay symmetry]]
   // note: for even more symmetry, I'm having 0,0 be the center of everything. woohoo
@@ -69,8 +70,13 @@ function checkKeys() {
     player.vel.x = Math.max(player.vel.x-moveAccel, -maxVel.x);
   else if (keyIsDown(RIGHT_ARROW) || keyIsDown(68))  // RIGHT / D
     player.vel.x = Math.min(player.vel.x+moveAccel, maxVel.x);
-  if (keyIsDown(32)) // space
+  if (keyIsDown(32))	// space
     player.jump();
+}
+
+function keyReleased() {
+	if (keyCode === 88)	// x
+		player.fireballAttack();
 }
 
 function blockCenter(x, y){
@@ -111,6 +117,15 @@ function draw(){
     translate(-cameraPos.x, -cameraPos.y);
     image(roomImage, 0, 0, blockSize*mapTileDims.x, blockSize*mapTileDims.y);
     player.render();
+
+		player.projectiles.forEach(function(projectile, index){
+			if (projectile.exist){
+				projectile.render();
+				projectile.handleMapCollisions();
+				projectile.update();
+			}
+		});
+
     for(let i in mobs){
       mobs[i].render();
 
