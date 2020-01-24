@@ -58,7 +58,9 @@ function setup(){
 
 	$.getJSON( "data/stats/arsenal.json", function( arsenalStats ) {
 		Object.assign(arsenal, arsenalStats);
-		arsenal["fireball"]["img"] = loadImage("data/attacks/fireball.png");
+
+		arsenal["fireball"]["img"].push(loadImage("data/attacks/fireball_L.png"));
+		arsenal["fireball"]["img"].push(loadImage("data/attacks/fireball_R.png"));
 	});
 
   // all shapes must be specified as (x,y,w,h) [[yay symmetry]]
@@ -71,10 +73,14 @@ function setup(){
 }
 
 function checkKeys() {
-  if (keyIsDown(LEFT_ARROW) || keyIsDown(65))// LEFT / A
+  if (keyIsDown(LEFT_ARROW) || keyIsDown(65)){					// LEFT / A
     player.vel.x = Math.max(player.vel.x-moveAccel, -maxVel.x);
-  else if (keyIsDown(RIGHT_ARROW) || keyIsDown(68))  // RIGHT / D
+		player.lastDir = -1;
+	}
+  else if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)){		// RIGHT / D
     player.vel.x = Math.min(player.vel.x+moveAccel, maxVel.x);
+		player.lastDir = 1;
+	}
   if (keyIsDown(32))	// space
     player.jump();
 }

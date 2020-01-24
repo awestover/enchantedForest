@@ -1,6 +1,6 @@
 {
 	"fireball": {
-		"img": -1,
+		"img": [],
 		"damage": 10,
 		"velocity": 10
 	}

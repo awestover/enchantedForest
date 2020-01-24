@@ -5,13 +5,8 @@ class Projectile extends Entity{
 		this.friendly = true;
 		this.exist = true;
 		this.type = type;
-		this.image = arsenal[type]["img"];
-
-
-		// replace
-		this.dir = Math.sign(player.vel.x);
-		if (this.dir === 0)
-			this.dir = 1;
+		this.dir = player.lastDir;
+		this.image = arsenal[type]["img"][(this.dir < 0) ? 0 : 1];
 
     this.pos = new p5.Vector(xPos, yPos);
     this.vel = new p5.Vector(arsenal[type]["velocity"], 0);
@@ -21,7 +16,7 @@ class Projectile extends Entity{
   }
 
   render(){
-    image(this.image, this.pos.x, this.pos.y, this.dims.x, this.dims.y);
+		image(this.image, this.pos.x, this.pos.y, this.dims.x, this.dims.y);
   }
 
   update(){

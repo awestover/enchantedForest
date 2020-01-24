@@ -5,6 +5,7 @@ class Entity {
     this.dims = new p5.Vector(32, 64);
 		this.lives = 4;
     this.falling = false;
+		this.lastDir = 1;
   }
 
   jump(){
