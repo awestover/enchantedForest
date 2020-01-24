@@ -62,8 +62,7 @@ function setup(){
 		arsenal["fireball"]["img"].push(loadImage("data/attacks/fireball_L.png"));
 		arsenal["fireball"]["img"].push(loadImage("data/attacks/fireball_R.png"));
 
-		arsenal["coinshot"]["img"].push(loadImage("data/attacks/coinshot_L.png"));
-		arsenal["coinshot"]["img"].push(loadImage("data/attacks/coinshot_R.png"));
+		arsenal["coinshot"]["img"].push(loadImage("data/attacks/coinshot.gif"));
 	});
 
   // all shapes must be specified as (x,y,w,h) [[yay symmetry]]

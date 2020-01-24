@@ -24,16 +24,15 @@ This game gets its _roots_ (ahhhhhahaha) from anchient Norse Mythology.
 - add pictures to the HUD / just make it look nice
 - attacks
   * fireballs explode upon impact
-  * coinshot flipping animation
   * fix collision
   * affecting enemies
+  * block size?
+  * clock and mana regen
 - movement
   * teleportation
 
 ## Up for grabs
 - notification system (e.g. for levelups)  (notify.js??)
-- attack
-  * mana
 - movement
   * dashing
   * markers 
@@ -58,6 +57,7 @@ This game gets its _roots_ (ahhhhhahaha) from anchient Norse Mythology.
 
 # Done 
 1/24/2020
+- mana system
 - rudimentary fireball tossing
 - using external jsons for game data
 

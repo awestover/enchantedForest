@@ -6,7 +6,13 @@ class Projectile extends Entity{
 		this.exist = true;
 		this.type = type;
 		this.dir = player.lastDir;
-		this.image = arsenal[type]["img"][(this.dir < 0) ? 0 : 1];
+
+		if (arsenal[type]["img"].length > 1)
+			var imgIndex = (this.dir < 0) ? 0 : 1;
+		else 
+			var imgIndex = 0;
+
+		this.image = arsenal[type]["img"][imgIndex];
 		this.size = arsenal[type]["size"];
 
     this.pos = new p5.Vector(xPos, yPos);
