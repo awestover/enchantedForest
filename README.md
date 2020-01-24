@@ -5,6 +5,15 @@
 
 This game gets its _roots_ (ahhhhhahaha) from anchient Norse Mythology.
 
+# Controls
+
+## Movement
+- WASD
+## moves
+- c: coinshot
+- x: fireball
+- z: teleport (to be implemented)
+
 # TODO
 
 ## Alek
@@ -14,8 +23,10 @@ This game gets its _roots_ (ahhhhhahaha) from anchient Norse Mythology.
 - dialogue boxes (GUI)
 - add pictures to the HUD / just make it look nice
 - attacks
-  * coinshot
-  * fireballs
+  * fireballs explode upon impact
+  * coinshot flipping animation
+  * fix collision
+  * affecting enemies
 - movement
   * teleportation
 

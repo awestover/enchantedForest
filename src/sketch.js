@@ -61,6 +61,9 @@ function setup(){
 
 		arsenal["fireball"]["img"].push(loadImage("data/attacks/fireball_L.png"));
 		arsenal["fireball"]["img"].push(loadImage("data/attacks/fireball_R.png"));
+
+		arsenal["coinshot"]["img"].push(loadImage("data/attacks/coinshot_L.png"));
+		arsenal["coinshot"]["img"].push(loadImage("data/attacks/coinshot_R.png"));
 	});
 
   // all shapes must be specified as (x,y,w,h) [[yay symmetry]]
@@ -86,8 +89,10 @@ function checkKeys() {
 }
 
 function keyReleased() {
-	if (keyCode === 88)	// x
+	if (keyCode === 88)				// x
 		player.fireballAttack();
+	else if (keyCode === 67)	// c
+		player.coinshotAttack();
 }
 
 function blockCenter(x, y){

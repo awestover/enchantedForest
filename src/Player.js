@@ -4,6 +4,7 @@ class Player extends Entity {
     this.level = 0;
     this.xp = 0;
     this.coins = 100;
+		this.mana = 100;
 		this.projectiles = [];
   }
   render(){
@@ -20,7 +21,12 @@ class Player extends Entity {
     this.coins += 1000;
   }
 	fireballAttack(){
-		this.projectiles.push(new Projectile("fireball", this.pos.x, this.pos.y+16));
+		if (this.mana >= arsenal["fireball"]["manaCost"])
+			this.projectiles.push(new Projectile("fireball", this.pos.x, this.pos.y+16));
+	}
+	coinshotAttack(){
+		if (this.mana >= arsenal["coinshot"]["manaCost"])
+			this.projectiles.push(new Projectile("coinshot", this.pos.x, this.pos.y+16));
 	}
 
 }

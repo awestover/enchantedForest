@@ -7,12 +7,15 @@ class Projectile extends Entity{
 		this.type = type;
 		this.dir = player.lastDir;
 		this.image = arsenal[type]["img"][(this.dir < 0) ? 0 : 1];
+		this.size = arsenal[type]["size"];
 
     this.pos = new p5.Vector(xPos, yPos);
     this.vel = new p5.Vector(arsenal[type]["velocity"], 0);
-    this.dims = new p5.Vector(64*3, 64*3);
+    this.dims = new p5.Vector(64*this.size, 64*this.size);
 		this.lives = -1;
     this.falling = false;
+
+		player.mana -= arsenal[type]["manaCost"];
   }
 
   render(){
