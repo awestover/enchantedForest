@@ -24,10 +24,7 @@ This game gets its _roots_ (ahhhhhahaha) from anchient Norse Mythology.
 - add pictures to the HUD / just make it look nice
 - attacks
   * fireballs explode upon impact
-  * fix collision
   * affecting enemies
-  * block size?
-  * clock and mana regen
 - movement
   * teleportation
 
@@ -56,6 +53,11 @@ This game gets its _roots_ (ahhhhhahaha) from anchient Norse Mythology.
 - mysql data saving
 
 # Done 
+1/25/2020
+- mana regen
+- clock
+- removing irrelevant projectiles
+
 1/24/2020
 - mana system
 - rudimentary fireball tossing
