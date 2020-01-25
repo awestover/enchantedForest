@@ -21,6 +21,8 @@ let player = new Player(0, +64);
 let display = new HUD();
 let mobs = [];
 let arsenal = {};
+let ct = 0;
+let manaRegenFrames = 5;
 
 function loadRoom(roomName){
   data = null;
@@ -127,6 +129,11 @@ function draw(){
   translate(width/2, height/2);
 
   if(data){
+    ct++;
+    if(ct % manaRegenFrames == 0){
+      player.mana += 1;
+    }
+
     background(100);
     push();
     translate(-cameraPos.x, -cameraPos.y);
@@ -134,13 +141,18 @@ function draw(){
     player.render();
 
     for(let i = player.projectiles.length-1; i>=0; i--){
-      if(!player.projectiles[i].exist){
+      let proji = player.projectiles[i];
+      if(!proji.exist){
         player.projectiles.splice(i, 1);
       }
       else{
-        player.projectiles[i].render();
-        player.projectiles[i].update();
-        player.projectiles[i].handleMapCollisions();
+        proji.render();
+        proji.update();
+        if(proji.handleMapCollisions()) { // kill the projectile if it hits a wall, if it still exists continue
+          if(proji.offTheGrid()){
+            proji.exist = false;
+          }
+        }
       }
     }
 

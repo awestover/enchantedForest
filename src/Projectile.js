@@ -46,9 +46,11 @@ class Projectile extends Entity{
 			if(data.layers.platforms[y][x] == TILE_IDS["collision"]){
         if(this.hitBlock(x,y)){
           this.exist = false;
-          return;
+          return false;
         }
 			}
 		}
+    return true;
 	}
+
 }
