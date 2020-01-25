@@ -1,11 +1,14 @@
 {
   "dragonInsignia": {
-    "img": null
+    "img": null, 
+    "imgPath": "data/items/dragoninsignia.png"
   },
   "gem": {
-    "img": null
+    "img": null, 
+    "imgPath": "data/items/gems.png"
   },
   "potion": {
-    "img": null
+    "img": null, 
+    "imgPath": "data/items/potions.png"
   }
 }
