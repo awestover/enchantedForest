@@ -135,5 +135,13 @@ class Entity {
     return tiles;
   }
 
+  offTheGrid(){
+    let extraTolerance = 5;
+    return (this.pos.x - this.dims.x*extraTolerance > mapTileDims.x*blockSize/2 || 
+       this.pos.x + this.dims.x*extraTolerance < -mapTileDims.x*blockSize/2 || 
+       this.pos.y - this.dims.y*extraTolerance > mapTileDims.y*blockSize/2 || 
+       this.pos.y + this.dims.y*extraTolerance < -mapTileDims.y*blockSize/2);
+  }
+
 }
 
