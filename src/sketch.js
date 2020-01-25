@@ -134,13 +134,13 @@ function draw(){
     player.render();
 
     for(let i = player.projectiles.length-1; i>=0; i--){
-      if(!projectile.exist){
+      if(!player.projectiles[i].exist){
         player.projectiles.splice(i, 1);
       }
       else{
-        projectile.render();
-        projectile.update();
-        projectile.handleMapCollisions();
+        player.projectiles[i].render();
+        player.projectiles[i].update();
+        player.projectiles[i].handleMapCollisions();
       }
     }
 
