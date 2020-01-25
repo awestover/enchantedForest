@@ -77,11 +77,11 @@ function setup(){
 }
 
 function checkKeys() {
-  if (keyIsDown(LEFT_ARROW) || keyIsDown(65)){					// LEFT / A
+  if (keyIsDown(LEFT_ARROW) || keyIsDown(65)){ // LEFT / A
     player.vel.x = Math.max(player.vel.x-moveAccel, -maxVel.x);
 		player.lastDir = -1;
 	}
-  else if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)){		// RIGHT / D
+  else if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)){ // RIGHT / D
     player.vel.x = Math.min(player.vel.x+moveAccel, maxVel.x);
 		player.lastDir = 1;
 	}
@@ -213,6 +213,7 @@ function draw(){
             loadRoom("alpha");
             return;
           }
+          if(data.layers.items[y][x] == TILE_IDS[""])
         }
       }
     }

@@ -1,5 +1,11 @@
 {
-  "pizza": {
+  "dragonInsignia": {
+    "img": null
+  },
+  "gem": {
+    "img": null
+  },
+  "potion": {
     "img": null
   }
 }
