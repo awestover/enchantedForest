@@ -9,7 +9,7 @@ class Projectile extends Entity{
 
 		if (arsenal[type]["img"].length > 1)
 			var imgIndex = (this.dir < 0) ? 0 : 1;
-		else 
+		else
 			var imgIndex = 0;
 
 		this.image = arsenal[type]["img"][imgIndex];
@@ -35,14 +35,8 @@ class Projectile extends Entity{
 			this.vel.x = this.dir * Math.max(0, this.vel.x - friction);
 		else if(this.vel.x < 0)
 			this.vel.x = Math.min(0, this.vel.x + friction);
-
-
-		// check if on a barrier or mob
-		// if yes, then
-		// this.exist = false
   }
 
-	// temporary
 	handleMapCollisions(){
 		let onAnyBlock = false;
 		let boundingTiles = this.gridBoundingBox();
@@ -50,14 +44,11 @@ class Projectile extends Entity{
 			let x = boundingTiles[i].x;
 			let y = boundingTiles[i].y;
 			if(data.layers.platforms[y][x] == TILE_IDS["collision"]){
-				onAnyBlock = onAnyBlock || this.onBlock(x, y);
-				let hitdata = this.barrierViolation(x, y);
-				if(hitdata.hit){
-					this.exist = false;
-					return;
-				}
+        if(this.hitBlock(x,y)){
+          this.exist = false;
+          return;
+        }
 			}
 		}
 	}
 }
-

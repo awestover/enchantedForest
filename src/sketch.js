@@ -8,13 +8,13 @@ const maxVel = new p5.Vector(2, jumpImpulse);
 const cameraSpeed = 1.2;
 const cameraSeekThresh = cameraSpeed * 15;
 const cameraUnseekThresh = cameraSpeed;
-const collisionTollerence = 0.0001; 
+const collisionTollerence = 0.0001;
 const levelupReqXP = [100, 1000, 2000, 4000];
 
 let roomImage, heartImage, oplusImage;
 let data;
 let cameraSeeking = false, lost = false;
-let TILE_IDS = { }
+let TILE_IDS = { };
 let mapTileDims = new p5.Vector(0,0);
 let cameraPos = new p5.Vector(0,0);
 let player = new Player(0, +64);
@@ -26,9 +26,9 @@ function loadRoom(roomName){
   data = null;
   mobs = [];
   setTimeout(function(){
-  $.getJSON("data/maps/rooms/"+roomName+"/map.json", 
-  function(returnData){ 
-    data = returnData; 
+  $.getJSON("data/maps/rooms/"+roomName+"/map.json",
+  function(returnData){
+    data = returnData;
     let tileIds = Object.keys(data.tiles);
     for(let k in tileIds){
       let curName = data.tiles[tileIds[k]].tilename;
@@ -126,20 +126,23 @@ function draw(){
   push();
   translate(width/2, height/2);
 
-  if(data){ 
+  if(data){
     background(100);
     push();
     translate(-cameraPos.x, -cameraPos.y);
     image(roomImage, 0, 0, blockSize*mapTileDims.x, blockSize*mapTileDims.y);
     player.render();
 
-		player.projectiles.forEach(function(projectile, index){
-			if (projectile.exist){
-				projectile.render();
-				projectile.handleMapCollisions();
-				projectile.update();
-			}
-		});
+    for(let i = player.projectiles.length-1; i>=0; i--){
+      if(!projectile.exist){
+        player.projectiles.splice(i, 1);
+      }
+      else{
+        projectile.render();
+        projectile.update();
+        projectile.handleMapCollisions();
+      }
+    }
 
     for(let i in mobs){
       mobs[i].render();
@@ -232,4 +235,3 @@ function draw(){
 
   pop(); // translate to screen center is 0,0
 }
-
