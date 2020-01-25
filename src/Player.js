@@ -5,6 +5,7 @@ class Player extends Entity {
     this.xp = 0;
     this.coins = 100;
 		this.mana = 100;
+		this.mana = 999999;
 		this.projectiles = [];
   }
   render(){
@@ -27,12 +28,12 @@ class Player extends Entity {
 	fireballAttack(){
 		let type = "fireball";
 		if (this.mana >= arsenal[type]["manaCost"])
-			this.projectiles.push(new Projectile(type, this.repositionProjectile(this.pos.x, type), this.pos.y+16));
+			this.projectiles.push(new Projectile(type, this.repositionProjectile(this.pos.x, type), this.pos.y));
 	}
 	coinshotAttack(){
 		let type = "coinshot";
 		if (this.mana >= arsenal[type]["manaCost"])
-			this.projectiles.push(new Projectile(type, this.repositionProjectile(this.pos.x, type), this.pos.y+16));
+			this.projectiles.push(new Projectile(type, this.repositionProjectile(this.pos.x, type), this.pos.y-blockSize/2));
 	}
 
 }
