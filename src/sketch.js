@@ -4,7 +4,7 @@ const gravity = 0.2;
 const friction = 0.03;
 const moveAccel = 0.3;
 const jumpImpulse = 7;
-const maxVel = new p5.Vector(2, jumpImpulse);
+const maxVel = new p5.Vector(2.5, jumpImpulse);
 const cameraSpeed = 1.2;
 const cameraSeekThresh = cameraSpeed * 15;
 const cameraUnseekThresh = cameraSpeed;
@@ -208,21 +208,11 @@ function draw(){
     cameraSeek();
     pop(); // outside of this pop, the camera perspective translate doesnt happen, use this for things that you want absolutely positioned
 
-    if (lost){
-      fill(128, 128, 128, 100);
-      rect(0,0,width,height);
-      fill(0, 255, 255);
-      textSize(60);
-      text("You Lose", 0, 0);
-    }
+    if (lost)
+			display.showLoseScreen();
 
-    if (showFakeDialogueBox) {
-      fill(128, 128, 128, 100);
-      rect(0,height/2 - height/16,width,height/8);
-      fill(0);
-      textSize(20);
-      text("Fake Dialogue Box KEVIN DESIGN THIS,\n note: dialogue box should have a face in it,\n the face of the npc..., \nnote: map.json contains the path to the npcs image...", 0,height/2 - height/16, width,height/8);
-    }
+    if (showFakeDialogueBox) 
+			display.showDialogueBox("Carl");
 
     display.render();
   }
