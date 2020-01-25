@@ -60,6 +60,14 @@ class Entity {
 		return hitdata; 
 	}
 
+	hitRect(otherpos, otherdims){
+		let dx = this.pos.x - otherpos.x;
+		let dy = this.pos.y - otherpos.y;
+		let xIntersectSize = otherdims.x/2 + this.dims.x/2 - Math.abs(dx);
+		let yIntersectSize = otherdims.y/2 + this.dims.y/2 - Math.abs(dy);
+    return xIntersectSize > 0 && yIntersectSize > 0;
+	}
+
 	hitBlock(x, y){
 		let bcenter = blockCenter(x, y);
 		let dx = this.pos.x - bcenter.x;

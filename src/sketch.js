@@ -148,38 +148,52 @@ function draw(){
       else{
         proji.render();
         proji.update();
-        if(proji.handleMapCollisions()) { // kill the projectile if it hits a wall, if it still exists continue
-          if(proji.offTheGrid()){
+        for (let j in mobs){
+          if(proji.hitRect(mobs[j].pos, mobs[j].dims)){
+            mobs[j].lives -= 2;
             proji.exist = false;
+            break;
+          }
+        }
+        if(proji.exist){
+          if(proji.handleMapCollisions()) { // kill the projectile if it hits a wall, if it still exists continue
+            if(proji.offTheGrid()){
+              proji.exist = false;
+            }
           }
         }
       }
     }
 
-    for(let i in mobs){
-      mobs[i].render();
+    for(let i=mobs.length-1; i >= 0; i--){
+      if(mobs[i].lives > 0){
+        mobs[i].render();
 
-      // dumb seeking
-      // mobs[i].vel.x = Math.sign(player.pos.x - mobs[i].pos.x)*maxVel.x;
-      // randomly move
-      if(Math.random() < 0.05)
-        mobs[i].jump();
-      if(Math.random() < 0.1){
-        if(mobs[i].vel.x != 0){
-          if(Math.random() < 0.9){
-            mobs[i].vel.x = Math.sign(mobs[i].vel.x)*maxVel.x;
+        // dumb seeking
+        // mobs[i].vel.x = Math.sign(player.pos.x - mobs[i].pos.x)*maxVel.x;
+        // randomly move
+        if(Math.random() < 0.05)
+          mobs[i].jump();
+        if(Math.random() < 0.1){
+          if(mobs[i].vel.x != 0){
+            if(Math.random() < 0.9){
+              mobs[i].vel.x = Math.sign(mobs[i].vel.x)*maxVel.x;
+            }
+            else{
+              mobs[i].vel.x = -Math.sign(mobs[i].vel.x)*maxVel.x;
+            }
           }
           else{
-            mobs[i].vel.x = -Math.sign(mobs[i].vel.x)*maxVel.x;
+              mobs[i].vel.x = Math.sign(Math.random() - 0.5)*maxVel.x;
           }
         }
-        else{
-            mobs[i].vel.x = Math.sign(Math.random() - 0.5)*maxVel.x;
-        }
+        // I guess I should really do a hybrid of seeking and random motion based on players position?
+        mobs[i].handleMapCollisions();
+        mobs[i].update();
       }
-      // I guess I should really do a hybrid of seeking and random motion based on players position?
-      mobs[i].handleMapCollisions();
-      mobs[i].update();
+      else{
+        mobs.splice(i, 1);
+      }
     }
 
     let showFakeDialogueBox = false;
