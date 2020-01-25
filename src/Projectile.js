@@ -17,7 +17,7 @@ class Projectile extends Entity{
 
     this.pos = new p5.Vector(xPos, yPos);
     this.vel = new p5.Vector(arsenal[type]["velocity"], 0);
-    this.dims = new p5.Vector(64*this.size, 64*this.size);
+    this.dims = new p5.Vector(blockSize*this.size, blockSize*this.size);
 		this.lives = -1;
     this.falling = false;
 
