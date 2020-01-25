@@ -3,12 +3,12 @@
 
 ![Game Play Image](gameplayimg.png)
 
-This game gets its _roots_ (ahhhhhahaha) from anchient Norse Mythology.
+This game gets its _roots_ (ahhhhhahaha) from anchient Norse Mythology. Maybe.
 
 # Controls
 
 ## Movement
-- WASD
+- A/LEFT, D/RIGHT, space
 ## moves
 - c: coinshot
 - x: fireball
@@ -17,6 +17,18 @@ This game gets its _roots_ (ahhhhhahaha) from anchient Norse Mythology.
 # TODO
 
 ## Alek
+- design a cool map
+- fix loading screen and stuff
+- fix the fact that js is async :(
+- make a json for mobs (stats, file names...)
+- make a json for npcs
+- fix teleportation (the teleport thing needs to say where is teleports you to...)
+- gain xp for mob kills
+- fix collision detection:
+-   for npcs (if you get kinda close it flashes)
+- fix anything else stupid that I did
+- code cleanup
+- increase encapsulation
 
 ## Kevin
 - concept art (sprite sheets)
@@ -57,6 +69,8 @@ This game gets its _roots_ (ahhhhhahaha) from anchient Norse Mythology.
 - mana regen
 - clock
 - removing irrelevant projectiles
+- projectiles harm mobs
+- added items that go into inventory
 
 1/24/2020
 - mana system

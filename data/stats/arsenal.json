@@ -1,18 +1,18 @@
 {
 	"fireball": {
-		"img": [],
+		"imgs": [],
 		"damage": 10,
 		"velocity": 10, 
 		"size": 2, 
 		"manaCost": 10,
-		"imgPath": ["data/attacks/fireball_L.png", "data/attacks/fireball_R.png"]
+		"imgPaths": ["data/attacks/fireball_L.png", "data/attacks/fireball_R.png"]
 	}, 
 	"coinshot": {
-		"img": [],
+		"imgs": [],
 		"damage": 10,
 		"velocity": 20, 
 		"size": 0.5,
 		"manaCost": 2, 
-		"imgPath": ["data/attacks/coin.png"]
+		"imgPaths": ["data/attacks/coinshot.gif"]
 	}
 }

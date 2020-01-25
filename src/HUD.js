@@ -16,7 +16,8 @@ class HUD {
       "Level: " + player.level,
       "XP: " + player.xp + " / " + levelupReqXP[player.level],
       "Coins: " + player.coins, 
-			"Mana: " + player.mana
+			"Mana: " + player.mana,
+      "inventory: " + JSON.stringify(player.items)
     ]
     for(let i=0; i < txtMsgs.length; i++){
       text(txtMsgs[i], -width/2 + 25, -height/2 + 100+ 25*i);
@@ -36,6 +37,7 @@ class HUD {
 		rect(0,height/2 - height/16,width,height/8);
 		fill(0);
 		textSize(20);
+    text(npcName, -width/2+100, height/2 - height/16);
 		text("Fake Dialogue Box KEVIN DESIGN THIS,\n note: dialogue box should have a face in it,\n the face of the npc..., \nnote: map.json contains the path to the npcs image...", 0,height/2 - height/16, width,height/8);
 	}
 }

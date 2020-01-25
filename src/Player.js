@@ -7,6 +7,7 @@ class Player extends Entity {
 		this.mana = 100;
 		this.mana = 999999;
 		this.projectiles = [];
+    this.items = []; // list of {"type": "XX", "quantity": x}
   }
   render(){
     fill(0,255,0);
@@ -35,5 +36,16 @@ class Player extends Entity {
 		if (this.mana >= arsenal[type]["manaCost"])
 			this.projectiles.push(new Projectile(type, this.repositionProjectile(this.pos.x, type), this.pos.y-blockSize/2));
 	}
+
+  pickupItem(itemType){
+    for(let i in this.items){
+      if(this.items[i].type == itemType){
+        this.items[i].quantity += 1;
+        return false;
+      }
+    }
+    // if this is an item we don't already have any of
+    this.items.push({"type": itemType, "quantity": 1});
+  }
 
 }

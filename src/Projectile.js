@@ -7,12 +7,12 @@ class Projectile extends Entity{
 		this.type = type;
 		this.dir = player.lastDir;
 
-		if (arsenal[type]["img"].length > 1)
+		if (arsenal[type].imgs.length > 1)
 			var imgIndex = (this.dir < 0) ? 0 : 1;
 		else
 			var imgIndex = 0;
 
-		this.image = arsenal[type]["img"][imgIndex];
+		this.img = arsenal[type].imgs[imgIndex];
 		this.size = arsenal[type]["size"];
 
     this.pos = new p5.Vector(xPos, yPos);
@@ -22,10 +22,6 @@ class Projectile extends Entity{
     this.falling = false;
 
 		player.mana -= arsenal[type]["manaCost"];
-  }
-
-  render(){
-		image(this.image, this.pos.x, this.pos.y, this.dims.x, this.dims.y);
   }
 
   update(){
@@ -43,7 +39,7 @@ class Projectile extends Entity{
 		for(let i in boundingTiles){
 			let x = boundingTiles[i].x;
 			let y = boundingTiles[i].y;
-			if(data.layers.platforms[y][x] == TILE_IDS["collision"]){
+			if(data.layers.platforms[y][x] == TILE_IDS_TO_NAMES["collision"]){
         if(this.hitBlock(x,y)){
           this.exist = false;
           return false;

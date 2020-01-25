@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.2" tiledversion="1.2.4" name="tileset" tilewidth="32" tileheight="32" tilecount="10" columns="0">
+<tileset version="1.2" tiledversion="1.2.4" name="tileset" tilewidth="32" tileheight="32" tilecount="13" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0">
   <properties>
@@ -60,5 +60,23 @@
    <property name="name" value="mob:dino"/>
   </properties>
   <image width="32" height="32" source="gimpTiles/mobSpawnPoint.png"/>
+ </tile>
+ <tile id="13">
+  <properties>
+   <property name="name" value="item:dragonInsignia"/>
+  </properties>
+  <image width="32" height="32" source="../items/dragonInsignia.png"/>
+ </tile>
+ <tile id="14">
+  <properties>
+   <property name="name" value="item:gem"/>
+  </properties>
+  <image width="32" height="32" source="../items/gem.png"/>
+ </tile>
+ <tile id="15">
+  <properties>
+   <property name="name" value="item:potion"/>
+  </properties>
+  <image width="32" height="32" source="../items/potion.png"/>
  </tile>
 </tileset>

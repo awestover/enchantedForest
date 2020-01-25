@@ -5,10 +5,10 @@
   },
   "gem": {
     "img": null, 
-    "imgPath": "data/items/gems.png"
+    "imgPath": "data/items/gem.png"
   },
   "potion": {
     "img": null, 
-    "imgPath": "data/items/potions.png"
+    "imgPath": "data/items/potion.png"
   }
 }

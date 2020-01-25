@@ -2,10 +2,11 @@ class Entity {
   constructor(xPos, yPos){
     this.pos = new p5.Vector(xPos, yPos);
     this.vel = new p5.Vector(0,0);
-    this.dims = new p5.Vector(32, 64);
+    this.dims = new p5.Vector(blockSize, blockSize*2);
 		this.lives = 4;
     this.falling = false;
 		this.lastDir = 1;
+    this.img = null;
   }
 
   jump(){
@@ -16,7 +17,13 @@ class Entity {
   }
 
   render(){
-    image(oplusImage, this.pos.x, this.pos.y, this.dims.x, this.dims.y);
+    if(this.img){
+      image(this.img, this.pos.x, this.pos.y, this.dims.x, this.dims.y);
+    }
+    else{
+      fill(0);
+      rect(this.pos.x, this.pos.y, this.dims.x, this.dims.y);
+    }
   }
 
 	// this is a bit more lenient in terms of dy, and a bit stricter in terms of dx than just hitsBlock
@@ -98,7 +105,7 @@ class Entity {
     for(let i in boundingTiles){
       let x = boundingTiles[i].x;
       let y = boundingTiles[i].y;
-      if(data.layers.platforms[y][x] == TILE_IDS["collision"]){
+      if(data.layers.platforms[y][x] == TILE_IDS_TO_NAMES["collision"]){
         onAnyBlock = onAnyBlock || this.onBlock(x, y);
         let hitdata = this.barrierViolation(x, y);
         if(hitdata.hit){
