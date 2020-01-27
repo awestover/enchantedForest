@@ -16,7 +16,8 @@ class HUD {
       "Level: " + player.level,
       "XP: " + player.xp + " / " + levelupReqXP[player.level],
       "Coins: " + player.coins, 
-			"Mana: " + player.mana
+			"Mana: " + player.mana,
+      "inventory: " + JSON.stringify(player.items)
     ]
     for(let i=0; i < txtMsgs.length; i++){
       text(txtMsgs[i], -width/2 + 25, -height/2 + 100+ 25*i);
