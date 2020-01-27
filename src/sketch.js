@@ -5,6 +5,7 @@ const friction = 0.03;
 const moveAccel = 0.3;
 const jumpImpulse = 7;
 const maxVel = new p5.Vector(2.5, jumpImpulse);
+// const maxVel = new p5.Vector(5, jumpImpulse);		// For testing
 const cameraSpeed = 1.2;
 const cameraSeekThresh = cameraSpeed * 15;
 const cameraUnseekThresh = cameraSpeed;
@@ -213,7 +214,6 @@ function draw(){
             loadRoom("alpha");
             return;
           }
-          if(data.layers.items[y][x] == TILE_IDS[""])
         }
       }
     }
@@ -239,7 +239,11 @@ function draw(){
 			display.showLoseScreen();
 
     if (showFakeDialogueBox) 
-			display.showDialogueBox("Carl");
+			display.showDialogueBox("dog");
+		else{
+			document.getElementById("dialogueImg").setAttribute("src","data/avatars/empty.png");
+			document.getElementById("dialogueText").innerHTML = "";
+		}
 
     display.render();
   }

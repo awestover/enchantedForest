@@ -1,0 +1,44 @@
+body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+#dialogueBox {
+	position: fixed;
+	bottom: 0;
+
+	border: 5px #00FFF2 solid;
+	border-radius: 20px;
+	background-color: black;
+	opacity: 65%;
+
+	height: 19vh;
+	width: 94vw;
+	margin-left: 3vw;
+	margin-right: 3vw;
+	margin-bottom: 1vh;
+}
+
+#dialogueImg {
+	border: 5px pink solid;
+	margin-top: 2vh;
+	margin-left: 1vw;
+	height: 14vh;
+	width: 14vh;
+	z-index: 999;
+	height: 13vh;
+	width: 13vh;
+	float: left;
+}
+
+#dialogueText {
+	margin-left: 2vw;
+	margin-top: 2vh;
+	color: #00FFF2;
+	font-size: 1.5em;
+	float: left;
+	display: inline-block;
+	width: 80vw;
+}
+

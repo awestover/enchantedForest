@@ -32,10 +32,7 @@ class HUD {
 		text("You Lose", 0, 0);
 	}
 	showDialogueBox(npcName){
-		fill(128, 128, 128, 100);
-		rect(0,height/2 - height/16,width,height/8);
-		fill(0);
-		textSize(20);
-		text("Fake Dialogue Box KEVIN DESIGN THIS,\n note: dialogue box should have a face in it,\n the face of the npc..., \nnote: map.json contains the path to the npcs image...", 0,height/2 - height/16, width,height/8);
+		document.getElementById("dialogueImg").setAttribute("src","data/avatars/"+npcName+".png");
+		document.getElementById("dialogueText").innerHTML = "DIS DE NPC DAWG<br> note: dialogue box should have a face in it,<br> the face of the npc..., <br>note: map.json contains the path to the npcs image...";
 	}
 }

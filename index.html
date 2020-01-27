@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <title>test</title>
-    <link rel="stylesheet" href="style.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
+
+		<link rel="preload" href="data/avatars/dog.png" as="image">
+
   </head>
   <body>
     <script src="libs/p5.min.js" charset="utf-8"></script>
@@ -15,4 +18,11 @@
     <script src="src/HUD.js" charset="utf-8"></script>
     <script src="src/sketch.js" charset="utf-8"></script>
   </body>
+
+	<div id="dialogueBox">
+		<img id="dialogueImg" src="data/avatars/empty.png">
+		<div id="dialogueText"></div>
+		</div>
+	</div>
+
 </html>

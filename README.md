@@ -19,8 +19,8 @@ This game gets its _roots_ (ahhhhhahaha) from anchient Norse Mythology.
 ## Alek
 
 ## Kevin
-- concept art (sprite sheets)
-- dialogue boxes (GUI)
+- concept art (sprite sheets 32x32 gimp)
+- dialogue boxes (GUI) ADD NEXT CONVO MECHANISM
 - add pictures to the HUD / just make it look nice
 - attacks
   * fireballs explode upon impact
@@ -53,6 +53,9 @@ This game gets its _roots_ (ahhhhhahaha) from anchient Norse Mythology.
 - mysql data saving
 
 # Done 
+1/27/2020
+- basic dialogue box system
+
 1/25/2020
 - mana regen
 - clock
