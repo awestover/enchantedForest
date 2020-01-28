@@ -40,4 +40,31 @@ class HUD {
 		document.getElementById("dialogueImg").setAttribute("src","data/avatars/empty.png");
 		document.getElementById("dialogueText").innerHTML = "";
 	}
+
+	createInventory(itemType){
+		let inventoryTable = document.getElementById("inventoryTable");
+		let row;
+		if(player.items.length % 5 == 1)
+			row = inventoryTable.insertRow();
+		else
+			row = inventoryTable.rows[inventoryTable.rows.length-1];
+
+		let cell = row.insertCell();
+		cell.id = itemType+"InventoryCell";
+		let img = document.createElement("IMG");
+		img.src = "data/items/"+itemType+".png";
+
+		let text = document.createTextNode("1");
+		let div = document.createElement("div");
+		div.className = "inventorySubscript";
+		div.id = itemType+"InventoryCellText";
+		div.appendChild(text);
+
+		cell.appendChild(img);
+		cell.appendChild(div);
+	}
+	incrementInventory(itemType, itemQuantity){
+		let idName = itemType+"InventoryCellText";
+		document.getElementById(idName).childNodes[0].nodeValue = itemQuantity.toString();
+	}
 }

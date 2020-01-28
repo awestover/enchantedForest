@@ -68,6 +68,7 @@ This game gets its _roots_ (ahhhhhahaha) from anchient Norse Mythology. Maybe.
 # Done 
 1/27/2020
 - basic dialogue box system
+- Inventory system
 
 1/25/2020
 - mana regen

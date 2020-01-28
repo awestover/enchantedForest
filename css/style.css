@@ -64,13 +64,26 @@ body {
 
 #inventoryContainer table {
 	margin: 0.5vw;
-	w
 }
 
-#inventoryContainer th {
+.inventoryCell td {
 	width: 3.5vw;
 	height: 3.5vw;
-	border: 1px pink solid;
+	/* border: 1px pink solid; */
+	color: white;
+	font-size: 1em;
+	position: relative;
+}
+
+.inventorySubscript {
+	position: absolute;
+	bottom: 0;
+	right: 0.5vh;
+}
+
+.inventoryCell img {
+	width: 100%;
+	height: auto;
 }
 
 
