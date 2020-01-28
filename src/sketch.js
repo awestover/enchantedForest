@@ -277,10 +277,8 @@ function draw(){
 
     if (showFakeDialogueBox) 
 			display.showDialogueBox("dog");
-		else{
-			document.getElementById("dialogueImg").setAttribute("src","data/avatars/empty.png");
-			document.getElementById("dialogueText").innerHTML = "";
-		}
+		else
+			display.clearDialogueBox();
 
     display.render();
   }

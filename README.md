@@ -51,15 +51,16 @@ This game gets its _roots_ (ahhhhhahaha) from anchient Norse Mythology. Maybe.
   * shields
   * healing
 - game interface
-   * level-up system [[quests and mob fights should give XP towards leveling up, level ups should unlock upgrades and stuff, probably also give cash reward]]
-   * upgrades
-   * dialogue boxes
-   * inventory system
+  * mana change to depleting bar instead of numbers
+  * level-up system [[quests and mob fights should give XP towards leveling up, level ups should unlock upgrades and stuff, probably also give cash reward]]
+  * upgrades
+  * dialogue boxes
+  * inventory system
       * talismans
       * money
-   * objects
-   * quests
-   * minimap
+  * objects
+  * quests
+  * minimap
 - map design
 - game plot 
 - mysql data saving

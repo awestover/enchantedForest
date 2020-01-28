@@ -4,17 +4,18 @@ body {
   padding: 0;
 }
 
-#dialogueBox {
-	position: fixed;
-	bottom: 0;
-
+.HUDContainer {
 	border: 5px #00FFF2 solid;
 	border-radius: 20px;
 	background-color: black;
 	opacity: 65%;
+	position: fixed;
+}
 
+#dialogueContainer {
+	bottom: 0;
 	height: 19vh;
-	width: 94vw;
+	width: 72vw;
 	margin-left: 3vw;
 	margin-right: 3vw;
 	margin-bottom: 1vh;
@@ -22,23 +23,54 @@ body {
 
 #dialogueImg {
 	border: 5px pink solid;
+	float: left;
 	margin-top: 2vh;
 	margin-left: 1vw;
 	height: 14vh;
 	width: 14vh;
-	z-index: 999;
-	height: 13vh;
-	width: 13vh;
-	float: left;
 }
 
 #dialogueText {
-	margin-left: 2vw;
+	display: inline-block;
+	float: left;
 	margin-top: 2vh;
+	margin-left: 2vw;
+	background-color: blue;
 	color: #00FFF2;
 	font-size: 1.5em;
-	float: left;
-	display: inline-block;
-	width: 80vw;
+	width: 60vw;
 }
+
+
+#inventoryContainer {
+	margin-bottom: 1vh;
+	margin-right: 3vw;
+	bottom: 0;
+	right: 0;
+	width: 20vw;
+	height: 19vh;
+
+	overflow-y: scroll;
+	scrollbar-width: none; /* Firefox */
+	-ms-overflow-style: none;  /* Internet Explorer 10+ */
+
+	color: white;
+}
+
+#inventoryContainer::-webkit-scrollbar { /* WebKit */
+	width: 0;
+	height: 0;
+}
+
+#inventoryContainer table {
+	margin: 0.5vw;
+	w
+}
+
+#inventoryContainer th {
+	width: 3.5vw;
+	height: 3.5vw;
+	border: 1px pink solid;
+}
+
 
