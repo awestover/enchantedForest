@@ -10,8 +10,9 @@ class HUD {
     }
   }
   render(){
-    push();// just so the colors don't bleed
+    push();// so the colors don't bleed, and so the text/rect align/mode doesn't bleed
     textAlign(LEFT);
+    rectMode(CORNER);
 
     // render lives
     for (let i = 0; i < player.lives; i++){
@@ -24,13 +25,21 @@ class HUD {
       "Level: " + player.level,
       "XP: " + player.xp + " / " + levelupReqXP[player.level],
       "Coins: " + player.coins, 
-      // "inventory: " + JSON.stringify(player.items),
 			"Mana: " + player.mana
     ]
     for(let i=0; i < txtMsgs.length; i++){
       text(txtMsgs[i], -width/2 + 25, -height/2 + 100+ 25*i);
     }
-
+    noFill();
+    rect(-width/2+20, -height/2 + 100, 250, 25);
+    rect(-width/2+20, -height/2 + 125, 250, 25);
+    rect(-width/2+20, -height/2 + 150, 250, 25);
+    fill(255,0,0,100);
+    rect(-width/2+20, -height/2 + 100, 250*player.xp/levelupReqXP[player.level], 25);
+    fill(255,223,0,100);
+    rect(-width/2+20, -height/2 + 125, 250*player.coins/player.coincap, 25);
+    fill(0,0,255,100);
+    rect(-width/2+20, -height/2 + 150, 250*player.mana/player.manacap, 25);
     pop();
   }
 	showLoseScreen(){

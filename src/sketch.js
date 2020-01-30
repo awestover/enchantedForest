@@ -1,4 +1,3 @@
-
 const blockSize = 32;
 const gravity = 0.2;
 const friction = 0.03;
@@ -166,7 +165,7 @@ function draw(){
   if(data){
     ct++;
     if(ct % manaRegenFrames == 0){
-      player.mana += 1;
+      player.mana = min(player.manacap, player.mana+1);
     }
 
     background(100);
@@ -186,6 +185,9 @@ function draw(){
         for (let j in mobs){
           if(proji.hitRect(mobs[j].pos, mobs[j].dims)){
             mobs[j].lives -= 2;
+            if(mobs[j].lives <= 0){
+              player.mobKillReward(mobs[j].type); // really just add a field to the json for this...
+            }
             proji.exist = false;
             break;
           }
@@ -208,7 +210,6 @@ function draw(){
         items.splice(i, 1);
       }
     }
-
 
     for(let i=mobs.length-1; i >= 0; i--){
       if(mobs[i].lives > 0){

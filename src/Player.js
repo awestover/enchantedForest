@@ -4,8 +4,10 @@ class Player extends Entity {
     this.level = 0;
     this.xp = 0;
     this.coins = 100;
+    this.coincap = 1000;
 		this.mana = 100;
 		this.mana = 999999;
+    this.manacap = 1000;
 		this.projectiles = [];
     this.items = []; // list of {"type": "XX", "quantity": x}
   }
@@ -21,6 +23,10 @@ class Player extends Entity {
     this.level += 1;
     this.xp = 0;
     this.coins += 1000;
+  }
+
+  mobKillReward(mob_type){
+    this.xp += 10;
   }
 
 	repositionProjectile(xPos, type){

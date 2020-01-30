@@ -20,31 +20,26 @@ what if npcs are the teleporters? [[ note: this would make the code easier... li
 # TODO
 
 ## BUGS
-if your screen is too small because e.g. you have dev console open, then the dialogue box gets pushed down...
+- if your screen is too small because e.g. you have dev console open, then the dialogue box gets pushed down...
+- mobs dont die if they fall off screen
+- lag??
 
 ## Both
-make some standards that we are going to impose to make everything nice and stuff
-
-e.g. file naming conventions ....
+- code cleanup [[e.g. increase encapsulation]]
 
 ## Alek
-rn
-- mana bubble
-- gain xp for mob kills
+#### rn 
 
-later
+#### later
 - design a cool map
+
 - fix loading screen and stuff
 - fix the fact that js is async :(
-
-- fix teleportation (the teleport thing needs to say where is teleports you to...)
 
 - fix collision detection:
 -   for npcs (if you get kinda close it flashes)
 
-- fix anything else stupid that I did
-- code cleanup
-- increase encapsulation
+- fix teleportation system (the teleport thing needs to say where is teleports you to...)
 
 ## Kevin
 - concept art (sprite sheets 32x32 gimp)
