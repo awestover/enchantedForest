@@ -1,0 +1,22 @@
+[
+"gettingStarted": {
+  "prereqs": [],
+  "rewards":{"xp": 10},
+  "task": { 
+    "type": "hunt",
+    "species": "ogre",
+    "quantity": 10
+  },
+  "followups": ["quest2"]
+},
+"quest2": {
+  "prereqs": ["gettingStarted"],
+  "rewards":{"xp": 100},
+  "task": { 
+    "type": "hunt",
+    "species": "ogre",
+    "quantity": 20
+  },
+  "followups": []
+}
+]

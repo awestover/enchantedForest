@@ -10,6 +10,7 @@ class Player extends Entity {
     this.manacap = 1000;
 		this.projectiles = [];
     this.items = []; // list of {"type": "XX", "quantity": x}
+    this.quests = []; // ["gettingStarted", ... ]
   }
   render(){
     fill(0,255,0);

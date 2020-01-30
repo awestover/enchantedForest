@@ -27,10 +27,48 @@ what if npcs are the teleporters? [[ note: this would make the code easier... li
 ## Both
 - code cleanup [[e.g. increase encapsulation]]
 
+## ALEK legit
+- quest completion
+- npcs can give quests
+- npc.json 
+- loading animation , is there lag ??
+
+## KEVIN legit
+- HUD for quests
+- banner in center of screen
+- check for quest completion
+
+# BIGGGG GOALS
+- quests
+- save progress
+
 ## Alek
 #### rn 
 
 #### later
+- quest system
+
+    make a file called quests.json
+quests have unique names/id
+
+unique npcs per room
+
+quests.json looks like
+
+
+multiple quests at a time
+  -- need some hud interface thing to view the active quests and progress
+  -- need interface in npc dialogue boxes to accept and decline 
+
+quest: gettingStarted
+
+
+player has some 
+  - quest arrow
+  - let npcs give characters items and money, and progress in quest
+
+- cool names
+
 - design a cool map
 
 - fix loading screen and stuff
@@ -41,17 +79,31 @@ what if npcs are the teleporters? [[ note: this would make the code easier... li
 
 - fix teleportation system (the teleport thing needs to say where is teleports you to...)
 
+- mob types:
+    - damage on impact
+    - projectile mobs
+    - boss mobs
+
+
 ## Kevin
+- cleam up inventory system
+- item usage e.g. onclick for potion -> mana
 - concept art (sprite sheets 32x32 gimp)
 - dialogue boxes (GUI) ADD NEXT CONVO MECHANISM
 - add pictures to the HUD / just make it look nice
-- attacks
+- attacks (complete weapon sytem)
   * fireballs explode upon impact
   * affecting enemies
 - movement
   * teleportation
 
 ## Up for grabs MISC
+- smiths / scrolls / other npcs  to update weapons 
+- HUD shows weapons OR blah OR etc
+- weapon and armor system
+  -   update weapons.json
+  -   hud stuff
+- check for screen resize, then resize canvas
 - notification system (e.g. for levelups)  (notify.js??)
 - movement
   * dashing
@@ -75,6 +127,7 @@ what if npcs are the teleporters? [[ note: this would make the code easier... li
 - map design
 - game plot 
 - mysql data saving
+- mobs dropping loot
 
 # Done 
 1/27/2020
@@ -129,4 +182,30 @@ what if npcs are the teleporters? [[ note: this would make the code easier... li
 ### map design notes
 - note that the player is 2 tiles high, so any "tunnel" in the tilemap needs to be 3 tiles high for the player to be able to go in it. The player can walk through a tunnel that is 2 high if it is flush with the ground (i.e. the player doens't need to jump to get into it)
 - at least for now, the player can jump 3 tiles, that is, if it is on the ground and there is a stack of tiles 3 high, the player can jump onto the top of this
+
+## json docs
+
+quest.json
+[
+"gettingStarted": {
+  "prereqs": [], // a list of quest ids (quest ids and quest names are the same)
+  "rewards":{"xp": 10},
+  "task": { // types of task: killing mobs, boss fights, collecting items, talking to npcs
+    "type": "hunt", // hunt/boss/gather/talk
+    "species": "ogre", // this depends on the thing 
+    "quantity": 10 // this depends on the thing 
+  },
+  "followups": ["quest2"]
+}
+]
+
+{
+"startRoom": [
+  {
+    "type": "dawg",
+    "proposeQuest": "gettingStarted",
+    "dialogue": "heyo, im an npc"
+  }
+]
+}
 

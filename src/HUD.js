@@ -70,6 +70,7 @@ class HUD {
 		cell.id = itemType+"InventoryCell";
 		let img = document.createElement("IMG");
 		img.src = "data/items/"+itemType+".png";
+    img.setAttribute("onclick", "player.mana += 10");
 
 		let text = document.createTextNode("1");
 		let div = document.createElement("div");
