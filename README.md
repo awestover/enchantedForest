@@ -30,13 +30,12 @@ what if npcs are the teleporters? [[ note: this would make the code easier... li
 ## ALEK legit
 - quest completion
 - npcs can give quests
-- npc.json 
-- loading animation , is there lag ??
 
 ## KEVIN legit
 - HUD for quests
 - banner in center of screen
 - check for quest completion
+- is there lag [[[ yes there is lag, caused by HUD repeatedly requesting imgs, like 10 times per second. solution: kevin fix this...]]??
 
 # BIGGGG GOALS
 - quests
@@ -70,9 +69,6 @@ player has some
 - cool names
 
 - design a cool map
-
-- fix loading screen and stuff
-- fix the fact that js is async :(
 
 - fix collision detection:
 -   for npcs (if you get kinda close it flashes)

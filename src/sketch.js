@@ -31,9 +31,22 @@ let stats = {
 let ct = 0;
 let manaRegenFrames = 5;
 
+let wasShowingDialogueBox = false;
+
+// this makes sure that we load the "asset" jsons before trying to load the world 
+let init_toload = []; // names of jsons e.g. "map" (don't give the .json, or the prefix)
+let triggered_initial_room_load = false;
+let loadingRoom = true;
+
+// don't ask ...
+const bgColorOptions = ["#e6194B", "#3cb44b", "#ffe119", "#4363d8", "#f58231", "#911eb4", "#42d4f4", "#f032e6", "#bfef45", "#fabebe", "#469990", "#e6beff", "#9A6324", "#fffac8", "#800000", "#aaffc3", "#808000", "#ffd8b1", "#000075", "#a9a9a9", "#ffffff", "#000000"];
+let bgColor = bgColorOptions[Math.floor(Math.random()*bgColorOptions.length)];
+
 function loadRoom(roomName){
+  loadingRoom = true;
   data = null;
   mobs = [];
+  roomImage = loadImage(`data/maps/rooms/${roomName}/tilemap.png`);
   $.getJSON(`data/maps/rooms/${roomName}/map.json`, function(returnData){
     data = returnData;
     mapTileDims.x = data.layers.collision[0].length;
@@ -77,14 +90,17 @@ function loadRoom(roomName){
         }
       }
     }
-
+    loadingRoom = false;
   });
-  roomImage = loadImage(`data/maps/rooms/${roomName}/tilemap.png`);
 }
 
-function preload(){ // this is called synchronously with setup / draw (i.e. setup and draw won't happen until this is done!)
+
+function setup(){
+  createCanvas(window.innerWidth, window.innerHeight);
+
   display.loadImgs();
   for(let i in stats){
+    init_toload.push(i);
     $.getJSON(`data/stats/${i}.json`, function(tmpdata){
       stats[i] = tmpdata;
       for(let thing in stats[i]){
@@ -93,13 +109,9 @@ function preload(){ // this is called synchronously with setup / draw (i.e. setu
           stats[i][thing].imgs.push(loadImage(stats[i][thing].imgPaths[path]));
         }
       }
+      init_toload.splice(init_toload.indexOf(i), 1);
     });
   }
-}
-
-function setup(){
-  createCanvas(window.innerWidth, window.innerHeight);
-  loadRoom("start");
 
   // all shapes must be specified as (x,y,w,h) [[yay symmetry]]
   // note: for even more symmetry, I'm having 0,0 be the center of everything. woohoo
@@ -162,13 +174,13 @@ function draw(){
   push();
   translate(width/2, height/2);
 
-  if(data){
+  if(!loadingRoom){
     ct++;
     if(ct % manaRegenFrames == 0){
       player.mana = min(player.manacap, player.mana+1);
     }
 
-    background(100);
+    background(bgColor);
     push();
     translate(-cameraPos.x, -cameraPos.y);
     image(roomImage, 0, 0, blockSize*mapTileDims.x, blockSize*mapTileDims.y);
@@ -282,10 +294,13 @@ function draw(){
     if (lost)
 			display.showLoseScreen();
 
-    if (showDialogueBox) 
-			display.showDialogueBox("dog");
-		else
-			display.clearDialogueBox();
+    if(wasShowingDialogueBox != showDialogueBox){
+      wasShowingDialogueBox = showDialogueBox;
+      if (showDialogueBox) 
+        display.showDialogueBox("dog");
+      else
+        display.clearDialogueBox();
+    }
 
     display.render();
   }
@@ -294,7 +309,12 @@ function draw(){
     textSize(60);
     fill(0,0,0);
     text("LOADING", 0, 0);
+    if(!triggered_initial_room_load && init_toload.length == 0){
+      triggered_initial_room_load = true;
+      loadRoom("start");
+    }
   }
 
   pop(); // translate to screen center is 0,0
+
 }

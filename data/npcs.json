@@ -1,0 +1,9 @@
+{
+"startRoom": [
+  {
+    "type": "dawg",
+    "proposeQuest": "gettingStarted",
+    "dialogue": "heyo, im an npc"
+  }
+]
+}
