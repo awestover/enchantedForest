@@ -24,16 +24,16 @@ class Player extends Entity {
   }
 
 	repositionProjectile(xPos, type){
-		return this.pos.x + this.lastDir * 16 * (arsenal[type]["size"]+3);
+		return this.pos.x + this.lastDir * 16 * (stats.weapons[type]["size"]+3);
 	}
 	fireballAttack(){
 		let type = "fireball";
-		if (this.mana >= arsenal[type]["manaCost"])
+		if (this.mana >= stats.weapons[type]["manaCost"])
 			this.projectiles.push(new Projectile(type, this.repositionProjectile(this.pos.x, type), this.pos.y));
 	}
 	coinshotAttack(){
 		let type = "coinshot";
-		if (this.mana >= arsenal[type]["manaCost"])
+		if (this.mana >= stats.weapons[type]["manaCost"])
 			this.projectiles.push(new Projectile(type, this.repositionProjectile(this.pos.x, type), this.pos.y-blockSize/2));
 	}
 

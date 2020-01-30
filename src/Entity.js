@@ -6,7 +6,8 @@ class Entity {
 		this.lives = 4;
     this.falling = false;
 		this.lastDir = 1;
-    this.img = null;
+    this.imgs = [];
+    this.imgframe = 0;
   }
 
   jump(){
@@ -17,8 +18,8 @@ class Entity {
   }
 
   render(){
-    if(this.img){
-      image(this.img, this.pos.x, this.pos.y, this.dims.x, this.dims.y);
+    if(this.imgs[this.imgframe]){
+      image(this.imgs[this.imgframe], this.pos.x, this.pos.y, this.dims.x, this.dims.y);
     }
     else{
       fill(0);
@@ -105,7 +106,7 @@ class Entity {
     for(let i in boundingTiles){
       let x = boundingTiles[i].x;
       let y = boundingTiles[i].y;
-      if(data.layers.platforms[y][x] == TILE_IDS_TO_NAMES["collision"]){
+      if(data.layers.collision[y][x] == TILE_NAMES_TO_IDS["collision"]){
         onAnyBlock = onAnyBlock || this.onBlock(x, y);
         let hitdata = this.barrierViolation(x, y);
         if(hitdata.hit){

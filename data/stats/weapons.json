@@ -1,6 +1,5 @@
 {
 	"fireball": {
-		"imgs": [],
 		"damage": 10,
 		"velocity": 10, 
 		"size": 2, 
@@ -8,7 +7,6 @@
 		"imgPaths": ["data/attacks/fireball_L.png", "data/attacks/fireball_R.png"]
 	}, 
 	"coinshot": {
-		"imgs": [],
 		"damage": 10,
 		"velocity": 20, 
 		"size": 0.5,

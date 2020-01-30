@@ -5,23 +5,19 @@ class Projectile extends Entity{
 		this.friendly = true;
 		this.exist = true;
 		this.type = type;
-		this.dir = player.lastDir;
+		this.dir = player.lastDir; // what if mobs have projectiles... -> add this as a todo to the readme
 
-		if (arsenal[type].imgs.length > 1)
-			var imgIndex = (this.dir < 0) ? 0 : 1;
-		else
-			var imgIndex = 0;
+    let imgIndex = 0;
+		if (stats.weapons[type].imgs.length > 1)
+		  imgIndex = (this.dir < 0) ? 0 : 1;
 
-		this.img = arsenal[type].imgs[imgIndex];
-		this.size = arsenal[type]["size"];
+		this.imgs = [stats.weapons[type].imgs[imgIndex]];
+		this.size = stats.weapons[type].size;
 
-    this.pos = new p5.Vector(xPos, yPos);
-    this.vel = new p5.Vector(arsenal[type]["velocity"], 0);
+    this.vel = new p5.Vector(stats.weapons[type]["velocity"], 0);
     this.dims = new p5.Vector(blockSize*this.size, blockSize*this.size);
 		this.lives = -1;
-    this.falling = false;
-
-		player.mana -= arsenal[type]["manaCost"];
+		player.mana -= stats.weapons[type]["manaCost"];
   }
 
   update(){
@@ -39,7 +35,7 @@ class Projectile extends Entity{
 		for(let i in boundingTiles){
 			let x = boundingTiles[i].x;
 			let y = boundingTiles[i].y;
-			if(data.layers.platforms[y][x] == TILE_IDS_TO_NAMES["collision"]){
+			if(data.layers.collision[y][x] == TILE_IDS_TO_NAMES["collision"]){
         if(this.hitBlock(x,y)){
           this.exist = false;
           return false;

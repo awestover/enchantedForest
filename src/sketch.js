@@ -5,90 +5,97 @@ const friction = 0.03;
 const moveAccel = 0.3;
 const jumpImpulse = 7;
 const maxVel = new p5.Vector(2.5, jumpImpulse);
-// const maxVel = new p5.Vector(5, jumpImpulse);		// For testing
 const cameraSpeed = 1.2;
 const cameraSeekThresh = cameraSpeed * 15;
 const cameraUnseekThresh = cameraSpeed;
 const collisionTollerence = 0.0001;
 const levelupReqXP = [100, 1000, 2000, 4000];
 
-let roomImage, heartImage, oplusImage;
+let roomImage;
 let data;
 let cameraSeeking = false, lost = false;
-let TILE_IDS_TO_NAMES = {};
+const TILE_TYPES = ["mob", "npc", "item"];
+const DYNAMIC_TILE_TYPES = ["mob", "item"];
+let TILE_NAMES_TO_IDS = {}; // {"black": "2", "collision": "1", ...}
+let TILE_IDS_TO_NAMES = {}; // {"2": "black", "1": "collision", ...}
+let TILE_TYPE_TO_NAMES = {}; // {"item": ["item:gem", "item:potion", ...],...}
 let mapTileDims = new p5.Vector(0,0);
 let cameraPos = new p5.Vector(0,0);
 let player = new Player(0, +64);
 let display = new HUD();
-let mobs = [];
-let items = [];
-let arsenal = {};
-let itemstats = {};
+let mobs = [], items = [];
+let stats = {
+  "weapons": {},
+  "items": {},
+  "mobs": {}
+}
 let ct = 0;
 let manaRegenFrames = 5;
 
 function loadRoom(roomName){
   data = null;
   mobs = [];
-  $.getJSON("data/maps/rooms/"+roomName+"/map.json", function(returnData){
+  $.getJSON(`data/maps/rooms/${roomName}/map.json`, function(returnData){
     data = returnData;
+    mapTileDims.x = data.layers.collision[0].length;
+    mapTileDims.y = data.layers.collision.length;
+
     let tileIds = Object.keys(data.tiles);
     for(let k in tileIds){
       let curName = data.tiles[tileIds[k]].tilename;
-      TILE_IDS_TO_NAMES[curName] = tileIds[k];
-      mapTileDims.x = data.layers.platforms[0].length;
-      mapTileDims.y = data.layers.platforms.length;
+      TILE_NAMES_TO_IDS[curName] = tileIds[k];
+      TILE_IDS_TO_NAMES[tileIds[k]] = curName;
     }
 
-    for(let x = 0; x < mapTileDims.x; x++){
-      for(let y = 0; y < mapTileDims.y; y++){
-        if(data.layers.mobSpawnPoints[y][x] == TILE_IDS_TO_NAMES["mob:dino"]){
-          let bc = blockCenter(x, y);
-          mobs.push(new Entity(bc.x, bc.y-blockSize/2));
-          mobs[mobs.length-1].img = oplusImage;
-        }
-      }
-    }
-
-    let itemTypes = [];
-    for(let i in TILE_IDS_TO_NAMES){
-      if(i.indexOf("item:")!= -1)
-        itemTypes.push(i.substring("item:".length));
-    }
-    for(let x = 0; x < mapTileDims.x; x++){
-      for(let y = 0; y < mapTileDims.y; y++){
-        for(let i in itemTypes){
-          if(data.layers.items[y][x] == TILE_IDS_TO_NAMES["item:"+itemTypes[i]]){
-            let bc = blockCenter(x, y);
-            items.push(new Item(bc.x, bc.y));
-            items[items.length-1].img = itemstats[itemTypes[i]].img;
-            items[items.length-1].type = itemTypes[i];
+    for(let tile_name in TILE_NAMES_TO_IDS){
+      for(let tile_type in TILE_TYPES){
+        if (tile_name.includes(TILE_TYPES[tile_type]+":")){
+          try {
+            TILE_TYPE_TO_NAMES[TILE_TYPES[tile_type]].push(tile_name);
+          } catch (e) {
+            TILE_TYPE_TO_NAMES[TILE_TYPES[tile_type]] = [tile_name];
           }
         }
       }
     }
 
+    for(let x = 0; x < mapTileDims.x; x++){
+      for(let y = 0; y < mapTileDims.y; y++){
+        let bc = blockCenter(x, y);
+        if(TILE_TYPE_TO_NAMES["mob"].includes(TILE_IDS_TO_NAMES[data.layers["mobs"][y][x]])){
+          let tile_type = TILE_IDS_TO_NAMES[data.layers["mobs"][y][x]].substring(("mob"+":").length);
+
+          mobs.push(new Entity(bc.x, bc.y-blockSize/2));
+          mobs[mobs.length-1].imgs = stats["mobs"][tile_type].imgs;
+          mobs[mobs.length-1].type = tile_type;
+        }
+
+        if(TILE_TYPE_TO_NAMES["item"].includes(TILE_IDS_TO_NAMES[data.layers["items"][y][x]])){
+          let tile_type = TILE_IDS_TO_NAMES[data.layers["items"][y][x]].substring(("item"+":").length);
+          items.push(new Item(bc.x, bc.y));
+          items[items.length-1].imgs = stats["items"][tile_type].imgs;
+          items[items.length-1].type = tile_type;
+        }
+      }
+    }
+
   });
-  roomImage = loadImage("data/maps/rooms/"+roomName+"/tilemap.png");
+  roomImage = loadImage(`data/maps/rooms/${roomName}/tilemap.png`);
 }
 
 function preload(){ // this is called synchronously with setup / draw (i.e. setup and draw won't happen until this is done!)
-	heartImage = loadImage("data/interface/hearts.png");
-	oplusImage = loadImage("data/avatars/oplus.png");
-  $.getJSON("data/stats/arsenal.json", function(data){
-    arsenal = data;
-    for(let i in arsenal){
-      for(let j in arsenal[i].imgPaths){
-        arsenal[i].imgs.push(loadImage(arsenal[i].imgPaths[j]));
+  display.loadImgs();
+  for(let i in stats){
+    $.getJSON(`data/stats/${i}.json`, function(tmpdata){
+      stats[i] = tmpdata;
+      for(let thing in stats[i]){
+        stats[i][thing].imgs = [];
+        for(let path in stats[i][thing].imgPaths){
+          stats[i][thing].imgs.push(loadImage(stats[i][thing].imgPaths[path]));
+        }
       }
-    }
-  });
-  $.getJSON("data/stats/items.json", function(data){
-    itemstats = data;
-    for(let i in itemstats){
-      itemstats[i].img = loadImage(itemstats[i].imgPath);
-    }
-  });
+    });
+  }
 }
 
 function setup(){
@@ -234,20 +241,19 @@ function draw(){
       }
     }
 
-    let showFakeDialogueBox = false;
+    let showDialogueBox = false;
 
     let boundingTiles = player.gridBoundingBox();
     for(let i in boundingTiles){
       let x = boundingTiles[i].x;
       let y = boundingTiles[i].y;
-      if(data.layers.agents[y][x] != TILE_IDS_TO_NAMES["empty"]){
+      if(data.layers.npcs[y][x] != TILE_NAMES_TO_IDS["empty"]){
         if(player.hitBlock(x, y)){
-          if(data.layers.agents[y][x] == TILE_IDS_TO_NAMES["npc:dog"]){
-            // trigger dialogue box
-            showFakeDialogueBox = true;
+          if(TILE_TYPE_TO_NAMES["npc"].includes(TILE_IDS_TO_NAMES[data.layers.npcs[y][x]])){
+            showDialogueBox = true;
           }
-          else if(data.layers.agents[y][x] == TILE_IDS_TO_NAMES["teleporter"]){
-            // lol this is kinda dumb, think of a better solution later
+          else if(data.layers.npcs[y][x] == TILE_NAMES_TO_IDS["teleporter"]){
+            // this is not scalable, think of a better solution!!! probably something like teleporter:alpha|beta
             loadRoom("alpha");
             return;
           }
@@ -275,7 +281,7 @@ function draw(){
     if (lost)
 			display.showLoseScreen();
 
-    if (showFakeDialogueBox) 
+    if (showDialogueBox) 
 			display.showDialogueBox("dog");
 		else
 			display.clearDialogueBox();

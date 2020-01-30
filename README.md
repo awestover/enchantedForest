@@ -3,7 +3,10 @@
 
 ![Game Play Image](gameplayimg.png)
 
-This game gets its _roots_ (ahhhhhahaha) from anchient Norse Mythology. Maybe.
+This game gets its _roots_ from ancient Norse Mythology. Maybe.
+
+# Plot thoughts
+what if npcs are the teleporters? [[ note: this would make the code easier... like if we had npc bob, then it would always teleport to a certain room etc... ]]
 
 # Controls
 
@@ -16,16 +19,29 @@ This game gets its _roots_ (ahhhhhahaha) from anchient Norse Mythology. Maybe.
 
 # TODO
 
+## BUGS
+if your screen is too small because e.g. you have dev console open, then the dialogue box gets pushed down...
+
+## Both
+make some standards that we are going to impose to make everything nice and stuff
+
+e.g. file naming conventions ....
+
 ## Alek
+rn
+- mana bubble
+- gain xp for mob kills
+
+later
 - design a cool map
 - fix loading screen and stuff
 - fix the fact that js is async :(
-- make a json for mobs (stats, file names...)
-- make a json for npcs
+
 - fix teleportation (the teleport thing needs to say where is teleports you to...)
-- gain xp for mob kills
+
 - fix collision detection:
 -   for npcs (if you get kinda close it flashes)
+
 - fix anything else stupid that I did
 - code cleanup
 - increase encapsulation
@@ -40,7 +56,7 @@ This game gets its _roots_ (ahhhhhahaha) from anchient Norse Mythology. Maybe.
 - movement
   * teleportation
 
-## Up for grabs
+## Up for grabs MISC
 - notification system (e.g. for levelups)  (notify.js??)
 - movement
   * dashing

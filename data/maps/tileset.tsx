@@ -45,7 +45,7 @@
  </tile>
  <tile id="7">
   <properties>
-   <property name="name" value="npc:dog"/>
+   <property name="name" value="npc:dawg"/>
   </properties>
   <image width="32" height="32" source="gimpTiles/dogProfilePic.png"/>
  </tile>
@@ -57,7 +57,7 @@
  </tile>
  <tile id="9">
   <properties>
-   <property name="name" value="mob:dino"/>
+   <property name="name" value="mob:jumpydude"/>
   </properties>
   <image width="32" height="32" source="gimpTiles/mobSpawnPoint.png"/>
  </tile>
