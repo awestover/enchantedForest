@@ -50,11 +50,11 @@ class HUD {
 		text("You Lose", 0, 0);
 	}
 	showDialogueBox(npcName){
-		document.getElementById("dialogueImg").setAttribute("src","data/avatars/"+npcName+".png");
+		document.getElementById("dialogueImg").src = "data/avatars/"+npcName+".png";
 		document.getElementById("dialogueText").innerHTML = "DIS DE NPC DAWG<br> note: dialogue box should have a face in it,<br> the face of the npc..., <br>note: map.json contains the path to the npcs image...";
 	}
 	clearDialogueBox(){
-		document.getElementById("dialogueImg").setAttribute("src","data/avatars/empty.png");
+		document.getElementById("dialogueImg").src = "data/avatars/empty.png";
 		document.getElementById("dialogueText").innerHTML = "";
 	}
 
