@@ -26,8 +26,10 @@ let mobs = [], items = [];
 let stats = {
   "weapons": {},
   "items": {},
-  "mobs": {}
+  "mobs": {},
 }
+let quest_data = {};
+let npc_data = {};
 let ct = 0;
 let manaRegenFrames = 5;
 
@@ -99,6 +101,14 @@ function setup(){
   createCanvas(window.innerWidth, window.innerHeight);
 
   display.loadImgs();
+  init_toload.push("quests");
+  $.getJSON("data/quests.json", function(tmpdata){
+    quest_data = tmpdata;
+  });
+  init_toload.push("npcs");
+  $.getJSON("data/npcs.json", function(tmpdata){
+    npc_data = tmpdata;
+  });
   for(let i in stats){
     init_toload.push(i);
     $.getJSON(`data/stats/${i}.json`, function(tmpdata){
