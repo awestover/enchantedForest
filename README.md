@@ -28,14 +28,16 @@ what if npcs are the teleporters? [[ note: this would make the code easier... li
 - code cleanup [[e.g. increase encapsulation]]
 
 ## ALEK legit
-- quest completion
-- npcs can give quests
 
 ## KEVIN legit
 - HUD for quests
 - banner in center of screen
 - check for quest completion
 - is there lag [[[ yes there is lag, caused by HUD repeatedly requesting imgs, like 10 times per second. solution: kevin fix this...]]??
+- improve all the gui 
+- multiple quests at a time
+  -- need some hud interface thing to view the active quests and progress
+  -- need interface in npc dialogue boxes to accept and decline 
 
 # BIGGGG GOALS
 - quests
@@ -45,29 +47,11 @@ what if npcs are the teleporters? [[ note: this would make the code easier... li
 #### rn 
 
 #### later
-- quest system
 
-    make a file called quests.json
-quests have unique names/id
-
-unique npcs per room
-
-quests.json looks like
-
-
-multiple quests at a time
-  -- need some hud interface thing to view the active quests and progress
-  -- need interface in npc dialogue boxes to accept and decline 
-
-quest: gettingStarted
-
-
-player has some 
-  - quest arrow
-  - let npcs give characters items and money, and progress in quest
+- player has quest arrow
+- let npcs give characters items and money, and progress in quest
 
 - cool names
-
 - design a cool map
 
 - fix collision detection:
@@ -182,6 +166,7 @@ player has some
 ## json docs
 
 quest.json
+```
 [
 "gettingStarted": {
   "prereqs": [], // a list of quest ids (quest ids and quest names are the same)
@@ -189,19 +174,26 @@ quest.json
   "task": { // types of task: killing mobs, boss fights, collecting items, talking to npcs
     "type": "hunt", // hunt/boss/gather/talk
     "species": "ogre", // this depends on the thing 
-    "quantity": 10 // this depends on the thing 
+    "quantity": 10 // this depends on the thing , note: quantity is "1" for binary things, e.g. "talk to bob" YES ALL QUESTS MUST HAVE A quantity associated with them
   },
   "followups": ["quest2"]
 }
 ]
+```
 
+```
 {
 "startRoom": [
   {
-    "type": "dawg",
+    "name": "dawg",
     "proposeQuest": "gettingStarted",
     "dialogue": "heyo, im an npc"
   }
 ]
 }
+```
+
+## General advice: have exactly 1 name for everything
+The names in things like npcs.json instruct the program where to look for imgs. For example, if an image is named "dawg" in `npc.json` then it's image is at `data/avatars/dog.png` or something
+
 

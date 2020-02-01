@@ -25,7 +25,8 @@ class HUD {
       "Level: " + player.level,
       "XP: " + player.xp + " / " + levelupReqXP[player.level],
       "Coins: " + player.coins, 
-			"Mana: " + player.mana
+			"Mana: " + player.mana,
+      "Quests: "+ JSON.stringify(player.quests)
     ]
     for(let i=0; i < txtMsgs.length; i++){
       text(txtMsgs[i], -width/2 + 25, -height/2 + 100+ 25*i);
@@ -49,13 +50,21 @@ class HUD {
 		textSize(60);
 		text("You Lose", 0, 0);
 	}
-	showDialogueBox(npcName){
-		document.getElementById("dialogueImg").src = "data/avatars/"+npcName+".png";
-		document.getElementById("dialogueText").innerHTML = "DIS DE NPC DAWG<br> note: dialogue box should have a face in it,<br> the face of the npc..., <br>note: map.json contains the path to the npcs image...";
+	showDialogueBox(npcName, npcData){
+		$("#dialogueImg").attr("src", `data/avatars/${npcName}.png`);
+    let questDetails = JSON.stringify(quest_data[npcData.proposeQuest]); // make this nicer...
+    $("#npcName").text(npcName);
+    $("#npcDialogue").text(npcData.dialogue);
+    $("#npcQuest").text(npcData.proposeQuest);
+    $("#npcQuestDetails").text(questDetails);
+    $("#dialogueTextButton").attr("onclick", `player.assignQuest('${npcData.proposeQuest}')`);
+
+		$("#dialogueTextWrapper").css("display", "inline-block");
 	}
+
 	clearDialogueBox(){
 		document.getElementById("dialogueImg").src = "data/avatars/empty.png";
-		document.getElementById("dialogueText").innerHTML = "";
+		$("#dialogueTextWrapper").css("display", "none");
 	}
 
 	createInventory(itemType){

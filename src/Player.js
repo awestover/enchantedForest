@@ -1,5 +1,5 @@
 class Player extends Entity {
-  constructor(xPos, yPos){
+  constructor(xPos, yPos){ // TODO: eventually most of this data should be read in from a player.json file which stores the players progress...
     super(xPos, yPos);
     this.level = 0;
     this.xp = 0;
@@ -11,7 +11,27 @@ class Player extends Entity {
 		this.projectiles = [];
     this.items = []; // list of {"type": "XX", "quantity": x}
     this.quests = []; // ["gettingStarted", ... ]
+    this.questProgress = {}; // "gettingStarted": 5 (mobs killed / potions collected / whatever (if the quest has some numerical thing attached to it, otherwise make this binary))
+    this.completedQuests = [];
   }
+
+  assignQuest(quest){
+    if(!this.quests.includes(quest) && !this.completedQuests.includes(quest)){
+      for(let i in quest_data[quest].prereqs){
+        if(!this.completedQuests.includes(quest_data[quest].prereqs[i])){
+          $.notify("error, missing prereqs!")
+          return false; 
+        }
+      }
+      this.quests.push(quest);
+      $.notify(`new quest assigned! ${quest}`, "success");
+    }
+    else{
+      $.notify("You have already recieved this quest in the past!");
+      return false;
+    }
+  }
+
   render(){
     fill(0,255,0);
     rect(this.pos.x, this.pos.y, this.dims.x, this.dims.y);
@@ -21,13 +41,23 @@ class Player extends Entity {
       this.vel.mult(0);
   }
   levelup(){
+    this.xp -= levelupReqXP[this.level];
     this.level += 1;
-    this.xp = 0;
     this.coins += 1000;
   }
 
-  mobKillReward(mob_type){
+  handleMobKill(mob_type){
     this.xp += 10;
+    for(let i in this.quests){
+      if(quest_data[this.quests[i]].task.type == "hunt" && quest_data[this.quests[i]].task.species == mob_type){
+        if(this.questProgress.hasOwnProperty(this.quests[i])){ // NOTE: this is much nicer than try catch imo :)
+          this.questProgress[this.quests[i]] += 1;
+        }
+        else {
+          this.questProgress[this.quests[i]] = 1;
+        }
+      }
+    }
   }
 
 	repositionProjectile(xPos, type){
@@ -56,4 +86,21 @@ class Player extends Entity {
     this.items.push({"type": itemType, "quantity": 1});
 		display.createInventory(itemType);
   }
+
+  handleQuestCompletion(quest){
+    player.xp += quest_data[quest].rewards.xp;
+  }
+
+  checkForQuestCompletion(){
+    for(let i = this.quests.length-1; i >= 0; i--){
+      let quest_i = this.quests[i];
+      if(this.questProgress[quest_i] >= quest_data[quest_i].task.quantity){
+        $.notify(`quest complete!! ${quest_i}`, "success");
+        this.completedQuests.push(quest_i);
+        this.quests.splice(i,1);
+        this.handleQuestCompletion(quest_i);
+      }
+    }
+  }
+
 }

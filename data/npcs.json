@@ -1,9 +1,8 @@
 {
-"startRoom": [
-  {
-    "type": "dawg",
-    "proposeQuest": "gettingStarted",
-    "dialogue": "heyo, im an npc"
+  "start": {
+    "dawg": {
+      "proposeQuest": "gettingStarted",
+      "dialogue": "heyo, im an npc"
+    }
   }
-]
 }

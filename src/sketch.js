@@ -3,14 +3,22 @@ const gravity = 0.2;
 const friction = 0.03;
 const moveAccel = 0.3;
 const jumpImpulse = 7;
-const maxVel = new p5.Vector(2.5, jumpImpulse);
+// const maxVel = new p5.Vector(2.5, jumpImpulse);
+const maxVel = new p5.Vector(10, jumpImpulse); // for testing
 const cameraSpeed = 1.2;
 const cameraSeekThresh = cameraSpeed * 15;
 const cameraUnseekThresh = cameraSpeed;
 const collisionTollerence = 0.0001;
-const levelupReqXP = [100, 1000, 2000, 4000];
+const levelupReqXP = [
+  100, 1000, 2000, 4000,4010,4020,
+  4030,4040,4050,4060,4070,4080,4090,4100,
+  4030,4040,4050,4060,4070,4080,4090,4100,
+  4030,4040,4050,4060,4070,4080,4090,4100,
+  4030,4040,4050,4060,4070,4080,4090,4100
+];
 
 let roomImage;
+let currentRoom = "start";
 let data;
 let cameraSeeking = false, lost = false;
 const TILE_TYPES = ["mob", "npc", "item"];
@@ -26,14 +34,14 @@ let mobs = [], items = [];
 let stats = {
   "weapons": {},
   "items": {},
-  "mobs": {},
+  "mobs": {}
 }
 let quest_data = {};
 let npc_data = {};
 let ct = 0;
 let manaRegenFrames = 5;
 
-let wasShowingDialogueBox = false;
+let lastDialogueBoxToShow = null;
 
 // this makes sure that we load the "asset" jsons before trying to load the world 
 let init_toload = []; // names of jsons e.g. "map" (don't give the .json, or the prefix)
@@ -45,6 +53,7 @@ const bgColorOptions = ["#e6194B", "#3cb44b", "#ffe119", "#4363d8", "#f58231", "
 let bgColor = bgColorOptions[Math.floor(Math.random()*bgColorOptions.length)];
 
 function loadRoom(roomName){
+  currentRoom = roomName;
   loadingRoom = true;
   data = null;
   mobs = [];
@@ -96,6 +105,18 @@ function loadRoom(roomName){
   });
 }
 
+function removeElts(arr, elt){
+  for(let i = arr.length-1; i >= 0; i--){
+    if(arr[i] === elt){
+      arr.splice(i, 1);
+    }
+  }
+}
+
+String.prototype.chopPrefix = function(prefix){
+  return this.substr(this.indexOf(prefix)+prefix.length);
+}
+
 
 function setup(){
   createCanvas(window.innerWidth, window.innerHeight);
@@ -104,10 +125,12 @@ function setup(){
   init_toload.push("quests");
   $.getJSON("data/quests.json", function(tmpdata){
     quest_data = tmpdata;
+    removeElts(init_toload, "quests");
   });
   init_toload.push("npcs");
   $.getJSON("data/npcs.json", function(tmpdata){
     npc_data = tmpdata;
+    removeElts(init_toload, "npcs");
   });
   for(let i in stats){
     init_toload.push(i);
@@ -119,13 +142,12 @@ function setup(){
           stats[i][thing].imgs.push(loadImage(stats[i][thing].imgPaths[path]));
         }
       }
-      init_toload.splice(init_toload.indexOf(i), 1);
+      removeElts(init_toload, i);
     });
   }
 
   // all shapes must be specified as (x,y,w,h) [[yay symmetry]]
   // note: for even more symmetry, I'm having 0,0 be the center of everything. woohoo
-  // note: you only really have to worry about this at first, after a while you barely will touch it (I think...) -Alek
   rectMode(CENTER);
   imageMode(CENTER);
   ellipseMode(CENTER);
@@ -195,6 +217,7 @@ function draw(){
     translate(-cameraPos.x, -cameraPos.y);
     image(roomImage, 0, 0, blockSize*mapTileDims.x, blockSize*mapTileDims.y);
     player.render();
+    player.checkForQuestCompletion();
 
     for(let i = player.projectiles.length-1; i>=0; i--){
       let proji = player.projectiles[i];
@@ -208,7 +231,7 @@ function draw(){
           if(proji.hitRect(mobs[j].pos, mobs[j].dims)){
             mobs[j].lives -= 2;
             if(mobs[j].lives <= 0){
-              player.mobKillReward(mobs[j].type); // really just add a field to the json for this...
+              player.handleMobKill(mobs[j].type); // really just add a field to the json for this...
             }
             proji.exist = false;
             break;
@@ -264,7 +287,7 @@ function draw(){
       }
     }
 
-    let showDialogueBox = false;
+    let dialogueBoxToShow = null; // this will turn into e.g. 'dawg' if we are on a dawg
 
     let boundingTiles = player.gridBoundingBox();
     for(let i in boundingTiles){
@@ -272,8 +295,9 @@ function draw(){
       let y = boundingTiles[i].y;
       if(data.layers.npcs[y][x] != TILE_NAMES_TO_IDS["empty"]){
         if(player.hitBlock(x, y)){
-          if(TILE_TYPE_TO_NAMES["npc"].includes(TILE_IDS_TO_NAMES[data.layers.npcs[y][x]])){
-            showDialogueBox = true;
+          let blockName = TILE_IDS_TO_NAMES[data.layers.npcs[y][x]];
+          if(TILE_TYPE_TO_NAMES["npc"].includes(blockName)){
+            dialogueBoxToShow = blockName.chopPrefix("npc:");
           }
           else if(data.layers.npcs[y][x] == TILE_NAMES_TO_IDS["teleporter"]){
             // this is not scalable, think of a better solution!!! probably something like teleporter:alpha|beta
@@ -304,12 +328,18 @@ function draw(){
     if (lost)
 			display.showLoseScreen();
 
-    if(wasShowingDialogueBox != showDialogueBox){
-      wasShowingDialogueBox = showDialogueBox;
-      if (showDialogueBox) 
-        display.showDialogueBox("dog");
-      else
+    if(lastDialogueBoxToShow != dialogueBoxToShow){
+      lastDialogueBoxToShow = dialogueBoxToShow;
+      if (dialogueBoxToShow === null) {
         display.clearDialogueBox();
+      }
+      else{
+        try {
+          display.showDialogueBox(dialogueBoxToShow, npc_data[currentRoom][dialogueBoxToShow]);
+        } catch (e) {
+          display.showDialogueBox(dialogueBoxToShow, {});
+        }
+      }
     }
 
     display.render();
@@ -321,7 +351,7 @@ function draw(){
     text("LOADING", 0, 0);
     if(!triggered_initial_room_load && init_toload.length == 0){
       triggered_initial_room_load = true;
-      loadRoom("start");
+      loadRoom(currentRoom);
     }
   }
 
