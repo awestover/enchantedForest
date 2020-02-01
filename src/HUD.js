@@ -94,4 +94,13 @@ class HUD {
 		let idName = itemType+"InventoryCellText";
 		document.getElementById(idName).childNodes[0].nodeValue = itemQuantity.toString();
 	}
+
+	addQuest(quest){
+		let questList = document.getElementById("questList");
+		let li = document.createElement("li");
+		let text = document.createTextNode(quest);
+		li.appendChild(text);
+		questList.appendChild(li);
+	}
+
 }
