@@ -26,7 +26,6 @@ class HUD {
       "XP: " + player.xp + " / " + levelupReqXP[player.level],
       "Coins: " + player.coins, 
 			"Mana: " + player.mana,
-      "Quests: "+ JSON.stringify(player.quests)
     ]
     for(let i=0; i < txtMsgs.length; i++){
       text(txtMsgs[i], -width/2 + 25, -height/2 + 100+ 25*i);
@@ -89,18 +88,27 @@ class HUD {
 
 		cell.appendChild(img);
 		cell.appendChild(div);
+
+		$.notify(`item \"${itemType}\" acquired!`, "success");
 	}
 	incrementInventory(itemType, itemQuantity){
 		let idName = itemType+"InventoryCellText";
 		document.getElementById(idName).childNodes[0].nodeValue = itemQuantity.toString();
+
+		$.notify(`item \"${itemType}\" acquired!`, "success");
 	}
 
 	addQuest(quest){
 		let questList = document.getElementById("questList");
 		let li = document.createElement("li");
+		li.id = quest+"List";
 		let text = document.createTextNode(quest);
 		li.appendChild(text);
 		questList.appendChild(li);
+	}
+
+	removeQuest(quest){
+		document.getElementById(quest+"List").remove();
 	}
 
 }

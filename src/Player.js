@@ -25,7 +25,7 @@ class Player extends Entity {
       }
       this.quests.push(quest);
 			display.addQuest(quest);
-      $.notify(`new quest assigned! ${quest}`, "success");
+      $.notify(`new quest ${quest} assigned!`, "success");
     }
     else{
       $.notify("You have already recieved this quest in the past!");
@@ -50,12 +50,13 @@ class Player extends Entity {
   handleMobKill(mob_type){
     this.xp += 10;
     for(let i in this.quests){
-      if(quest_data[this.quests[i]].task.type == "hunt" && quest_data[this.quests[i]].task.species == mob_type){
-        if(this.questProgress.hasOwnProperty(this.quests[i])){ // NOTE: this is much nicer than try catch imo :)
-          this.questProgress[this.quests[i]] += 1;
+			let questName = this.quests[i];
+      if(quest_data[questName].task.type == "hunt" && quest_data[questName].task.species == mob_type){
+        if(this.questProgress.hasOwnProperty(questName)){ // NOTE: this is much nicer than try catch imo :)
+          this.questProgress[questName] += 1;
         }
         else {
-          this.questProgress[this.quests[i]] = 1;
+          this.questProgress[questName] = 1;
         }
       }
     }
@@ -90,13 +91,14 @@ class Player extends Entity {
 
   handleQuestCompletion(quest){
     player.xp += quest_data[quest].rewards.xp;
+		display.removeQuest(quest);
   }
 
   checkForQuestCompletion(){
     for(let i = this.quests.length-1; i >= 0; i--){
       let quest_i = this.quests[i];
       if(this.questProgress[quest_i] >= quest_data[quest_i].task.quantity){
-        $.notify(`quest complete!! ${quest_i}`, "success");
+        $.notify(`quest ${quest_i} complete!!`, "success");
         this.completedQuests.push(quest_i);
         this.quests.splice(i,1);
         this.handleQuestCompletion(quest_i);
