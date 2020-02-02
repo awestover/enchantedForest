@@ -30,6 +30,7 @@ let mapTileDims = new p5.Vector(0,0);
 let cameraPos = new p5.Vector(0,0);
 let player = new Player(0, +64);
 let display = new HUD();
+let dialogue = new Dialogue();
 let mobs = [], items = [];
 let stats = {
   "weapons": {},
@@ -173,7 +174,7 @@ function keyReleased() {
 	else if (keyCode === 67)	// c
 		player.coinshotAttack();
 	else if (keyCode === 13)	// enter
-		display.dialogueMontage();
+		dialogue.montage();
 }
 
 function blockCenter(x, y){
@@ -333,13 +334,13 @@ function draw(){
     if(lastDialogueBoxToShow != dialogueBoxToShow){
       lastDialogueBoxToShow = dialogueBoxToShow;
       if (dialogueBoxToShow === null) {
-        display.clearDialogueBox();
+        dialogue.clearBox();
       }
       else{
         try {
-          display.showDialogueBox(dialogueBoxToShow, npc_data[currentRoom][dialogueBoxToShow]);
+          dialogue.showBox(dialogueBoxToShow, npc_data[currentRoom][dialogueBoxToShow]);
         } catch (e) {
-          display.showDialogueBox(dialogueBoxToShow, {});
+          dialogue.showBox(dialogueBoxToShow, {});
         }
       }
     }
