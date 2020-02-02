@@ -30,14 +30,7 @@ what if npcs are the teleporters? [[ note: this would make the code easier... li
 ## ALEK legit
 
 ## KEVIN legit
-- HUD for quests
-- banner in center of screen
-- check for quest completion
-- is there lag [[[ yes there is lag, caused by HUD repeatedly requesting imgs, like 10 times per second. solution: kevin fix this...]]??
-- improve all the gui 
-- multiple quests at a time
-  -- need some hud interface thing to view the active quests and progress
-  -- need interface in npc dialogue boxes to accept and decline 
+- progress of ongoing quests (display details and requirements)
 
 # BIGGGG GOALS
 - quests

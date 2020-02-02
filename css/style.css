@@ -30,11 +30,6 @@ body {
 	width: 14vh;
 }
 
-#dialogueTextButton {
-  position: absolute; 
-  right: 0px;
-}
-
 #dialogueTextWrapper {
 	display: none; 
   width: 50vw;
@@ -146,5 +141,48 @@ body {
 	margin-top: 0.5em;
 
 	font-weight: bold;
+}
+
+#questBannerContainer {
+	margin-left: 25vw; 
+	margin-right: 25vw; 
+	margin-top: 30vh; 
+	margin-bottom: 40vh; 
+
+	height: 30vh;
+	width: 50vw;
+	overflow-y: scroll;
+	scrollbar-width: none; /* Firefox */
+	-ms-overflow-style: none;  /* Internet Explorer 10+ */
+
+
+	background-color: #00FFF2;
+	color: black;
+	border: 2px black solid;
+	border-radius: 0;
+	position: fixed;
+
+	font-size: 1em;
+	text-align: center;
+}
+
+#questBannerTitle {
+	font-size: 2em;
+	font-weight: bold;
+	margin-top: 5vh;
+	margin: 3vh;
+}
+
+#questBannerContainer::-webkit-scrollbar { /* WebKit */
+	width: 0;
+	height: 0;
+}
+
+.questBannerButton button {
+	border-radius: 5px;
+	border: none;
+	margin-top: 4vh;
+	background-color: black;
+	color: white;
 }
 

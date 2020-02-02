@@ -32,12 +32,12 @@ class HUD {
     }
     noFill();
     rect(-width/2+20, -height/2 + 100, 250, 25);
-    rect(-width/2+20, -height/2 + 125, 250, 25);
+    // rect(-width/2+20, -height/2 + 125, 250, 25);
     rect(-width/2+20, -height/2 + 150, 250, 25);
     fill(255,0,0,100);
     rect(-width/2+20, -height/2 + 100, 250*player.xp/levelupReqXP[player.level], 25);
-    fill(255,223,0,100);
-    rect(-width/2+20, -height/2 + 125, 250*player.coins/player.coincap, 25);
+    // fill(255,223,0,100);
+    // rect(-width/2+20, -height/2 + 125, 250*player.coins/player.coincap, 25);
     fill(0,0,255,100);
     rect(-width/2+20, -height/2 + 150, 250*player.mana/player.manacap, 25);
     pop();

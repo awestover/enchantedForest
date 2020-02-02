@@ -54,6 +54,7 @@ const bgColorOptions = ["#e6194B", "#3cb44b", "#ffe119", "#4363d8", "#f58231", "
 let bgColor = bgColorOptions[Math.floor(Math.random()*bgColorOptions.length)];
 
 function loadRoom(roomName){
+	$("#questBannerContainer").hide();
   currentRoom = roomName;
   loadingRoom = true;
   data = null;
