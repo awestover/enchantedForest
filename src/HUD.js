@@ -3,6 +3,10 @@ class HUD {
     this.imgs = {
       "hearts": null
     };
+		this.inDialogue = false;
+		this.dialogueIndex = 0;
+		this.npcName = "";
+		this.script = null;
   }
   loadImgs(){
     for(let img in this.imgs){
@@ -52,18 +56,57 @@ class HUD {
 	showDialogueBox(npcName, npcData){
 		$("#dialogueImg").attr("src", `data/avatars/${npcName}.png`);
     let questDetails = JSON.stringify(quest_data[npcData.proposeQuest]); // make this nicer...
-    $("#npcName").text(npcName);
-    $("#npcDialogue").text(npcData.dialogue);
-    $("#npcQuest").text(npcData.proposeQuest);
-    $("#npcQuestDetails").text(questDetails);
-    $("#dialogueTextButton").attr("onclick", `player.assignQuest('${npcData.proposeQuest}')`);
+		
+		this.inDialogue = true;
+		this.dialogueIndex = 0;
+		this.npcName = npcName;
+		this.script = this.spliceScript(npcName + ": " + npcData.dialogue);
+		// this.script = this.spliceScript("012345 01234567 789a abcd f e");		// Testing
 
+		this.dialogueMontage();
+    // $("#npcQuest").text(npcData.proposeQuest);
+    // $("#npcQuestDetails").text(questDetails);
+    $("#dialogueTextButton").attr("onclick", `player.assignQuest('${npcData.proposeQuest}')`);
 		$("#dialogueTextWrapper").css("display", "inline-block");
+	}
+
+	spliceScript(fulltext){
+		let words = fulltext.split(" ");
+		let finaltext = [];
+		let currentLength = 0;
+		let maxLength = 15;
+		let tempstr = "";
+
+		for(let i = 0; i < words.length; i++){
+			if((currentLength + words[i].length + 1) > maxLength){
+				finaltext.push(JSON.parse(JSON.stringify(tempstr)));
+				tempstr = "";
+				currentLength = 0;
+			}
+			tempstr += (words[i] + " ");
+			currentLength += (words[i].length + 1);
+		}
+		finaltext.push(JSON.parse(JSON.stringify(tempstr)));
+		return finaltext;
+	}
+
+	dialogueMontage(){
+		if(!this.inDialogue)
+			return;
+    $("#dialogueText").text(this.script[this.dialogueIndex]);
+		this.dialogueIndex++;
+
+		// Optional
+		// if(this.dialogueIndex > this.script.length){		// End of dialogue
+		//   // show banner?
+		//   this.clearDialogueBox();
+		// }
 	}
 
 	clearDialogueBox(){
 		document.getElementById("dialogueImg").src = "data/avatars/empty.png";
 		$("#dialogueTextWrapper").css("display", "none");
+		this.inDialogue = false;
 	}
 
 	createInventory(itemType){

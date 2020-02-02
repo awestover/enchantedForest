@@ -172,6 +172,8 @@ function keyReleased() {
 		player.fireballAttack();
 	else if (keyCode === 67)	// c
 		player.coinshotAttack();
+	else if (keyCode === 13)	// enter
+		display.dialogueMontage();
 }
 
 function blockCenter(x, y){
