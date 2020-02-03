@@ -31,9 +31,6 @@ what if npcs are the teleporters? [[ note: this would make the code easier... li
 
 - design a cool map [[ 3 rooms ]]
 
-- let npcs give characters items and money
-    * note: to do this you wanna add an entry to npcs.json...
-
 - mob types:
     - damage on impact
     - projectile mobs
@@ -42,13 +39,12 @@ what if npcs are the teleporters? [[ note: this would make the code easier... li
 - fix collision detection:
   - for npcs (if you get kinda close it flashes)
 
-- Kill mobs that fall off the screen
 - do AI stuff
 
 ## KEVIN legit
 - SPRITE SHEEETS
 
-## KEVIN prime legit
+- pressing enter on the merchant doesn't do the same thing as pressing the button, in particular, if you press enter on accept, then it doesn't go away!
 - progress of ongoing quests (display details and requirements)
 - items
   - should have info stuff appear in HUD about what the items do

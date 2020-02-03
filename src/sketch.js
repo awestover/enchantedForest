@@ -1,10 +1,10 @@
 const blockSize = 32;
 const gravity = 0.2;
-const friction = 0.03;
+const friction = 0.06;
 const moveAccel = 0.3;
 const jumpImpulse = 7;
 // const maxVel = new p5.Vector(2.5, jumpImpulse);
-const maxVel = new p5.Vector(5, jumpImpulse); // for testing
+const maxVel = new p5.Vector(3, jumpImpulse); // for testing
 const cameraSpeed = 1.2;
 const cameraSeekThresh = cameraSpeed * 15;
 const cameraUnseekThresh = cameraSpeed;
@@ -285,6 +285,9 @@ function draw(){
         // I guess I should really do a hybrid of seeking and random motion based on players position?
         mobs[i].handleMapCollisions();
         mobs[i].update();
+        if(mobs[i].pos.y > blockSize*mapTileDims.y/2){
+          mobs[i].lives = 0;
+        }
       }
       else{
         mobs.splice(i, 1);
