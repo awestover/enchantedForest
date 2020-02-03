@@ -151,6 +151,23 @@ class Entity {
     return tiles;
   }
 
+  beefyGridBoundingBox(){
+    let gx = Math.round(this.pos.x / blockSize + mapTileDims.x/2);
+    let gy = Math.round(this.pos.y / blockSize + mapTileDims.y/2);
+    let tiles = [];
+    for (let dx = -2; dx <= 2; dx++){
+      if(gx+dx >= 0 && gx + dx < mapTileDims.x){
+        for (let dy = -3; dy <= 3; dy++){
+          if(gy+dy >= 0 && gy + dy < mapTileDims.y){
+            tiles.push({"x": gx+dx, "y": gy+dy});
+          }
+        }
+      }
+    }
+    return tiles;
+  }
+
+
   offTheGrid(){
     let extraTolerance = 5;
     return (this.pos.x - this.dims.x*extraTolerance > mapTileDims.x*blockSize/2 || 

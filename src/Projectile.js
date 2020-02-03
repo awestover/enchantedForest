@@ -14,7 +14,7 @@ class Projectile extends Entity{
 		this.imgs = [stats.weapons[type].imgs[imgIndex]];
 		this.size = stats.weapons[type].size;
 
-    this.vel = new p5.Vector(stats.weapons[type]["velocity"], 0);
+    this.vel = new p5.Vector(stats.weapons[type]["velocity"]*this.dir, 0);
     this.dims = new p5.Vector(blockSize*this.size, blockSize*this.size);
 		this.lives = -1;
 		player.mana -= stats.weapons[type]["manaCost"];
@@ -23,10 +23,6 @@ class Projectile extends Entity{
   update(){
     this.pos.x += this.vel.x;
     this.pos.y += this.vel.y;
-		if(this.vel.x > 0)
-			this.vel.x = this.dir * Math.max(0, this.vel.x - friction);
-		else if(this.vel.x < 0)
-			this.vel.x = Math.min(0, this.vel.x + friction);
   }
 
 	handleMapCollisions(){

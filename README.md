@@ -31,9 +31,6 @@ what if npcs are the teleporters? [[ note: this would make the code easier... li
 
 - design a cool map [[ 3 rooms ]]
 
-- fix collision detection:
-  - for npcs (if you get kinda close it flashes)
-
 - do AI stuff
 
 ## KEVIN legit
@@ -106,6 +103,11 @@ what if npcs are the teleporters? [[ note: this would make the code easier... li
 - mobs dropping loot
 
 # Done 
+
+Feb 3
+- fix collision detection:
+  - for npcs (if you get kinda close it flashes)
+
 1/27/2020
 - basic dialogue box system
 - Inventory system

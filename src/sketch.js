@@ -43,6 +43,7 @@ let ct = 0;
 let manaRegenFrames = 5;
 
 let lastDialogueBoxToShow = null;
+const npcCollisionTolerence = 1.5;
 
 // this makes sure that we load the "asset" jsons before trying to load the world 
 let init_toload = []; // names of jsons e.g. "map" (don't give the .json, or the prefix)
@@ -223,27 +224,26 @@ function draw(){
     player.checkForQuestCompletion();
 
     for(let i = player.projectiles.length-1; i>=0; i--){
-      let proji = player.projectiles[i];
-      if(!proji.exist){
+      if(!player.projectiles[i].exist){
         player.projectiles.splice(i, 1);
       }
       else{
-        proji.render();
-        proji.update();
+        player.projectiles[i].render();
+        player.projectiles[i].update();
         for (let j in mobs){
-          if(proji.hitRect(mobs[j].pos, mobs[j].dims)){
+          if(player.projectiles[i].hitRect(mobs[j].pos, mobs[j].dims)){
             mobs[j].lives -= 2;
             if(mobs[j].lives <= 0){
               player.handleMobKill(mobs[j].type); // really just add a field to the json for this...
             }
-            proji.exist = false;
+            player.projectiles[i].exist = false;
             break;
           }
         }
-        if(proji.exist){
-          if(proji.handleMapCollisions()) { // kill the projectile if it hits a wall, if it still exists continue
-            if(proji.offTheGrid()){
-              proji.exist = false;
+        if(player.projectiles[i].exist){
+          if(player.projectiles[i].handleMapCollisions()) { // kill the projectile if it hits a wall, if it still exists continue
+            if(player.projectiles[i].offTheGrid()){
+              player.projectiles[i].exist = false;
             }
           }
         }
@@ -304,16 +304,26 @@ function draw(){
     let dialogueBoxToShow = null; // this will turn into e.g. 'dawg' if we are on a dawg
 
     let boundingTiles = player.gridBoundingBox();
+    let beefyBoundingTiles = player.beefyGridBoundingBox(); 
+
+    for(let i in beefyBoundingTiles){
+      let x = beefyBoundingTiles[i].x;
+      let y = beefyBoundingTiles[i].y;
+      if(data.layers.npcs[y][x] != TILE_NAMES_TO_IDS["empty"]){
+        if(player.hitRect(blockCenter(x, y), createVector(npcCollisionTolerence*blockSize, npcCollisionTolerence*blockSize))){
+          let blockName = TILE_IDS_TO_NAMES[data.layers.npcs[y][x]];
+          if(TILE_TYPE_TO_NAMES["npc"].includes(blockName)){
+            dialogueBoxToShow = blockName.chopPrefix("npc:");
+          }
+        }
+      }
+    }
     for(let i in boundingTiles){
       let x = boundingTiles[i].x;
       let y = boundingTiles[i].y;
       if(data.layers.npcs[y][x] != TILE_NAMES_TO_IDS["empty"]){
         if(player.hitBlock(x, y)){
-          let blockName = TILE_IDS_TO_NAMES[data.layers.npcs[y][x]];
-          if(TILE_TYPE_TO_NAMES["npc"].includes(blockName)){
-            dialogueBoxToShow = blockName.chopPrefix("npc:");
-          }
-          else if(data.layers.npcs[y][x] == TILE_NAMES_TO_IDS["teleporter"]){
+          if(data.layers.npcs[y][x] == TILE_NAMES_TO_IDS["teleporter"]){
             // this is not scalable, think of a better solution!!! probably something like teleporter:alpha|beta
             loadRoom("alpha");
             return;
