@@ -4,7 +4,7 @@ const friction = 0.03;
 const moveAccel = 0.3;
 const jumpImpulse = 7;
 // const maxVel = new p5.Vector(2.5, jumpImpulse);
-const maxVel = new p5.Vector(10, jumpImpulse); // for testing
+const maxVel = new p5.Vector(5, jumpImpulse); // for testing
 const cameraSpeed = 1.2;
 const cameraSeekThresh = cameraSpeed * 15;
 const cameraUnseekThresh = cameraSpeed;
@@ -267,7 +267,7 @@ function draw(){
         // dumb seeking
         // mobs[i].vel.x = Math.sign(player.pos.x - mobs[i].pos.x)*maxVel.x;
         // randomly move
-        if(Math.random() < 0.05)
+        if(Math.random() < 0.0005)
           mobs[i].jump();
         if(Math.random() < 0.1){
           if(mobs[i].vel.x != 0){

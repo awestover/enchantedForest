@@ -29,7 +29,7 @@ what if npcs are the teleporters? [[ note: this would make the code easier... li
 
 ## ALEK legit
 
-- design a cool map
+- design a cool map [[ 3 rooms ]]
 
 - let npcs give characters items and money
     * note: to do this you wanna add an entry to npcs.json...
