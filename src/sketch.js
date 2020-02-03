@@ -119,7 +119,6 @@ String.prototype.chopPrefix = function(prefix){
   return this.substr(this.indexOf(prefix)+prefix.length);
 }
 
-
 function setup(){
   createCanvas(window.innerWidth, window.innerHeight);
 
@@ -264,6 +263,14 @@ function draw(){
       if(mobs[i].lives > 0){
         mobs[i].render();
 
+        // TEMPORARY: impact mobs (all mobs)
+        if(mobs[i].hitRect(player.pos, player.dims)){
+          if(Math.random() < 0.005){
+            $.notify("You've been badly wounded by an impact mob :P");
+            player.lives -= 1;
+          }
+        }
+
         // dumb seeking
         // mobs[i].vel.x = Math.sign(player.pos.x - mobs[i].pos.x)*maxVel.x;
         // randomly move
@@ -321,9 +328,9 @@ function draw(){
     if(player.pos.y > blockSize*mapTileDims.y/2){
       player.lives -= 1;
       player.spawn();
-      if(player.lives <= 0)
-        lost = true;
     }
+    if(player.lives <= 0)
+      lost = true;
     if(player.xp >= levelupReqXP[player.level]){
       player.levelup();
     }

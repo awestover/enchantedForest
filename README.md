@@ -31,11 +31,6 @@ what if npcs are the teleporters? [[ note: this would make the code easier... li
 
 - design a cool map [[ 3 rooms ]]
 
-- mob types:
-    - damage on impact
-    - projectile mobs
-    - boss mobs
-
 - fix collision detection:
   - for npcs (if you get kinda close it flashes)
 
@@ -59,6 +54,11 @@ what if npcs are the teleporters? [[ note: this would make the code easier... li
 
 
 ## Alek
+
+- mob types:
+    - damage on impact
+    - projectile mobs
+    - boss mobs
 
 - player has quest arrow
 - cool names
