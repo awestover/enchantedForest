@@ -144,6 +144,7 @@ body {
 }
 
 #questBannerContainer {
+  display: none;
 	margin-left: 25vw; 
 	margin-right: 25vw; 
 	margin-top: 30vh; 

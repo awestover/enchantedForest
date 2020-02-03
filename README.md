@@ -29,33 +29,45 @@ what if npcs are the teleporters? [[ note: this would make the code easier... li
 
 ## ALEK legit
 
-## KEVIN legit
-- progress of ongoing quests (display details and requirements)
-
-# BIGGGG GOALS
-- quests
-- save progress
-
-## Alek
-#### rn 
-
-#### later
-
-- player has quest arrow
-- let npcs give characters items and money, and progress in quest
-
-- cool names
 - design a cool map
 
-- fix collision detection:
--   for npcs (if you get kinda close it flashes)
-
-- fix teleportation system (the teleport thing needs to say where is teleports you to...)
+- let npcs give characters items and money
+    * note: to do this you wanna add an entry to npcs.json...
 
 - mob types:
     - damage on impact
     - projectile mobs
     - boss mobs
+
+- fix collision detection:
+  - for npcs (if you get kinda close it flashes)
+
+- Kill mobs that fall off the screen
+- do AI stuff
+
+## KEVIN legit
+- SPRITE SHEEETS
+
+## KEVIN prime legit
+- progress of ongoing quests (display details and requirements)
+- items
+  - should have info stuff appear in HUD about what the items do
+  - should be able to use the items
+- stats system 
+    -   on levelup and stuff you can upgrade stats
+    -   e.g. you can boost speed, strength, etc
+- save progress
+  - literally just JSON.stringify(player)
+  - put it on local computer for now :(
+  - load it up with a `$.getJSON`
+
+
+## Alek
+
+- player has quest arrow
+- cool names
+
+- fix teleportation system (the teleport thing needs to say where is teleports you to...)
 
 
 ## Kevin
@@ -71,13 +83,12 @@ what if npcs are the teleporters? [[ note: this would make the code easier... li
   * teleportation
 
 ## Up for grabs MISC
+- mobs walk on walls
 - smiths / scrolls / other npcs  to update weapons 
-- HUD shows weapons OR blah OR etc
 - weapon and armor system
   -   update weapons.json
   -   hud stuff
 - check for screen resize, then resize canvas
-- notification system (e.g. for levelups)  (notify.js??)
 - movement
   * dashing
   * markers 
@@ -86,11 +97,7 @@ what if npcs are the teleporters? [[ note: this would make the code easier... li
 - support
   * shields
   * healing
-- game interface
-  * mana change to depleting bar instead of numbers
-  * level-up system [[quests and mob fights should give XP towards leveling up, level ups should unlock upgrades and stuff, probably also give cash reward]]
   * upgrades
-  * dialogue boxes
   * inventory system
       * talismans
       * money

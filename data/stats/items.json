@@ -1,11 +1,14 @@
 {
   "dragonInsignia": {
-    "imgPaths": ["data/items/dragoninsignia.png"]
+    "imgPaths": ["data/items/dragoninsignia.png"],
+    "lives": 100
   },
   "gem": {
-    "imgPaths": ["data/items/gem.png"]
+    "imgPaths": ["data/items/gem.png"],
+    "lives": 10
   },
   "potion": {
-    "imgPaths": ["data/items/potion.png"]
+    "imgPaths": ["data/items/potion.png"],
+    "lives": 1
   }
 }
