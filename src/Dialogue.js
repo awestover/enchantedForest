@@ -9,6 +9,8 @@ class Dialogue { // TODO: should maybe have different types of dialogue (e.g. tr
 
     this.trade = null;
 		this.script = null;
+
+		this.shouldDisplayBanner = false;
   }
 
 	displayTradeBanner(){ // TODO: change the name of the banner stuff so that it's not just for quests
@@ -60,6 +62,7 @@ class Dialogue { // TODO: should maybe have different types of dialogue (e.g. tr
       $("#questBannerDeclineButton").attr("onclick", `dialogue.hideQuestBanner();`);
     }
     else if(this.trade !== null){
+			this.shouldDisplayBanner = true;
       $("#questBannerAcceptButton").attr("onclick", `dialogue.performTrade(${JSON.stringify(npcData.proposeTrade)}); dialogue.hideQuestBanner();`);
       $("#questBannerDeclineButton").attr("onclick", `dialogue.hideQuestBanner();`);
     }
@@ -110,8 +113,9 @@ class Dialogue { // TODO: should maybe have different types of dialogue (e.g. tr
           this.displayQuestBanner();
         }
       }
-      else if(this.trade !== null){
+      else if(this.trade !== null && this.shouldDisplayBanner){
         this.displayTradeBanner();
+				this.shouldDisplayBanner = false;
       }
 		}
 	}
