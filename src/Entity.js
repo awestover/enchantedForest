@@ -10,6 +10,13 @@ class Entity {
     this.imgframe = 0;
   }
 
+  superjump(){
+    if (!this.falling){ 
+      this.vel.y -= 2*jumpImpulse;
+      this.falling = true;
+    }
+  }
+
   jump(){
     if (!this.falling){ 
       this.vel.y -= jumpImpulse;

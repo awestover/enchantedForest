@@ -5,7 +5,8 @@ const moveAccel = 0.3;
 const jumpImpulse = 7;
 // const maxVel = new p5.Vector(2.5, jumpImpulse);
 const maxVel = new p5.Vector(3, jumpImpulse); // for testing
-const cameraSpeed = 1.2;
+// const cameraSpeed = 1.2;
+const cameraSpeed = maxVel.x; // for testing
 const cameraSeekThresh = cameraSpeed * 15;
 const cameraUnseekThresh = cameraSpeed;
 const collisionTollerence = 0.0001;
@@ -165,6 +166,8 @@ function checkKeys() {
     player.vel.x = Math.min(player.vel.x+moveAccel, maxVel.x);
 		player.lastDir = 1;
 	}
+  if(keyIsDown(87) || keyIsDown(38)) // W / UP
+    player.superjump();
   if (keyIsDown(32))	// space
     player.jump();
 }

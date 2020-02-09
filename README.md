@@ -23,17 +23,20 @@ what if npcs are the teleporters? [[ note: this would make the code easier... li
 - if your screen is too small because e.g. you have dev console open, then the dialogue box gets pushed down...
 - mobs dont die if they fall off screen
 - lag??
+-
+- don't delete items on room change
 
 ## Both
 - code cleanup [[e.g. increase encapsulation]]
 
 ## ALEK legit
 
-- design a cool map [[ 3 rooms ]]
-
 - do AI stuff
   - flying swarm behavior
   - queen in the center, if queen struck down everything dies
+  - bats!
+- do sprites.json (add the unicorn)
+  - you can specify custom dimensions, number of frames, and collision boxes for all sprites
 
 ## KEVIN legit
 - SPRITE SHEEETS

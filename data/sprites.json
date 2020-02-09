@@ -1,0 +1,7 @@
+{
+  "jumpydude": {
+    "frames": [1,1],
+    "collision_offset": [0,0],
+    "collision_dims": [32,32]
+  }
+}
