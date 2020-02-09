@@ -32,11 +32,12 @@ what if npcs are the teleporters? [[ note: this would make the code easier... li
 - design a cool map [[ 3 rooms ]]
 
 - do AI stuff
+  - flying swarm behavior
+  - queen in the center, if queen struck down everything dies
 
 ## KEVIN legit
 - SPRITE SHEEETS
 
-- pressing enter on the merchant doesn't do the same thing as pressing the button, in particular, if you press enter on accept, then it doesn't go away!
 - progress of ongoing quests (display details and requirements)
 - items
   - should have info stuff appear in HUD about what the items do
@@ -64,7 +65,7 @@ what if npcs are the teleporters? [[ note: this would make the code easier... li
 
 
 ## Kevin
-- cleam up inventory system
+- clean up inventory system
 - item usage e.g. onclick for potion -> mana
 - concept art (sprite sheets 32x32 gimp)
 - dialogue boxes (GUI) ADD NEXT CONVO MECHANISM
@@ -194,4 +195,8 @@ quest.json
 ## General advice: have exactly 1 name for everything
 The names in things like npcs.json instruct the program where to look for imgs. For example, if an image is named "dawg" in `npc.json` then it's image is at `data/avatars/dog.png` or something
 
+## Interface schema
+Dialogue box has all the details, descriptions, etc (arrow keys to go through)
+  -options to set quick access
+Quick access displays clickable 10 items
 
