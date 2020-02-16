@@ -19,26 +19,37 @@
     <script src="src/Dialogue.js" charset="utf-8"></script>
     <script src="src/sketch.js" charset="utf-8"></script>
 
-	<div id="dialogueContainer" class="HUDContainer">
-		<img id="dialogueImg" src="data/avatars/empty.png">
-    <div id="dialogueTextWrapper">
-      <div id="dialogueText">
-        <p><emph id="npcName"> </emph></p>
-        <p><emph id="npcDialogue"> </emph></p>
-        <p><emph id="npcQuest"> </emph></p>
-        <p><emph id="npcQuestDetails"> </emph></p>
-      </div>
-    </div>
-	</div>
-
 	<div id="inventoryContainer" class="HUDContainer">
-		<table id="inventoryTable" class="inventoryCell"></table>
+
+		<img id="dialogueImg" src="data/avatars/empty.png">
+		<div id="dialougeContainer">
+			<div id="dialogueTextWrapper">
+				<div id="dialogueText">
+					<p><emph id="npcName"> </emph></p>
+					<p><emph id="npcDialogue"> </emph></p>
+				</div>
+			</div>
+		</div>
+
+		<div id="questContainer">
+			<div id="questTitle">Quests</div>
+			<ul id="questList">
+				<!-- <li> hai</li> -->
+				<!-- <li> hai</li> -->
+				<!-- <li> hai</li> -->
+				<!-- <li> hai</li> -->
+				<!-- <li> hai</li> -->
+				<!-- <li> hai</li> -->
+			</ul>
+		</div>
+
+
+		<div id="itemContainer">
+			<table id="itemTable" class="itemCell"></table>
+		</div>
+
 	</div>
 
-	<div id="questContainer" class="HUDContainer">
-		<div id="questTitle">Quests</div>
-		<ul id="questList"></ul>
-	</div>
 
 	<div id="questBannerContainer">
 		<div id="questBannerTitle"></div>

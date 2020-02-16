@@ -43,6 +43,8 @@ let npc_data = {};
 let ct = 0;
 let manaRegenFrames = 5;
 
+let inventoryList = [];
+
 let lastDialogueBoxToShow = null;
 const npcCollisionTolerence = 1.5;
 
@@ -155,6 +157,13 @@ function setup(){
   imageMode(CENTER);
   ellipseMode(CENTER);
   textAlign(CENTER);
+
+	inventoryList.push($("#itemContainer"));
+	inventoryList.push($("#questContainer"));
+
+	for (let inventoryElement in inventoryList)
+		inventoryList[inventoryElement].hide();
+	inventoryList[0].show();
 }
 
 function checkKeys() {
@@ -179,6 +188,11 @@ function keyReleased() {
 		player.coinshotAttack();
 	else if (keyCode === 13)	// enter
 		dialogue.montage();
+	else if (keyCode === 81)	// q
+		display.prevInventory();
+	else if (keyCode === 69)	// e
+		display.nextInventory();
+
 }
 
 function blockCenter(x, y){
@@ -362,9 +376,11 @@ function draw(){
       }
       else{
         try {
-          dialogue.showBox(dialogueBoxToShow, npc_data[currentRoom][dialogueBoxToShow]);
+					dialogue.npcName = dialogueBoxToShow;
+					dialogue.npcData = npc_data[currentRoom][dialogueBoxToShow];
         } catch (e) {
-          dialogue.showBox(dialogueBoxToShow, {});
+					dialogue.npcName = dialogueBoxToShow;
+					dialogue.npcData = {};
         }
       }
     }

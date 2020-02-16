@@ -36,34 +36,33 @@ class Dialogue { // TODO: should maybe have different types of dialogue (e.g. tr
 		document.getElementById("dialogueImg").src = "data/avatars/empty.png";
 		$("#dialogueTextWrapper").css("display", "none");
 		this.inDialogue = false;
+		inventoryList[display.currentInventoryIndex].show();
 	}
-	showBox(npcName, npcData){
-		$("#dialogueImg").attr("src", `data/avatars/${npcName}.png`);
+	showBox(){
+		inventoryList[display.currentInventoryIndex].hide();
+		$("#dialogueImg").attr("src", `data/avatars/${this.npcName}.png`);
 		// let questDetails = JSON.stringify(quest_data[npcData.proposeQuest]); // make this nicer...
 		
 		this.inDialogue = true;
 		this.dialogueIndex = 0;
-		this.npcName = npcName;
 
-		this.questName = npcData.proposeQuest || "";
+		this.questName = this.npcData.proposeQuest || "";
     if(this.questName.length > 0)
-      this.questDetails = {...quest_data[npcData.proposeQuest]};
+      this.questDetails = {...quest_data[this.npcData.proposeQuest]};
 
-    this.trade = npcData.proposeTrade;
+    this.trade = this.npcData.proposeTrade;
 
-		this.script = this.spliceScript(npcName + ": " + npcData.dialogue);
+		this.script = this.spliceScript(this.npcName + ": " + this.npcData.dialogue);
 		// this.script = this.spliceScript("012345 01234567 789a abcd f e");		// Testing
 
 		this.montage();
-		// $("#npcQuest").text(npcData.proposeQuest);
-    // $("#npcQuestDetails").text(questDetails);
     if(this.questName.length > 0){
-      $("#questBannerAcceptButton").attr("onclick", `player.assignQuest('${npcData.proposeQuest}'); dialogue.hideQuestBanner();`);
+      $("#questBannerAcceptButton").attr("onclick", `player.assignQuest('${this.npcData.proposeQuest}'); dialogue.hideQuestBanner();`);
       $("#questBannerDeclineButton").attr("onclick", `dialogue.hideQuestBanner();`);
     }
     else if(this.trade !== null){
 			this.shouldDisplayBanner = true;
-      $("#questBannerAcceptButton").attr("onclick", `dialogue.performTrade(${JSON.stringify(npcData.proposeTrade)}); dialogue.hideQuestBanner();`);
+      $("#questBannerAcceptButton").attr("onclick", `dialogue.performTrade(${JSON.stringify(this.npcData.proposeTrade)}); dialogue.hideQuestBanner();`);
       $("#questBannerDeclineButton").attr("onclick", `dialogue.hideQuestBanner();`);
     }
 		$("#dialogueTextWrapper").css("display", "inline-block");
@@ -100,8 +99,10 @@ class Dialogue { // TODO: should maybe have different types of dialogue (e.g. tr
   }
 
 	montage(){
-		if(!this.inDialogue)
+		if(!this.inDialogue){
+			this.showBox();
 			return;
+		}
     $("#dialogueText").text(this.script[this.dialogueIndex]);
 		this.dialogueIndex++;
 
