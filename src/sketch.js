@@ -376,9 +376,11 @@ function draw(){
       }
       else{
         try {
-          dialogue.showBox(dialogueBoxToShow, npc_data[currentRoom][dialogueBoxToShow]);
+					dialogue.npcName = dialogueBoxToShow;
+					dialogue.npcData = npc_data[currentRoom][dialogueBoxToShow];
         } catch (e) {
-          dialogue.showBox(dialogueBoxToShow, {});
+					dialogue.npcName = dialogueBoxToShow;
+					dialogue.npcData = {};
         }
       }
     }
