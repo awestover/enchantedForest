@@ -35,6 +35,7 @@ what if npcs are the teleporters? [[ note: this would make the code easier... li
   - bats!
 - do sprites.json (add the unicorn)
   - you can specify custom dimensions, number of frames, and collision boxes for all sprites
+- weather
 
 ## KEVIN legit
 - SPRITE SHEEETS
@@ -209,4 +210,105 @@ quest.json
 ## General advice: have exactly 1 name for everything
 The names in things like npcs.json instruct the program where to look for imgs. For example, if an image is named "dawg" in `npc.json` then it's image is at `data/avatars/dog.png` or something
 
+## Namey things & Plot
+  | Game           |                |
+  | Money          | Coppola        |
+  | Dead companion | Bucky/Buchanan |
+  | Protagonist    | Bob            |
+  | World          | Noobie Land    |
+  | Dragon         | Malimost       |
+  | Magic source   | The Levant     |
+  | Magic system   | Levancy        |
+  | Magic users    | Levanters      |
+
+  Overall plot: 
+
+  Bob, the weary traveller, discovers his magic capabilities for the first time. 
+  Kelsier mentors him on learning his abilities. 
+  A dragon, Malimost burns down Bob's village. 
+  Buchanan "dies". jumpydude comes in as replacement companion. 
+  Bob ventures into the dragon's homeland and seeks revenge. 
+
+  Sketchy npc makes you massacre an entire village 
+  Murders Malimost, becomes the dragon, every hates you, wanders the world alone PLOT TWIST EVERYBODY
+  Dragon armor, multiple npcs challenges them
+  Confronted by a key npc (Buchanan) that notifies the player that they are the villain
+  flashback: jumpydude tried to murder buchanan but failed
+  "I did this for you!!!"
+  Upon realizing they are the villain, the player sacrifices themselves as the redemption arc
+  final boss: jumpydude (basically palpatine version 6.2)
+
+  Npc names
+  - Alice
+  - Eve
+  - Azriel
+  - Nova
+  - Serena
+  - jumpydude (guy that leads you to do the sketchy stuff)
+  - Cassandra (reoccuring oracle that gives info)
+  - Call of the Blessed (cult you encounter along the way)
+  - (reoccuring merchant)
+  - npc that consistently calls protagonist noobie
+
+  Enemies: 
+  - dragons
+  - bats
+  - skeletons
+  - Leviathan
+
+  Items: 
+  - Urim & Thummim
+  - Blade of smoke
+
+  geographically-based (eg. fire levant, wind levant)
+  Abilities: 
+  - Melee (swords)
+
+  - teleportation
+  - flight
+
+  - undead minions (necromancy)
+  - npcs helping you in a fight (eg. buchanan)
+
+  Areas: 
+  - llama land (melee + spitting on enemies + summon llama-unicorn)
+  - storm (lightning + wind/tornado)
+  - plant control (vine whip, earthquakes)
+
+  introduce shadow area upon buchanan's death
+  - shadow (induces insanity/unfurling shadows-based attacks + necromancy)
+  - outer space (gravity/telekinesis -based abilities)
+  - dragonfire (flames)
+  - jumpydude fortress (iron walls, shoot spikes)
+
+## Semi-detailed plot outline
+  - llama land 
+    - give background
+    - tutorial
+    - introduce buchanan
+    - establish Malimost as the villain (murders an entire village of dogs)
+    - too weak to kill Malimost
+  - storm
+    - Leviathan (skull makes you fireproof, able to enter fire area after this)
+    - get key
+  - plants
+    - get key
+    - Buchanan dies
+  - shadow
+    - meet jumpydude
+    - gain first minion through necromancy
+    - get key
+    - allowed to murder npcs
+    - steals potion from a sick/dying npc
+  - outer space
+    - murders an entire village
+    - teleport to dragon fire using all the keys
+  - dragon fire
+    - kills malamir
+    - bucky comes back
+    - realizes they've been playing as the villain the entire game  
+  - jumpydude fortress
+    - sacrifice
+    - kills jumpydude
+    - the end
 
