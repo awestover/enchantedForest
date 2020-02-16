@@ -3,6 +3,7 @@ class HUD {
     this.imgs = {
       "hearts": null
     };
+		this.currentInventoryIndex = 0;
   }
   loadImgs(){
     for(let img in this.imgs){
@@ -50,24 +51,25 @@ class HUD {
 		text("You Lose", 0, 0);
 	}
 
-	createInventory(itemType){
-		let inventoryTable = document.getElementById("inventoryTable");
+	createItem(itemType){
+		let itemTable = document.getElementById("itemTable");
 		let row;
 		if(player.items.length % 5 == 1)
-			row = inventoryTable.insertRow();
+		// if(player.items.length % 2 == 1)
+			row = itemTable.insertRow();
 		else
-			row = inventoryTable.rows[inventoryTable.rows.length-1];
+			row = itemTable.rows[itemTable.rows.length-1];
 
 		let cell = row.insertCell();
-		cell.id = itemType+"InventoryCell";
+		cell.id = itemType+"ItemCell";
 		let img = document.createElement("IMG");
 		img.src = "data/items/"+itemType+".png";
     img.setAttribute("onclick", "player.mana += 10");
 
 		let text = document.createTextNode("1");
 		let div = document.createElement("div");
-		div.className = "inventorySubscript";
-		div.id = itemType+"InventoryCellText";
+		div.className = "itemSubscript";
+		div.id = itemType+"ItemCellText";
 		div.appendChild(text);
 
 		cell.appendChild(img);
@@ -75,8 +77,8 @@ class HUD {
 
 		$.notify(`item \"${itemType}\" acquired!`, "success");
 	}
-	incrementInventory(itemType, itemQuantity){
-		let idName = itemType+"InventoryCellText";
+	incrementItem(itemType, itemQuantity){
+		let idName = itemType+"ItemCellText";
 		document.getElementById(idName).childNodes[0].nodeValue = itemQuantity.toString();
 
 		$.notify(`item \"${itemType}\" acquired!`, "success");
@@ -93,6 +95,28 @@ class HUD {
 
 	removeQuest(quest){
 		document.getElementById(quest+"List").remove();
+	}
+
+	nextInventory(){
+		console.log("next inventory");
+		inventoryList[this.currentInventoryIndex].hide();
+		this.rotateInventory(1);
+		inventoryList[this.currentInventoryIndex].show();
+	}
+	prevInventory(){
+		console.log("previous inventory");
+		inventoryList[this.currentInventoryIndex].hide();
+		this.rotateInventory(-1);
+
+		inventoryList[this.currentInventoryIndex].show();
+	}
+
+	rotateInventory(direction) {
+		this.currentInventoryIndex += direction;
+		if (direction == 1 && this.currentInventoryIndex > inventoryList.length-1)
+			this.currentInventoryIndex = 0;
+		else if (direction == -1 && this.currentInventoryIndex < 0)
+			this.currentInventoryIndex = inventoryList.length-1;
 	}
 
 }

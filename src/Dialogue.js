@@ -55,8 +55,6 @@ class Dialogue { // TODO: should maybe have different types of dialogue (e.g. tr
 		// this.script = this.spliceScript("012345 01234567 789a abcd f e");		// Testing
 
 		this.montage();
-		// $("#npcQuest").text(npcData.proposeQuest);
-    // $("#npcQuestDetails").text(questDetails);
     if(this.questName.length > 0){
       $("#questBannerAcceptButton").attr("onclick", `player.assignQuest('${npcData.proposeQuest}'); dialogue.hideQuestBanner();`);
       $("#questBannerDeclineButton").attr("onclick", `dialogue.hideQuestBanner();`);

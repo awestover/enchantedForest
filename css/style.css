@@ -12,13 +12,26 @@ body {
 	position: fixed;
 }
 
-#dialogueContainer {
+#inventoryContainer {
 	bottom: 0;
 	height: 19vh;
 	width: 72vw;
 	margin-left: 3vw;
 	margin-right: 3vw;
 	margin-bottom: 1vh;
+}
+
+#inventoryContainer div {
+	overflow-y: scroll;
+	scrollbar-width: none; /* Firefox */
+	-ms-overflow-style: none;  /* Internet Explorer 10+ */
+	color: white;
+	z-index: 1000;
+}
+
+#inventoryContainer div::-webkit-scrollbar { /* WebKit */
+	width: 0;
+	height: 0;
 }
 
 #dialogueImg {
@@ -50,31 +63,16 @@ body {
 }
 
 
-#inventoryContainer {
-	margin-bottom: 1vh;
-	margin-right: 3vw;
-	bottom: 0;
-	right: 0;
-	width: 20vw;
+#itemContainer {
+	text-align: left;
 	height: 19vh;
-
-	overflow-y: scroll;
-	scrollbar-width: none; /* Firefox */
-	-ms-overflow-style: none;  /* Internet Explorer 10+ */
-
-	color: white;
 }
 
-#inventoryContainer::-webkit-scrollbar { /* WebKit */
-	width: 0;
-	height: 0;
-}
-
-#inventoryContainer table {
+#itemContainer table {
 	margin: 0.5vw;
 }
 
-.inventoryCell td {
+.itemCell td {
 	width: 3.5vw;
 	height: 3.5vw;
 	/* border: 1px pink solid; */
@@ -83,44 +81,29 @@ body {
 	position: relative;
 }
 
-.inventoryCell img:hover{
+.itemCell img:hover{
 	cursor: pointer;
 }
 
-.inventorySubscript {
+.itemSubscript {
 	position: absolute;
 	bottom: 0;
 	right: 0.5vh;
 }
 
-.inventoryCell img {
+.itemCell img {
 	width: 100%;
 	height: auto;
 }
 
 #questContainer {
-	bottom: 25vh; 
-	height: 40vh;
-	width: 14vw;
-	margin-left: 3vw;
-	margin-bottom: 1vh;
-	text-align: left;
-	overflow-y: scroll;
-	scrollbar-width: none; /* Firefox */
-	-ms-overflow-style: none;  /* Internet Explorer 10+ */
-
-	color: white;
+	height: 19vh;
 }
 
 #questTitle{
 	margin-top: 0.5em;
 	font-size: 1.6em;
 	text-align: center; 
-}
-
-#questContainer::-webkit-scrollbar { /* WebKit */
-	width: 0;
-	height: 0;
 }
 
 #questContainer ul {
