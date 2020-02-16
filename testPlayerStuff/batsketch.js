@@ -5,6 +5,8 @@ let batImg;
 let goalPos;
 let path;
 
+let debug = [];
+
 function preload(){
   batImg = loadImage("transflybird.gif");
 }
@@ -54,15 +56,12 @@ class Node {
   }
   getNeighbors(){
     if(this.neighbors.length == 0){
-      for(let dy = -1; dy <= 1; dy++){
-        for(let dx = -1; dx <= 1; dx++){
-          if(dy !=0 || dx != 0){
-            if(this.pos.x+dx >= 0 && this.pos.x+dx<tiledims.x && 
-              this.pos.y+dy >= 0 && this.pos.y+dy<tiledims.y &&
-              !collision[this.pos.y+dy][this.pos.x+dx]){
-              this.neighbors.push(new Node(this.pos.x+dx, this.pos.y+dy));
-            }
-          }
+      let offsets = [{"x":0,"y":1},{"x":0,"y":-1},{"x":1,"y":0},{"x":-1,"y":0}];
+      for(let i = 0; i < offsets.length; i++){
+        let nx = offsets[i].x + this.pos.x; let ny = offsets[i].y + this.pos.y;
+        if(nx >= 0 && nx < tiledims.x && ny >= 0 && ny < tiledims.y && // modify this line so that it is a 2x2 block that we are collision checking against  
+           !collision[ny][nx]){
+          this.neighbors.push(new Node(nx, ny));
         }
       }
     }
@@ -85,6 +84,7 @@ function sameLoc(locA, locB){
 // https://github.com/mourner/tinyqueue
 // looks like a nice library to solve this issue (note: it allows you to define your own comparator function which is good)
 function dijkstra(){
+  debug = [];
 
   let out_path = [];
 
@@ -128,6 +128,7 @@ function dijkstra(){
         else
           vi = tovisit[idx];
         let altDist = current.taxicabDist(vi) + current.best_dist_sofar;
+        debug.push([current.pos, vi.pos]);
         if(altDist < vi.best_dist_sofar){
           vi.best_dist_sofar = altDist;
           vi.prev = current;
@@ -140,6 +141,7 @@ function dijkstra(){
         out_path.push(backwardsHead.pos);
         backwardsHead = backwardsHead.prev;
       }
+      console.log(visited);
       return out_path.reverse();
     }
   }
@@ -164,14 +166,28 @@ function draw(){
 
   fill(0,0,255);
   strokeWeight(10);
+  let goalLoc = getTileCenter(...getLowerLeftTile(goalPos.x, goalPos.y).array());
+  ellipse(goalLoc.x,goalLoc.y,25,25);
+  let aaa = getTileCenter(...getLowerLeftTile(batpos.x-blockSize, batpos.y-blockSize).array());
   let bbb = getTileCenter(path[0].x, path[0].y);
-  line(batpos.x, batpos.y, bbb.x, bbb.y);
+  line(aaa.x, aaa.y, bbb.x, bbb.y);
   for(let i = 0; i < path.length-1; i++){
     let aaa = getTileCenter(path[i].x, path[i].y);
     let bbb = getTileCenter(path[i+1].x, path[i+1].y);
     line(aaa.x, aaa.y, bbb.x, bbb.y);
   }
+  strokeWeight(3);
+  fill(255,0,0);
+
+  for(let i = 0; i < debug.length; i++){
+    let aaa = getTileCenter(debug[i][0].x, debug[i][0].y);
+    let bbb = getTileCenter(debug[i][1].x, debug[i][1].y);
+    line(aaa.x, aaa.y, bbb.x, bbb.y);
+  }
+
   strokeWeight(1);
+
+
 
   fill(255);
   for (var y = 0; y < collision.length; y++){
