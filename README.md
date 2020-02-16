@@ -136,6 +136,18 @@ Feb 3
 - loading screen, trigger past it with a callback function
 - mobs 
 
+## ALEK thinking
+
+### bats
+
+ok so weare gonna make sme intesen AI bat bots  XD
+first make em in test
+ML AI?????
+
+i kinda also wanna make weather!!
+
+
+
 ## Game documentation 
 
 ## tilemaps
