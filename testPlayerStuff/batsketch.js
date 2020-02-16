@@ -54,11 +54,6 @@ function taxicabDist(locA, locB){
   return abs(locA.x - locB.x) + abs(locA.y - locB.y);
 }
 
-// NOTE: its currently crap 
-// because IM not using a priority queue
-// https://github.com/mourner/tinyqueue
-// looks like a nice library to solve this issue (note: it allows you to define your own comparator function which is good)
-// but lets fix correctness first... ;p
 function dijkstra(){
   debug = [];
   let vtx_data = [];
