@@ -58,7 +58,9 @@ function taxicabDist(locA, locB){
 // because IM not using a priority queue
 // https://github.com/mourner/tinyqueue
 // looks like a nice library to solve this issue (note: it allows you to define your own comparator function which is good)
+// but lets fix correctness first... ;p
 function dijkstra(){
+  debug = [];
   let vtx_data = [];
   for(let i = 0; i < collision.length; i++){
     vtx_data.push([]);
@@ -78,9 +80,11 @@ function dijkstra(){
   Q.push(startLoc);
 
   while (Q.length > 0){
-    Q.sort(vtx=>vtx_data[vtx.y][vtx.x].dist); // TODO: add distance as a heuristic
+    Q.sort((vtxi, vtxj)=>vtx_data[vtxj.y][vtxj.x].dist-vtx_data[vtxi.y][vtxi.x].dist); // TODO: add distance as a heuristic
     let current = Q.pop();
     vtx_data[current.y][current.x].visited = true;
+    if(vtx_data[goalLoc.y][goalLoc.x].visited == true)
+      break;
     let offsets = [[1,0],[0,1],[-1,0],[0,-1]]; // these are [x,y] offsets
     for(let i = 0; i < offsets.length; i++){
       let neighbor = { "x": offsets[i][0] + current.x, "y": offsets[i][1] + current.y };
@@ -89,14 +93,20 @@ function dijkstra(){
         && neighbor.y >= 0 && neighbor.y < tiledims.y 
         && !collision[neighbor.y][neighbor.x]){
         if(!vtx_data[neighbor.y][neighbor.x].visited){
-          if(!vtx_data[neighbor.y][neighbor.x].qued){
+          if(!vtx_data[neighbor.y][neighbor.x].queued){
             Q.push(neighbor)
             vtx_data[neighbor.y][neighbor.x].queued = true;
           }
+          if(taxicabDist(current, neighbor) != 1){
+            alert("AGGGGH"); // this test passes
+          }
           let altDist = taxicabDist(current, neighbor) + vtx_data[current.y][current.x].dist;
+          debug.push([neighbor, current]);
           if(altDist < vtx_data[neighbor.y][neighbor.x].dist){
             vtx_data[neighbor.y][neighbor.x].dist = altDist;
-            vtx_data[neighbor.y][neighbor.x].prev = current;
+            // DUMB paranoia, doesnt even help, obviously
+            vtx_data[neighbor.y][neighbor.x].prev.x = current.x;
+            vtx_data[neighbor.y][neighbor.x].prev.y = current.y;
           }
         }
       }
