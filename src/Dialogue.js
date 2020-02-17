@@ -30,6 +30,7 @@ class Dialogue { // TODO: should maybe have different types of dialogue (e.g. tr
 	}
 	hideQuestBanner(){
 		$("#questBannerContainer").hide();
+		player.movementLocked = false;
 	}
 
 	clearBox(){
@@ -44,6 +45,7 @@ class Dialogue { // TODO: should maybe have different types of dialogue (e.g. tr
 		// let questDetails = JSON.stringify(quest_data[npcData.proposeQuest]); // make this nicer...
 		
 		this.inDialogue = true;
+		player.movementLocked = true;
 		this.dialogueIndex = 0;
 
 		this.questName = this.npcData.proposeQuest || "";

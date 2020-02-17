@@ -2,6 +2,11 @@ body {
   overflow: hidden;
   margin: 0;
   padding: 0;
+
+	/* Don't select text on double click */
+	-webkit-user-select: none; /* Chrome/Safari */        
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
 }
 
 .HUDContainer {
@@ -129,6 +134,7 @@ body {
 	float: right;
 	background-color: #00FFF2;
 	border-radius: 10px;
+	opacity: 100%;
 }
 
 #itemUseButton:hover {

@@ -179,6 +179,9 @@ function setup(){
 }
 
 function checkKeys() {
+	if (player.movementLocked)
+		return;
+
   if (keyIsDown(LEFT_ARROW) || keyIsDown(65)){ // LEFT / A
     player.vel.x = Math.max(player.vel.x-moveAccel, -maxVel.x);
 		player.lastDir = -1;
