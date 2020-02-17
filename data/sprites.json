@@ -1,7 +1,14 @@
 {
   "jumpydude": {
-    "frames": [1,1],
+    "numframes": {"cols": 1, "rows": 1},
     "collision_offset": [0,0],
+    "dims": [32,64],
+    "collision_dims": [32,64]
+  },
+  "unicorn": {
+    "numframes": {"cols": 4, "rows": 2},
+    "collision_offset": [0,0],
+    "total_dims": [32,64],
     "collision_dims": [32,32]
   }
 }

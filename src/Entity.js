@@ -1,13 +1,30 @@
+function arrToVec(arr){
+  return new p5.Vector(arr[0], arr[1]);
+}
+
 class Entity {
-  constructor(xPos, yPos){
+  constructor(xPos, yPos, sprite_data, spriteName){
     this.pos = new p5.Vector(xPos, yPos);
     this.vel = new p5.Vector(0,0);
-    this.dims = new p5.Vector(blockSize, blockSize*2);
+    try {
+      this.dims = arrToVec(sprite_data[spriteName].total_dims);
+      this.collision_dims = arrToVec(sprite_data[spriteName].collision_dims);
+      this.collision_offset = arrToVec(sprite_data[spriteName].collision_offset);
+      this.numframes = sprite_data[spriteName].numframes;
+    }
+    catch {
+      this.dims = new p5.Vector(blockSize, blockSize*2);
+      this.collision_dims = new p5.Vector(blockSize, blockSize*2);
+      this.collision_offset = new p5.Vector(0, 0);
+      this.numframes = {"cols": 1, "rows": 1};
+    }
+    this.imgs = [];
+    this.imgcol = 0;
+    this.imgrow = 0;
+
 		this.lives = 4;
     this.falling = false;
 		this.lastDir = 1;
-    this.imgs = [];
-    this.imgframe = 0;
   }
 
   superjump(){
@@ -25,8 +42,8 @@ class Entity {
   }
 
   render(){
-    if(this.imgs[this.imgframe]){
-      image(this.imgs[this.imgframe], this.pos.x, this.pos.y, this.dims.x, this.dims.y);
+    if(this.imgs[this.imgcol*this.numframes.rows+this.imgrow]){
+      image(this.imgs[this.imgcol*this.numframes.rows+this.imgrow], this.pos.x, this.pos.y, this.dims.x, this.dims.y);
     }
     else{
       fill(0);

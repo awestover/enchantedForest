@@ -29,7 +29,7 @@ let TILE_IDS_TO_NAMES = {}; // {"2": "black", "1": "collision", ...}
 let TILE_TYPE_TO_NAMES = {}; // {"item": ["item:gem", "item:potion", ...],...}
 let mapTileDims = new p5.Vector(0,0);
 let cameraPos = new p5.Vector(0,0);
-let player = new Player(0, +64);
+let player;
 let display = new HUD();
 let dialogue = new Dialogue();
 let mobs = [], items = [];
@@ -40,6 +40,7 @@ let stats = {
 }
 let quest_data = {};
 let npc_data = {};
+let sprite_data = {};
 let ct = 0;
 let manaRegenFrames = 5;
 
@@ -100,14 +101,14 @@ function loadRoom(roomName){
         if(TILE_TYPE_TO_NAMES["mob"].includes(TILE_IDS_TO_NAMES[data.layers["mobs"][y][x]])){
           let tile_type = TILE_IDS_TO_NAMES[data.layers["mobs"][y][x]].substring(("mob"+":").length);
 
-          mobs.push(new Entity(bc.x, bc.y-blockSize/2));
+          mobs.push(new Entity(bc.x, bc.y-blockSize/2, sprite_data, tile_type));
           mobs[mobs.length-1].imgs = stats["mobs"][tile_type].imgs;
           mobs[mobs.length-1].type = tile_type;
         }
 
         if(TILE_TYPE_TO_NAMES["item"].includes(TILE_IDS_TO_NAMES[data.layers["items"][y][x]])){
           let tile_type = TILE_IDS_TO_NAMES[data.layers["items"][y][x]].substring(("item"+":").length);
-          items.push(new Item(bc.x, bc.y));
+          items.push(new Entity(bc.x, bc.y, sprite_data, tile_type));
           items[items.length-1].imgs = stats["items"][tile_type].imgs;
           items[items.length-1].type = tile_type;
         }
@@ -138,6 +139,12 @@ function setup(){
   goalPos = createVector((mapTileDims.x-0.5-5)*blockSize, 0.5*blockSize);
 
   display.loadImgs();
+  init_toload.push("sprites");
+  $.getJSON("data/sprites.json", function(tmpdata){
+    sprite_data = tmpdata;
+    removeElts(init_toload, "sprites");
+    player = new Player(0, +64, sprite_data, "player");
+  });
   init_toload.push("quests");
   $.getJSON("data/quests.json", function(tmpdata){
     quest_data = tmpdata;
