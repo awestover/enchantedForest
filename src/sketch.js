@@ -43,6 +43,12 @@ let npc_data = {};
 let ct = 0;
 let manaRegenFrames = 5;
 
+// inserting dijkstras
+let goalPos;
+let path = [];
+let batpos;
+let batImg;
+
 let inventoryList = [];
 
 let lastDialogueBoxToShow = null;
@@ -125,6 +131,11 @@ String.prototype.chopPrefix = function(prefix){
 
 function setup(){
   createCanvas(window.innerWidth, window.innerHeight);
+
+  // inserting dijkstras
+  batImg = loadImage("data/avatars/transflybird.gif");
+  batpos = createVector(3*blockSize,3*blockSize);
+  goalPos = createVector((mapTileDims.x-0.5-5)*blockSize, 0.5*blockSize);
 
   display.loadImgs();
   init_toload.push("quests");
@@ -242,6 +253,38 @@ function draw(){
     image(roomImage, 0, 0, blockSize*mapTileDims.x, blockSize*mapTileDims.y);
     player.render();
     player.checkForQuestCompletion();
+
+
+    // inserting dijkstras
+    image(batImg, batpos.x, batpos.y, blockSize*5, blockSize*5);
+    noFill();
+    rect(batpos.x, batpos.y, blockSize, blockSize);
+    stroke(0,0,255);
+
+    if(path.length > 0){
+      fill(0,0,255);
+      strokeWeight(5);
+      let goalIdx = posToTileIdx(goalPos.x, goalPos.y);
+      let goalLoc = blockCenter(goalIdx.x, goalIdx.y);
+      ellipse(goalLoc.x,goalLoc.y,25,25);
+      let aaaa = posToTileIdx(batpos.x, batpos.y);
+      let aaa = blockCenter(aaaa.x, aaaa.y);
+      let bbb = blockCenter(path[0].x, path[0].y);
+      line(aaa.x, aaa.y, bbb.x, bbb.y);
+      for(let i = 0; i < path.length-1; i++){
+        let aaa = blockCenter(path[i].x, path[i].y);
+        let bbb = blockCenter(path[i+1].x, path[i+1].y);
+        line(aaa.x, aaa.y, bbb.x, bbb.y);
+      }
+      strokeWeight(3);
+      fill(255,0,0);
+
+      // seek it
+      let gotoPoint = path[0];
+      path.splice(0,1);
+      batpos = blockCenter(gotoPoint.x, gotoPoint.y);
+
+    }
 
     for(let i = player.projectiles.length-1; i>=0; i--){
       if(!player.projectiles[i].exist){
@@ -403,4 +446,13 @@ function draw(){
 
   pop(); // translate to screen center is 0,0
 
+}
+
+function mousePressed(){
+  goalPos.x = mouseX-width/2+cameraPos.x; 
+  goalPos.y = mouseY-height/2+cameraPos.y;
+
+  const startLoc = posToTileIdx(batpos.x, batpos.y);
+  const goalLoc = posToTileIdx(goalPos.x, goalPos.y);
+  path = dijkstra(data.layers.collision, startLoc, goalLoc);
 }

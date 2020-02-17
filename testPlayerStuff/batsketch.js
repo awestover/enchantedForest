@@ -54,11 +54,6 @@ function taxicabDist(locA, locB){
   return abs(locA.x - locB.x) + abs(locA.y - locB.y);
 }
 
-// NOTE: its currently crap 
-// because IM not using a priority queue
-// https://github.com/mourner/tinyqueue
-// looks like a nice library to solve this issue (note: it allows you to define your own comparator function which is good)
-// but lets fix correctness first... ;p
 function dijkstra(){
   debug = [];
   let vtx_data = [];
@@ -73,19 +68,23 @@ function dijkstra(){
       });
     }
   }
-  let Q = [];
+  let Q = new TinyQueue([], function(a, b){
+    let heuristicDiff = taxicabDist(a, startLoc)+taxicabDist(a,goalLoc) - (taxicabDist(b, startLoc)+taxicabDist(b, goalLoc));
+    let sofarDiff = vtx_data[a.y][a.x].dist-vtx_data[b.y][b.x].dist;
+    return heuristicDiff + sofarDiff;
+  });
+
   const startLoc = posToTileIdx(batpos.x-blockSize, batpos.y-blockSize);
   const goalLoc = posToTileIdx(goalPos.x, goalPos.y);
   vtx_data[startLoc.y][startLoc.x].dist = 0;
   Q.push(startLoc);
 
   while (Q.length > 0){
-    Q.sort((vtxi, vtxj)=>vtx_data[vtxj.y][vtxj.x].dist-vtx_data[vtxi.y][vtxi.x].dist); // TODO: add distance as a heuristic
     let current = Q.pop();
     vtx_data[current.y][current.x].visited = true;
     if(vtx_data[goalLoc.y][goalLoc.x].visited == true)
       break;
-    let offsets = [[1,0],[0,1],[-1,0],[0,-1]]; // these are [x,y] offsets
+    let offsets = [[1,0],[0,1],[-1,0],[0,-1],[1,1],[1,-1],[-1,1],[-1,-1]]; // these are [x,y] offsets
     for(let i = 0; i < offsets.length; i++){
       let neighbor = { "x": offsets[i][0] + current.x, "y": offsets[i][1] + current.y };
       // TODO: modify here so that it is a 2x2 block that we are collision checking against  
@@ -97,16 +96,11 @@ function dijkstra(){
             Q.push(neighbor)
             vtx_data[neighbor.y][neighbor.x].queued = true;
           }
-          if(taxicabDist(current, neighbor) != 1){
-            alert("AGGGGH"); // this test passes
-          }
           let altDist = taxicabDist(current, neighbor) + vtx_data[current.y][current.x].dist;
           debug.push([neighbor, current]);
           if(altDist < vtx_data[neighbor.y][neighbor.x].dist){
             vtx_data[neighbor.y][neighbor.x].dist = altDist;
-            // DUMB paranoia, doesnt even help, obviously
-            vtx_data[neighbor.y][neighbor.x].prev.x = current.x;
-            vtx_data[neighbor.y][neighbor.x].prev.y = current.y;
+            vtx_data[neighbor.y][neighbor.x].prev = current;
           }
         }
       }
