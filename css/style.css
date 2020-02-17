@@ -26,7 +26,6 @@ body {
 	scrollbar-width: none; /* Firefox */
 	-ms-overflow-style: none;  /* Internet Explorer 10+ */
 	color: white;
-	z-index: 1000;
 }
 
 #inventoryContainer div::-webkit-scrollbar { /* WebKit */
@@ -34,13 +33,17 @@ body {
 	height: 0;
 }
 
-#dialogueImg {
-	border: 5px pink solid;
+#portraitImg {
+	border: 3px pink solid;
 	float: left;
 	margin-top: 2vh;
-	margin-left: 1vw;
+	margin-left: 2vh;
+
+	/* margin-top: 1%; */
+	/* margin-left: 1%; */
 	height: 14vh;
-	width: 14vh;
+	/* width: 14vh; */
+	width: 10%;
 }
 
 #dialogueTextWrapper {
@@ -95,6 +98,57 @@ body {
 	width: 100%;
 	height: auto;
 }
+
+#itemInfoPage {
+	margin: 0.5vw;
+  display: inline-block;
+	width: 100%;
+	position: fixed;
+	top: 80%;
+	left: 13%;
+
+	width: 60%;
+	height: auto;
+}
+
+#itemTitle {
+	font-size: 2em;
+	text-align: center;
+	width: 48vw;
+	float: left;
+	margin-bottom: 1%;
+}
+
+#itemUseButton {
+	font-size: 1em;
+	text-align: center;
+	width: 5vw;
+
+	padding: 0.2em;
+	margin-right: 2vw;
+	float: right;
+	background-color: #00FFF2;
+	border-radius: 10px;
+}
+
+#itemUseButton:hover {
+	cursor: pointer;
+}
+
+#itemDescription {
+	font-size: 1.2em;
+	text-align: left;
+	width: 75%;
+	float: left;
+}
+
+#itemSetQuickAccess {
+	font-size: 1.2em;
+	text-align: left;
+	float: right;
+	width: 25%;
+}
+
 
 #questContainer {
 	height: 19vh;

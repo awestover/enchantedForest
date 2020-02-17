@@ -33,14 +33,14 @@ class Dialogue { // TODO: should maybe have different types of dialogue (e.g. tr
 	}
 
 	clearBox(){
-		document.getElementById("dialogueImg").src = "data/avatars/empty.png";
+		document.getElementById("portraitImg").src = "data/avatars/empty.png";
 		$("#dialogueTextWrapper").css("display", "none");
 		this.inDialogue = false;
 		inventoryList[display.currentInventoryIndex].show();
 	}
 	showBox(){
 		inventoryList[display.currentInventoryIndex].hide();
-		$("#dialogueImg").attr("src", `data/avatars/${this.npcName}.png`);
+		$("#portraitImg").attr("src", `data/avatars/${this.npcName}.png`);
 		// let questDetails = JSON.stringify(quest_data[npcData.proposeQuest]); // make this nicer...
 		
 		this.inDialogue = true;

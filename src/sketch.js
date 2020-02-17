@@ -164,6 +164,7 @@ function setup(){
 	for (let inventoryElement in inventoryList)
 		inventoryList[inventoryElement].hide();
 	inventoryList[0].show();
+	$("#itemInfoPage").hide();
 }
 
 function checkKeys() {
@@ -192,6 +193,8 @@ function keyReleased() {
 		display.prevInventory();
 	else if (keyCode === 69)	// e
 		display.nextInventory();
+	else if (keyCode === 27)	// esc
+		display.hideItemInfo();
 
 }
 

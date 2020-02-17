@@ -1,14 +1,17 @@
 {
   "dragonInsignia": {
     "imgPaths": ["data/items/dragoninsignia.png"],
-    "lives": 100
+    "lives": 100, 
+		"description": "This item makes the user INTENSELY stupid"
   },
   "gem": {
     "imgPaths": ["data/items/gem.png"],
-    "lives": 10
+    "lives": 10, 
+		"description": "This item makes the user INTENSELY stupid"
   },
   "potion": {
     "imgPaths": ["data/items/potion.png"],
-    "lives": 1
+    "lives": 1, 
+		"description": "This item makes the user INTENSELY stupid"
   }
 }

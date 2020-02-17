@@ -4,6 +4,9 @@ class HUD {
       "hearts": null
     };
 		this.currentInventoryIndex = 0;
+		this.showInfoName;
+		this.showInfoIndex;
+		this.showInfoQuantity;
   }
   loadImgs(){
     for(let img in this.imgs){
@@ -64,7 +67,8 @@ class HUD {
 		cell.id = itemType+"ItemCell";
 		let img = document.createElement("IMG");
 		img.src = "data/items/"+itemType+".png";
-    img.setAttribute("onclick", "player.mana += 10");
+    // img.setAttribute("onclick", "player.mana += 10");
+    img.setAttribute("onclick", "display.showItemInfo(this.src)");
 
 		let text = document.createTextNode("1");
 		let div = document.createElement("div");
@@ -98,13 +102,11 @@ class HUD {
 	}
 
 	nextInventory(){
-		console.log("next inventory");
 		inventoryList[this.currentInventoryIndex].hide();
 		this.rotateInventory(1);
 		inventoryList[this.currentInventoryIndex].show();
 	}
 	prevInventory(){
-		console.log("previous inventory");
 		inventoryList[this.currentInventoryIndex].hide();
 		this.rotateInventory(-1);
 
@@ -117,6 +119,53 @@ class HUD {
 			this.currentInventoryIndex = 0;
 		else if (direction == -1 && this.currentInventoryIndex < 0)
 			this.currentInventoryIndex = inventoryList.length-1;
+	}
+
+	showItemInfo(itemSrc) {
+		// get filename without extension
+		let itemName = itemSrc.replace(/^.*[\\\/]/, '').split('.').slice(0, -1).join('.')
+
+		$("#itemTable").hide();
+		$("#itemInfoPage").show();
+
+		let itemQuantity;
+		let itemIndex;
+		for (itemIndex = 0; itemIndex < player.items.length; itemIndex++) {
+			if (player.items[itemIndex]["type"] === itemName){
+				itemQuantity = player.items[itemIndex]["quantity"];
+				break;
+			}
+		}
+
+		this.showInfoName = itemName;
+		this.showInfoIndex = itemIndex;
+		this.showInfoQuantity = itemQuantity;
+
+		$("#itemTitle").text("<<" + itemName + ">> x" + itemQuantity);
+		$("#itemDescription").text(stats["items"][itemName]["description"]);
+		$("#itemUseButton").attr("onclick", `display.useItem();`);
+		document.getElementById("portraitImg").src = itemSrc;
+	}
+
+	hideItemInfo() {
+		$("#itemInfoPage").hide();
+		$("#itemTable").show();
+		document.getElementById("portraitImg").src = "data/avatars/empty.png";
+	}
+
+	useItem() {
+		player.items[this.showInfoIndex]["quantity"]--;
+		this.showInfoQuantity--;
+		$("#itemTitle").text("<<" + this.showInfoName + ">> x" + (this.showInfoQuantity));
+		$(("#"+this.showInfoName+"ItemCellText")).text((this.showInfoQuantity));
+
+		player.lives += 1; 
+
+		if (this.showInfoQuantity === 0) {
+			this.hideItemInfo();
+			player.items.splice(this.showInfoIndex, 1);
+			$(("#"+this.showInfoName+"ItemCell")).remove();
+		}
 	}
 
 }
