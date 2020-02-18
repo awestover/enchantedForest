@@ -30,6 +30,7 @@ let TILE_TYPE_TO_NAMES = {}; // {"item": ["item:gem", "item:potion", ...],...}
 let mapTileDims = new p5.Vector(0,0);
 let cameraPos = new p5.Vector(0,0);
 let player;
+let itemManager = new ItemManager();
 let display = new HUD();
 let dialogue = new Dialogue();
 let mobs = [], items = [];
@@ -210,25 +211,25 @@ function checkKeys() {
 	if (keyIsDown(16)) {
 		player.lockQuickAccess = true;
 		if (keyCode === 48)	// 0
-			display.setQuickAccess(0);
+			itemManager.setQuickAccess(0);
 		else if (keyCode === 49)	// 1
-			display.setQuickAccess(1);
+			itemManager.setQuickAccess(1);
 		else if (keyCode === 50)	// 2
-			display.setQuickAccess(2);
+			itemManager.setQuickAccess(2);
 		else if (keyCode === 51)	// 3
-			display.setQuickAccess(3);
+			itemManager.setQuickAccess(3);
 		else if (keyCode === 52)	// 4
-			display.setQuickAccess(4);
+			itemManager.setQuickAccess(4);
 		else if (keyCode === 53)	// 5
-			display.setQuickAccess(5);
+			itemManager.setQuickAccess(5);
 		else if (keyCode === 54)	// 6 
-			display.setQuickAccess(6);
+			itemManager.setQuickAccess(6);
 		else if (keyCode === 55)	// 7
-			display.setQuickAccess(7);
+			itemManager.setQuickAccess(7);
 		else if (keyCode === 56)	// 8
-			display.setQuickAccess(8);
+			itemManager.setQuickAccess(8);
 		else if (keyCode === 57)	// 9
-			display.setQuickAccess(9);
+			itemManager.setQuickAccess(9);
 	}
 }
 
@@ -244,7 +245,7 @@ function keyReleased() {
 	else if (keyCode === 69)	// e
 		display.nextInventory();
 	else if (keyCode === 27)	// esc
-		display.hideItemInfo();
+		itemManager.hideItemInfo();
 	else if (keyCode === 16){
 		setTimeout(function (){
 			player.lockQuickAccess = false;
@@ -253,25 +254,25 @@ function keyReleased() {
 
 	if (!player.lockQuickAccess) {
 		if (keyCode === 48)	// 0
-			display.quickAccess1();
+			itemManager.quickAccess1();
 		else if (keyCode === 49)	// 1
-			display.quickAccess1();
+			itemManager.quickAccess1();
 		else if (keyCode === 50)	// 2
-			display.quickAccess2();
+			itemManager.quickAccess2();
 		else if (keyCode === 51)	// 3
-			display.quickAccess3();
+			itemManager.quickAccess3();
 		else if (keyCode === 52)	// 4
-			display.quickAccess4();
+			itemManager.quickAccess4();
 		else if (keyCode === 53)	// 5
-			display.quickAccess5();
+			itemManager.quickAccess5();
 		else if (keyCode === 54)	// 6 
-			display.quickAccess6();
+			itemManager.quickAccess6();
 		else if (keyCode === 55)	// 7
-			display.quickAccess7();
+			itemManager.quickAccess7();
 		else if (keyCode === 56)	// 8
-			display.quickAccess8();
+			itemManager.quickAccess8();
 		else if (keyCode === 57)	// 9
-			display.quickAccess9();
+			itemManager.quickAccess9();
 	}
 }
 

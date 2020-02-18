@@ -11,6 +11,7 @@
 		"description": "This item makes the user INTENSELY stupid"
   },
   "potion": {
+    "imgPaths": ["data/items/potion.png"],
     "lives": 1, 
 		"description": "This item makes the user INTENSELY stupid"
   }

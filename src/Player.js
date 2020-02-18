@@ -82,13 +82,13 @@ class Player extends Entity {
     for(let i in this.items){
       if(this.items[i].type == itemType){
         this.items[i].quantity += 1;
-				display.incrementItem(itemType, this.items[i].quantity);
+				itemManager.incrementItem(itemType, this.items[i].quantity);
 				return false;
       }
     }
     // if this is an item we don't already have any of
     this.items.push({"type": itemType, "quantity": 1});
-		display.createItem(itemType);
+		itemManager.createItem(itemType);
   }
 
   handleQuestCompletion(quest){
