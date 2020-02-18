@@ -6,7 +6,7 @@ const jumpImpulse = 7;
 // const maxVel = new p5.Vector(2.5, jumpImpulse);
 const maxVel = new p5.Vector(3, jumpImpulse); // for testing
 // const cameraSpeed = 1.2;
-const cameraSpeed = maxVel.x; // for testing
+const cameraSpeed = maxVel.x; // for testing (???)
 const cameraSeekThresh = cameraSpeed * 15;
 const cameraUnseekThresh = cameraSpeed;
 const collisionTollerence = 0.0001;
@@ -49,6 +49,9 @@ let goalPos;
 let path = [];
 let batpos;
 let batImg;
+let pathProgressCt = 30;
+let pathProgressCap = 30;
+let batHeading = new p5.Vector(0,0);
 
 let inventoryList = [];
 
@@ -101,15 +104,15 @@ function loadRoom(roomName){
         if(TILE_TYPE_TO_NAMES["mob"].includes(TILE_IDS_TO_NAMES[data.layers["mobs"][y][x]])){
           let tile_type = TILE_IDS_TO_NAMES[data.layers["mobs"][y][x]].substring(("mob"+":").length);
 
-          mobs.push(new Entity(bc.x, bc.y-blockSize/2, sprite_data, tile_type));
-          mobs[mobs.length-1].imgs = stats["mobs"][tile_type].imgs;
+          mobs.push(new Entity(bc.x, bc.y-blockSize/2, tile_type));
+          mobs[mobs.length-1].spritesheet = stats["mobs"][tile_type].img;
           mobs[mobs.length-1].type = tile_type;
         }
 
         if(TILE_TYPE_TO_NAMES["item"].includes(TILE_IDS_TO_NAMES[data.layers["items"][y][x]])){
           let tile_type = TILE_IDS_TO_NAMES[data.layers["items"][y][x]].substring(("item"+":").length);
-          items.push(new Entity(bc.x, bc.y, sprite_data, tile_type));
-          items[items.length-1].imgs = stats["items"][tile_type].imgs;
+          items.push(new Entity(bc.x, bc.y, tile_type));
+          items[items.length-1].spritesheet = stats["items"][tile_type].img;
           items[items.length-1].type = tile_type;
         }
       }
@@ -143,7 +146,7 @@ function setup(){
   $.getJSON("data/sprites.json", function(tmpdata){
     sprite_data = tmpdata;
     removeElts(init_toload, "sprites");
-    player = new Player(0, +64, sprite_data, "player");
+    player = new Player(0, +64);
   });
   init_toload.push("quests");
   $.getJSON("data/quests.json", function(tmpdata){
@@ -155,17 +158,14 @@ function setup(){
     npc_data = tmpdata;
     removeElts(init_toload, "npcs");
   });
-  for(let i in stats){
-    init_toload.push(i);
-    $.getJSON(`data/stats/${i}.json`, function(tmpdata){
-      stats[i] = tmpdata;
-      for(let thing in stats[i]){
-        stats[i][thing].imgs = [];
-        for(let path in stats[i][thing].imgPaths){
-          stats[i][thing].imgs.push(loadImage(stats[i][thing].imgPaths[path]));
-        }
+  for(let section in stats){
+    init_toload.push(section);
+    $.getJSON(`data/stats/${section}.json`, function(tmpdata){
+      stats[section] = tmpdata;
+      for(let thing in stats[section]){
+        stats[section][thing].img = loadImage(`data/${section}/${thing}.png`);
       }
-      removeElts(init_toload, i);
+      removeElts(init_toload, section);
     });
   }
 
@@ -277,10 +277,8 @@ function draw(){
       let goalIdx = posToTileIdx(goalPos.x, goalPos.y);
       let goalLoc = blockCenter(goalIdx.x, goalIdx.y);
       ellipse(goalLoc.x,goalLoc.y,25,25);
-      let aaaa = posToTileIdx(batpos.x, batpos.y);
-      let aaa = blockCenter(aaaa.x, aaaa.y);
       let bbb = blockCenter(path[0].x, path[0].y);
-      line(aaa.x, aaa.y, bbb.x, bbb.y);
+      line(batpos.x, batpos.y, bbb.x, bbb.y);
       for(let i = 0; i < path.length-1; i++){
         let aaa = blockCenter(path[i].x, path[i].y);
         let bbb = blockCenter(path[i+1].x, path[i+1].y);
@@ -290,9 +288,14 @@ function draw(){
       fill(255,0,0);
 
       // seek it
-      let gotoPoint = path[0];
-      path.splice(0,1);
-      batpos = blockCenter(gotoPoint.x, gotoPoint.y);
+      pathProgressCt += 1;
+      batpos.add(batHeading);
+      if(pathProgressCt >= pathProgressCap){
+        pathProgressCt = 0;
+        let gotoPoint = blockCenter(path[0].x, path[0].y);
+        batHeading = p5.Vector.sub(gotoPoint, batpos).mult(1/pathProgressCap);
+        path.splice(0,1);
+      }
 
     }
 
@@ -347,7 +350,7 @@ function draw(){
         // dumb seeking
         // mobs[i].vel.x = Math.sign(player.pos.x - mobs[i].pos.x)*maxVel.x;
         // randomly move
-        if(Math.random() < 0.0005)
+        if(Math.random() < 0.001)
           mobs[i].jump();
         if(Math.random() < 0.1){
           if(mobs[i].vel.x != 0){
@@ -455,7 +458,6 @@ function draw(){
   }
 
   pop(); // translate to screen center is 0,0
-
 }
 
 function mousePressed(){
@@ -465,4 +467,6 @@ function mousePressed(){
   const startLoc = posToTileIdx(batpos.x, batpos.y);
   const goalLoc = posToTileIdx(goalPos.x, goalPos.y);
   path = dijkstra(data.layers.collision, startLoc, goalLoc);
+  batHeading.mult(0);
 }
+

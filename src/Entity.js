@@ -3,24 +3,27 @@ function arrToVec(arr){
 }
 
 class Entity {
-  constructor(xPos, yPos, sprite_data, spriteName){
+  constructor(xPos, yPos, spriteName){
     this.pos = new p5.Vector(xPos, yPos);
     this.vel = new p5.Vector(0,0);
-    try {
-      this.dims = arrToVec(sprite_data[spriteName].total_dims);
-      this.collision_dims = arrToVec(sprite_data[spriteName].collision_dims);
-      this.collision_offset = arrToVec(sprite_data[spriteName].collision_offset);
-      this.numframes = sprite_data[spriteName].numframes;
-    }
-    catch {
-      this.dims = new p5.Vector(blockSize, blockSize*2);
-      this.collision_dims = new p5.Vector(blockSize, blockSize*2);
-      this.collision_offset = new p5.Vector(0, 0);
-      this.numframes = {"cols": 1, "rows": 1};
-    }
-    this.imgs = [];
+
+    this.dims = new p5.Vector(blockSize, blockSize*2);
+    this.collision_dims = new p5.Vector(blockSize, blockSize*2); 
+    this.collision_offset = new p5.Vector(0, 0);
+    this.numframes = {"cols": 1, "rows": 1}; 
+    try{ this.dims = arrToVec(sprite_data[spriteName].total_dims) || this.dims; } catch {}
+    this.pixel_dims = this.dims;
+    try{ this.collision_dims = arrToVec(sprite_data[spriteName].collision_dims) || this.collision_dims; } catch {}
+    try{ this.collision_offset = arrToVec(sprite_data[spriteName].collision_offset) || this.collision_offset; } catch {}
+    try{ this.numframes = sprite_data[spriteName].numframes || this.numframes; } catch{}
+    try{ this.pixel_dims = arrToVec(sprite_data[spriteName].pixel_dims) || this.dims} catch{}
+
+    this.type = spriteName;
+    this.spritesheet = null;
     this.imgcol = 0;
     this.imgrow = 0;
+    this.aniCt = 0;
+    this.aniSpeed = 10;
 
 		this.lives = 4;
     this.falling = false;
@@ -42,8 +45,19 @@ class Entity {
   }
 
   render(){
-    if(this.imgs[this.imgcol*this.numframes.rows+this.imgrow]){
-      image(this.imgs[this.imgcol*this.numframes.rows+this.imgrow], this.pos.x, this.pos.y, this.dims.x, this.dims.y);
+    if(this.lastDir == 1){
+      this.imgrow = 0;
+    }
+    else{
+      this.imgrow = 1;
+    }
+    if(this.spritesheet){
+      image(this.spritesheet, this.pos.x, this.pos.y, this.dims.x, this.dims.y, this.imgcol*this.pixel_dims.x, this.imgrow*this.pixel_dims.y, this.pixel_dims.x, this.pixel_dims.y);
+      this.aniCt += 1;
+      if(this.aniCt > this.aniSpeed){
+        this.aniCt = 0;
+        this.imgcol = (this.imgcol + 1) % this.numframes.cols;
+      }
     }
     else{
       fill(0);
@@ -122,6 +136,9 @@ class Entity {
       else if(this.vel.x < 0)
         this.vel.x = Math.min(0, this.vel.x + friction);
     }
+
+    if(this.vel.x != 0)
+      this.lastDir = Math.sign(this.vel.x);
   }
 
   handleMapCollisions(){
