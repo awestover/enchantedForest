@@ -2,15 +2,11 @@
 	"fireball": {
 		"damage": 10,
 		"velocity": 10, 
-		"size": 2, 
-		"manaCost": 10,
-		"imgPaths": ["data/attacks/fireball_L.png", "data/attacks/fireball_R.png"]
+		"manaCost": 10
 	}, 
 	"coinshot": {
 		"damage": 10,
-		"velocity": 20, 
-		"size": 0.5,
-		"manaCost": 2, 
-		"imgPaths": ["data/attacks/coinshot.gif"]
+		"velocity": 15, 
+		"manaCost": 2
 	}
 }

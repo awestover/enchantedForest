@@ -35,9 +35,9 @@ what if npcs are the teleporters? [[ note: this would make the code easier... li
   - flying swarm behavior
   - queen in the center, if queen struck down everything dies
   - bats!
-- do sprites.json (add the unicorn)
-  - you can specify custom dimensions, number of frames, and collision boxes for all sprites
+- fix collisions (currently Im not looking at sprites.json for them!)
 - weather
+- plot plot plot
 
 ## KEVIN legit
 - SPRITE SHEEETS
@@ -138,19 +138,14 @@ Feb 3
 - loading screen, trigger past it with a callback function
 - mobs 
 
-## ALEK thinking
-
-### bats
-
-ok so weare gonna make sme intesen AI bat bots  XD
-first make em in test
-ML AI?????
-
-i kinda also wanna make weather!!
-
-
-
 ## Game documentation 
+
+## imgs
+
+All imgs are `pngs` 
+Images must be named with the same name as the `type` of the `Entity` that they refer to, e.g. unicorn type's img is named `unicorn.png`
+pictures are located in `data/section` where section is something like `weapon`, `mob`, or `item`
+when adding a sprite, please add an entry to sprites.json
 
 ## tilemaps
 
@@ -180,7 +175,21 @@ i kinda also wanna make weather!!
 
 ## json docs
 
-quest.json
+#### sprites.json
+Note: most of these arguments are optional. Kind of. Well there are defaults that might work....
+```
+{
+  "unicorn": {
+    "numframes": {"cols": 4, "rows": 2},
+    "collision_offset": [0,0],
+    "total_dims": [32,32],
+    "collision_dims": [32,32],
+    "pixel_dims": [64,64]
+  }
+}
+```
+
+#### quest.json
 ```
 [
 "gettingStarted": {
@@ -196,6 +205,7 @@ quest.json
 ]
 ```
 
+#### npcs.json
 ```
 {
 "startRoom": [
@@ -209,7 +219,7 @@ quest.json
 ```
 
 ## General advice: have exactly 1 name for everything
-The names in things like npcs.json instruct the program where to look for imgs. For example, if an image is named "dawg" in `npc.json` then it's image is at `data/avatars/dog.png` or something
+The names in things like npcs.json instruct the program where to look for imgs. For example, if an image is named "dawg" in `npc.json` then it's image is at `data/avatars/dawg.png` or something
 
 ## Interface schema
 Dialogue box has all the details, descriptions, etc (arrow keys to go through)

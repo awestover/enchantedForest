@@ -1,6 +1,6 @@
 class Player extends Entity {
   constructor(xPos, yPos){ // TODO: eventually most of this data should be read in from a player.json file which stores the players progress...
-    super(xPos, yPos);
+    super(xPos, yPos, "player");
     this.level = 0;
     this.xp = 0;
     this.coins = 100;
@@ -65,17 +65,17 @@ class Player extends Entity {
   }
 
 	repositionProjectile(xPos, type){
-		return this.pos.x + this.lastDir * 16 * (stats.weapons[type]["size"]+3);
+		return this.pos.x + this.lastDir * blockSize;
 	}
 	fireballAttack(){
 		let type = "fireball";
 		if (this.mana >= stats.weapons[type]["manaCost"])
-			this.projectiles.push(new Projectile(type, this.repositionProjectile(this.pos.x, type), this.pos.y));
+			this.projectiles.push(new Projectile(this.repositionProjectile(this.pos.x, type), this.pos.y, type));
 	}
 	coinshotAttack(){
 		let type = "coinshot";
 		if (this.mana >= stats.weapons[type]["manaCost"])
-			this.projectiles.push(new Projectile(type, this.repositionProjectile(this.pos.x, type), this.pos.y-blockSize/2));
+			this.projectiles.push(new Projectile(this.repositionProjectile(this.pos.x, type), this.pos.y-blockSize/2, type));
 	}
 
   pickupItem(itemType){

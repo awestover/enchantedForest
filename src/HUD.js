@@ -196,7 +196,7 @@ class HUD {
 	}
 
 	setQuickAccess(value) {
-		if (value < 0 || value > 9 || value === "")
+		if (value < 0 || value > 9 || value === "" || !(this.showInfoName in stats["items"]))
 			return;
 		quickAccessItems[value] = this.showInfoName;
 		document.getElementById(("quickAccess"+value)).src = stats["items"][this.showInfoName]["imgPaths"];
