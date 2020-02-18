@@ -14,6 +14,7 @@ class Player extends Entity {
     this.questProgress = {}; // "gettingStarted": 5 (mobs killed / potions collected / whatever (if the quest has some numerical thing attached to it, otherwise make this binary))
     this.completedQuests = [];
 		this.movementLocked = false;
+		this.lockQuickAccess = false;
   }
 
   assignQuest(quest){

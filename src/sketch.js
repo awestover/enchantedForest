@@ -58,6 +58,7 @@ const npcCollisionTolerence = 1.5;
 let init_toload = []; // names of jsons e.g. "map" (don't give the .json, or the prefix)
 let triggered_initial_room_load = false;
 let loadingRoom = true;
+let quickAccessItems = [];
 
 // don't ask ...
 const bgColorOptions = ["#e6194B", "#3cb44b", "#ffe119", "#4363d8", "#f58231", "#911eb4", "#42d4f4", "#f032e6", "#bfef45", "#fabebe", "#469990", "#e6beff", "#9A6324", "#fffac8", "#800000", "#aaffc3", "#808000", "#ffd8b1", "#000075", "#a9a9a9", "#ffffff", "#000000"];
@@ -176,6 +177,10 @@ function setup(){
 		inventoryList[inventoryElement].hide();
 	inventoryList[0].show();
 	$("#itemInfoPage").hide();
+
+	for (let i = 0; i < 10; i++) {
+		quickAccessItems[i] = null;
+	}
 }
 
 function checkKeys() {
@@ -194,6 +199,30 @@ function checkKeys() {
     player.superjump();
   if (keyIsDown(32))	// space
     player.jump();
+
+	if (keyIsDown(16)) {
+		player.lockQuickAccess = true;
+		if (keyCode === 48)	// 0
+			display.setQuickAccess(0);
+		else if (keyCode === 49)	// 1
+			display.setQuickAccess(1);
+		else if (keyCode === 50)	// 2
+			display.setQuickAccess(2);
+		else if (keyCode === 51)	// 3
+			display.setQuickAccess(3);
+		else if (keyCode === 52)	// 4
+			display.setQuickAccess(4);
+		else if (keyCode === 53)	// 5
+			display.setQuickAccess(5);
+		else if (keyCode === 54)	// 6 
+			display.setQuickAccess(6);
+		else if (keyCode === 55)	// 7
+			display.setQuickAccess(7);
+		else if (keyCode === 56)	// 8
+			display.setQuickAccess(8);
+		else if (keyCode === 57)	// 9
+			display.setQuickAccess(9);
+	}
 }
 
 function keyReleased() {
@@ -209,7 +238,34 @@ function keyReleased() {
 		display.nextInventory();
 	else if (keyCode === 27)	// esc
 		display.hideItemInfo();
+	else if (keyCode === 16){
+		setTimeout(function (){
+			player.lockQuickAccess = false;
+		}, 500);
+	}
 
+	if (!player.lockQuickAccess) {
+		if (keyCode === 48)	// 0
+			display.quickAccess1();
+		else if (keyCode === 49)	// 1
+			display.quickAccess1();
+		else if (keyCode === 50)	// 2
+			display.quickAccess2();
+		else if (keyCode === 51)	// 3
+			display.quickAccess3();
+		else if (keyCode === 52)	// 4
+			display.quickAccess4();
+		else if (keyCode === 53)	// 5
+			display.quickAccess5();
+		else if (keyCode === 54)	// 6 
+			display.quickAccess6();
+		else if (keyCode === 55)	// 7
+			display.quickAccess7();
+		else if (keyCode === 56)	// 8
+			display.quickAccess8();
+		else if (keyCode === 57)	// 9
+			display.quickAccess9();
+	}
 }
 
 function blockCenter(x, y){

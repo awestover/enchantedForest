@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, user-scalable=no">
-    <title>test</title>
+    <title>EnchantedForest</title>
     <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
 
   </head>
@@ -12,7 +12,7 @@
     <script src="libs/p5.min.js" charset="utf-8"></script>
     <script src="libs/tinyqueue.min.js" charset="utf-8"></script>
     <script src="libs/notify.min.js" charset="utf-8"></script>
-    <script src="src/graphAlgs.js" charset="utf-8"></script>
+		<script src="src/graphAlgs.js" charset="utf-8"></script>
     <script src="src/Entity.js" charset="utf-8"></script>
     <script src="src/Item.js" charset="utf-8"></script>
     <script src="src/Projectile.js" charset="utf-8"></script>
@@ -54,12 +54,61 @@
 				<div id="itemTitle"></div>
 				<div id="itemUseButton">USE</div>
 				<div id="itemDescription"></div>
-				<div id="itemSetQuickAccess">set quickaccess number</div>
 			</div>
 		</div>
 
 	</div>
 
+	<div id="quickAccessContainer" class="HUDContainer">
+			<table id="quickAccessTable" class="itemCell">
+				<tbody>
+					<tr>
+						<td>
+							<img src="data/avatars/empty.png" id="quickAccess1" onclick="return;">
+							<div class="itemSubscript">1</div>
+						</td>
+						<td>
+							<img src="data/avatars/empty.png" id="quickAccess2" onclick="return;">
+							<div class="itemSubscript">2</div>
+						</td>
+						<td>
+							<img src="data/avatars/empty.png" id="quickAccess3" onclick="return;">
+							<div class="itemSubscript">3</div>
+						</td>
+						<td>
+							<img src="data/avatars/empty.png" id="quickAccess4" onclick="return;">
+							<div class="itemSubscript">4</div>
+						</td>
+						<td>
+							<img src="data/avatars/empty.png" id="quickAccess5" onclick="return;">
+							<div class="itemSubscript">5</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="data/avatars/empty.png" id="quickAccess6" onclick="return;">
+							<div class="itemSubscript">6</div>
+						</td>
+						<td>
+							<img src="data/avatars/empty.png" id="quickAccess7" onclick="return;">
+							<div class="itemSubscript">7</div>
+						</td>
+						<td>
+							<img src="data/avatars/empty.png" id="quickAccess8" onclick="return;">
+							<div class="itemSubscript">8</div>
+						</td>
+						<td>
+							<img src="data/avatars/empty.png" id="quickAccess9" onclick="return;">
+							<div class="itemSubscript">9</div>
+						</td>
+						<td>
+							<img src="data/avatars/empty.png" id="quickAccess0" onclick="return;">
+							<div class="itemSubscript">0</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+	</div>
 
 	<div id="questBannerContainer">
 		<div id="questBannerTitle"></div>

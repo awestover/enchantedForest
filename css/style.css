@@ -74,6 +74,7 @@ body {
 #itemContainer {
 	text-align: left;
 	height: 19vh;
+	opacity: 100%;
 }
 
 #itemContainer table {
@@ -146,13 +147,6 @@ body {
 	text-align: left;
 	width: 75%;
 	float: left;
-}
-
-#itemSetQuickAccess {
-	font-size: 1.2em;
-	text-align: left;
-	float: right;
-	width: 25%;
 }
 
 
@@ -228,5 +222,29 @@ body {
 	margin-top: 4vh;
 	background-color: black;
 	color: white;
+}
+
+#quickAccessContainer {
+	margin-bottom: 1vh;
+	margin-right: 3vw;
+	bottom: 0;
+	right: 0;
+	width: 20vw;
+	height: 19vh;
+
+	overflow-y: scroll;
+	scrollbar-width: none; /* Firefox */
+	-ms-overflow-style: none;  /* Internet Explorer 10+ */
+
+	color: white;
+}
+
+#quickAccessContainer::-webkit-scrollbar { /* WebKit */
+	width: 0;
+	height: 0;
+}
+
+#quickAccessContainer table {
+	margin: 0.5vw;
 }
 

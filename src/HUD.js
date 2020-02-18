@@ -7,6 +7,7 @@ class HUD {
 		this.showInfoName;
 		this.showInfoIndex;
 		this.showInfoQuantity;
+		this.inInfoMode = false;
   }
   loadImgs(){
     for(let img in this.imgs){
@@ -128,8 +129,11 @@ class HUD {
 		$("#itemTable").hide();
 		$("#itemInfoPage").show();
 
-		let itemQuantity;
+		this.showInfoName = itemName;
+		this.inInfoMode = true;
+
 		let itemIndex;
+		let itemQuantity;
 		for (itemIndex = 0; itemIndex < player.items.length; itemIndex++) {
 			if (player.items[itemIndex]["type"] === itemName){
 				itemQuantity = player.items[itemIndex]["quantity"];
@@ -137,13 +141,12 @@ class HUD {
 			}
 		}
 
-		this.showInfoName = itemName;
-		this.showInfoIndex = itemIndex;
-		this.showInfoQuantity = itemQuantity;
+		// this.showInfoIndex = itemIndex;
+		// this.showInfoQuantity = showInfoQuantity;
 
 		$("#itemTitle").text("<<" + itemName + ">> x" + itemQuantity);
 		$("#itemDescription").text(stats["items"][itemName]["description"]);
-		$("#itemUseButton").attr("onclick", `display.useItem();`);
+		$("#itemUseButton").attr("onclick", `display.useItem(display.showInfoName);`);
 		document.getElementById("portraitImg").src = itemSrc;
 	}
 
@@ -151,21 +154,83 @@ class HUD {
 		$("#itemInfoPage").hide();
 		$("#itemTable").show();
 		document.getElementById("portraitImg").src = "data/avatars/empty.png";
+		this.inInfoMode = false;
 	}
 
-	useItem() {
-		player.items[this.showInfoIndex]["quantity"]--;
-		this.showInfoQuantity--;
-		$("#itemTitle").text("<<" + this.showInfoName + ">> x" + (this.showInfoQuantity));
-		$(("#"+this.showInfoName+"ItemCellText")).text((this.showInfoQuantity));
+	useItem(itemName) {
 
-		player.lives += 1; 
-
-		if (this.showInfoQuantity === 0) {
-			this.hideItemInfo();
-			player.items.splice(this.showInfoIndex, 1);
-			$(("#"+this.showInfoName+"ItemCell")).remove();
+		console.log("imma use item");
+		let itemIndex;
+		let itemQuantity;
+		for (itemIndex = 0; itemIndex < player.items.length; itemIndex++) {
+			if (player.items[itemIndex]["type"] === itemName){
+				if (player.items[itemIndex]["quantity"] <= 0)
+					return;
+				player.items[itemIndex]["quantity"]--;
+				itemQuantity = player.items[itemIndex]["quantity"];
+				break;
+			}
 		}
+		if (itemIndex == player.items.length)		// item removed/not found
+			return;
+
+		$("#itemTitle").text("<<"+itemName+">> x"+(itemQuantity));
+		$(("#"+itemName+"ItemCellText")).text((itemQuantity));
+
+		this.applyEffects(itemName);
+
+		if (itemQuantity === 0) {
+			this.hideItemInfo();
+			player.items.splice(itemIndex, 1);
+			$(("#"+itemName+"ItemCell")).remove();
+		}
+	}
+
+	applyEffects(itemName) {
+		try {
+			if ("lives" in stats["items"][itemName])
+				player.lives += stats["items"][itemName]["lives"];
+			if ("mana" in stats["items"][itemName])
+				player.mana += stats["items"][itemName]["mana"];
+		} catch (e) {}
+	}
+
+	setQuickAccess(value) {
+		if (value < 0 || value > 9 || value === "")
+			return;
+		quickAccessItems[value] = this.showInfoName;
+		document.getElementById(("quickAccess"+value)).src = stats["items"][this.showInfoName]["imgPaths"];
+	}
+
+	quickAccess0() {
+		this.useItem(quickAccessItems[0]);
+	}
+	quickAccess1() {
+		this.useItem(quickAccessItems[1]);
+	}
+	quickAccess2() {
+		this.useItem(quickAccessItems[2]);
+	}
+	quickAccess3() {
+		this.useItem(quickAccessItems[3]);
+	}
+	quickAccess4() {
+		this.useItem(quickAccessItems[4]);
+	}
+	quickAccess5() {
+		this.useItem(quickAccessItems[5]);
+	}
+	quickAccess6() {
+		this.useItem(quickAccessItems[6]);
+	}
+	quickAccess7() {
+		this.useItem(quickAccessItems[7]);
+	}
+	quickAccess8() {
+		this.useItem(quickAccessItems[8]);
+	}
+	quickAccess9() {
+		this.useItem(quickAccessItems[9]);
 	}
 
 }
