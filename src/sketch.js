@@ -18,6 +18,9 @@ const levelupReqXP = [
   4030,4040,4050,4060,4070,4080,4090,4100
 ];
 
+let smoothedFrameRateEstimate = 60;
+let frameRateSmootherLambda = 0.01;
+
 let roomImage;
 let currentRoom = "start";
 let data;
@@ -27,7 +30,7 @@ const DYNAMIC_TILE_TYPES = ["mob", "item"];
 let TILE_NAMES_TO_IDS = {}; // {"black": "2", "collision": "1", ...}
 let TILE_IDS_TO_NAMES = {}; // {"2": "black", "1": "collision", ...}
 let TILE_TYPE_TO_NAMES = {}; // {"item": ["item:gem", "item:potion", ...],...}
-let mapTileDims = new p5.Vector(0,0);
+let mapTileDims = new p5.Vector(32,32); // really read this in from a file
 let cameraPos = new p5.Vector(0,0);
 let player;
 let itemManager = new ItemManager();
@@ -68,6 +71,14 @@ let quickAccessItems = [];
 // don't ask ...
 const bgColorOptions = ["#e6194B", "#3cb44b", "#ffe119", "#4363d8", "#f58231", "#911eb4", "#42d4f4", "#f032e6", "#bfef45", "#fabebe", "#469990", "#e6beff", "#9A6324", "#fffac8", "#800000", "#aaffc3", "#808000", "#ffd8b1", "#000075", "#a9a9a9", "#ffffff", "#000000"];
 let bgColor = bgColorOptions[Math.floor(Math.random()*bgColorOptions.length)];
+
+let snowParticles = [];
+let windCt = 0; // cool thought: maybe if this wind is strong enough it should affect the player as well....
+function windAtTime(){
+  let xSpeed = 3*(Math.pow(sin(windCt), 70)*Math.sign(Math.sin(windCt)));
+  return createVector(xSpeed, abs(xSpeed)*0.1);
+}
+
 
 function loadRoom(roomName){
 	$("#questBannerContainer").hide();
@@ -189,6 +200,10 @@ function setup(){
 	for (let i = 0; i < 10; i++) {
 		quickAccessItems[i] = null;
 	}
+
+  for(let i = 0; i < 100; i++){
+    snowParticles.push(new Particle());
+  }
 }
 
 function checkKeys() {
@@ -319,6 +334,13 @@ function draw(){
     translate(-cameraPos.x, -cameraPos.y);
     image(roomImage, 0, 0, blockSize*mapTileDims.x, blockSize*mapTileDims.y);
     player.render();
+
+    for(let i = 0; i <100; i++){
+      snowParticles[i].update();
+      snowParticles[i].render();
+    }
+    windCt += 0.001;
+
     player.checkForQuestCompletion();
 
 
@@ -515,6 +537,12 @@ function draw(){
   }
 
   pop(); // translate to screen center is 0,0
+  
+  fill(0);
+  stroke(0);
+  textSize(30);
+  smoothedFrameRateEstimate = frameRate()*frameRateSmootherLambda + (1-frameRateSmootherLambda)*smoothedFrameRateEstimate;
+  text("FR"+Math.round(smoothedFrameRateEstimate,1), width-100,100);
 }
 
 function mousePressed(){
