@@ -1,0 +1,13 @@
+---
+title:
+- type: main
+  text: Enchanted Forest
+- type: subtitle
+  text: A cool story
+creator:
+- role: author
+  text: Alek Westover
+- role: styler
+  text: Kevin Hsu
+cover-image: cover.png
+...

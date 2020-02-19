@@ -231,7 +231,7 @@ Quick access displays clickable 10 items
   | Money          | Coppola        |
   | Dead companion | Bucky/Buchanan |
   | Protagonist    | Bob            |
-  | World          | Noobie Land    |
+  | World          | Llama Land    |
   | Dragon         | Malimost       |
   | Magic source   | The Levant     |
   | Magic system   | Levancy        |
@@ -288,7 +288,7 @@ Quick access displays clickable 10 items
 
   Areas: 
   - llama land (melee + spitting on enemies + summon llama-unicorn)
-  - storm (lightning + wind/tornado)
+  - storm (lightning + wind/tornado + rain)
   - plant control (vine whip, earthquakes)
 
   introduce shadow area upon buchanan's death
@@ -327,4 +327,31 @@ Quick access displays clickable 10 items
     - sacrifice
     - kills jumpydude
     - the end
+
+
+## dark vs light Levancy
+dark levancy is just a tinted version of light levancy
+it is more powerful, but it comes at a cost, namely it makes you evil (greedy, powerhungy etc)
+
+dark levancy: you can steal the powers of others
+light levancy: they can only be freely given
+
+## characters
+
+Malimost:
+  Family slaughtered as a youth, driven on a quest to control who has access to the Levant
+  He only really allows people to possess it if they swear a magically binding oath (he has an item, the bondstone that enables this, people will burn up if they break the vow) to obey him.
+  He seeks out any "rogue" Levanters and forces them to either bond to him or die.
+  he is very paranoid
+  people have legends about the Levant being used for great things => unhappy
+  some communities of rogue levanters exists and resist
+
+Bob:
+  "rogue" Levanter, doesnt really know about his powers
+  Home destroyed by malimost's minions because they offended them somehow, maybe rebelled
+  wants revenge (initially) 
+  after learning more about the Levant (and his turning point) he actually wants to bring back free use of the Levant for the good of people
+
+
+
 
