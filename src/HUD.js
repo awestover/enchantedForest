@@ -72,7 +72,6 @@ class HUD {
 	prevInventory(){
 		inventoryList[this.currentInventoryIndex].hide();
 		this.rotateInventory(-1);
-
 		inventoryList[this.currentInventoryIndex].show();
 	}
 

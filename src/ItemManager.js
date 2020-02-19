@@ -1,8 +1,6 @@
 class ItemManager {
   constructor(){
 		this.showInfoName;
-		this.showInfoIndex;
-		this.showInfoQuantity;
 		this.inInfoMode = false;
   }
 
@@ -19,7 +17,6 @@ class ItemManager {
 		cell.id = itemType+"ItemCell";
 		let img = document.createElement("IMG");
 		img.src = "data/items/"+itemType+".png";
-    // img.setAttribute("onclick", "player.mana += 10");
     img.setAttribute("onclick", "itemManager.showItemInfo(this.src)");
 
 		let text = document.createTextNode("1");
@@ -37,61 +34,48 @@ class ItemManager {
 	incrementItem(itemType, itemQuantity){
 		let idName = itemType+"ItemCellText";
 		document.getElementById(idName).childNodes[0].nodeValue = itemQuantity.toString();
-
 		$.notify(`item \"${itemType}\" acquired!`, "success");
+	}
+
+	searchItemIndex(itemName) {
+		let itemIndex;
+		for (itemIndex = 0; itemIndex < player.items.length; itemIndex++) 
+			if (player.items[itemIndex]["type"] === itemName)
+				break;
+		return itemIndex;
 	}
 
 	showItemInfo(itemSrc) {
 		// get filename without extension
 		let itemName = itemSrc.replace(/^.*[\\\/]/, '').split('.').slice(0, -1).join('.')
+		this.inInfoMode = true;
+		this.showInfoName = itemName;
+		let itemIndex = this.searchItemIndex(itemName);
+		let itemQuantity = player.items[itemIndex]["quantity"];
 
 		$("#itemTable").hide();
 		$("#itemInfoPage").show();
 
-		this.showInfoName = itemName;
-		this.inInfoMode = true;
-
-		let itemIndex;
-		let itemQuantity;
-		for (itemIndex = 0; itemIndex < player.items.length; itemIndex++) {
-			if (player.items[itemIndex]["type"] === itemName){
-				itemQuantity = player.items[itemIndex]["quantity"];
-				break;
-			}
-		}
-
-		// this.showInfoIndex = itemIndex;
-		// this.showInfoQuantity = showInfoQuantity;
-
 		$("#itemTitle").text("<<" + itemName + ">> x" + itemQuantity);
 		$("#itemDescription").text(stats["items"][itemName]["description"]);
 		$("#itemUseButton").attr("onclick", `itemManager.useItem(itemManager.showInfoName);`);
-		document.getElementById("portraitImg").src = itemSrc;
+		$("#portraitImg").attr('src', itemSrc);
 	}
 
 	hideItemInfo() {
+		this.inInfoMode = false;
+		$("#portraitImg").attr('src', 'data/avatars/empty.png');
 		$("#itemInfoPage").hide();
 		$("#itemTable").show();
-		document.getElementById("portraitImg").src = "data/avatars/empty.png";
-		this.inInfoMode = false;
 	}
 
 	useItem(itemName) {
+		let itemIndex = this.searchItemIndex(itemName);
+		if (itemIndex == player.items.length || player.items[itemIndex]["quantity"] <= 0)
+			return;		// item removed/not found
 
-		console.log("imma use item");
-		let itemIndex;
-		let itemQuantity;
-		for (itemIndex = 0; itemIndex < player.items.length; itemIndex++) {
-			if (player.items[itemIndex]["type"] === itemName){
-				if (player.items[itemIndex]["quantity"] <= 0)
-					return;
-				player.items[itemIndex]["quantity"]--;
-				itemQuantity = player.items[itemIndex]["quantity"];
-				break;
-			}
-		}
-		if (itemIndex == player.items.length)		// item removed/not found
-			return;
+		player.items[itemIndex]["quantity"]--;
+		let itemQuantity = player.items[itemIndex]["quantity"];
 
 		$("#itemTitle").text("<<"+itemName+">> x"+(itemQuantity));
 		$(("#"+itemName+"ItemCellText")).text((itemQuantity));
@@ -121,35 +105,15 @@ class ItemManager {
 		document.getElementById(("quickAccess"+value)).src = stats["items"][this.showInfoName]["imgPaths"];
 	}
 
-	quickAccess0() {
-		this.useItem(quickAccessItems[0]);
-	}
-	quickAccess1() {
-		this.useItem(quickAccessItems[1]);
-	}
-	quickAccess2() {
-		this.useItem(quickAccessItems[2]);
-	}
-	quickAccess3() {
-		this.useItem(quickAccessItems[3]);
-	}
-	quickAccess4() {
-		this.useItem(quickAccessItems[4]);
-	}
-	quickAccess5() {
-		this.useItem(quickAccessItems[5]);
-	}
-	quickAccess6() {
-		this.useItem(quickAccessItems[6]);
-	}
-	quickAccess7() {
-		this.useItem(quickAccessItems[7]);
-	}
-	quickAccess8() {
-		this.useItem(quickAccessItems[8]);
-	}
-	quickAccess9() {
-		this.useItem(quickAccessItems[9]);
-	}
+	quickAccess0() { this.useItem(quickAccessItems[0]); }
+	quickAccess1() { this.useItem(quickAccessItems[1]); }
+	quickAccess2() { this.useItem(quickAccessItems[2]); }
+	quickAccess3() { this.useItem(quickAccessItems[3]); }
+	quickAccess4() { this.useItem(quickAccessItems[4]); }
+	quickAccess5() { this.useItem(quickAccessItems[5]); }
+	quickAccess6() { this.useItem(quickAccessItems[6]); }
+	quickAccess7() { this.useItem(quickAccessItems[7]); }
+	quickAccess8() { this.useItem(quickAccessItems[8]); }
+	quickAccess9() { this.useItem(quickAccessItems[9]); }
 
 }
