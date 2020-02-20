@@ -118,7 +118,7 @@ function loadRoom(roomName){
         let bc = blockCenter(x, y);
         if(TILE_TYPE_TO_NAMES["mob"].includes(TILE_IDS_TO_NAMES[data.layers["mobs"][y][x]])){
           let tile_type = TILE_IDS_TO_NAMES[data.layers["mobs"][y][x]].substring(("mob"+":").length);
-
+          console.log(tile_type);
           mobs.push(new Entity(bc.x, bc.y-blockSize/2, tile_type));
           mobs[mobs.length-1].spritesheet = stats["mobs"][tile_type].img;
           mobs[mobs.length-1].type = tile_type;

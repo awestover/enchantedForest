@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.2" tiledversion="1.2.4" name="tileset" tilewidth="32" tileheight="32" tilecount="15" columns="0">
+<tileset version="1.2" tiledversion="1.2.4" name="tileset" tilewidth="32" tileheight="32" tilecount="17" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0">
   <properties>
@@ -86,7 +86,21 @@
   <image width="32" height="32" source="gimpTiles/bear.png"/>
  </tile>
  <tile id="17">
+  <properties>
    <property name="name" value="mob:unicorn"/>
+  </properties>
   <image width="32" height="32" source="gimpTiles/unicornSpawnPoint.png"/>
+ </tile>
+ <tile id="18">
+  <properties>
+   <property name="name" value="mob:ninja"/>
+  </properties>
+  <image width="32" height="32" source="gimpTiles/ninjaSpawnPoint.png"/>
+ </tile>
+ <tile id="20">
+  <properties>
+   <property name="name" value="mob:boar"/>
+  </properties>
+  <image width="32" height="25" source="gimpTiles/boarSpawnPoint.png"/>
  </tile>
 </tileset>
