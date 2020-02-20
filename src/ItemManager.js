@@ -34,6 +34,7 @@ class ItemManager {
 	incrementItem(itemType, itemQuantity){
 		let idName = itemType+"ItemCellText";
 		document.getElementById(idName).childNodes[0].nodeValue = itemQuantity.toString();
+		this.updateQuickAccessQuantity(itemType, itemQuantity);
 		$.notify(`item \"${itemType}\" acquired!`, "success");
 	}
 
@@ -80,6 +81,7 @@ class ItemManager {
 		$("#itemTitle").text("<<"+itemName+">> x"+(itemQuantity));
 		$(("#"+itemName+"ItemCellText")).text((itemQuantity));
 
+		this.updateQuickAccessQuantity(itemName, itemQuantity);
 		this.applyEffects(itemName);
 
 		if (itemQuantity === 0) {
@@ -87,6 +89,12 @@ class ItemManager {
 			player.items.splice(itemIndex, 1);
 			$(("#"+itemName+"ItemCell")).remove();
 		}
+	}
+
+	updateQuickAccessQuantity(itemName, itemQuantity) {
+		for (let i = 0; i < quickAccessItems.length; i++) 
+			if (quickAccessItems[i] === itemName) 
+				$(("#quickAccess"+i)).siblings().text(itemQuantity);
 	}
 
 	applyEffects(itemName) {
@@ -102,7 +110,11 @@ class ItemManager {
 		if (value < 0 || value > 9 || value === "" || !(this.showInfoName in stats["items"]))
 			return;
 		quickAccessItems[value] = this.showInfoName;
-		document.getElementById(("quickAccess"+value)).src = stats["items"][this.showInfoName]["imgPaths"];
+		$(("#quickAccess"+value)).attr('src', stats["items"][this.showInfoName]["imgPaths"]);
+
+		let itemIndex = this.searchItemIndex(this.showInfoName);
+		let itemQuantity = player.items[itemIndex]["quantity"];
+		$(("#quickAccess"+value)).siblings().text(itemQuantity);
 	}
 
 	quickAccess0() { this.useItem(quickAccessItems[0]); }
