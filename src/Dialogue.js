@@ -21,20 +21,22 @@ class Dialogue { // TODO: should maybe have different types of dialogue (e.g. tr
 
 	displayQuestBanner(){
 		$("#questBannerContainer").show();
-		$("#questBannerTitle").text("<" + this.questName + ">");
+		$("#questBannerTitle").text(`<<${this.questName}>>`);
 		if(this.questDetails["task"]["type"] === "hunt"){
-			$("#questBannerObjectives").text("Objective: Hunt x" + this.questDetails["task"]["quantity"] + " " + this.questDetails["task"]["species"]);
+			$("#questBannerObjectives").text(`Objective: Hunt x${this.questDetails["task"]["quantity"]} ${this.questDetails["task"]["species"]}`);
 		}
 		$("#questBannerRewards").text("Rewards: " + this.questDetails["rewards"]["xp"] + " xp");
+		$("#questBannerRewards").text(`Rewards: ${this.questDetails["rewards"]["xp"]} xp`);
 		$("#questBannerAcceptButton").focus();
 	}
 	hideQuestBanner(){
 		$("#questBannerContainer").hide();
 		player.movementLocked = false;
+		// this.clearBox();
 	}
 
 	clearBox(){
-		document.getElementById("portraitImg").src = "data/avatars/empty.png";
+		$("#portraitImg").attr("src", "data/avatars/empty.png");
 		$("#dialogueTextWrapper").css("display", "none");
 		this.inDialogue = false;
 		inventoryList[display.currentInventoryIndex].show();
@@ -42,7 +44,6 @@ class Dialogue { // TODO: should maybe have different types of dialogue (e.g. tr
 	showBox(){
 		inventoryList[display.currentInventoryIndex].hide();
 		$("#portraitImg").attr("src", `data/avatars/${this.npcName}.png`);
-		// let questDetails = JSON.stringify(quest_data[npcData.proposeQuest]); // make this nicer...
 		
 		this.inDialogue = true;
 		player.movementLocked = true;
@@ -68,6 +69,29 @@ class Dialogue { // TODO: should maybe have different types of dialogue (e.g. tr
       $("#questBannerDeclineButton").attr("onclick", `dialogue.hideQuestBanner();`);
     }
 		$("#dialogueTextWrapper").css("display", "inline-block");
+	}
+
+	montage(){
+		if(!this.inDialogue && lastDialogueBoxToShow!=null){
+			this.showBox();
+			return;
+		}
+    $("#dialogueText").text(this.script[this.dialogueIndex]);
+		this.dialogueIndex++;
+
+		// End of dialogue
+		if(this.dialogueIndex > this.script.length){
+      if(this.questName.length > 0){
+        if(!player.quests.includes(this.questName) && 
+          !player.completedQuests.includes(this.questName)){
+          this.displayQuestBanner();
+        }
+      }
+      else if(this.trade !== null && this.shouldDisplayBanner){
+        this.displayTradeBanner();
+				this.shouldDisplayBanner = false;
+      }
+		}
 	}
 
 	spliceScript(fulltext){
@@ -99,27 +123,4 @@ class Dialogue { // TODO: should maybe have different types of dialogue (e.g. tr
       $.notify("Insufficient coins to make the trade!!!");
     }
   }
-
-	montage(){
-		if(!this.inDialogue){
-			this.showBox();
-			return;
-		}
-    $("#dialogueText").text(this.script[this.dialogueIndex]);
-		this.dialogueIndex++;
-
-		// End of dialogue
-		if(this.dialogueIndex > this.script.length){
-      if(this.questName.length > 0){
-        if(!player.quests.includes(this.questName) && 
-          !player.completedQuests.includes(this.questName)){
-          this.displayQuestBanner();
-        }
-      }
-      else if(this.trade !== null && this.shouldDisplayBanner){
-        this.displayTradeBanner();
-				this.shouldDisplayBanner = false;
-      }
-		}
-	}
 }
