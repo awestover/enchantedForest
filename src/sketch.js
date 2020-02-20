@@ -72,7 +72,9 @@ let quickAccessItems = [];
 const bgColorOptions = ["#e6194B", "#3cb44b", "#ffe119", "#4363d8", "#f58231", "#911eb4", "#42d4f4", "#f032e6", "#bfef45", "#fabebe", "#469990", "#e6beff", "#9A6324", "#fffac8", "#800000", "#aaffc3", "#808000", "#ffd8b1", "#000075", "#a9a9a9", "#ffffff", "#000000"];
 let bgColor = bgColorOptions[Math.floor(Math.random()*bgColorOptions.length)];
 
-let snowParticles = [];
+// weather
+let bolts = [];
+let fallingParticles = [];
 let windCt = 0; // cool thought: maybe if this wind is strong enough it should affect the player as well....
 function windAtTime(){
   let xSpeed = 3*(Math.pow(sin(windCt), 70)*Math.sign(Math.sin(windCt)));
@@ -201,8 +203,21 @@ function setup(){
 		quickAccessItems[i] = null;
 	}
 
-  for(let i = 0; i < 100; i++){
-    snowParticles.push(new Particle());
+  if(Math.random()<0.8){
+    for(let i = 0; i < 100; i++){
+      fallingParticles.push(new Particle("snow"));
+    }
+    for(let i = 0; i < 2; i++){
+      bolts.push(new LightningBolt());
+    }
+  }
+  else{
+    for(let i = 0; i < 100; i++){
+      fallingParticles.push(new Particle("rain"));
+    }
+    for(let i = 0; i < 2; i++){
+      bolts.push(new LightningBolt());
+    }
   }
 }
 
@@ -336,10 +351,16 @@ function draw(){
     player.render();
 
     for(let i = 0; i <100; i++){
-      snowParticles[i].update();
-      snowParticles[i].render();
+      fallingParticles[i].update();
+      fallingParticles[i].render();
     }
     windCt += 0.001;
+    for(let i = 0; i < bolts.length; i++){
+      bolts[i].render();
+      if(random() < 0.01){
+        bolts[i].spawn();
+      }
+    }
 
     player.checkForQuestCompletion();
 

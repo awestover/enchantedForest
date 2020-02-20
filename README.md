@@ -36,7 +36,6 @@ what if npcs are the teleporters? [[ note: this would make the code easier... li
   - queen in the center, if queen struck down everything dies
   - bats!
 - fix collisions (currently Im not looking at sprites.json for them!)
-- weather
 - plot plot plot
 
 ## KEVIN legit
