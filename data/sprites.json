@@ -16,8 +16,8 @@
   "unicorn": {
     "numframes": {"cols": 4, "rows": 2},
     "collision_offset": [0,0],
-    "total_dims": [32,32],
-    "collision_dims": [32,32],
+    "total_dims": [64,64],
+    "collision_dims": [64,64],
     "pixel_dims": [64,64]
   },
   "dragonInsignia": {

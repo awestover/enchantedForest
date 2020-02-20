@@ -3,9 +3,7 @@ const gravity = 0.2;
 const friction = 0.06;
 const moveAccel = 0.3;
 const jumpImpulse = 7;
-// const maxVel = new p5.Vector(2.5, jumpImpulse);
-const maxVel = new p5.Vector(3, jumpImpulse); // for testing
-// const cameraSpeed = 1.2;
+const maxVel = new p5.Vector(2.5, jumpImpulse);
 const cameraSpeed = maxVel.x; // for testing (???)
 const cameraSeekThresh = cameraSpeed * 15;
 const cameraUnseekThresh = cameraSpeed;
@@ -364,7 +362,6 @@ function draw(){
 
     player.checkForQuestCompletion();
 
-
     // inserting dijkstras
     image(batImg, batpos.x, batpos.y, blockSize*5, blockSize*5);
     noFill();
@@ -396,7 +393,6 @@ function draw(){
         batHeading = p5.Vector.sub(gotoPoint, batpos).mult(1/pathProgressCap);
         path.splice(0,1);
       }
-
     }
 
     for(let i = player.projectiles.length-1; i>=0; i--){
@@ -454,12 +450,10 @@ function draw(){
           mobs[i].jump();
         if(Math.random() < 0.1){
           if(mobs[i].vel.x != 0){
-            if(Math.random() < 0.9){
+            if(Math.random() < 0.9)
               mobs[i].vel.x = Math.sign(mobs[i].vel.x)*maxVel.x;
-            }
-            else{
+            else
               mobs[i].vel.x = -Math.sign(mobs[i].vel.x)*maxVel.x;
-            }
           }
           else{
               mobs[i].vel.x = Math.sign(Math.random() - 0.5)*maxVel.x;

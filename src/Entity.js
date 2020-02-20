@@ -8,15 +8,16 @@ class Entity {
     this.vel = new p5.Vector(0,0);
 
     this.dims = new p5.Vector(blockSize, blockSize*2);
-    this.collision_dims = new p5.Vector(blockSize, blockSize*2); 
-    this.collision_offset = new p5.Vector(0, 0);
-    this.numframes = {"cols": 1, "rows": 1}; 
     try{ this.dims = arrToVec(sprite_data[spriteName].total_dims) || this.dims; } catch {}
-    this.pixel_dims = this.dims;
+    this.collision_dims = this.dims;
     try{ this.collision_dims = arrToVec(sprite_data[spriteName].collision_dims) || this.collision_dims; } catch {}
+    this.collision_offset = new p5.Vector(0, 0);
     try{ this.collision_offset = arrToVec(sprite_data[spriteName].collision_offset) || this.collision_offset; } catch {}
+    this.numframes = {"cols": 1, "rows": 1}; 
     try{ this.numframes = sprite_data[spriteName].numframes || this.numframes; } catch{}
+    this.pixel_dims = this.dims;
     try{ this.pixel_dims = arrToVec(sprite_data[spriteName].pixel_dims) || this.dims} catch{}
+    this.tileDimsUpperBound = createVector(Math.max(1,Math.ceil(this.dims.x/blockSize)), Math.max(1,Math.ceil(this.dims.x/blockSize)));
 
     this.type = spriteName;
     this.spritesheet = null;
@@ -68,10 +69,10 @@ class Entity {
 	// this is a bit more lenient in terms of dy, and a bit stricter in terms of dx than just hitsBlock
 	onBlock(x, y){
 		let bcenter = blockCenter(x, y);
-		let dx = this.pos.x - bcenter.x;
-		let dy = this.pos.y - bcenter.y;
-		let xIntersectSize = blockSize/2 + this.dims.x/2 - Math.abs(dx);
-		let yIntersectSize = blockSize/2 + this.dims.y/2 - Math.abs(dy);
+		let dx = this.pos.x + this.collision_offset.x - bcenter.x;
+		let dy = this.pos.y + this.collision_offset.y - bcenter.y;
+		let xIntersectSize = blockSize/2 + this.collision_dims.x/2 - Math.abs(dx);
+		let yIntersectSize = blockSize/2 + this.collision_dims.y/2 - Math.abs(dy);
 
 		if (dy < 0 && xIntersectSize > (1+collisionTollerence)*maxVel.x){
 			if(yIntersectSize > -(1+collisionTollerence)*maxVel.y){
@@ -84,10 +85,10 @@ class Entity {
 
 	barrierViolation(x, y){
 		let bcenter = blockCenter(x, y);
-		let dx = this.pos.x - bcenter.x;
-		let dy = this.pos.y - bcenter.y;
-		let xIntersectSize = blockSize/2 + this.dims.x/2 - Math.abs(dx);
-		let yIntersectSize = blockSize/2 + this.dims.y/2 - Math.abs(dy);
+		let dx = this.pos.x + this.collision_offset.x - bcenter.x;
+		let dy = this.pos.y + this.collision_offset.y - bcenter.y;
+		let xIntersectSize = blockSize/2 + this.collision_dims.x/2 - Math.abs(dx);
+		let yIntersectSize = blockSize/2 + this.collision_dims.y/2 - Math.abs(dy);
     let hitdata = {"hit": false, "xfix": 0, "yfix": 0};
 
 		if (xIntersectSize > 0 && yIntersectSize > 0){
@@ -107,19 +108,19 @@ class Entity {
 	}
 
 	hitRect(otherpos, otherdims){
-		let dx = this.pos.x - otherpos.x;
-		let dy = this.pos.y - otherpos.y;
-		let xIntersectSize = otherdims.x/2 + this.dims.x/2 - Math.abs(dx);
-		let yIntersectSize = otherdims.y/2 + this.dims.y/2 - Math.abs(dy);
+		let dx = this.pos.x + this.collision_offset.x - otherpos.x;
+		let dy = this.pos.y + this.collision_offset.y - otherpos.y;
+		let xIntersectSize = otherdims.x/2 + this.collision_dims.x/2 - Math.abs(dx);
+		let yIntersectSize = otherdims.y/2 + this.collision_dims.y/2 - Math.abs(dy);
     return xIntersectSize > 0 && yIntersectSize > 0;
 	}
 
 	hitBlock(x, y){
 		let bcenter = blockCenter(x, y);
-		let dx = this.pos.x - bcenter.x;
-		let dy = this.pos.y - bcenter.y;
-		let xIntersectSize = blockSize/2 + this.dims.x/2 - Math.abs(dx);
-		let yIntersectSize = blockSize/2 + this.dims.y/2 - Math.abs(dy);
+		let dx = this.pos.x + this.collision_offset.x - bcenter.x;
+		let dy = this.pos.y + this.collision_offset.y - bcenter.y;
+		let xIntersectSize = blockSize/2 + this.collision_dims.x/2 - Math.abs(dx);
+		let yIntersectSize = blockSize/2 + this.collision_dims.y/2 - Math.abs(dy);
     return xIntersectSize > 0 && yIntersectSize > 0;
 	}
 
@@ -143,7 +144,8 @@ class Entity {
 
   handleMapCollisions(){
     let onAnyBlock = false;
-    let boundingTiles = this.gridBoundingBox();
+    // let boundingTiles = this.gridBoundingBox();
+    let boundingTiles = this.beefyGridBoundingBox(); // testing this...
     for(let i in boundingTiles){
       let x = boundingTiles[i].x;
       let y = boundingTiles[i].y;
@@ -180,9 +182,9 @@ class Entity {
     let gx = Math.round(this.pos.x / blockSize + mapTileDims.x/2);
     let gy = Math.round(this.pos.y / blockSize + mapTileDims.y/2);
     let tiles = [];
-    for (let dx = -1; dx <= 1; dx++){
+    for (let dx = -this.tileDimsUpperBound.x; dx <= this.tileDimsUpperBound.x; dx++){
       if(gx+dx >= 0 && gx + dx < mapTileDims.x){
-        for (let dy = -2; dy <= 2; dy++){
+        for (let dy = -this.tileDimsUpperBound.y; dy <= this.tileDimsUpperBound.y; dy++){
           if(gy+dy >= 0 && gy + dy < mapTileDims.y){
             tiles.push({"x": gx+dx, "y": gy+dy});
           }
@@ -196,9 +198,9 @@ class Entity {
     let gx = Math.round(this.pos.x / blockSize + mapTileDims.x/2);
     let gy = Math.round(this.pos.y / blockSize + mapTileDims.y/2);
     let tiles = [];
-    for (let dx = -2; dx <= 2; dx++){
+    for (let dx = -this.tileDimsUpperBound.x*2; dx <= this.tileDimsUpperBound.x*2; dx++){
       if(gx+dx >= 0 && gx + dx < mapTileDims.x){
-        for (let dy = -3; dy <= 3; dy++){
+        for (let dy = -this.tileDimsUpperBound.y*2; dy <= this.tileDimsUpperBound.y*2; dy++){
           if(gy+dy >= 0 && gy + dy < mapTileDims.y){
             tiles.push({"x": gx+dx, "y": gy+dy});
           }
@@ -208,13 +210,12 @@ class Entity {
     return tiles;
   }
 
-
   offTheGrid(){
     let extraTolerance = 5;
-    return (this.pos.x - this.dims.x*extraTolerance > mapTileDims.x*blockSize/2 || 
-       this.pos.x + this.dims.x*extraTolerance < -mapTileDims.x*blockSize/2 || 
-       this.pos.y - this.dims.y*extraTolerance > mapTileDims.y*blockSize/2 || 
-       this.pos.y + this.dims.y*extraTolerance < -mapTileDims.y*blockSize/2);
+    return (this.pos.x + this.collision_offset.x - this.collision_dims.x*extraTolerance > mapTileDims.x*blockSize/2 || 
+       this.pos.x + this.collision_offset.x + this.collision_dims.x*extraTolerance < -mapTileDims.x*blockSize/2 || 
+       this.pos.y + this.collision_offset.y - this.collision_dims.y*extraTolerance > mapTileDims.y*blockSize/2 || 
+       this.pos.y + this.collision_offset.y + this.collision_dims.y*extraTolerance < -mapTileDims.y*blockSize/2);
   }
 
 }

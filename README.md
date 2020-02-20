@@ -35,7 +35,6 @@ what if npcs are the teleporters? [[ note: this would make the code easier... li
   - flying swarm behavior
   - queen in the center, if queen struck down everything dies
   - bats!
-- fix collisions (currently Im not looking at sprites.json for them!)
 - plot plot plot
 
 ## KEVIN legit
