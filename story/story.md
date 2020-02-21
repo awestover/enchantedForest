@@ -172,7 +172,7 @@ and then shot the blinding mud at Malimost with a gust of wind.
 Malimost roared in surprise, and began spewing fireballs in random dirrections.
 
 Rand flew up above Malimost, gathered his strenght, and pummeled Malimost with
-with Wind Levancy, forcing him down into the burning ground.  Rand followed
+with Wind Levancy, forcing him down into the burning ground. Rand followed
 close behind, and once close enough to the ground bound Malimost in plants with
 Earth Levancy. Malimost kept spewing fireballs, but they were trivial to block.
 
@@ -209,14 +209,14 @@ barrier will immolate any who enter it."
 restricting access to this dangerous power. I will make them see." 
 
 Resigned to his fate, Rand resumed his attack on Malimost. He threw every item
-he had at Malimost.  He used all his centuries of magical experience to assail
-the dragon. But it was not enough.  The dark tinted magic seemed to have
+he had at Malimost. He used all his centuries of magical experience to assail
+the dragon. But it was not enough. The dark tinted magic seemed to have
 unlimited patience. It would hide in a subdued form, as the fire had, until
 Rand's attention was elsewhere, and then creep back up. Fireballs Rand had
-extiinguished and blown away crept back and hit him.  Not hard, they were week
+extiinguished and blown away crept back and hit him. Not hard, they were week
 after being blocked once. But it was too much nonetheless. The incessant
-attacks wore Rand down.  Eventually, when all his items were spent and he had
-expended all his energy a gust of wind drove him to the ground.  As he fell,
+attacks wore Rand down. Eventually, when all his items were spent and he had
+expended all his energy a gust of wind drove him to the ground. As he fell,
 incapacitated, he felt flames engulf his body. The black tinged flames of dark
 levancy. 
 
@@ -234,47 +234,107 @@ The world was on fire.
 ## Goals:
  - Bob and Bucky are going back to their village (they are humble Llama herders)
  - Minions of Malimost (unicorns) decided to destroy their village 
-   - Bob doesn't know why yet, but later it will become evident that it was because Malimost knew that a powerful Levanter would arise from his village
+  - Bob doesn't know why yet, but later it will become evident that it was because Malimost knew that a powerful Levanter would arise from his village
  - Bob and Bucky realize that they are in danger, so they seek shelter at a rumuroed rogue Levanter town
 
 "Get up!" Bucky's deep voice pierced through Bob's dream of llamas grazing on a field.
 
-Bob groggily began to comply. 
+Brushing his black shoulderlength hair from his eyes, Bob groggily began to comply. 
+Although the morning was somewhat chilly, Bob could tell that the day was
+shaping up to be a pleasant summer day, slightly hot but with a refreshing
+breeze. Bob loved the summer in llama land, in the winter no matter how many
+cloaks he bundled up in he allways felt the chill in his bones. Bucky always
+joked about this: Bucky said that Bob was a young child unacquainted to the
+world; in some far parts of the world their summers were colder than llama
+land's winter, and where it got so cold that white powder called snow fell from
+the sky instead of rain, he often joked good heartedly. Bucky only had
+experience with such places because he had been with his dad, the village
+merchant, on a few journeys as a very young child. Bob was hardly a young
+child, a few months younger than Bucky at most, if not older than Bucky, but
+you couldn't tell from his stature. Bucky was a very large man, towering over
+Bob despite the fact that Bob was above average height in their home village.
+Bucky wasn't lanky though like Bob, he had an abundance of muscle to augment
+his height making his stature quite imposing. This intimidating effect was
+ruined however by his affable smile and twinkling brown eyes filled with mirth.
+Bob had been friends with Bucky since early childhood. They had naturally
+decided to graze llamas together a few years back, and over the years had
+experienced their share of adventures: dealing with runaway llamas comprising
+the large part of these adventures. They could hide in lots of places in the
+hilly expanses of Llama land and catching them when they had the mind to run
+off was quite difficult.
 
-Bucky was a very large man, towering over Bob despite the fact that Bob was above average height in their home village. Bucky wasn't lanky though, he had an abundance of muscle to augment his height making his stature quite imposing. This effect was ruined however by his affable smile and twinkling brown eyes filled with mirth. 
+Bob carefully rolled up his light summer travel cloak and tied it to his backpack.
+He walked towards the smell of oats, which reminded him of the oats his
+mom always used to make.  Bucky had already started making breakfast
+on a cheery campfire in the center of their campsite for the week. Today it was
+time to move on from this campsite, they couldn't let the llamas graze for more
+than a week in one location or the grass would be hard pressed to recover. Bob 
+sat down on a rock next to Bucky. 
+
+"Sometimes I think you'd sleep past noon if I didn't wake you" Bucky joked.
+
+It wasn't true, Bucky woke extraordinarily early whereas Bob had a regular sleep cycle.
+
+"Where are we taking the Llamas next?" Bob queried.
+
+Bucky took out his map, which was intricately drawn in deep black lines on a piece of parchment.
+
+"Normally we would go to The Burrow next, but we actually are quite close to
+the village. If we press hard I think we could make it by tonight. It would be
+fun to see some familiar faces, and we could restock on supplies. The only
+breakfast I have left is oats!"
+
+"Wow, I didn't realize we were that close!" Bob replied. "Yes that'd be coppola! What are we waiting for?"
+
+"Well I didn't want to interupt your sleep", Bucky said smirking.
+
+They scarfed down the remnants of their oats and quickly washed their dishes,
+put out the fire, and packed their bags. 
+
+The Llamas were milling about, but moved to follow Bob and Bucky as they started walking.
+The occasional Llama needed a little more than the pull of the group of llamas
+moving to direct it; for that Bob and Bucky had long wooden staffs, hooked at
+the end, for gently directing a llama back to the right path.
+Bucky navigated with his compass and map, which left Bob free to think.
+
+It had been months since he had seen the village, and his family.
+
+
+
+
 
 
 
 # Chapter 2
 
 ## Goals:
-  - on the way to the refuge Bob instinctively channels the Levant against something 
-  - at the refuge Bob and Bucky discover that 
-    - Bob can use the levant
-    - unicorns attacked their village because of rumors of a powerful levanter (Bob) that would come about
-  - Bob resolves to learn about the Levant and get revenge
+ - on the way to the refuge Bob instinctively channels the Levant against something 
+ - at the refuge Bob and Bucky discover that 
+  - Bob can use the levant
+  - unicorns attacked their village because of rumors of a powerful levanter (Bob) that would come about
+ - Bob resolves to learn about the Levant and get revenge
 
 
 # Chapter 3 
 
 ## Goals:
-  - Bob gets a mentor
-  - Bob trains in using the Levant as they seek out the unicorns
-  - they face down the unicorns; bob wins; bucky dies
-  - Now Bob's really angry at Malimost
-  - Bob realizes that he is really powerful
-  - Bob resolves to confront Malimost
+ - Bob gets a mentor
+ - Bob trains in using the Levant as they seek out the unicorns
+ - they face down the unicorns; bob wins; bucky dies
+ - Now Bob's really angry at Malimost
+ - Bob realizes that he is really powerful
+ - Bob resolves to confront Malimost
 
 
 # Chapter 4
 
 ## Goals:
-  - quest to figure out how to get Malimost
-  - finally figure out that there are some keys to get in order to get to malimost
+ - quest to figure out how to get Malimost
+ - finally figure out that there are some keys to get in order to get to malimost
 
 # Chapter 5
 
 ## Goals:
-  - exit llama land
+ - exit llama land
 
 
