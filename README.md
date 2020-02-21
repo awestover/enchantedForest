@@ -414,10 +414,8 @@ light levancy: they can only be freely given
     - Alek
       - Make a tilemap
 
-      - Fix npc interaction (lock movement)
+      - Fix npc quest giving (they need to be able to give multiple quests; im pretty sure we dont check prereqs; if you already accepted the quest you cant exit conversation) 
 
       - Write relevant plot
-      - Make velocity entity-specific
       - Fix teleporters
-      - Camera tracking speed same as movement speed
 

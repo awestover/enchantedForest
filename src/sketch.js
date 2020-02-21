@@ -3,10 +3,6 @@ const gravity = 0.2;
 const friction = 0.06;
 const moveAccel = 0.3;
 const jumpImpulse = 7;
-const maxVel = new p5.Vector(2.5, jumpImpulse);
-const cameraSpeed = maxVel.x;
-const cameraSeekThresh = cameraSpeed * 15;
-const cameraUnseekThresh = cameraSpeed;
 const collisionTollerence = 0.0001;
 const levelupReqXP = [
   100, 1000, 2000, 4000,4010,4020,
@@ -225,11 +221,11 @@ function checkKeys() {
 		return;
 
   if (keyIsDown(LEFT_ARROW) || keyIsDown(65)){ // LEFT / A
-    player.vel.x = Math.max(player.vel.x-moveAccel, -maxVel.x);
+    player.vel.x = Math.max(player.vel.x-moveAccel, -player.maxVel.x);
 		player.lastDir = -1;
 	}
   else if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)){ // RIGHT / D
-    player.vel.x = Math.min(player.vel.x+moveAccel, maxVel.x);
+    player.vel.x = Math.min(player.vel.x+moveAccel, player.maxVel.x);
 		player.lastDir = 1;
 	}
   if(keyIsDown(87) || keyIsDown(38)) // W / UP
@@ -319,16 +315,16 @@ function cameraSeek(){
   // tbh toggligng parameters on this is also kinda low key a viable strategy
   // ok, basically it only looks weird if the player is moving slower than the camera(?)
   if(cameraSeeking){
-    if(diff.mag() < cameraUnseekThresh){
+    if(diff.mag() < player.maxVel.mag()){
       cameraSeeking = false;
     }
     else{
-      diff.setMag(cameraSpeed);
+      diff.setMag(player.maxVel.mag());
       cameraPos.add(diff);
     }
   }
   else{
-    if(diff.mag() > cameraSeekThresh){
+    if(diff.mag() > player.maxVel.mag()*15){
       cameraSeeking = true;
     }
   }

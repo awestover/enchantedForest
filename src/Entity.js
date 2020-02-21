@@ -6,6 +6,7 @@ class Entity {
   constructor(xPos, yPos, spriteName, spriteType){
     this.pos = new p5.Vector(xPos, yPos);
     this.vel = new p5.Vector(0,0);
+    this.maxVel = new p5.Vector(2.5, jumpImpulse);
 
     this.dims = new p5.Vector(blockSize, blockSize*2);
     try{ this.dims = arrToVec(sprite_data[spriteName].total_dims) || this.dims; } catch {}
@@ -87,8 +88,8 @@ class Entity {
 		let xIntersectSize = blockSize/2 + this.collision_dims.x/2 - Math.abs(dx);
 		let yIntersectSize = blockSize/2 + this.collision_dims.y/2 - Math.abs(dy);
 
-		if (dy < 0 && xIntersectSize > (1+collisionTollerence)*maxVel.x){
-			if(yIntersectSize > -(1+collisionTollerence)*maxVel.y){
+		if (dy < 0 && xIntersectSize > (1+collisionTollerence)*this.maxVel.x){
+			if(yIntersectSize > -(1+collisionTollerence)*this.maxVel.y){
 				return true;
 			}
 		}
@@ -105,8 +106,8 @@ class Entity {
     let hitdata = {"hit": false, "xfix": 0, "yfix": 0};
 
 		if (xIntersectSize > 0 && yIntersectSize > 0){
-			let barelyXCollision = xIntersectSize < maxVel.x*(1+collisionTollerence);
-			let barelyYCollision = yIntersectSize < maxVel.y*(1+collisionTollerence);
+			let barelyXCollision = xIntersectSize < this.maxVel.x*(1+collisionTollerence);
+			let barelyYCollision = yIntersectSize < this.maxVel.y*(1+collisionTollerence);
 
 			if(barelyXCollision){ // left/right border violation
         hitdata["hit"] = true;
@@ -139,7 +140,7 @@ class Entity {
 
   update(){
     if(this.falling && !this.flies)
-      this.vel.y = Math.min(this.vel.y + gravity, maxVel.y);
+      this.vel.y = Math.min(this.vel.y + gravity, this.maxVel.y);
     this.pos.x += this.vel.x;
     this.pos.y += this.vel.y;
 
@@ -237,12 +238,12 @@ class Entity {
       if(Math.random() < 0.1){
         if(this.vel.x != 0){
           if(Math.random() < 0.9)
-            this.vel.x = Math.sign(this.vel.x)*maxVel.x;
+            this.vel.x = Math.sign(this.vel.x)*this.maxVel.x;
           else
-            this.vel.x = -Math.sign(this.vel.x)*maxVel.x;
+            this.vel.x = -Math.sign(this.vel.x)*this.maxVel.x;
         }
         else{
-            this.vel.x = Math.sign(Math.random() - 0.5)*maxVel.x;
+            this.vel.x = Math.sign(Math.random() - 0.5)*this.maxVel.x;
         }
       }
   }
@@ -257,8 +258,8 @@ class Entity {
     if(this.seekPath.length > 0){
       let goalPos = blockCenter(this.seekPath[0].x, this.seekPath[0].y);
       this.vel = p5.Vector.sub(goalPos, this.pos);
-      this.vel.setMag(maxVel.x);
-      if(this.pos.dist(goalPos) < maxVel.x*2){
+      this.vel.setMag(this.maxVel.x);
+      if(this.pos.dist(goalPos) < this.maxVel.x*2){
         this.seekPath.splice(0,1);
         if(this.seekPath.length == 0){
           this.vel.mult(0);
