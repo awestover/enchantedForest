@@ -402,7 +402,7 @@ light levancy: they can only be freely given
     - Accept Quest "Kill 5 boars" (unlocks Unicorn Lair)
     - Boss Fight "Kill 1 unicorn" 
 
-  - Field of Llamas
+  - Llama Plains
   - Unicorn Lair
 
   - In order to make a functional llama land
@@ -413,7 +413,9 @@ light levancy: they can only be freely given
       - Decrease opacity of weather conditions
     - Alek
       - Make a tilemap
+
       - Fix npc interaction (lock movement)
+
       - Write relevant plot
       - Make velocity entity-specific
       - Fix teleporters

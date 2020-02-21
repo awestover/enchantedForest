@@ -20,7 +20,7 @@ let smoothedFrameRateEstimate = 60;
 let frameRateSmootherLambda = 0.01;
 
 let roomImage;
-let currentRoom = "start";
+let currentRoom = "levantersKeep";
 let data;
 let cameraSeeking = false, lost = false;
 const TILE_TYPES = ["mob", "npc", "item"];
@@ -79,7 +79,6 @@ function windAtTime(){
   let xSpeed = 3*(Math.pow(sin(windCt), 70)*Math.sign(Math.sin(windCt)));
   return createVector(xSpeed, abs(xSpeed)*0.1);
 }
-
 
 function loadRoom(roomName){
 	$("#questBannerContainer").hide();
@@ -473,8 +472,8 @@ function draw(){
       if(data.layers.npcs[y][x] != TILE_NAMES_TO_IDS["empty"]){
         if(player.hitBlock(x, y)){
           if(data.layers.npcs[y][x] == TILE_NAMES_TO_IDS["teleporter"]){
-            // this is not scalable, think of a better solution!!! probably something like teleporter:alpha|beta
-            loadRoom("alpha");
+            // teleporter1, teleporter2, teleporter3 then in maps/rooms/x/traits.json store all the teleporters 
+            loadRoom("llamaPlains");
             return;
           }
         }
@@ -501,6 +500,8 @@ function draw(){
     if (lost)
 			display.showLoseScreen();
 
+    if(lastDialogueBoxToShow === null)
+      player.movementLocked = false;
     if(lastDialogueBoxToShow != dialogueBoxToShow){
       lastDialogueBoxToShow = dialogueBoxToShow;
       if (dialogueBoxToShow === null) {

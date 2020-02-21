@@ -60,7 +60,6 @@ class Dialogue { // TODO: should maybe have different types of dialogue (e.g. tr
     this.trade = this.npcData.proposeTrade;
 
 		this.script = this.spliceScript(this.npcName + ": " + this.npcData.dialogue);
-		// this.script = this.spliceScript("012345 01234567 789a abcd f e");		// Testing
 
 		this.montage();
     if(this.questName.length > 0){
@@ -76,6 +75,10 @@ class Dialogue { // TODO: should maybe have different types of dialogue (e.g. tr
 	}
 
 	montage(){
+    if (lastDialogueBoxToShow === null) {
+      $.notify("no npcs near enough to talk to");
+      return;
+    }
 		if(!this.inDialogue && lastDialogueBoxToShow!=null){
 			this.showBox();
 			return;
