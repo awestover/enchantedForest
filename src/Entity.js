@@ -3,7 +3,7 @@ function arrToVec(arr){
 }
 
 class Entity {
-  constructor(xPos, yPos, spriteName){
+  constructor(xPos, yPos, spriteName, spriteType){
     this.pos = new p5.Vector(xPos, yPos);
     this.vel = new p5.Vector(0,0);
 
@@ -19,19 +19,24 @@ class Entity {
     try{ this.pixel_dims = arrToVec(sprite_data[spriteName].pixel_dims) || this.dims} catch{}
     this.tileDimsUpperBound = createVector(Math.max(1,Math.ceil(this.dims.x/blockSize)), Math.max(1,Math.ceil(this.dims.x/blockSize)));
 
-    this.type = spriteName;
+    this.species = spriteName;
+    this.type = spriteType;
     this.spritesheet = null;
     this.imgcol = 0;
     this.imgrow = 0;
     this.aniCt = 0;
     this.aniSpeed = 10;
 
+    this.flies = false;
+    this.seekPath = [];
+    this.seekPathTimer = 0;
+
 		this.lives = 4;
     this.falling = false;
 		this.lastDir = 1;
   }
 
-  superjump(){
+  superjump(){ // note: this can go through stuff... probably not a real feature, rather development tool
     if (!this.falling){ 
       this.vel.y -= 2*jumpImpulse;
       this.falling = true;
@@ -46,6 +51,14 @@ class Entity {
   }
 
   render(){
+    push();
+    fill(255);
+    if(this.type=="mob"){ // health bar
+      if(this.lives > 0)
+        text(this.lives, this.pos.x, this.pos.y-this.dims.y*0.75);
+    }
+    pop();
+    renderPath(this.seekPath);
     if(this.lastDir == 1){
       this.imgrow = 0;
     }
@@ -125,7 +138,7 @@ class Entity {
 	}
 
   update(){
-    if(this.falling)
+    if(this.falling && !this.flies)
       this.vel.y = Math.min(this.vel.y + gravity, maxVel.y);
     this.pos.x += this.vel.x;
     this.pos.y += this.vel.y;
@@ -216,6 +229,42 @@ class Entity {
        this.pos.x + this.collision_offset.x + this.collision_dims.x*extraTolerance < -mapTileDims.x*blockSize/2 || 
        this.pos.y + this.collision_offset.y - this.collision_dims.y*extraTolerance > mapTileDims.y*blockSize/2 || 
        this.pos.y + this.collision_offset.y + this.collision_dims.y*extraTolerance < -mapTileDims.y*blockSize/2);
+  }
+
+  dumbSeek(){
+      if(Math.random() < 0.001)
+        this.jump();
+      if(Math.random() < 0.1){
+        if(this.vel.x != 0){
+          if(Math.random() < 0.9)
+            this.vel.x = Math.sign(this.vel.x)*maxVel.x;
+          else
+            this.vel.x = -Math.sign(this.vel.x)*maxVel.x;
+        }
+        else{
+            this.vel.x = Math.sign(Math.random() - 0.5)*maxVel.x;
+        }
+      }
+  }
+
+  flySeek(playerpos){
+    this.seekPathTimer += 1;
+    if(this.seekPathTimer % 100 == 0){
+      let startLoc = posToTileIdx(this.pos.x, this.pos.y);
+      let goalLoc = posToTileIdx(playerpos.x, playerpos.y);
+      this.seekPath = dijkstra(data.layers.collision, startLoc, goalLoc);
+    }
+    if(this.seekPath.length > 0){
+      let goalPos = blockCenter(this.seekPath[0].x, this.seekPath[0].y);
+      this.vel = p5.Vector.sub(goalPos, this.pos);
+      this.vel.setMag(maxVel.x);
+      if(this.pos.dist(goalPos) < maxVel.x*2){
+        this.seekPath.splice(0,1);
+        if(this.seekPath.length == 0){
+          this.vel.mult(0);
+        }
+      }
+    }
   }
 
 }

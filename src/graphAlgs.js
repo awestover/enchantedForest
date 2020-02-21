@@ -10,13 +10,15 @@ function sameLoc(locA, locB){
 function taxicabDist(locA, locB){
   return abs(locA.x - locB.x) + abs(locA.y - locB.y);
 }
+function xyDictToVec(xyDict){
+  return createVector(xyDict.x, xyDict.y);
+}
 
 function dijkstra(collision, startLoc, goalLoc){
   if(startLoc.x >= collision[0].length || startLoc.x < 0
    || goalLoc.x >= collision[0].length || goalLoc.x < 0
    || startLoc.y >= collision.length || startLoc.y < 0
    || goalLoc.y >= collision.length || goalLoc.y < 0){
-    console.log("BROKEN DIJKSTRAS");
     return [];
   }
 
@@ -73,9 +75,24 @@ function dijkstra(collision, startLoc, goalLoc){
   let backwardsHead = goalLoc;
   while(!sameLoc(backwardsHead, startLoc)){
     out_path.push(backwardsHead);
-    backwardsHead = vtx_data[backwardsHead.y][backwardsHead.x].prev;
+    try{
+      backwardsHead = vtx_data[backwardsHead.y][backwardsHead.x].prev;
+    } catch{
+      return [];
+    }
   }
   // console.log(vtx_data);
   return out_path.reverse();
+}
+
+
+function renderPath(path){
+  if(path.length > 0){
+    for(let i = 0; i < path.length-1; i++){
+      let aaa = blockCenter(path[i].x, path[i].y);
+      let bbb = blockCenter(path[i+1].x, path[i+1].y);
+      line(aaa.x, aaa.y, bbb.x, bbb.y);
+    }
+  }
 }
 

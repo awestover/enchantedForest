@@ -41,7 +41,7 @@ class ItemManager {
 	searchItemIndex(itemName) {
 		let itemIndex;
 		for (itemIndex = 0; itemIndex < player.items.length; itemIndex++) 
-			if (player.items[itemIndex]["type"] === itemName)
+			if (player.items[itemIndex].species === itemName)
 				break;
 		return itemIndex;
 	}

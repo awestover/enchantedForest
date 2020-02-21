@@ -49,11 +49,11 @@ class Player extends Entity {
     this.coins += 1000;
   }
 
-  handleMobKill(mob_type){
+  handleMobKill(mob_species){
     this.xp += 10;
     for(let i in this.quests){
 			let questName = this.quests[i];
-      if(quest_data[questName].task.type == "hunt" && quest_data[questName].task.species == mob_type){
+      if(quest_data[questName].task.type == "hunt" && quest_data[questName].task.species == mob_species){
         if(this.questProgress.hasOwnProperty(questName)){ // NOTE: this is much nicer than try catch imo :)
           this.questProgress[questName] += 1;
         }
@@ -64,31 +64,31 @@ class Player extends Entity {
     }
   }
 
-	repositionProjectile(xPos, type){
+	repositionProjectile(xPos){
 		return this.pos.x + this.lastDir * blockSize;
 	}
 	fireballAttack(){
-		let type = "fireball";
-		if (this.mana >= stats.weapons[type]["manaCost"])
-			this.projectiles.push(new Projectile(this.repositionProjectile(this.pos.x, type), this.pos.y, type));
+		let species = "fireball";
+		if (this.mana >= stats.weapons[species]["manaCost"])
+			this.projectiles.push(new Projectile(this.repositionProjectile(this.pos.x), this.pos.y, species));
 	}
 	coinshotAttack(){
-		let type = "coinshot";
-		if (this.mana >= stats.weapons[type]["manaCost"])
-			this.projectiles.push(new Projectile(this.repositionProjectile(this.pos.x, type), this.pos.y-blockSize/2, type));
+		let species = "coinshot";
+		if (this.mana >= stats.weapons[species]["manaCost"])
+			this.projectiles.push(new Projectile(this.repositionProjectile(this.pos.x), this.pos.y-blockSize/2, species));
 	}
 
-  pickupItem(itemType){
+  pickupItem(itemSpecies){
     for(let i in this.items){
-      if(this.items[i].type == itemType){
+      if(this.items[i].species == itemSpecies){
         this.items[i].quantity += 1;
-				itemManager.incrementItem(itemType, this.items[i].quantity);
+				itemManager.incrementItem(itemSpecies, this.items[i].quantity);
 				return false;
       }
     }
     // if this is an item we don't already have any of
-    this.items.push({"type": itemType, "quantity": 1});
-		itemManager.createItem(itemType);
+    this.items.push({"species": itemSpecies, "quantity": 1});
+		itemManager.createItem(itemSpecies);
   }
 
   handleQuestCompletion(quest){

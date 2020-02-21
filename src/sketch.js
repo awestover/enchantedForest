@@ -4,7 +4,7 @@ const friction = 0.06;
 const moveAccel = 0.3;
 const jumpImpulse = 7;
 const maxVel = new p5.Vector(2.5, jumpImpulse);
-const cameraSpeed = maxVel.x; // for testing (???)
+const cameraSpeed = maxVel.x;
 const cameraSeekThresh = cameraSpeed * 15;
 const cameraUnseekThresh = cameraSpeed;
 const collisionTollerence = 0.0001;
@@ -116,17 +116,17 @@ function loadRoom(roomName){
         let bc = blockCenter(x, y);
         if(TILE_TYPE_TO_NAMES["mob"].includes(TILE_IDS_TO_NAMES[data.layers["mobs"][y][x]])){
           let tile_type = TILE_IDS_TO_NAMES[data.layers["mobs"][y][x]].substring(("mob"+":").length);
-          console.log(tile_type);
-          mobs.push(new Entity(bc.x, bc.y-blockSize/2, tile_type));
+          mobs.push(new Entity(bc.x, bc.y-blockSize/2, tile_type, "mob"));
           mobs[mobs.length-1].spritesheet = stats["mobs"][tile_type].img;
-          mobs[mobs.length-1].type = tile_type;
+          for(let attr in stats["mobs"][tile_type].attrs){
+            mobs[mobs.length-1][attr] = stats["mobs"][tile_type].attrs[attr];
+          }
         }
 
         if(TILE_TYPE_TO_NAMES["item"].includes(TILE_IDS_TO_NAMES[data.layers["items"][y][x]])){
           let tile_type = TILE_IDS_TO_NAMES[data.layers["items"][y][x]].substring(("item"+":").length);
-          items.push(new Entity(bc.x, bc.y, tile_type));
+          items.push(new Entity(bc.x, bc.y, tile_type, "item"));
           items[items.length-1].spritesheet = stats["items"][tile_type].img;
-          items[items.length-1].type = tile_type;
         }
       }
     }
@@ -363,30 +363,14 @@ function draw(){
     player.checkForQuestCompletion();
 
     // inserting dijkstras
-    image(batImg, batpos.x, batpos.y, blockSize*5, blockSize*5);
-    noFill();
-    rect(batpos.x, batpos.y, blockSize, blockSize);
-    stroke(0,0,255);
-
+    push();
+    translate(batpos.x, batpos.y)
     if(path.length > 0){
-      fill(0,0,255);
-      strokeWeight(5);
-      let goalIdx = posToTileIdx(goalPos.x, goalPos.y);
-      let goalLoc = blockCenter(goalIdx.x, goalIdx.y);
-      ellipse(goalLoc.x,goalLoc.y,25,25);
-      let bbb = blockCenter(path[0].x, path[0].y);
-      line(batpos.x, batpos.y, bbb.x, bbb.y);
-      for(let i = 0; i < path.length-1; i++){
-        let aaa = blockCenter(path[i].x, path[i].y);
-        let bbb = blockCenter(path[i+1].x, path[i+1].y);
-        line(aaa.x, aaa.y, bbb.x, bbb.y);
-      }
-      strokeWeight(3);
-      fill(255,0,0);
-
-      // seek it
       pathProgressCt += 1;
       batpos.add(batHeading);
+      if(batHeading.x < 0){
+        scale(-1,1);
+      }
       if(pathProgressCt >= pathProgressCap){
         pathProgressCt = 0;
         let gotoPoint = blockCenter(path[0].x, path[0].y);
@@ -394,6 +378,8 @@ function draw(){
         path.splice(0,1);
       }
     }
+    image(batImg, 0, 0, blockSize*5, blockSize*5);
+    pop();
 
     for(let i = player.projectiles.length-1; i>=0; i--){
       if(!player.projectiles[i].exist){
@@ -406,7 +392,7 @@ function draw(){
           if(player.projectiles[i].hitRect(mobs[j].pos, mobs[j].dims)){
             mobs[j].lives -= 2;
             if(mobs[j].lives <= 0){
-              player.handleMobKill(mobs[j].type); // really just add a field to the json for this...
+              player.handleMobKill(mobs[j].species); // really just add a field to the json for this...
             }
             player.projectiles[i].exist = false;
             break;
@@ -425,8 +411,8 @@ function draw(){
     for(let i=items.length-1; i >= 0; i--){
       items[i].render();
       if(player.hitRect(items[i].pos, items[i].dims)){
-        console.log("PICKED UP A "+items[i].type);
-        player.pickupItem(items[i].type);
+        console.log("PICKED UP A "+items[i].species);
+        player.pickupItem(items[i].species);
         items.splice(i, 1);
       }
     }
@@ -443,23 +429,13 @@ function draw(){
           }
         }
 
-        // dumb seeking
-        // mobs[i].vel.x = Math.sign(player.pos.x - mobs[i].pos.x)*maxVel.x;
-        // randomly move
-        if(Math.random() < 0.001)
-          mobs[i].jump();
-        if(Math.random() < 0.1){
-          if(mobs[i].vel.x != 0){
-            if(Math.random() < 0.9)
-              mobs[i].vel.x = Math.sign(mobs[i].vel.x)*maxVel.x;
-            else
-              mobs[i].vel.x = -Math.sign(mobs[i].vel.x)*maxVel.x;
-          }
-          else{
-              mobs[i].vel.x = Math.sign(Math.random() - 0.5)*maxVel.x;
-          }
+        if(mobs[i].flies){
+          mobs[i].flySeek(player.pos);
         }
-        // I guess I should really do a hybrid of seeking and random motion based on players position?
+        else{
+          mobs[i].dumbSeek();
+        }
+
         mobs[i].handleMapCollisions();
         mobs[i].update();
         if(mobs[i].pos.y > blockSize*mapTileDims.y/2){
@@ -553,20 +529,22 @@ function draw(){
 
   pop(); // translate to screen center is 0,0
   
+  push(); // dont let the font bleed out
   fill(0);
   stroke(0);
   textSize(30);
   smoothedFrameRateEstimate = frameRate()*frameRateSmootherLambda + (1-frameRateSmootherLambda)*smoothedFrameRateEstimate;
   text("FR"+Math.round(smoothedFrameRateEstimate,1), width-100,100);
+  pop();
 }
 
-function mousePressed(){
-  goalPos.x = mouseX-width/2+cameraPos.x; 
-  goalPos.y = mouseY-height/2+cameraPos.y;
+setInterval(function(){
+  goalPos.x = player.pos.x; 
+  goalPos.y = player.pos.y;
 
   const startLoc = posToTileIdx(batpos.x, batpos.y);
   const goalLoc = posToTileIdx(goalPos.x, goalPos.y);
   path = dijkstra(data.layers.collision, startLoc, goalLoc);
   batHeading.mult(0);
-}
+}, 3000);
 

@@ -1,16 +1,15 @@
 class Projectile extends Entity{
-  constructor(xPos, yPos, type){
-    super(xPos, yPos, type);
+  constructor(xPos, yPos, species){
+    super(xPos, yPos, species, "projectile");
 		this.friendly = true;
 		this.exist = true;
-		this.type = type;
 		this.dir = player.lastDir; // what if mobs have projectiles... -> add this as a todo to the readme
     this.lastDir = this.dir;
 
-    this.spritesheet = stats.weapons[this.type].img;
-    this.vel = new p5.Vector(stats.weapons[type]["velocity"]*this.dir, 0);
+    this.spritesheet = stats.weapons[this.species].img;
+    this.vel = new p5.Vector(stats.weapons[this.species]["velocity"]*this.dir, 0);
 		this.lives = -1;
-		player.mana -= stats.weapons[type]["manaCost"];
+		player.mana -= stats.weapons[this.species]["manaCost"];
   }
 
   update(){
