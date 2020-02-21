@@ -413,9 +413,8 @@ light levancy: they can only be freely given
       - Decrease opacity of weather conditions
     - Alek
       - Make a tilemap
-
       - Fix npc quest giving (they need to be able to give multiple quests; im pretty sure we dont check prereqs; if you already accepted the quest you cant exit conversation) 
+      - Fix teleporters (and do other room trait reading stuff)
 
       - Write relevant plot
-      - Fix teleporters
 

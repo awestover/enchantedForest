@@ -18,6 +18,7 @@ let frameRateSmootherLambda = 0.01;
 let roomImage;
 let currentRoom = "levantersKeep";
 let data;
+let roomTraits = {};
 let cameraSeeking = false, lost = false;
 const TILE_TYPES = ["mob", "npc", "item"];
 const DYNAMIC_TILE_TYPES = ["mob", "item"];
@@ -63,9 +64,7 @@ let triggered_initial_room_load = false;
 let loadingRoom = true;
 let quickAccessItems = [];
 
-// don't ask ...
-const bgColorOptions = ["#e6194B", "#3cb44b", "#ffe119", "#4363d8", "#f58231", "#911eb4", "#42d4f4", "#f032e6", "#bfef45", "#fabebe", "#469990", "#e6beff", "#9A6324", "#fffac8", "#800000", "#aaffc3", "#808000", "#ffd8b1", "#000075", "#a9a9a9", "#ffffff", "#000000"];
-let bgColor = bgColorOptions[Math.floor(Math.random()*bgColorOptions.length)];
+let bgColor = "#ffffff";
 
 // weather
 let bolts = [];
@@ -84,6 +83,25 @@ function loadRoom(roomName){
   data = null;
   mobs = [];
   roomImage = loadImage(`data/maps/rooms/${roomName}/tilemap.png`);
+  $.getJSON(`data/maps/rooms/${roomName}/traits.json`, function(returnData){
+    roomTraits = returnData;
+    bgColor = color(roomTraits["bg-color"]);
+    if(roomTraits.weather.includes("rain")){
+      for(let i = 0; i < 100; i++){
+        fallingParticles.push(new Particle("rain"));
+      }
+    }
+    if(roomTraits.weather.includes("thunder")){
+      for(let i = 0; i < 2; i++){
+        bolts.push(new LightningBolt());
+      }
+    }
+    if(roomTraits.weather.includes("snow")){
+      for(let i = 0; i < 100; i++){
+        fallingParticles.push(new Particle("snow"));
+      }
+    }
+  });
   $.getJSON(`data/maps/rooms/${roomName}/map.json`, function(returnData){
     data = returnData;
     mapTileDims.x = data.layers.collision[0].length;
@@ -197,23 +215,6 @@ function setup(){
 	for (let i = 0; i < 10; i++) {
 		quickAccessItems[i] = null;
 	}
-
-  if(Math.random()<0.8){
-    for(let i = 0; i < 100; i++){
-      fallingParticles.push(new Particle("snow"));
-    }
-    for(let i = 0; i < 2; i++){
-      bolts.push(new LightningBolt());
-    }
-  }
-  else{
-    for(let i = 0; i < 100; i++){
-      fallingParticles.push(new Particle("rain"));
-    }
-    for(let i = 0; i < 2; i++){
-      bolts.push(new LightningBolt());
-    }
-  }
 }
 
 function checkKeys() {
@@ -346,7 +347,7 @@ function draw(){
     image(roomImage, 0, 0, blockSize*mapTileDims.x, blockSize*mapTileDims.y);
     player.render();
 
-    for(let i = 0; i <100; i++){
+    for(let i = 0; i <fallingParticles.length; i++){
       fallingParticles[i].update();
       fallingParticles[i].render();
     }
