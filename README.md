@@ -5,9 +5,6 @@
 
 This game gets its _roots_ from ancient Norse Mythology. Maybe.
 
-# Plot thoughts
-what if npcs are the teleporters? [[ note: this would make the code easier... like if we had npc bob, then it would always teleport to a certain room etc... ]]
-
 # Controls
 
 ## Movement
@@ -17,27 +14,27 @@ what if npcs are the teleporters? [[ note: this would make the code easier... li
 - x: fireball
 - z: teleport (to be implemented)
 
+# Objectives
+- Follow the quests
+- Kill some bad guys
+- see the book for more detail on the plot of the rpg
+
+--------------------------------
+
 # TODO
 
 ## BUGS
-- if your screen is too small because e.g. you have dev console open, then the dialogue box gets pushed down...
-- mobs dont die if they fall off screen
-- lag??
--
 - don't delete items on room change
 
-## Both
-- code cleanup [[e.g. increase encapsulation]]
-
-## ALEK legit
+## ALEK current
 
 - do AI stuff
   - flying swarm behavior
   - queen in the center, if queen struck down everything dies
-  - bats!
+  - adapt dijkstras to walkers (gravity => need a jump stage indicator on each tile => woah thats gonna be a massive graph)
 - plot plot plot
 
-## KEVIN legit
+## KEVIN current
 - SPRITE SHEEETS
 
 - progress of ongoing quests (display details and requirements)
@@ -53,7 +50,9 @@ what if npcs are the teleporters? [[ note: this would make the code easier... li
   - load it up with a `$.getJSON`
 
 
-## Alek
+### FAR FUTURE TODOs 
+
+## Alek FUTURE
 
 - mob types:
     - damage on impact
@@ -66,7 +65,7 @@ what if npcs are the teleporters? [[ note: this would make the code easier... li
 - fix teleportation system (the teleport thing needs to say where is teleports you to...)
 
 
-## Kevin
+## Kevin FUTURE
 - clean up inventory system
 - item usage e.g. onclick for potion -> mana
 - concept art (sprite sheets 32x32 gimp)
@@ -105,7 +104,13 @@ what if npcs are the teleporters? [[ note: this would make the code easier... li
 - mysql data saving
 - mobs dropping loot
 
+ 
+--------------------------------
+
+
 # Done 
+
+Feb 20
 
 Feb 3
 - fix collision detection:
@@ -136,7 +141,10 @@ Feb 3
 - loading screen, trigger past it with a callback function
 - mobs 
 
-## Game documentation 
+--------------
+
+## Game documentation  
+_This is a good spot to put anything that is kind of confusing or just good to know. Standards, conventions lots of good stuff._
 
 ## imgs
 
@@ -224,7 +232,11 @@ Dialogue box has all the details, descriptions, etc (arrow keys to go through)
   -options to set quick access
 Quick access displays clickable 10 items
 
-## Namey things & Plot
+------------------
+
+
+# Namey things & Plot
+
   | Game           |                |
   | Money          | Coppola        |
   | Dead companion | Bucky/Buchanan |
@@ -235,7 +247,7 @@ Quick access displays clickable 10 items
   | Magic system   | Levancy        |
   | Magic users    | Levanters      |
 
-  Overall plot: 
+* Overall plot: 
 
   Bob, the weary traveller, discovers his magic capabilities for the first time. 
   Kelsier mentors him on learning his abilities. 
@@ -252,7 +264,7 @@ Quick access displays clickable 10 items
   Upon realizing they are the villain, the player sacrifices themselves as the redemption arc
   final boss: jumpydude (basically palpatine version 6.2)
 
-  Npc names
+* Npc names
   - Alice
   - Eve
   - Azriel
@@ -264,18 +276,18 @@ Quick access displays clickable 10 items
   - (reoccuring merchant)
   - npc that consistently calls protagonist noobie
 
-  Enemies: 
+* Enemies: 
   - dragons
   - bats
   - skeletons
   - Leviathan
 
-  Items: 
+* Items: 
   - Urim & Thummim
   - Blade of smoke
 
-  geographically-based (eg. fire levant, wind levant)
-  Abilities: 
+* geographically-based (eg. fire levant, wind levant)
+* Abilities: 
   - Melee (swords)
 
   - teleportation
@@ -284,12 +296,12 @@ Quick access displays clickable 10 items
   - undead minions (necromancy)
   - npcs helping you in a fight (eg. buchanan)
 
-  Areas: 
+* Areas: 
   - llama land (melee + spitting on enemies + summon llama-unicorn)
   - storm (lightning + wind/tornado + rain)
   - plant control (vine whip, earthquakes)
 
-  introduce shadow area upon buchanan's death
+* introduce shadow area upon buchanan's death
   - shadow (induces insanity/unfurling shadows-based attacks + necromancy)
   - outer space (gravity/telekinesis -based abilities)
   - dragonfire (flames)
@@ -336,19 +348,22 @@ light levancy: they can only be freely given
 
 ## characters
 
-Malimost:
-  Family slaughtered as a youth, driven on a quest to control who has access to the Levant
-  He only really allows people to possess it if they swear a magically binding oath (he has an item, the bondstone that enables this, people will burn up if they break the vow) to obey him.
-  He seeks out any "rogue" Levanters and forces them to either bond to him or die.
-  he is very paranoid
-  people have legends about the Levant being used for great things => unhappy
-  some communities of rogue levanters exists and resist
+- Malimost:
+  - Family slaughtered as a youth, driven on a quest to control who has access to the Levant
+  - He only really allows people to possess it if they swear a magically binding oath (he has an item, the bondstone that enables this, people will burn up if they break the vow) to obey him.
+  - He seeks out any "rogue" Levanters and forces them to either bond to him or die.
+  - he is very paranoid
+  - people have legends about the Levant being used for great things => unhappy
+  - some communities of rogue levanters exists and resist
 
-Bob:
-  "rogue" Levanter, doesnt really know about his powers
-  Home destroyed by malimost's minions because they offended them somehow, maybe rebelled
-  wants revenge (initially) 
-  after learning more about the Levant (and his turning point) he actually wants to bring back free use of the Levant for the good of people
+- Bob:
+  - "rogue" Levanter, doesnt really know about his powers
+  - Home destroyed by malimost's minions because they offended them somehow, maybe rebelled
+  - wants revenge (initially) 
+  - after learning more about the Levant (and his turning point) he actually wants to bring back free use of the Levant for the good of people
+
+- Bucky: 
+    - loyal sidekick guy
 
 
 
