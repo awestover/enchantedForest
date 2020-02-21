@@ -1,13 +1,14 @@
 # Prologue
+## Scorching wind
 
 ## Goals:
 
- - start of Malimosts rule, attacks a school of levanters
+ - start of Malimosts rule, he attacks a school of levanters
  - Rand, a very powerful levanter, faces him and loses
  - Malimost burns down the tower
  - everyone (even viewpoint) dies
  - establish that the magic is cool
- - establish that Malimost is evil
+ - establish that Malimost is evil, but with a reason: wants control, lacked power as child, family slaughtered 
 
 The world was on fire. 
 
@@ -232,8 +233,48 @@ The world was on fire.
 
 ## Goals:
  - Bob and Bucky are going back to their village (they are humble Llama herders)
- - Minions of Malimost decided to destroy their village for some reason
- - Bob and Bucky know that they are in danger, so they seek shelter at a rumuroed rogue Levanter place
+ - Minions of Malimost (unicorns) decided to destroy their village 
+   - Bob doesn't know why yet, but later it will become evident that it was because Malimost knew that a powerful Levanter would arise from his village
+ - Bob and Bucky realize that they are in danger, so they seek shelter at a rumuroed rogue Levanter town
 
+"Get up!" Bucky's deep voice pierced through Bob's dream of llamas grazing on a field.
+
+Bob groggily began to comply. 
+
+Bucky was a very large man, towering over Bob despite the fact that Bob was above average height in their home village. Bucky wasn't lanky though, he had an abundance of muscle to augment his height making his stature quite imposing. This effect was ruined however by his affable smile and twinkling brown eyes filled with mirth. 
+
+
+
+# Chapter 2
+
+## Goals:
+  - on the way to the refuge Bob instinctively channels the Levant against something 
+  - at the refuge Bob and Bucky discover that 
+    - Bob can use the levant
+    - unicorns attacked their village because of rumors of a powerful levanter (Bob) that would come about
+  - Bob resolves to learn about the Levant and get revenge
+
+
+# Chapter 3 
+
+## Goals:
+  - Bob gets a mentor
+  - Bob trains in using the Levant as they seek out the unicorns
+  - they face down the unicorns; bob wins; bucky dies
+  - Now Bob's really angry at Malimost
+  - Bob realizes that he is really powerful
+  - Bob resolves to confront Malimost
+
+
+# Chapter 4
+
+## Goals:
+  - quest to figure out how to get Malimost
+  - finally figure out that there are some keys to get in order to get to malimost
+
+# Chapter 5
+
+## Goals:
+  - exit llama land
 
 
