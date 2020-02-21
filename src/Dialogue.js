@@ -32,7 +32,11 @@ class Dialogue { // TODO: should maybe have different types of dialogue (e.g. tr
 	hideQuestBanner(){
 		$("#questBannerContainer").hide();
 		player.movementLocked = false;
-		// this.clearBox();
+
+		// Makes the player exit dialogue upon finishing trade
+		// $("#portraitImg").attr("src", "data/avatars/empty.png");
+		// $("#dialogueTextWrapper").css("display", "none");
+		// inventoryList[display.currentInventoryIndex].show();
 	}
 
 	clearBox(){

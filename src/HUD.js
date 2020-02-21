@@ -51,19 +51,6 @@ class HUD {
 		text("You Lose", 0, 0);
 	}
 
-	addQuest(quest){
-		let questList = document.getElementById("questList");
-		let li = document.createElement("li");
-		li.id = quest+"List";
-		let text = document.createTextNode(quest);
-		li.appendChild(text);
-		questList.appendChild(li);
-	}
-
-	removeQuest(quest){
-		document.getElementById(quest+"List").remove();
-	}
-
 	nextInventory(){
 		inventoryList[this.currentInventoryIndex].hide();
 		this.rotateInventory(1);

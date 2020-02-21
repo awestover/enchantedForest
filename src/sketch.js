@@ -32,6 +32,7 @@ let mapTileDims = new p5.Vector(32,32); // really read this in from a file
 let cameraPos = new p5.Vector(0,0);
 let player;
 let itemManager = new ItemManager();
+let questSystem = new QuestSystem();
 let display = new HUD();
 let dialogue = new Dialogue();
 let mobs = [], items = [];

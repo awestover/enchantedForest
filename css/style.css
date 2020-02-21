@@ -154,7 +154,7 @@ body {
 	height: 19vh;
 }
 
-#questTitle{
+#questHeader{
 	margin-top: 0.5em;
 	font-size: 1.6em;
 	text-align: center; 
@@ -247,4 +247,32 @@ body {
 #quickAccessContainer table {
 	margin: 0.5vw;
 }
+
+#questInfoPage {
+	margin: 0.5vw;
+  display: inline-block;
+	width: 100%;
+	position: fixed;
+	top: 80%;
+	left: 13%;
+
+	width: 60%;
+	height: auto;
+	/* background-color: blue; */
+}
+
+#questTitle {
+	font-size: 2em;
+	text-align: center;
+	width: 48vw;
+	margin-bottom: 1%;
+}
+
+#questDescription {
+	font-size: 1.2em;
+	text-align: left;
+	width: 75%;
+	float: left;
+}
+
 

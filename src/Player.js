@@ -26,7 +26,7 @@ class Player extends Entity {
         }
       }
       this.quests.push(quest);
-			display.addQuest(quest);
+			questSystem.addQuest(quest);
       $.notify(`new quest ${quest} assigned!`, "success");
     }
     else{
@@ -93,7 +93,7 @@ class Player extends Entity {
 
   handleQuestCompletion(quest){
     player.xp += quest_data[quest].rewards.xp;
-		display.removeQuest(quest);
+		questSystem.removeQuest(quest);
   }
 
   checkForQuestCompletion(){
