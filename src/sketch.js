@@ -83,6 +83,7 @@ function windAtTime(){
 
 function loadRoom(roomName){
 	$("#questBannerContainer").hide();
+	$("#questInfoPage").hide();
   currentRoom = roomName;
   loadingRoom = true;
   data = null;
@@ -273,8 +274,9 @@ function keyReleased() {
 		display.prevInventory();
 	else if (keyCode === 69)	// e
 		display.nextInventory();
-	else if (keyCode === 27)	// esc
-		itemManager.hideItemInfo();
+	else if (keyCode === 27) {	// esc
+		display.exitInfoMode();
+	}
 	else if (keyCode === 16){
 		setTimeout(function (){
 			player.lockQuickAccess = false;

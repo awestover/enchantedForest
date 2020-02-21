@@ -1,10 +1,12 @@
 class QuestSystem {
   constructor(){
+		this.inInfoMode = false;
   }
 
 	addQuest(quest){
 		let li = $("<li/>")
 			.attr("id", (quest+"List"))
+			.attr("onclick", "questSystem.showQuestInfo(this.id)")
 			.text(quest).
 			appendTo($("#questList"));
 	}
@@ -13,25 +15,36 @@ class QuestSystem {
 		$("#"+quest+"List").remove();
 	}
 
-	showQuestInfo(itemSrc) {
-		// get filename without extension
-		// let itemName = itemSrc.replace(/^.*[\\\/]/, '').split('.').slice(0, -1).join('.')
-		// this.showInfoName = itemName;
-		// let itemIndex = this.searchItemIndex(itemName);
-		// let itemQuantity = player.items[itemIndex]["quantity"];
-
+	showQuestInfo(questId) {
+		this.inInfoMode = true;
+		$("#questHeader").hide();
 		$("#questList").hide();
 		$("#questInfoPage").show();
 
-		// $("#itemTitle").text("<<" + itemName + ">> x" + itemQuantity);
-		// $("#itemDescription").text(stats["items"][itemName]["description"]);
-		// $("#itemUseButton").attr("onclick", `itemManager.useItem(itemManager.showInfoName);`);
+		let questName = questId.slice(0, -4);
+		let questType = quest_data[questName]["task"]["type"];
+		let questSpecies = quest_data[questName]["task"]["species"];
+		let questQuantity = quest_data[questName]["task"]["quantity"];
+		let questProgress = player.questProgress[questName];
+		let description = `${questType} x${questQuantity} ${questSpecies}(s).`;
+		description += "<br>Rewards: ";
+
+		if (questProgress === undefined)
+			questProgress = 0;
+
+		$("#questTitle").text(`<<${questName}>> (${questProgress}/${questQuantity} ${questType}ed)`);
+		if ("xp" in quest_data[questName]["rewards"]) 
+			description += `${quest_data[questName]["rewards"]["xp"]} xp`;
+
+		$("#questDescription").html(description);
 		// $("#portraitImg").attr('src', itemSrc);
 	}
 
 	hideQuestInfo() {
+		this.inInfoMode = false;
 		$("#portraitImg").attr('src', 'data/avatars/empty.png');
 		$("#questInfoPage").hide();
+		$("#questHeader").show();
 		$("#questList").show();
 	}
 

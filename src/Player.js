@@ -53,13 +53,19 @@ class Player extends Entity {
     this.xp += 10;
     for(let i in this.quests){
 			let questName = this.quests[i];
-      if(quest_data[questName].task.type == "hunt" && quest_data[questName].task.species == mob_species){
+			let questType = quest_data[questName].task.type;
+			let questQuantity = quest_data[questName]["task"]["quantity"];
+      if(questType == "hunt" && quest_data[questName].task.species == mob_species){
         if(this.questProgress.hasOwnProperty(questName)){ // NOTE: this is much nicer than try catch imo :)
           this.questProgress[questName] += 1;
         }
         else {
           this.questProgress[questName] = 1;
         }
+
+				if (questSystem.inInfoMode) {
+					$("#questTitle").text(`<<${questName}>> (${this.questProgress[questName]}/${questQuantity} ${questType}ed)`);
+				}
       }
     }
   }

@@ -180,6 +180,10 @@ body {
 	font-weight: bold;
 }
 
+#questContainer li:hover {
+	cursor: pointer;
+}
+
 #questBannerContainer {
   display: none;
 	margin-left: 25vw; 

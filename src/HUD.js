@@ -52,11 +52,13 @@ class HUD {
 	}
 
 	nextInventory(){
+		this.exitInfoMode();
 		inventoryList[this.currentInventoryIndex].hide();
 		this.rotateInventory(1);
 		inventoryList[this.currentInventoryIndex].show();
 	}
 	prevInventory(){
+		this.exitInfoMode();
 		inventoryList[this.currentInventoryIndex].hide();
 		this.rotateInventory(-1);
 		inventoryList[this.currentInventoryIndex].show();
@@ -68,6 +70,13 @@ class HUD {
 			this.currentInventoryIndex = 0;
 		else if (direction == -1 && this.currentInventoryIndex < 0)
 			this.currentInventoryIndex = inventoryList.length-1;
+	}
+
+	exitInfoMode() {
+		if (itemManager.inInfoMode)
+			itemManager.hideItemInfo();
+		else if (questSystem.inInfoMode)
+			questSystem.hideQuestInfo();
 	}
 
 }
