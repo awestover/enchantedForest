@@ -233,6 +233,27 @@ Dialogue box has all the details, descriptions, etc (arrow keys to go through)
   -options to set quick access
 Quick access displays clickable 10 items
 
+## Interface design
+
+quest list
+	-quest details
+quick access
+	-9 shortcut items
+
+inventory list
+	-item list
+		-item details
+	armor list
+		-armor details
+	charm list
+		-charm details
+	weapons list
+		-weapon details
+	magic list
+		-magic details
+stats list (upgrade interface; points granted upon level up)
+
+
 ------------------
 
 

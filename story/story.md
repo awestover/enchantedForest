@@ -284,7 +284,7 @@ the village. If we press hard I think we could make it by tonight. It would be
 fun to see some familiar faces, and we could restock on supplies. The only
 breakfast I have left is oats!"
 
-"Wow, I didn't realize we were that close!" Bob replied. "Yes that'd be coppola! What are we waiting for?"
+"Wow, I didn't realize we were that close!" Bob replied. "Yes that'd be super coppola! What are we waiting for?"
 
 "Well I didn't want to interupt your sleep", Bucky said smirking.
 
@@ -298,6 +298,24 @@ the end, for gently directing a llama back to the right path.
 Bucky navigated with his compass and map, which left Bob free to think.
 
 It had been months since he had seen the village, and his family.
+Bob was an only child but had never felt cheated because of this: his bond with
+Bucky was stronger than many brother-brother relationships that he had
+observed. However, Bob deeply loved, and hence missed, his parents.
+
+Bob's mom, Grace was sturdily built with Black hair that ran down her back. 
+
+; anecdote
+
+Bob's dad was XXX; anecdote
+
+Bob and Bucky walked on at a leisurely pace, occasionally trading comments.
+
+
+
+
+
+
+
 
 
 
