@@ -78,6 +78,7 @@ This game gets its _roots_ from ancient Norse Mythology. Maybe.
   * teleportation
 
 ## Up for grabs MISC
+- Gravity/armor weight system
 - mobs walk on walls
 - smiths / scrolls / other npcs  to update weapons 
 - weapon and armor system
@@ -238,7 +239,7 @@ Quick access displays clickable 10 items
 # Namey things & Plot
 
   | Game           |                |
-  | Money          | Coppola        |
+  | Money          | Seg        |
   | Dead companion | Bucky/Buchanan |
   | Protagonist    | Bob            |
   | World          | Llama Land    |
@@ -366,5 +367,34 @@ light levancy: they can only be freely given
     - loyal sidekick guy
 
 
+# Area details
 
+
+## Llama Land
+  - Levanter's keep cave (reoccuring)
+    - Door (interactive)
+    - Glowing Torches on the wall (decorative)
+
+    - shopkeeper/merchant npc (unlock wares on levelup)
+    - ELEPHANT (informant)
+
+    - Accept Quest "Kill 5 boars" (unlocks Unicorn Lair)
+    - Boss Fight "Kill 1 unicorn" 
+
+  - Field of Llamas
+  - Unicorn Lair
+
+  - In order to make a functional llama land
+    - Kevin 
+      - Draw stuff
+      - Life system (100hp)
+      - Fix merchant menu
+      - Decrease opacity of weather conditions
+    - Alek
+      - Make a tilemap
+      - Fix npc interaction (lock movement)
+      - Write relevant plot
+      - Make velocity entity-specific
+      - Fix teleporters
+      - Camera tracking speed same as movement speed
 

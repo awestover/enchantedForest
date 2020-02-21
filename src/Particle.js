@@ -16,7 +16,7 @@ class Particle {
     push();
     noStroke();
     if(this.type == "snow"){
-    fill(255,250,250); // snow #fffafa
+    fill(255,250,250,100); // snow #fffafa
     ellipse(this.pos.x, this.pos.y, this.r*2, this.r*2);
     }
     else if (this.type == "rain"){
@@ -70,7 +70,7 @@ class LightningBolt{
         // strokeWeight(10);
         // line(this.segments[i].x, this.segments[i].y, this.segments[i+1].x, this.segments[i+1].y);
         strokeWeight(4);
-        stroke(255);
+        stroke(255,255,255,160);
         line(this.segments[i].x, this.segments[i].y, this.segments[i+1].x, this.segments[i+1].y);
       }
       for(let i = 0; i < this.children.length; i++){
