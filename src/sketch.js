@@ -175,6 +175,7 @@ function setup(){
     sprite_data = tmpdata;
     removeElts(init_toload, "sprites");
     player = new Player(0, +64);
+    player.spritesheet = loadImage("data/avatars/bob.png");
   });
   init_toload.push("quests");
   $.getJSON("data/quests.json", function(tmpdata){

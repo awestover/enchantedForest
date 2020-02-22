@@ -35,10 +35,6 @@ class Player extends Entity {
     }
   }
 
-  render(){
-    fill(0,255,0);
-    rect(this.pos.x, this.pos.y, this.dims.x, this.dims.y);
-  }
   spawn(){
       this.pos.mult(0);
       this.vel.mult(0);

@@ -149,6 +149,10 @@ _This is a good spot to put anything that is kind of confusing or just good to k
 
 ## imgs
 
+`convert` is cool
+`convert a.png b.png c.png -append blah.png` (vertical concat)
+`convert a.png b.png c.png +append blah.png` (horizontal concat)
+
 All imgs are `pngs` 
 Images must be named with the same name as the `type` of the `Entity` that they refer to, e.g. unicorn type's img is named `unicorn.png`
 pictures are located in `data/section` where section is something like `weapon`, `mob`, or `item`

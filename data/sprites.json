@@ -1,4 +1,7 @@
 {
+  "player": {
+    "numframes": {"cols": 4, "rows": 2}
+  },
   "jumpydude": {
     "numframes": {"cols": 1, "rows": 2},
     "collision_offset": [0,0],
