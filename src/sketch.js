@@ -326,7 +326,7 @@ function cameraSeek(){
     }
   }
   else{
-    if(diff.mag() > player.maxVel.mag()*0){
+    if(diff.mag() > player.maxVel.mag()*15){
       cameraSeeking = true;
     }
   }
@@ -344,8 +344,9 @@ function draw(){
 
     background(bgColor);
     push();
-    translate(-player.pos.x, -player.pos.y);
+    // translate(-player.pos.x, -player.pos.y);
     // translate(-cameraPos.x, -cameraPos.y);
+    translate(-player.pos.x, -cameraPos.y);
     image(roomImage, 0, 0, blockSize*mapTileDims.x, blockSize*mapTileDims.y);
     player.render();
 
