@@ -276,7 +276,7 @@ stats list (upgrade interface; points granted upon level up)
 * Overall plot: 
 
   Bob, the weary traveller, discovers his magic capabilities for the first time. 
-  Kelsier mentors him on learning his abilities. 
+  Stephan mentors him on learning his abilities. 
   A dragon, Malimost burns down Bob's village. 
   Buchanan "dies". jumpydude comes in as replacement companion. 
   Bob ventures into the dragon's homeland and seeks revenge. 
@@ -288,7 +288,7 @@ stats list (upgrade interface; points granted upon level up)
   flashback: jumpydude tried to murder buchanan but failed
   "I did this for you!!!"
   Upon realizing they are the villain, the player sacrifices themselves as the redemption arc
-  final boss: jumpydude (basically palpatine version 6.2)
+  final boss: jumpydude (basically palpatine v6.2.0)
 
 * Npc names
   - Alice
