@@ -501,6 +501,19 @@ beautiful. They talked and joked about trivial matters. Bob could almost forget
 about how much his life had been drastically altered in the past week. 
 
 And then they heard screams, from far away, in the direction of the main cavern.
+Bob and Bucky looked at each other, and noded, they were in sync. They both
+knew that they both knew that this was likely minions of Malimost coming after 
+Bob because of this curse that was on him as "the chosen one". Whispering felt appropriate in the situation.
+
+"We have to get away from llama land. We should take the teleporter to storm land" Bucky whispered.
+
+"They're probably going to be heading towards the teleporter to stop us from
+escaping..." Bob noted.
+
+"They might not know where it is." Bucky noted.
+
+Bob took inventory. He had a vial of diamas that Mercury had given him, in addition to his enhanced shepherds crook. In his figth with the unicorn he had XXX 
+Bucky had some weapons too.
 
 - escape to the telporter with Azeala and Mercury (Mercury can die though)
 - Azeala introduces Bob to a mentor in the storm land
