@@ -14,6 +14,16 @@ TL;DR
 - Bob arc: reluctant, scared, selfish, skeptic  --> gains trust, becomes selfless, optimistic, willing to sacrifice, brave
 - Buchanan: has most of the good traits already, has some flaws too, e.g. too ready to charge into battle
 
+- llama land
+  - get unicorn horn
+  - start on quest
+- storm
+  - Leviathan (skull makes you fireproof, able to enter fire area after this)
+  - get key
+- plants
+  - get key
+  - Buchanan dies
+
 
 # Start Story
 
@@ -254,7 +264,6 @@ Heedless of Bob, Azeala chanted
 > a humble llama shepherd by birth, and yet destined to shake the earth
 > the one will be known by their green eyes and the fact that if they beat a unicorn in battle and take its horn then the horn will turn black
 > the one will face great tribulations e.g. getting their village burned down, and will take a path either to eradicate evil or become it"
-<!-- make this a bit more prophecy-y -->
 
 Bob was shook by the power of her voice, but shook it off, there was no such
 thing as prophecy. Azeala had just practiced theatrical skills. It was easy to
@@ -340,8 +349,48 @@ unicorn."
 it would basically incinerate you if you were seeking the secret that I have hidden 
 out of desire for personal power or gain."
 
-"Bob, as the chosen one, you're now marked / cursed by Malimost. If you dont
-embark on this quest you will never live in peace."
+"Bob, as the chosen one, you are marked. You are blessed with incredibly strong
+levantic abilities, but also cursed with the fact that a sufficiently powerful
+dark levancer with the right artifacts can easily detect you. You lived a
+peacful existence before your fate became clear. However, now it is evident
+that there is only one way forward for you: you must rid the world of whatever
+great evil has come upon it."
+
+"My general advice for how to go about this would be to train with Levancy
+until you are sufficiently good to defeat whatever adversary it is that you
+face."
+
+"If you believe that will be sufficient, that is certainly the safest way"
+
+"However, I feeel taht it is likely that you are new and unexperienced compared
+to your foe. Thus, I will tell you something that I sincerely hope no one else
+knows. The seret I am about to tell you is very dangerous. You must make sure it
+does not get into the wrong hands. I have trust in you however."
+
+"Once, when I was a much younger levancer, less aquainted with the art of
+levancy, I discovered an extremely powerful artifact. It is called
+*Amplification*. Amplification has the ability to modify levantic strenght, in
+particular by multiplying it by a scalar in (0,2) of the wielders choice in a
+bubble around the wielder. I heard lore of this artifact, went searching for it
+and eventually found it. The power of this artifact is unlike any other
+articaft that I know of. It has the ability to increase ones levantic power
+such as to be sufficient to crush any with even vaguely similar levels of
+levantic power beforehand. It could be used to mask levantic presence while
+sneaking. It could be used to mitigate the levantic powers of a powerful
+levanter. A levanter holding this artifact would have an unbeatable edge in any
+battle!"
+
+"In my naivety I took it. I used it. It felt amazing. But I realized taht I was
+growing adicted to it so I stopped"
+
+"I tell you this story to make sure that you do not treat the swrot of
+amplification lightly as I did."
+
+"To secure the sword of amplification I used it to seal it with the levancy. Only if you get 3 enchantments to say, which I will denote as the keys, can you pull the sword of amplification frm the fabric of the levant. These keys will not be easy to obtain, but there can be no security with shortcuts: by achieving the keys you will have proved yourself. "
+
+Bob "well ok, I want protection. I want to be able to hide. If this is really
+the only way then there is nothign to think about. Lets get on with it."
+
 
 ***some other stuff***
 if you gather some keys you can get a really powerful thing that even I didnt
@@ -361,52 +410,4 @@ probably not ready for this yet in his arc tho.
 Bob: rip
 
 
-
-
-- storm
-  - Leviathan (skull makes you fireproof, able to enter fire area after this)
-  - get key
-- plants
-  - get key
-  - Buchanan dies
-
-
-# Characters
-
-stephan banach
-david hilbert
-
-- Rand: 
-  * Rand is the protagonist of the story. His character arc is coming of age. He starts as unsure of himself and progresses to being sure of himself.
-- CHAR: 
-  * CHAR is the mentor figure.
-- CHAR: 
-  * CHAR is the antagonist.
-- CHAR: 
-  * CHAR is
-- CHAR: 
-  * CHAR is
-
-
-
-motivation:
-
- - LOTR: character is internally motivated; they're a good person
- - eragon: character is internally motivated revenge
- - cruel prince: character is power hungry
- - harry potter philosophers stone: hubris (no one else understands htat snapes such a bad person i gotta save the world)
- - HPMOR: harry is tricked by quirell / voldemort
- - percy jackson: there would be a war among the gods if he didnt accept the quest
- - 6 of crows: money
- - enders game: unaware 
- - Mistborn: Kelsier - hope / revenge, Vin - money / security / power --> Kelsier's vision, loyalty, hope 
- - court of thrones and roses: holds family hostage, money and security, tricked into binding oath
-
-- biggest wish is to live in peace
-- you cant have peace if you dont get this thing
-
-- *lift a curse*
-- wants to be powerful
-- cure someone from rare illness
-- bonding time (sarcastic line by Bob)
 
