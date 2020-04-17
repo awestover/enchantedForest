@@ -443,7 +443,7 @@ okay, okay calm down i get it
 
 
 
-
+"I owe you three hundred seg."
 
 # Plot Idea:
 Bob is angry and devestated because of the destruction of his village, yet he
@@ -460,6 +460,16 @@ Malimost that makes personal sacrifices endurable.
 TL;DR
 - Bob arc: reluctant, scared, selfish, skeptic  --> gains trust, becomes selfless, optimistic, willing to sacrifice, brave
 - Buchanan: has most of the good traits already, has some flaws too, e.g. too ready to charge into battle
+
+- llama land
+  - get unicorn horn
+  - start on quest
+- storm
+  - Leviathan (skull makes you fireproof, able to enter fire area after this)
+  - get key
+- plants
+  - get key
+  - Buchanan dies
 
 
 # Start Story
@@ -701,7 +711,6 @@ Heedless of Bob, Azeala chanted
 > a humble llama shepherd by birth, and yet destined to shake the earth
 > the one will be known by their green eyes and the fact that if they beat a unicorn in battle and take its horn then the horn will turn black
 > the one will face great tribulations e.g. getting their village burned down, and will take a path either to eradicate evil or become it"
-<!-- make this a bit more prophecy-y -->
 
 Bob was shook by the power of her voice, but shook it off, there was no such
 thing as prophecy. Azeala had just practiced theatrical skills. It was easy to
@@ -753,71 +762,180 @@ the left hand and the pure white horn to the right hand.
 
 Bob held them apprehensively. Then, after looking to Buchanan who vigorously
 affirmed that he thought this was a great idea with a nod of his head, Bob
-touched the horns together and whispered "Coppolla"
+touched the horns together and whispered "Coppolla".
 
-Then a holographic recroding of Rand emerged from in front of the horns.
+At first it seemed like nothing was going to happen.
+However, after a few seconds, fireflies swarmed out of unseen pores in the caverns. 
+The fireflies congregated into a massive blob in front of Bob.
 
-Well hello there my friend! I have no idea what a situation you are in, but I
+"Fireflies are particularly connected to the Levant" Azeala noted quietly. "This is super cool".
+
+
+"Hello friend!" The sound emenated from the mass of fireflies. 
+"I have no idea what a situation you are in, but I
 know that it will surely be very dire, hence I was instructed to make these
 precautions. It seems that if must record this something bad is going to happen to me.
 However the time frame for this is not clear, so I fear not for myself. I
 believe that I will likely die a peaceful death one day, when I am ready. More, I
 fear for you and your fellow citizens in whatever trying time that you live. 
-Because of how hard your time will likely be, I have made this provision to help you.
+Because of how hard your time will likely be, I have made this provision to help you."
 
-I have keyed this recording to your hand: in order to be seeing this recording
+"I have keyed this recording to your hand: in order to be seeing this recording
 you must fit the description giving in the prophecy. The white unicorn horn is
 keyed to your humble upbringing as a lammaa herder, while the black unicorn
 horn is keyed to your great potential levantic power.
 United together the white horn that I created, and the black horn that you must
 have created by defeating a unicorn with your levantic powers, will, by the
-levancy that I have worked on my white horn, create this recording for you.
+levancy that I have worked on my white horn, create this recording for you."
 
-You might wonder how I am protecting this information from getting into the
+"You might wonder how I am protecting this information from getting into the
 wrong hands, for a powerful malicious levancer could equally well defeat a
-unicorn.
+unicorn."
 
-The protection is in the white unicorn horn. I won't get into any details, but
+"The protection is in the white unicorn horn. I won't get into any details, but
 it would basically incinerate you if you were seeking the secret that I have hidden 
-out of desire for personal power or gain.
+out of desire for personal power or gain."
+
+"Bob, as the chosen one, you are marked. You are blessed with incredibly strong
+levantic abilities, but also cursed with the fact that a sufficiently powerful
+dark levancer with the right artifacts can easily detect you. You lived a
+peacful existence before your fate became clear. However, now it is evident
+that there is only one way forward for you: you must rid the world of whatever
+great evil has come upon it."
+
+"My general advice for how to go about this would be to train with Levancy
+until you are sufficiently good to defeat whatever adversary it is that you
+face."
+
+"If you believe that will be sufficient, that is certainly the safest way"
+
+"However, I feeel taht it is likely that you are new and unexperienced compared
+to your foe. Thus, I will tell you something that I sincerely hope no one else
+knows. The seret I am about to tell you is very dangerous. You must make sure it
+does not get into the wrong hands. I have trust in you however."
+
+"Once, when I was a much younger levancer, less aquainted with the art of
+levancy, I discovered an extremely powerful artifact. It is called
+*Amplification*. Amplification has the ability to modify levantic strenght, in
+particular by multiplying it by a scalar in (0,2) of the wielders choice in a
+bubble around the wielder. I heard lore of this artifact, went searching for it
+and eventually found it. The power of this artifact is unlike any other
+articaft that I know of. It has the ability to increase ones levantic power
+such as to be sufficient to crush any with even vaguely similar levels of
+levantic power beforehand. It could be used to mask levantic presence while
+sneaking. It could be used to mitigate the levantic powers of a powerful
+levanter. A levanter holding this artifact would have an unbeatable edge in any
+battle!"
+
+"In my naivety I took it. I used it. It felt amazing. But I realized that I was
+growing adicted to it so I stopped"
+
+"I tell you this story to make sure that you do not treat the swrot of
+amplification lightly as I did."
+
+"To secure the sword of amplification I used it to seal it with the levancy.
+Only if you get 3 enchantments to say, which I will denote as the keys, can you
+pull the sword of amplification frm the fabric of the levant. These keys will
+not be easy to obtain, but there can be no security with shortcuts: by
+achieving the keys you will have proved yourself. "
+
+"The first key is gaurded by Lincoln the Leviathan, in the depths of the sea of
+storms. Once you aquire that key I will give you the information about how to
+get the rest of the keys."
+
+"Best of luck to you! And hurry! Presumably the fate of the world rests on your
+shoulders. If that's not enough, also the weight of the future. At the very
+least your own fate is in jeapordy. Cyaaaaaaaaaa."
+
+After the cloud of fireflies echoed the last word of Rand's message the cloud
+dispersed into individual fireflies that in turn receded into the pores of the cavern.
+
+Azeala wasted no time, "Bob, do you understand how important this is now? Will
+you seek the sword of amplification? And will you use it to defeat Malimost?"
+
+Bob thought about protesting on the grounds that they didn't know that Rand had
+spoken truly in the message, or even that the message was from the legendary
+levancer Rand, or even that such a person ever existed. He decided not to however.
+He tried to make a habit of not lying to himself. Instead he stalled effectively.
+
+"Yes I understand how important this is. Sorry this is such a huge shock.
+Please give me a moment to think about the implications of this statement" Bob
+said in a weak voice. Bob wasn't opposed to lying to others, yet the weak voice
+was not completely a lie intended to garner pity and give him some time. The words
+of Rand were genuinely very distrubing. *I'm marked?* Bob thought. *Malimost
+will never leave me alone as long as he can detect my levancy?* *Should I go on this quest?*
+*Am I seriously considering this? It's ridiculously dangerous.* *And yet at the
+same time, probably much safer than waiting for Malimost to come and destroy
+me. I guess I have to either learn how to use levancy well enough to protect
+myself, or figure out how to hide myself.* Bob suddenly remembered that Bob had
+said that the sword of Amplification not only possessed the ability to Amplify
+power, but also to dampen it, hiding the weilding levancer. 
+
+"I will pursue this quest." Bob finally said, just as people were getting
+uncomfortable with his silence. "I will travel to the sea of storms, claim the
+first key from the Leviathan. Then I will keep travelling to find the rest of
+the keys, and aquire the sword of Amplification. And finally, once I have aquired this
+unmatched artifact, I will use it to free myself from the continual pursuit of Malimost."
+
+Azeala and Mercury were taken aback from his sudden seeming willingness to
+embark on a quest to defeat Malimost.
+
+"I knew you'd decide to do the right thing!" Bucky praised, "The world will
+forever remember you as the one who freed the world from Malimost's tyranny. If
+you will accept me as your companion on the quest I will gladly accompany you!"
+
+Real tears filled Bob's eyes. By design of Bob's cryptic commit message Bucky
+completely misunderstood him. Yes Bob would pursue the Sword of Amplification.
+But he would not use the artifact to confront Malimost. He would use it to mask
+his levantic scent, freeing him from the pursuit of Malimost. He, and Bucky too
+of course, could find some new pasture, a new flock of llamas to tend. Bob was
+not so presumptious as to adopt the world as his flock to protect. Bucky would
+understand one day. The keys were likely not very heavily gaurded. In essence
+he had to fight three more "bosses" similar in power to the unicorn that he had
+fought the previous day. With the aid of powerful rogue levanters, that Mercury
+and Azeala were certain to make help them now that his position as "the chosen
+one" was confimed, these battles should be fairly straightforward. In the
+process of his travels he would also be able to learn levancy from some masters.
+This would probably prove useful in his future. Bob estimated that he had maybe
+a 90% shot at getting each key, and that the events "Bob gets key i" for
+i=1,2,3 were likely independent. Thus he had approximately a 72% chance of
+success overall. This was compared to the alternative of facing Malimost, a
+more powerful levanter than any alive in 1000 years, more powerful than this
+Rand fellow who was giving him this quest. Bob estimated his chance of success
+against Malimost to be about 0.01%. Of course this had to be weighted by the
+fact that it was a more desirable outcome: Rand wouldn't have to hide all his
+life. However, his objective function was clearly maximied by the first
+strategy. Of course Bob's tear filled eyes would be misinterpretted as gratitude. 
+Bob almost couldn't stand it.
+
+"Of course I want you to come Bucky!" Bob gladly cried. "What of the people who
+resist Malimost? Am I correct in assuming that we now get an army of levanters to 
+help us in this crucial quest? "
+
+"Well" Azeala said looking ashamed, glancing at Mercury who also looked
+ashamed, "not exactly". "You see, not everyone here can be trusted. There are
+some who don't believe so strongly in the prophecy. There are many who would
+see you as a weak levancer, and believe that they deserve this powerful artifact more than you.
+For honorable reasons, or even selfish reasons. No, it's "
+
+
 
 ***some other stuff***
-if you gather some keys you can get a really powerful thing that even I didnt use for some reason (worried that it corrutps? could this thing be jumpydude???)
+if you gather some keys you can get a really powerful thing that even I didnt
+use for some reason (worried that it corrutps? could this thing be
+jumpydude???)
 so get the keys
 
 
-***ok so somehow we have to motivate getting keys to get some artifact thing that is useful for defeating malimost***
+***ok so somehow we have to motivate getting keys to get some artifact thing
+that is useful for defeating malimost***
 
 Buchanan: ok bob sorry but looks like we got to
 Bob: no
 
-something happens that basically forces him, or i guess he could chose. probably not ready for this yet in his arc tho. 
+something happens that basically forces him, or i guess he could chose.
+probably not ready for this yet in his arc tho. 
 Bob: rip
 
 
-
-
-- storm
-  - Leviathan (skull makes you fireproof, able to enter fire area after this)
-  - get key
-- plants
-  - get key
-  - Buchanan dies
-
-
-# Characters
-
-stephan banach
-david hilbert
-
-- Rand: 
-  * Rand is the protagonist of the story. His character arc is coming of age. He starts as unsure of himself and progresses to being sure of himself.
-- CHAR: 
-  * CHAR is the mentor figure.
-- CHAR: 
-  * CHAR is the antagonist.
-- CHAR: 
-  * CHAR is
-- CHAR: 
-  * CHAR is
 

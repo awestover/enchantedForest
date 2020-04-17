@@ -1,4 +1,4 @@
-# Plot Idea:
+# Arc Ideas:
 Bob is angry and devestated because of the destruction of his village, yet he
 does not believe that he has the power to oppose Malimost, and is very scared
 to do so. Buchannan is comitted to opposing Malimost, specifically with the
@@ -6,23 +6,17 @@ goal of making the world a better place for other people, and is not scared to
 make personal sacrifices. Buchannan believes in the prophecy foretelling that Bob
 will save people from Malimost; he has been told this prophecy and many hopeful
 heroic stories since being a youth. Bob is highly skeptical of the prophecy,
-and skeptical in general too. Over the course of their journeys Bob will come
-to resepect Buchannan and develop hope and a sense of purpose in concurring
-Malimost that makes personal sacrifices endurable. 
+and skeptical in general too. He goes along with the quest because of multiple
+pressures, and selfishness. He feels that he has no alternative, but does not
+care about defeating Malimost, only about securing his own safety, although he
+does care about Bucky, and is greatly saddened by the fate of his village.
+Over the course of their journeys Bob will come to resepect Buchannan and
+develop hope and a sense of purpose in concurring Malimost that makes personal
+sacrifices endurable. 
 
-TL;DR
+# TL;DR
 - Bob arc: reluctant, scared, selfish, skeptic  --> gains trust, becomes selfless, optimistic, willing to sacrifice, brave
-- Buchanan: has most of the good traits already, has some flaws too, e.g. too ready to charge into battle
-
-- llama land
-  - get unicorn horn
-  - start on quest
-- storm
-  - Leviathan (skull makes you fireproof, able to enter fire area after this)
-  - get key
-- plants
-  - get key
-  - Buchanan dies
+- Buchanan: has most of the good traits already, has some flaws too, e.g. too ready to charge into battle. his death is catalyst for Bob
 
 
 # Start Story
@@ -380,34 +374,140 @@ sneaking. It could be used to mitigate the levantic powers of a powerful
 levanter. A levanter holding this artifact would have an unbeatable edge in any
 battle!"
 
-"In my naivety I took it. I used it. It felt amazing. But I realized taht I was
+"In my naivety I took it. I used it. It felt amazing. But I realized that I was
 growing adicted to it so I stopped"
 
 "I tell you this story to make sure that you do not treat the swrot of
 amplification lightly as I did."
 
-"To secure the sword of amplification I used it to seal it with the levancy. Only if you get 3 enchantments to say, which I will denote as the keys, can you pull the sword of amplification frm the fabric of the levant. These keys will not be easy to obtain, but there can be no security with shortcuts: by achieving the keys you will have proved yourself. "
+"To secure the sword of amplification I used it to seal it with the levancy.
+Only if you get 3 enchantments to say, which I will denote as the keys, can you
+pull the sword of amplification frm the fabric of the levant. These keys will
+not be easy to obtain, but there can be no security with shortcuts: by
+achieving the keys you will have proved yourself. "
 
-Bob "well ok, I want protection. I want to be able to hide. If this is really
-the only way then there is nothign to think about. Lets get on with it."
+"The first key is gaurded by Lincoln the Leviathan, in the depths of the sea of
+storms. Once you aquire that key I will give you the information about how to
+get the rest of the keys."
 
+"Best of luck to you! And hurry! Presumably the fate of the world rests on your
+shoulders. If that's not enough, also the weight of the future. At the very
+least your own fate is in jeapordy. Cyaaaaaaaaaa."
 
-***some other stuff***
-if you gather some keys you can get a really powerful thing that even I didnt
-use for some reason (worried that it corrutps? could this thing be
-jumpydude???)
-so get the keys
+After the cloud of fireflies echoed the last word of Rand's message the cloud
+dispersed into individual fireflies that in turn receded into the pores of the cavern.
 
+Azeala wasted no time, "Bob, do you understand how important this is now? Will
+you seek the sword of amplification? And will you use it to defeat Malimost?"
 
-***ok so somehow we have to motivate getting keys to get some artifact thing
-that is useful for defeating malimost***
+Bob thought about protesting on the grounds that they didn't know that Rand had
+spoken truly in the message, or even that the message was from the legendary
+levancer Rand, or even that such a person ever existed. He decided not to however.
+He tried to make a habit of not lying to himself. Instead he stalled effectively.
 
-Buchanan: ok bob sorry but looks like we got to
-Bob: no
+"Yes I understand how important this is. Sorry this is such a huge shock.
+Please give me a moment to think about the implications of this statement" Bob
+said in a weak voice. Bob wasn't opposed to lying to others, yet the weak voice
+was not completely a lie intended to garner pity and give him some time. The words
+of Rand were genuinely very distrubing. *I'm marked?* Bob thought. *Malimost
+will never leave me alone as long as he can detect my levancy?* *Should I go on this quest?*
+*Am I seriously considering this? It's ridiculously dangerous.* *And yet at the
+same time, probably much safer than waiting for Malimost to come and destroy
+me. I guess I have to either learn how to use levancy well enough to protect
+myself, or figure out how to hide myself.* Bob suddenly remembered that Bob had
+said that the sword of Amplification not only possessed the ability to Amplify
+power, but also to dampen it, hiding the weilding levancer. 
 
-something happens that basically forces him, or i guess he could chose.
-probably not ready for this yet in his arc tho. 
-Bob: rip
+"I will pursue this quest." Bob finally said, just as people were getting
+uncomfortable with his silence. "I will travel to the sea of storms, claim the
+first key from the Leviathan. Then I will keep travelling to find the rest of
+the keys, and aquire the sword of Amplification. And finally, once I have aquired this
+unmatched artifact, I will use it to free myself from the continual pursuit of Malimost."
 
+Azeala and Mercury were taken aback from his sudden seeming willingness to
+embark on a quest to defeat Malimost.
+
+"I knew you'd decide to do the right thing!" Bucky praised, "The world will
+forever remember you as the one who freed the world from Malimost's tyranny. If
+you will accept me as your companion on the quest I will gladly accompany you!"
+
+Real tears filled Bob's eyes. By design of Bob's cryptic commit message Bucky
+completely misunderstood him. Yes Bob would pursue the Sword of Amplification.
+But he would not use the artifact to confront Malimost. He would use it to mask
+his levantic scent, freeing him from the pursuit of Malimost. He, and Bucky too
+of course, could find some new pasture, a new flock of llamas to tend. Bob was
+not so presumptious as to adopt the world as his flock to protect. Bucky would
+understand one day. The keys were likely not very heavily gaurded. In essence
+he had to fight three more "bosses" similar in power to the unicorn that he had
+fought the previous day. With the aid of powerful rogue levanters, that Mercury
+and Azeala were certain to make help them now that his position as "the chosen
+one" was confimed, these battles should be fairly straightforward. In the
+process of his travels he would also be able to learn levancy from some masters.
+This would probably prove useful in his future. Bob estimated that he had maybe
+a 90% shot at getting each key, and that the events "Bob gets key i" for
+i=1,2,3 were likely independent. Thus he had approximately a 72% chance of
+success overall. This was compared to the alternative of facing Malimost, a
+more powerful levanter than any alive in 1000 years, more powerful than this
+Rand fellow who was giving him this quest. Bob estimated his chance of success
+against Malimost to be about 0.01%. Of course this had to be weighted by the
+fact that it was a more desirable outcome: Rand wouldn't have to hide all his
+life. However, his objective function was clearly maximied by the first
+strategy. Of course Bob's tear filled eyes would be misinterpretted as gratitude. 
+Bob almost couldn't stand it.
+
+"Of course I want you to come Bucky!" Bob gladly cried. "What of the people who
+resist Malimost? Am I correct in assuming that we now get an army of levanters to 
+help us in this crucial quest? "
+
+"Well" Azeala said looking ashamed, glancing at Mercury who also looked
+ashamed, "not exactly". "You see, not everyone here can be trusted. There are
+some who don't believe so strongly in the prophecy. There are many who would
+see you as a weak levancer, and believe that they deserve this powerful
+artifact more than you. For honorable reasons, or even selfish reasons. No,
+it's essential that you do not tell anyone that we don't trust."
+
+"How do we know we can trust you?" Bob said angrily. He was very scared, and thus lashed out.
+
+"Bob" Bucky said, mortified at Bob's disrespect, "without Azeala and Mercury,
+we would be dead. They saved us from the boars at our village. At great
+personal risk! If there is anyone we can trust it is Azeala and Mercury."
+
+*Why do you assume as an axiom that there exists someone we can trust?* Bob's
+incessant internal cycnic bitterly said. But Bob was mostly able to supress
+this poisonous voice. He knew that Bucky was right, and he didn't doubt Azeala's word.
+Nonetheless this was highly troubling.
+
+"OK, I understand, Bob" said reluctantly.
+
+"Awesome. Me and Mercury will of course accompany you" Azeala said, without
+bothering to ask if Bob would appreciate their company. "We should leave soon
+for the storm land. There is actually a teleporter nearaby here, and a linked
+teleporter in the storm land. How about we leave tomorrow? Me and Mercury can
+make final preperations for our journeys today."
+
+"ok" Bob said simply.
+
+They discussed some logistics, and then returned to the main cavern.
+
+"We'll meet at the teleporter tomorrow morning, crack of dawn", Azeala declared.
+
+"Think you can manage that Bob?", Bucky joked: Bob was not an expert at getting up early.
+
+"You can just explore the caverns today" Azeala said.
+
+Then she and Mercury left them. Bucky dragged Bob all around the caverns. Bob
+wasn't too excited about it, but they were really very remarkable, and
+beautiful. They talked and joked about trivial matters. Bob could almost forget
+about how much his life had been drastically altered in the past week. 
+
+And then they heard screams, from far away, in the direction of the main cavern.
+
+- escape to the telporter with Azeala and Mercury (Mercury can die though)
+- Azeala introduces Bob to a mentor in the storm land
+- Bob does some prep before facing Leviathan
+- Bob faces Leviathan, gets key
+- the group goes to Plant land
+- Bob faces a boss; bucky dies
+- Bob is inspired by Bucky's death to be a better person
 
 
