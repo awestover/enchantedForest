@@ -422,3 +422,15 @@ light levancy: they can only be freely given
 
       - Write relevant plot
 
+
+
+- fireflies passing on messages and leading the way
+
+Collect
+  - scrolls
+  - gems
+  - abilities
+  - weapons/armor/parts of an artifact
+
+
+
