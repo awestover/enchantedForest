@@ -312,9 +312,26 @@ Then a holographic recroding of Rand emerged from in front of the horns.
 Well hello there my friend! I have no idea what a situation you are in, but I
 know that it will surely be very dire, hence I was instructed to make these
 precautions. It seems that if must record this something bad is going to happen to me.
-However the time frace for this is not clear, so I fear not for myself. More, I
+However the time frame for this is not clear, so I fear not for myself. I
+believe that I will likely die a peaceful death one day, when I am ready. More, I
 fear for you and your fellow citizens in whatever trying time that you live. 
 Because of how hard your time will likely be, I have made this provision to help you.
+
+I have keyed this recording to your hand: in order to be seeing this recording
+you must fit the description giving in the prophecy. The white unicorn horn is
+keyed to your humble upbringing as a lammaa herder, while the black unicorn
+horn is keyed to your great potential levantic power.
+United together the white horn that I created, and the black horn that you must
+have created by defeating a unicorn with your levantic powers, will, by the
+levancy that I have worked on my white horn, create this recording for you.
+
+You might wonder how I am protecting this information from getting into the
+wrong hands, for a powerful malicious levancer could equally well defeat a
+unicorn.
+
+The protection is in the white unicorn horn. I won't get into any details, but
+it would basically incinerate you if you were seeking the secret that I have hidden 
+out of desire for personal power or gain.
 
 ***some other stuff***
 if you gather some keys you can get a really powerful thing that even I didnt use for some reason (worried that it corrutps? could this thing be jumpydude???)
