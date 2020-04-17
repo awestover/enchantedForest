@@ -1,2 +1,2 @@
-pandoc -o book.epub metadata.txt story.md
-# you can add a stylesheet too if you really want...
+cat story*.md > full_story.md
+pandoc --css style.css -o full_story.epub metadata.txt full_story.md

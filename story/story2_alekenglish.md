@@ -249,6 +249,7 @@ fulfilling your dang prohpecy. I won't be fooled though. The whole endeavor is h
 
 
 Heedless of Bob, Azeala chanted
+
 > "The chosen one shall come forth from the llama lands, and have eyes as green as the grass that the llama is grazed on
 > a humble llama shepherd by birth, and yet destined to shake the earth
 > the one will be known by their green eyes and the fact that if they beat a unicorn in battle and take its horn then the horn will turn black
@@ -290,61 +291,76 @@ Most people seem to believe that when the chosen one wields both horns and
 shouts copolla then somethign magical will happnen, which will be critical
 towards bringing about the downfal of Malimost.
 
-So hwo abtou you try it?
+So how abtou you try it?
 
-Bob was totally blow away. "No way" he tried to object, but it sounded
+  Bob was totally blow away. "No way" he tried to object, but it sounded
 half-hearted even to himself.
 
-"You've got nothign to lose if this is all a prophecy dreamed up by a 
+  "You've got nothign to lose if this is all a prophecy dreamed up by a 
 17 year old at 2:13 AM with a messed up sleep schedule." Azeala noted rationally.
 
-"OK, I'll do it" Bob whispered.
+  "OK, I'll do it" Bob whispered.
 
 Azeala and Mercury reverently bestowed the horns to Bob, the deep black horn to
 the left hand and the pure white horn to the right hand.
 
 Bob held them apprehensively. Then, after looking to Buchanan who vigorously
 affirmed that he thought this was a great idea with a nod of his head, Bob
-touched the horns together and whispered "Coppolla"
+touched the horns together and whispered "Coppolla".
 
-Then a holographic recroding of Rand emerged from in front of the horns.
+At first it seemed like nothing was going to happen.
+However, after a few seconds, fireflies swarmed out of unseen pores in the caverns. 
+The fireflies congregated into a massive blob in front of Bob.
 
-Well hello there my friend! I have no idea what a situation you are in, but I
+"Fireflies are particularly connected to the Levant" Azeala noted quietly. "This is super cool".
+
+
+"Hello friend!" The sound emenated from the mass of fireflies. 
+"I have no idea what a situation you are in, but I
 know that it will surely be very dire, hence I was instructed to make these
 precautions. It seems that if must record this something bad is going to happen to me.
 However the time frame for this is not clear, so I fear not for myself. I
 believe that I will likely die a peaceful death one day, when I am ready. More, I
 fear for you and your fellow citizens in whatever trying time that you live. 
-Because of how hard your time will likely be, I have made this provision to help you.
+Because of how hard your time will likely be, I have made this provision to help you."
 
-I have keyed this recording to your hand: in order to be seeing this recording
+"I have keyed this recording to your hand: in order to be seeing this recording
 you must fit the description giving in the prophecy. The white unicorn horn is
 keyed to your humble upbringing as a lammaa herder, while the black unicorn
 horn is keyed to your great potential levantic power.
 United together the white horn that I created, and the black horn that you must
 have created by defeating a unicorn with your levantic powers, will, by the
-levancy that I have worked on my white horn, create this recording for you.
+levancy that I have worked on my white horn, create this recording for you."
 
-You might wonder how I am protecting this information from getting into the
+"You might wonder how I am protecting this information from getting into the
 wrong hands, for a powerful malicious levancer could equally well defeat a
-unicorn.
+unicorn."
 
-The protection is in the white unicorn horn. I won't get into any details, but
+"The protection is in the white unicorn horn. I won't get into any details, but
 it would basically incinerate you if you were seeking the secret that I have hidden 
-out of desire for personal power or gain.
+out of desire for personal power or gain."
+
+"Bob, as the chosen one, you're now marked / cursed by Malimost. If you dont
+embark on this quest you will never live in peace."
 
 ***some other stuff***
-if you gather some keys you can get a really powerful thing that even I didnt use for some reason (worried that it corrutps? could this thing be jumpydude???)
+if you gather some keys you can get a really powerful thing that even I didnt
+use for some reason (worried that it corrutps? could this thing be
+jumpydude???)
 so get the keys
 
 
-***ok so somehow we have to motivate getting keys to get some artifact thing that is useful for defeating malimost***
+***ok so somehow we have to motivate getting keys to get some artifact thing
+that is useful for defeating malimost***
 
 Buchanan: ok bob sorry but looks like we got to
 Bob: no
 
-something happens that basically forces him, or i guess he could chose. probably not ready for this yet in his arc tho. 
+something happens that basically forces him, or i guess he could chose.
+probably not ready for this yet in his arc tho. 
 Bob: rip
+
+
 
 
 - storm
@@ -370,4 +386,27 @@ david hilbert
   * CHAR is
 - CHAR: 
   * CHAR is
+
+
+
+motivation:
+
+ - LOTR: character is internally motivated; they're a good person
+ - eragon: character is internally motivated revenge
+ - cruel prince: character is power hungry
+ - harry potter philosophers stone: hubris (no one else understands htat snapes such a bad person i gotta save the world)
+ - HPMOR: harry is tricked by quirell / voldemort
+ - percy jackson: there would be a war among the gods if he didnt accept the quest
+ - 6 of crows: money
+ - enders game: unaware 
+ - Mistborn: Kelsier - hope / revenge, Vin - money / security / power --> Kelsier's vision, loyalty, hope 
+ - court of thrones and roses: holds family hostage, money and security, tricked into binding oath
+
+- biggest wish is to live in peace
+- you cant have peace if you dont get this thing
+
+- *lift a curse*
+- wants to be powerful
+- cure someone from rare illness
+- bonding time (sarcastic line by Bob)
 
