@@ -425,6 +425,22 @@ light levancy: they can only be freely given
 
 
 - fireflies passing on messages and leading the way
+- shopkeeper cant use the levant, which is why he needs wings, used to be brilliant at fighting, ?dies later on in the story?
+
+refer to fireflies as
+  - glowwyrms
+  - candlewyrms
+  - lanternwyrms
+  - firewyrms
+
+deity name
+  - lampyris
+  - lucidota
+
+  - lampyridae
+  - luciola
+  - luciole
+
 
 Collect
   - scrolls
