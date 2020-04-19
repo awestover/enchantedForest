@@ -329,7 +329,6 @@ stats list (upgrade interface; points granted upon level up)
 
 * introduce shadow area upon buchanan's death
   - shadow (induces insanity/unfurling shadows-based attacks + necromancy)
-  - outer space (gravity/telekinesis -based abilities)
   - dragonfire (flames)
   - jumpydude fortress (iron walls, shoot spikes)
 

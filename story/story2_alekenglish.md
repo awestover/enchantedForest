@@ -521,6 +521,5 @@ Bucky had some weapons too.
 - Bob faces Leviathan, gets key
 - the group goes to Plant land
 - Bob faces a boss; bucky dies
-- Bob is inspired by Bucky's death to be a better person
 
 

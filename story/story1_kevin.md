@@ -140,14 +140,14 @@ Bob spat blood. "I almost *died*", he croaked. "I almost died, and it would've b
 Mercury and Azalea glanced at each other. 
 "Bob?" Azalea asked carefully. "This isn't a unicorn's horn. How did you get this?"
 
-"What do you mean 'how'. I listened to Mercury's bullshit about the whole thing being easy, almost died fighting the scaly-deer, took a nice, leisurly stroll around Hell's doorstep, then came back because *someone*," he glared pointedly at Buchanan, "couldn't contain their enthusiasm, and refused to let me black out in peace."
+"What do you mean 'how'. I listened to Mercury's bullshit about the whole thing being easy, almost died fighting the unicorn, took a nice, leisurly stroll around Hell's doorstep, then came back because *someone*," he glared pointedly at Buchanan, "couldn't contain their enthusiasm, and refused to let me black out in peace."
 
 Mercury gingerly picked up the remanent of the mythical creature. "This did NOT come from a unicorn. This is a kirin's antler, and those things are supposed to be unkillable. Even *Rand* was not reckless enough to take on a kirin."
 
-"Wait," Buchanan raised a hand. "What's the difference between the two?"
+"Wait," Buchanan asked. "What's the difference between the two?"
 
 Mercury explained with equal parts frustration in Buchanan's ignorance and shock at the trophy he held.
-"Unicorns are everywhere, and a major nuisance at that. Relatively easy to dispatch, but they breed like rats. Kirins, on the other hand... they're essentially minor deities. They are *incredibly* rare, like, once-in-a-millenia kind of rare."
+"Unicorns are everywhere, and a major nuisance at that. Relatively easy to dispatch, but they breed like rats. Kirins, on the other hand... Kirins are essentially minor deities. They're *incredibly* rare, like, once-in-a-millenia kind of rare."
 
 "If I'm not mistaken, the kirin Bob just hunted down was the same one Malimost fought. Malimost managed to get an antler, but at the cost of his hindleg being permanently maimed. Of course, that was centuries ago when Malimost was still a youngling, and he hasn't attempted it again since then. But still... to defeat a kirin is no easy feat."
 
@@ -162,7 +162,7 @@ Mercury smirked. "Don't push your luck. I'll give you a decent set of supplies t
 
 ... 
 
-Bob stood next to the teleporter with a grin. Mercury had outfitted him in an emerald trenchcoat, with arm guards and a light metal breastplate underneath. He had a bandolier stocked with potions and throwing knives, in addition to two long diamas daggers strapped to his legs. After hearing about the details of the kirin battle, the supplier decided that Bob would be better off lightly armored, to fit his fast-paced fighting style.
+Bob stood next to the stone pillar with a grin. Mercury had outfitted him with an emerald trenchcoat, with arm guards and a light metal breastplate underneath. He had a bandolier stocked with potions and throwing knives, in addition to two long diamas daggers strapped to his legs. After hearing about the details of the kirin battle, the supplier decided that Bob would be better off lightly armored, to fit his fast-paced fighting style.
 
 Buchanan was dressed in a similar fashion, and given a crossbow to provide support from the sidelines. 
 
@@ -171,5 +171,6 @@ Buchanan was dressed in a similar fashion, and given a crossbow to provide suppo
 "We, slayers of the kirin, servants of Lampyris and bane of Malimost, are about to embark on a glorious journey, and the bards shall sing of our names for years to come," Bob whispered dramatically. 
 
 They both snickered, while Azalea shook her head in exasperation.
+
 
 
