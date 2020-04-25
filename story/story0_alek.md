@@ -1,15 +1,6 @@
 # Prologue
 ## Scorching wind
 
-## Goals:
-
- - start of Malimosts rule, he attacks a school of levanters
- - Rand, a very powerful levanter, faces him and loses
- - Malimost burns down the tower
- - everyone (even viewpoint) dies
- - establish that the magic is cool
- - establish that Malimost is evil, but with a reason: wants control, lacked power as child, family slaughtered 
-
 The world was on fire. 
 
 It was not the lightly warm fire of the fire Levant that Rand routinely drew
@@ -231,12 +222,6 @@ The world was on fire.
 
 # Chapter 1
 
-## Goals:
- - Bob and Bucky are going back to their village (they are humble Llama herders)
- - Minions of Malimost (unicorns) decided to destroy their village 
-  - Bob doesn't know why yet, but later it will become evident that it was because Malimost knew that a powerful Levanter would arise from his village
- - Bob and Bucky realize that they are in danger, so they seek shelter at a rumuroed rogue Levanter town
-
 "Get up!" Bucky's deep voice pierced through Bob's dream of llamas grazing on a field.
 
 Brushing his black shoulderlength hair from his eyes, Bob groggily began to comply. 
@@ -284,7 +269,8 @@ the village. If we press hard I think we could make it by tonight. It would be
 fun to see some familiar faces, and we could restock on supplies. The only
 breakfast I have left is oats!"
 
-"Wow, I didn't realize we were that close!" Bob replied. "Yes that'd be super coppola! What are we waiting for?"
+"Wow, I didn't realize we were that close!" Bob replied. "Yes that'd be super
+coppola! What are we waiting for?"
 
 "Well I didn't want to interupt your sleep", Bucky said smirking.
 
@@ -303,56 +289,161 @@ Bucky was stronger than many brother-brother relationships that he had
 observed. However, Bob deeply loved, and hence missed, his parents.
 
 Bob's mom, Grace was sturdily built with Black hair that ran down her back. 
+He remembered the smell of Grace's homemade bread. He really liked this bread.
 
-; anecdote
-
-Bob's dad was XXX; anecdote
+Bob's dad was an unusually thoughtful man. Bob remembered how when he was 
+younger his dad had always read him stories like Lewis' *Chronicles of Narnia*.
 
 Bob and Bucky walked on at a leisurely pace, occasionally trading comments.
 
+After walking for longer, an unexplicable feeling of unease began to gradually
+creep over Bob. There was no clear cause, and Bucky's comments did not give any
+hint that he felt the same, so Bob decided to not say anything: *no point
+in spoiling Bucky's excited mood* Bob thought.
+However, the feeling only intensified. Suddenly Bob, who had been scrutinizing
+their surroundings for a while by now noticed a dark stream of smoke emenating
+from the ground far in the distance,
+dirrectly in the dirrection that they were walking.
 
+"Bucky", Bob said, his voice shaking, cutting Bucky off in the midst of some
+trivial comment that he hadn't been listening to. "Do you see that smoke up there?".
 
+"Yes. It looks like it is coming directly from the direction of our village! Do
+you think they are having a big gathering around the huge bonfire that they
+usually have huge gatherings around? Those are usually pretty exciting! I can't
+remember them ever doing one of these during the day, kind of no point in
+having a fire you know, but remember the time that there was a fire dancer that
+performed? He spun fire around like I imagine someone could with fire levancy!
+What do you think they are doing at this gathering?"
 
+"Bucky I don't think this is a gathering. You're right that they never have the
+fire going during the day, it would be a massive waste of wood. I have a bad
+feeling about this." Bob said uneasily.
 
+"You think something is wrong? Like someone's house caught on fire? Oh no!"
+Bucky said. "Well you could be right, it does seem like quite a lot of smoke" Bucky admitted.
+"I'm sure it's under control, but we should hurry in case they need help,
+assuming anyone is even in trouble. Let's leave the llamas here, and run the
+last little distance to the village."
 
+Bob didn't feel too good about this plan but was too ashamed to voice his fear
+in the face of Bucky's selflessness. Bob was worried about himself, Bucky was
+worried about their friends in the village.
 
+They started off at a run towards the village, leaving their sheep to mill
+around aimlessly. After getting a bit closer Bob realized that the smoke cloud
+was enormous. Almost as if... the entire village was on fire. Suddenly they
+came to the top of a hill that they had been heading up and could actually see
+the village.
 
+Fires raged all over the village. Dead village peopel littered the
+surroundings. As they watched for a moment, stricken with shock, they saw boars
+-- big pig-like minions of Malimost with razor sharp tusks -- hunting down a
+very small number of moving shapes, which Bob realized with horror were village
+people. Although he could not identify faces or forms, he knew that every slain
+human was someone who he had known.
 
+"We have to help them" Bucky said, recovering from his shock faster than Bob
+and instictively saying what they both knew was impossible.
 
+"Bucky, they're dead. And so are we. The boars will notice us in at most a
+minute. They can run faster than us. There is no where we can hide, and they
+probably can track us by smell anyways."
 
+"There are dead boars down their too Bob" Bucky said in a trembling yet honest
+voice, "we shouldn't go out running, let's go out fighting"
 
+Bob considered the suggestion. On the one hand it went against his instinct for
+survival. But rationally he would be dead either way, and maybe getting it over
+with would be better than painfully prolonging the moment of his death.
 
+Bob's internal deliberations were cut short however when a boar noticed them
+and started charging towards them. It was pretty far off, but becoming less so by the second.
 
-# Chapter 2
+Bob decided that running would be more painful then staying. "Thanks for being
+a great friend Bucky. There's no one I'd rather die next to."
 
-## Goals:
- - on the way to the refuge Bob instinctively channels the Levant against something 
- - at the refuge Bob and Bucky discover that 
-  - Bob can use the levant
-  - unicorns attacked their village because of rumors of a powerful levanter (Bob) that would come about
- - Bob resolves to learn about the Levant and get revenge
+"Same! I think. Well actually I guess I'd rather die next to someone evil like
+Malimost, because then while dying I'd rid the world of a great evil. And I
+would definitely rather you didn't die if it could be avoided. So actually you
+might be my last choice of a person to die next to. But I think I get what you
+mean." Bucky said.
 
+They laughed together. Bob was surprised, but it was real laughter. Bucky could
+do that somehow, his humor and happiness were so insane that you couldn't help
+but love them. 
 
-# Chapter 3 
+The only thing that they had resembling weapons were their shepherds crooks,
+which they brandished in front of them. The boar reached them and they engaged
+it. It was hopeless. They bludgeoned it with their crooks, but it was a moment
+of time before it gored them on its tusks.
 
-## Goals:
- - Bob gets a mentor
- - Bob trains in using the Levant as they seek out the unicorns
- - they face down the unicorns; bob wins; bucky dies
- - Now Bob's really angry at Malimost
- - Bob realizes that he is really powerful
- - Bob resolves to confront Malimost
+In the back of Bob's mind he vaguely registered what sounded like hoofs -- much
+heavier sounding than the boars' hooves, more like horses hooves --
+pounding towards them from behind. More minions of Malimost undoubtedly.
+*Aw, they'll get here too late to kill us themselves* Bob thought sarcastically, *what a pity*.
 
+The boar speared Bucky in the arm, and then through him to the ground. Then the
+boar turned towards Bob and made to gore him through the chest. Bob couldn't
+stand it. He closed his eyes. Suddenly Bob felt something surge up in him, and
+a loud crack sounded. The boar didn't reach him. Eventually Bob opened his eyes. 
+The boar was lying dead on the hill. It looked as if the boar had been struck by lightning.
+What in the forest? 
 
-# Chapter 4
+He wouldn't have long to dwell on it before more boars, or those hooves that he
+had heard from behind caught up to them. Not caring, Bob rushed over to Bucky,
+incredibly concerned for his friend. The deep concern he felt seemed irrational
+to him: they would both be dead in minutes, what would be gained from him
+helping Bucky? Besides, the gore was likely to make him vomit. Nonetheless Bob
+felt compelled to see how serious his friend's injury was.
 
-## Goals:
- - quest to figure out how to get Malimost
- - finally figure out that there are some keys to get in order to get to malimost
+"Bucky? Are you ok?" Bob asked.
 
-# Chapter 5
+Bucky only groaned. The boar's tusk had made a deep gash in Bucky's arm and
+blood was gushing from it. Staving back nausea Bob ripped off part of Bucky's
+shirt and tied a crummy tourniquet.
 
-## Goals:
- - exit llama land
+The hooves from behind stopped and a rider yelled down, "Get on. Hurry!"
 
+*What?* Bob thought, *Why would they want us alive but none of the other villagers? Are these people from a different group?*.
+
+"Who are you?" Bob demanded.
+
+"We're your friends, and you're going to be gored by boars if you don't get on
+this horse right now." a male voice said sarcastically.
+
+"I'm Azeala, that's Mercury. And you're the chosen one. Let's save more
+introductions for after we get away from this situation" a female voice said
+from a different horse.
+
+The riders hopped down. 
+
+"Is your friend still alive?" Mercury asked, seemingly unconcerned.
+
+"Yes!" Bob said, still in shock at his possible escape from death.
+
+At that moment the next wave of boars reached them. 
+
+"Get Bucky on a horse and get on the other horse. We'll deal with the boars and
+then be out of here." Azeala said confidently yet grimly.
+
+They looked to have actual weapons, and Bob didn't think he'd last seconds
+against the group of 5 boars that was nearly upon them -- his victory over a
+single boar was a strange fluke -- so he had no choice but to trust the riders. 
+
+He gently picked up Bucky and put him on one of the horses, and then got on the
+other horse. Azeala and Mercury made short work of the boars, Bob didn't get to
+see much but the end result: 5 boar corpses and Mercury and Azeala emerging
+without a scratch. After their fight the riders ran to the horses. 
+Bob was strangely tired, and began to pass out on the horse.
+
+"Is he ok? " Bob heard Mercury ask in a voice laden with concern.
+
+"He's just tired from using levancy. I don't think he understands what he did. But he will learn."
+
+"How can you be sure?" 
+
+"Because he must."
+
+Bob drifted out of conciousness as they continued their escape from the boars.
 

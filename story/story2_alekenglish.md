@@ -1,25 +1,4 @@
-# Arc Ideas:
-Bob is angry and devestated because of the destruction of his village, yet he
-does not believe that he has the power to oppose Malimost, and is very scared
-to do so. Buchannan is comitted to opposing Malimost, specifically with the
-goal of making the world a better place for other people, and is not scared to
-make personal sacrifices. Buchannan believes in the prophecy foretelling that Bob
-will save people from Malimost; he has been told this prophecy and many hopeful
-heroic stories since being a youth. Bob is highly skeptical of the prophecy,
-and skeptical in general too. He goes along with the quest because of multiple
-pressures, and selfishness. He feels that he has no alternative, but does not
-care about defeating Malimost, only about securing his own safety, although he
-does care about Bucky, and is greatly saddened by the fate of his village.
-Over the course of their journeys Bob will come to resepect Buchannan and
-develop hope and a sense of purpose in concurring Malimost that makes personal
-sacrifices endurable. 
-
-# TL;DR
-- Bob arc: reluctant, scared, selfish, skeptic  --> gains trust, becomes selfless, optimistic, willing to sacrifice, brave
-- Buchanan: has most of the good traits already, has some flaws too, e.g. too ready to charge into battle. his death is catalyst for Bob
-
-
-# Start Story
+# Chapter 4
 
 Bob could hardly believe what had happene to his life. Just a single week
 earlier his only concern in life was the well being of his herd of llama's, and
@@ -106,8 +85,8 @@ out about him he woudl be hunted down.
 Now that Bob had defeated the unicorn the caverners had promised that they would help him and Buchanan.
 It was time to go see what plan they had in mind.
 
-"Let's go talk to Azeala and Mercury now that we've killed their dang unicorns.
-" Bob said, pointedly ignoring Buchannan's comment about his supposed destiny.
+"Let's go talk to Azeala and Mercury now that we've killed their dang unicorns."
+Bob said, pointedly ignoring Buchannan's comment about his supposed destiny.
 
 "You're not even going to wait for breakfast?" Buchannan laughed.
 
@@ -294,7 +273,7 @@ Most people seem to believe that when the chosen one wields both horns and
 shouts copolla then somethign magical will happnen, which will be critical
 towards bringing about the downfal of Malimost.
 
-So how abtou you try it?
+So how about you try it?
 
   Bob was totally blow away. "No way" he tried to object, but it sounded
 half-hearted even to himself.

@@ -2,6 +2,13 @@
 Prologue
   - Introduce Rand vs Malimost
   - Rand dies
+  - more specific:
+     - start of Malimosts rule, he attacks a school of levanters
+     - Rand, a very powerful levanter, faces him and loses
+     - Malimost burns down the tower
+     - everyone (even viewpoint) dies
+     - establish that the magic is cool
+     - establish that Malimost is evil, but with a reason: wants control, lacked power as child, family slaughtered 
 
 Chapter 1
   - Walk towards village
@@ -59,7 +66,6 @@ Epilogue
   - Bucky's POV
 
 
-
 Characters (in order of levantic abilities): 
   - Jumpydude: charming, deceptive
   - Malimost: Power-hungry, dark levancy
@@ -76,4 +82,26 @@ Magic system:
   - Levancy
   - Diamas: drink it / channel levancy through weapons made out of it
   - power corruption for the sword of amplification (amplify powers or decrease your powers)
+
+
+
+# Arc Ideas:
+Bob is angry and devestated because of the destruction of his village, yet he
+does not believe that he has the power to oppose Malimost, and is very scared
+to do so. Buchannan is comitted to opposing Malimost, specifically with the
+goal of making the world a better place for other people, and is not scared to
+make personal sacrifices. Buchannan believes in the prophecy foretelling that Bob
+will save people from Malimost; he has been told this prophecy and many hopeful
+heroic stories since being a youth. Bob is highly skeptical of the prophecy,
+and skeptical in general too. He goes along with the quest because of multiple
+pressures, and selfishness. He feels that he has no alternative, but does not
+care about defeating Malimost, only about securing his own safety, although he
+does care about Bucky, and is greatly saddened by the fate of his village.
+Over the course of their journeys Bob will come to resepect Buchannan and
+develop hope and a sense of purpose in concurring Malimost that makes personal
+sacrifices endurable. 
+
+- Bob arc: reluctant, scared, selfish, skeptic  --> gains trust, becomes selfless, optimistic, willing to sacrifice, brave
+- Buchanan: has most of the good traits already, has some flaws too, e.g. too ready to charge into battle. his death is catalyst for Bob
+
 
