@@ -230,7 +230,6 @@ herself. "The prophecy, everything that we believed in".
 "Enough!" Bob shouted. "You can find another poor fellow to trick into
 fulfilling your dang prohpecy. I won't be fooled though. The whole endeavor is hopeless".
 
-
 Heedless of Bob, Azeala chanted
 
 > "The chosen one shall come forth from the llama lands, and have eyes as green as the grass that the llama is grazed on
@@ -491,10 +490,14 @@ escaping..." Bob noted.
 
 "They might not know where it is." Bucky noted.
 
-Bob took inventory. He had a vial of diamas that Mercury had given him, in addition to his enhanced shepherds crook. In his figth with the unicorn he had XXX 
-Bucky had some weapons too.
+Bob took inventory. He had a vial of diamas that Mercury had given him, in
+addition to his enhanced shepherds crook. In his brief fight against the boar
+next to his village, and his fight with the kirin he had been able to
+instinctively wield the levant. In the worst case scenario 
+Bucky had some weapons too, Bob didn't quite remember what, but he had held his
+own against the boars in the fight with the Kirin.
 
-- escape to the telporter with Azeala and Mercury (Mercury can die though)
+- escape to the telporter with Azeala and Mercury 
 - Azeala introduces Bob to a mentor in the storm land
 - Bob does some prep before facing Leviathan
 - Bob faces Leviathan, gets key
