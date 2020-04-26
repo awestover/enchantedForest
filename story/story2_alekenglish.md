@@ -1,10 +1,10 @@
 # Chapter 4
 
-Bob could hardly believe what had happene to his life. Just a single week
+Bob could hardly believe what had happened to his life. Just a single week
 earlier his only concern in life was the well being of his herd of llama's, and
 when he would get back to the village to see his family, and his friend Sarah.
 Now, a single week later, everyone he had ever known, with the sole exception
-of Buchannan, was dead. Burned to a crisp by Malimost's dark fire levancy. Or
+of Buchanan, was dead. Burned to a crisp by Malimost's dark fire levancy. Or
 more likely some of his bound servants, Bob doubted that Malimost would deem
 his small village important enough to personally destroy for whatever
 unexplained offense had led to its destruction.
@@ -18,15 +18,15 @@ rather pleasant. No Bob could never return to this idyllic way of living. The
 obvious reason for this was that he and Buchanan had been forced to abandon
 their llamas in their flight from the minions of Malimost that they found
 ravaging the village. Furthermore, it simply wasn't safe. However Bob
-desparately wanted to return to this existence. He did not feel, as Buchanan
+desperately wanted to return to this existence. He did not feel, as Buchanan
 foolishly seemed to that the destruction of his village meant that they had to
-fight against Malimost. What a ludicrous idea! Bob inernally chided his overly
+fight against Malimost. What a ludicrous idea! Bob infernally chided his overly
 hopeful friend. Bob had about as much chance of decreasing how terrible
-Malimost's rule was as he had of winning the anual village swimming contest,
-and Bob coudln't swim.
+Malimost's rule was as he had of winning the annual village swimming contest,
+and Bob couldn't swim.
 
 *Eventually*, Bob supposed, *I will have to seek out some other location, and
-somehow aquire more animals to shepherd or something*. Maybe I could be a
+somehow acquire more animals to shepherd or something*. Maybe I could be a
 farmer? However, at the moment Bob was very far from anywhere where he could
 do this. And Bob wasn't going to abandon Buchanan, he'd convince him to come to.
 Buchanan was sane, he'd listen to reason, Bob hoped. 
@@ -34,12 +34,12 @@ Buchanan was sane, he'd listen to reason, Bob hoped.
 This plan relied on Bob and Buchanan not dying in the immediate future however,
 and death recently had become a prospect which was drearily high probability.
 Memories of Bob's fight against the unicorn haunted him. And yet there was also
-a surpsiging spark of excitement during the battle: when Bob had realized that
+a surprising spark of excitement during the battle: when Bob had realized that
 he could really naturally channel the Levant. The feel of his magical cane
-turned staff in his hand had been reasuring, a firm pillar admist the chaos of battle.
+turned staff in his hand had been reassuring, a firm pillar amidst the chaos of battle.
 He would like to experience it again, although of course not in a dangerous situation.
 
-Buchanan walked over. "Hey Bob! You just get up?" Buchanan amicabally said,
+Buchanan walked over. "Hey Bob! You just get up?" Buchanan amicably said,
 standing over Bob as Bob, groaning, finally got up at the sound of Buchanan's foot steps.
 
 "It's impossible to tell when it's day and when it's night in these blasted
@@ -48,15 +48,15 @@ caverns" Bob complained, "and I'm exhausted from my battles".
 "Well you are the chosen one! Better get used to battles and exhaustion and the
 like." Buchanan said, in an air much too casual for Bob's liking.
 
-*Oh, not this prophecy nonsense again* Bob internally groaned. Buchnaan was
+*Oh, not this prophecy nonsense again* Bob internally groaned. Buchanan was
 obsessed with this prophecy that he had apparently heard many times when he was
 young: that a green eyed llama herder, the first levancer among his people,
-would suffer a great tradgedy and go on to exact retribution on Malimost.
+would suffer a great tragedy and go on to exact retribution on Malimost.
 Or something. In truth the prophecy was incredibly vague, and muddled through
 constant retelling via the oral tradition.
 Somehow, Buchanan believed that Bob's victory over the unicorn in
-addition to the other evebts that have transpired proved that Bob was some how
-special and destind to save peopel form Malimost's oppressive rule. 
+addition to the other events that have transpired proved that Bob was some how
+special and destined to save people form Malimost's oppressive rule. 
 
 This of course was utter nonsense. His newfound levantic powers were of course very surprising.
 However it was very unlikely that Bob would become a strong levanter, and
@@ -88,7 +88,7 @@ It was time to go see what plan they had in mind.
 "Let's go talk to Azeala and Mercury now that we've killed their dang unicorns."
 Bob said, pointedly ignoring Buchannan's comment about his supposed destiny.
 
-"You're not even going to wait for breakfast?" Buchannan laughed.
+"You're not even going to wait for breakfast?" Buchanan laughed.
 
 "No, I want to get this over with as soon as possible", Bob said seriously "we
 can eat once we're on the road to safety, and once they've explained why we had
@@ -100,22 +100,22 @@ anger.
 
 "I don't freaking care!" Bob screamed. "The majority of the world is an
 accomplice of Malimost! Any other minion could have destroyed the village for a
-reason as arbitrary as whatever the unicorns had. The destoryed village is a
+reason as arbitrary as whatever the unicorns had. The destroyed village is a
 sunk cost. There's no fixing it. Nothing we can do will bring them back. It'll
 just make us join them in the ranks of the dead. And don't you start about that
-corroded prophecy and hope for a better life for the rest of the inhabitatnts
+corroded prophecy and hope for a better life for the rest of the inhabitants
 of this earth and about how I'm being selfish. I'm simply sensible and you know
 it!"
 
-Buchannan looked somewhat put out by this. But it of course wasn't in his
+Buchanan looked somewhat put out by this. But it of course wasn't in his
 nature to verbally argue with Bob about this. Nor was it his nature to be
 swayed from his foolish beliefs in prophecies. Most of the time Bob 
-thought that these traits were fairly admirable in Buchannan. But 
+thought that these traits were fairly admirable in Buchanan. But 
 an optimist only survived when times were good. In bad times optimism was often
 fatal.
 
 Bob quickly rolled up his gear into his pack and he and Buchanan walked down
-the cavern paths in silence: Bob in agry silence, Buchanan in contemplative
+the cavern paths in silence: Bob in angry silence, Buchanan in contemplative
 silence.
 
 They reached the glowing central cavern and Bob was again shocked by its
@@ -124,9 +124,9 @@ brightly lit, by torches covering the walls and large fire pits with roaring
 bonfires. The seeming waste of this light would have bothered him if he didn't
 know that this wood did not release flames that burned hot, the flames emitted
 electromagnetic radiation in a remarkably specific subset of the visible
-spectrum: namely the emitted almost soley visible light. Furthermore the wood
+spectrum: namely the emitted almost solely visible light. Furthermore the wood
 had remarkably high energy density. The combined effect was that this wood
-could glow a vibrarnt bright white for a very long time. The flames served a
+could glow a vibrant bright white for a very long time. The flames served a
 dual purpose: to provide light, and to provide a reminder that the people in
 this cavern resisted Malimost, and had powerful Levanters, for example a master
 of plant levancy who was willing to set up this light supply for them.
@@ -144,7 +144,8 @@ Right as he was about to start walking towards them however, he had a very ratio
 
 "What? Is something wrong Bob?" Buchanan said, showing his characteristic look of concern.
 
-"It's just, well, we didn't really understand how dangerous it was going to be to face that unicorn. Honestly we could have died."
+"It's just, well, we didn't really understand how dangerous it was going to be
+to face that unicorn. Honestly we could have died."
 
 "Well, yeah" Buchannan admitted reluctantly. "But doesn't it feel good to
 defeat them? We made the world a safer place..." Buchannan trailed off when he
@@ -156,11 +157,11 @@ Levantic abilities. Then when you're ready the prophecy implies that you will
 be presented some opportunity to overthrow Malimost and make the world a better
 place!" Buchanan said enthusiastically.
 
-"Imporant opportunities never present themselves, they only come after intense
+"Important opportunities never present themselves, they only come after intense
 personal effort", Bob derisively said, although the affect was diminished by it
 being said in a whisper. 
 
-"Listen Buchannan though, this prophecy buisness is exactly what I'm worried
+"Listen Buchannan though, this prophecy business is exactly what I'm worried
 about. They, like you, seem to believe I probably have an important part in
 their so-called battle against Malimost. Even if they aren't deluded by this
 prophecy they know that I'm a Levancer. I don't think they are going to let me
@@ -173,8 +174,8 @@ shouldn't be forced to go on a quest before you're ready."
 "No one is ever ready for something that they cannot do yet" Bob thought. But
 he decided not to point this out verbally. "Thanks Bucky! I knew I could count on you." he said instead.
 
-Bob and Buchanan walked across the large carervn to the booth where Mercury and Azeala were waiting.
-Their faces lit up in what Bob thought looked susplicously like surprise at seeing him and Buchanan alive.
+Bob and Buchanan walked across the large cavern to the booth where Mercury and Azeala were waiting.
+Their faces lit up in what Bob thought looked suspiciously like surprise at seeing him and Buchanan alive.
 
 "Did you get me the unicorn horn I needed" Mercury asked, sounding pleased.
 
@@ -214,13 +215,13 @@ the case where you are given a prime divisor of the semiprime!"
 Like sure you could encrypt a digital signal, but we have an analog time series here.
 
 "just because you cannot understand it right now doesn't mean that it's false."
-Azeala repreimanded. "If you were thinkign less skeptically you would realize
-that you actaully understand very littel abtou Levancy so it is entirely
-plausible that you would not hte mechanism by which it works"
+Azeala reprimanded. "If you were thinking less skeptically you would realize
+that you actually understand very little about Levancy so it is entirely
+plausible that you would not the mechanism by which it works"
 
-"Althoguh truth be told neither of us have any idea how it works either" Mercury admitted after a pause.
+"Although truth be told neither of us have any idea how it works either" Mercury admitted after a pause.
 
-"ok, to buisness. You can get out the unicorn horn now Buchanan" Azeala said in a buisness manner.
+"ok, to business. You can get out the unicorn horn now Buchanan" Azeala said in a business manner.
 
 Buchanan pulled out the unicorn horn and handed it to Azeala.
 
@@ -249,9 +250,9 @@ unicorn had turned darker than the darkest night.
 his death. If you'll remember Rand was actually the oracle that initially issued the 
 very prophecy that you are destined to fulfil. Rand had no idea why he was
 making this horn at the time that he made it, but made it because of an
-impression that it would be important in the future.
+impression that it would be important in the future."
 
-And lucky that he did, he died shortly after making it. It has long been
+"And lucky that he did, he died shortly after making it. It has long been
 conjectured that this horn had some relation to the prophecy, it is too much of
 a coincidence that a black horn appears in the prohpecy, an obvious dual to the
 white horn supposedly created by Rand. 
@@ -259,28 +260,28 @@ I say supposedly because the horn was lost after Rand died, many people assumed
 that it burned with the rest of Rand's famed tower of Levancy and the artifacts
 that Malimost burned there.
 If not, it seemed almost certian that the horn had come into posssesion of
-Malimost, he colllected nearly all the magical artifacts.
+Malimost, he colllected nearly all the magical artifacts."
 
-However, we found this horn lying on the ground somewhere recently. 
+"However, we found this horn lying on the ground somewhere recently. 
 And then we ran into you.
 We had to know if the prohpecy was true.
-We know it was usper dangerous to send you, a barely awakened levancer, to face a unicorn.
+We know it was super dangerous to send you, a barely awakened levancer, to face a unicorn.
 But we had to. Had to know.
-And now? It appears that we were correct.
+And now? It appears that we were correct."
 
-Most people seem to believe that when the chosen one wields both horns and
-shouts copolla then somethign magical will happnen, which will be critical
-towards bringing about the downfal of Malimost.
+"Most people seem to believe that when the chosen one wields both horns and
+shouts copolla then something magical will happen, which will be critical
+towards bringing about the downfall of Malimost."
 
-So how about you try it?
+"So how about you try it?"
 
-  Bob was totally blow away. "No way" he tried to object, but it sounded
+Bob was totally blow away. "No way" he tried to object, but it sounded
 half-hearted even to himself.
 
-  "You've got nothign to lose if this is all a prophecy dreamed up by a 
+"You've got nothing to lose if this is all a prophecy dreamed up by a 
 17 year old at 2:13 AM with a messed up sleep schedule." Azeala noted rationally.
 
-  "OK, I'll do it" Bob whispered.
+"OK, I'll do it" Bob whispered.
 
 Azeala and Mercury reverently bestowed the horns to Bob, the deep black horn to
 the left hand and the pure white horn to the right hand.
@@ -295,7 +296,6 @@ The fireflies congregated into a massive blob in front of Bob.
 
 "Fireflies are particularly connected to the Levant" Azeala noted quietly. "This is super cool".
 
-
 "Hello friend!" The sound emenated from the mass of fireflies. 
 "I have no idea what a situation you are in, but I
 know that it will surely be very dire, hence I was instructed to make these
@@ -307,7 +307,7 @@ Because of how hard your time will likely be, I have made this provision to help
 
 "I have keyed this recording to your hand: in order to be seeing this recording
 you must fit the description giving in the prophecy. The white unicorn horn is
-keyed to your humble upbringing as a lammaa herder, while the black unicorn
+keyed to your humble upbringing as a llama herder, while the black unicorn
 horn is keyed to your great potential levantic power.
 United together the white horn that I created, and the black horn that you must
 have created by defeating a unicorn with your levantic powers, will, by the
@@ -324,7 +324,7 @@ out of desire for personal power or gain."
 "Bob, as the chosen one, you are marked. You are blessed with incredibly strong
 levantic abilities, but also cursed with the fact that a sufficiently powerful
 dark levancer with the right artifacts can easily detect you. You lived a
-peacful existence before your fate became clear. However, now it is evident
+peaceful existence before your fate became clear. However, now it is evident
 that there is only one way forward for you: you must rid the world of whatever
 great evil has come upon it."
 
@@ -334,18 +334,18 @@ face."
 
 "If you believe that will be sufficient, that is certainly the safest way"
 
-"However, I feeel taht it is likely that you are new and unexperienced compared
+"However, I feel that it is likely that you are new and unexperienced compared
 to your foe. Thus, I will tell you something that I sincerely hope no one else
-knows. The seret I am about to tell you is very dangerous. You must make sure it
+knows. The secret I am about to tell you is very dangerous. You must make sure it
 does not get into the wrong hands. I have trust in you however."
 
-"Once, when I was a much younger levancer, less aquainted with the art of
+"Once, when I was a much younger levancer, less acquainted with the art of
 levancy, I discovered an extremely powerful artifact. It is called
-*Amplification*. Amplification has the ability to modify levantic strenght, in
+*Amplification*. Amplification has the ability to modify levantic strength, in
 particular by multiplying it by a scalar in (0,2) of the wielders choice in a
 bubble around the wielder. I heard lore of this artifact, went searching for it
 and eventually found it. The power of this artifact is unlike any other
-articaft that I know of. It has the ability to increase ones levantic power
+artifact that I know of. It has the ability to increase ones levantic power
 such as to be sufficient to crush any with even vaguely similar levels of
 levantic power beforehand. It could be used to mask levantic presence while
 sneaking. It could be used to mitigate the levantic powers of a powerful
@@ -353,19 +353,20 @@ levanter. A levanter holding this artifact would have an unbeatable edge in any
 battle!"
 
 "In my naivety I took it. I used it. It felt amazing. But I realized that I was
-growing adicted to it so I stopped"
+growing addicted to it so I stopped."
 
-"I tell you this story to make sure that you do not treat the swrot of
-amplification lightly as I did."
+"I tell you this story to make sure that you do not treat the swrod of
+amplification lightly as I did. However, don't worry overmuch, if you 
+only use it once or twice you should be fine."
 
 "To secure the sword of amplification I used it to seal it with the levancy.
 Only if you get 3 enchantments to say, which I will denote as the keys, can you
-pull the sword of amplification frm the fabric of the levant. These keys will
+pull the sword of amplification from the fabric of the levant. These keys will
 not be easy to obtain, but there can be no security with shortcuts: by
 achieving the keys you will have proved yourself. "
 
-"The first key is gaurded by Lincoln the Leviathan, in the depths of the sea of
-storms. Once you aquire that key I will give you the information about how to
+"The first key is guarded by Lincoln the Leviathan, in the depths of the sea of
+storms. Once you acquire that key I will give you the information about how to
 get the rest of the keys."
 
 "Best of luck to you! And hurry! Presumably the fate of the world rests on your
@@ -387,19 +388,19 @@ He tried to make a habit of not lying to himself. Instead he stalled effectively
 Please give me a moment to think about the implications of this statement" Bob
 said in a weak voice. Bob wasn't opposed to lying to others, yet the weak voice
 was not completely a lie intended to garner pity and give him some time. The words
-of Rand were genuinely very distrubing. *I'm marked?* Bob thought. *Malimost
+of Rand were genuinely very disturbing. *I'm marked?* Bob thought. *Malimost
 will never leave me alone as long as he can detect my levancy?* *Should I go on this quest?*
 *Am I seriously considering this? It's ridiculously dangerous.* *And yet at the
 same time, probably much safer than waiting for Malimost to come and destroy
 me. I guess I have to either learn how to use levancy well enough to protect
 myself, or figure out how to hide myself.* Bob suddenly remembered that Bob had
 said that the sword of Amplification not only possessed the ability to Amplify
-power, but also to dampen it, hiding the weilding levancer. 
+power, but also to dampen it, hiding the wielding levancer. 
 
 "I will pursue this quest." Bob finally said, just as people were getting
 uncomfortable with his silence. "I will travel to the sea of storms, claim the
 first key from the Leviathan. Then I will keep travelling to find the rest of
-the keys, and aquire the sword of Amplification. And finally, once I have aquired this
+the keys, and acquire the sword of Amplification. And finally, once I have acquired this
 unmatched artifact, I will use it to free myself from the continual pursuit of Malimost."
 
 Azeala and Mercury were taken aback from his sudden seeming willingness to
@@ -428,7 +429,7 @@ success overall. This was compared to the alternative of facing Malimost, a
 more powerful levanter than any alive in 1000 years, more powerful than this
 Rand fellow who was giving him this quest. Bob estimated his chance of success
 against Malimost to be about 0.01%. Of course this had to be weighted by the
-fact that it was a more desirable outcome: Rand wouldn't have to hide all his
+fact that it was a more desirable outcome: Bob wouldn't have to hide all his
 life. However, his objective function was clearly maximied by the first
 strategy. Of course Bob's tear filled eyes would be misinterpretted as gratitude. 
 Bob almost couldn't stand it.
@@ -451,7 +452,7 @@ we would be dead. They saved us from the boars at our village. At great
 personal risk! If there is anyone we can trust it is Azeala and Mercury."
 
 *Why do you assume as an axiom that there exists someone we can trust?* Bob's
-incessant internal cycnic bitterly said. But Bob was mostly able to supress
+incessant internal cynic bitterly said. But Bob was mostly able to suppress
 this poisonous voice. He knew that Bucky was right, and he didn't doubt Azeala's word.
 Nonetheless this was highly troubling.
 
@@ -459,9 +460,9 @@ Nonetheless this was highly troubling.
 
 "Awesome. Me and Mercury will of course accompany you" Azeala said, without
 bothering to ask if Bob would appreciate their company. "We should leave soon
-for the storm land. There is actually a teleporter nearaby here, and a linked
+for the storm land. There is actually a teleporter nearby here, and a linked
 teleporter in the storm land. How about we leave tomorrow? Me and Mercury can
-make final preperations for our journeys today."
+make final preparations for our journeys today."
 
 "ok" Bob said simply.
 
@@ -469,7 +470,8 @@ They discussed some logistics, and then returned to the main cavern.
 
 "We'll meet at the teleporter tomorrow morning, crack of dawn", Azeala declared.
 
-"Think you can manage that Bob?", Bucky joked: Bob was not an expert at getting up early.
+"Think you can manage that Bob?", Bucky joked; Bob was not an expert at getting
+up early, a fact that Bucky was fond of joking about.
 
 "You can just explore the caverns today" Azeala said.
 
@@ -479,11 +481,13 @@ beautiful. They talked and joked about trivial matters. Bob could almost forget
 about how much his life had been drastically altered in the past week. 
 
 And then they heard screams, from far away, in the direction of the main cavern.
-Bob and Bucky looked at each other, and noded, they were in sync. They both
+Bob and Bucky looked at each other, and nodded, they were in sync. They both
 knew that they both knew that this was likely minions of Malimost coming after 
-Bob because of this curse that was on him as "the chosen one". Whispering felt appropriate in the situation.
+Bob because of this curse that was on him as "the chosen one". Whispering felt
+appropriate in the situation.
 
-"We have to get away from llama land. We should take the teleporter to storm land" Bucky whispered.
+"We have to get away from llama land. We should take the teleporter to storm
+land" Bucky whispered.
 
 "They're probably going to be heading towards the teleporter to stop us from
 escaping..." Bob noted.
@@ -497,7 +501,93 @@ instinctively wield the levant. In the worst case scenario
 Bucky had some weapons too, Bob didn't quite remember what, but he had held his
 own against the boars in the fight with the Kirin.
 
-- escape to the telporter with Azeala and Mercury 
+Bob considered their options. They could stay trapped in this side tunnel,
+where Malimost's minions would inevitably sniff them out eventually, or they
+could head towards the source of the screaming -- hoping to avoid notice in what
+was likely to become a large battle, or possibly a large massacre-- and sneak
+by to the teleporters. In-action was the decision to be hunted down. Acting,
+though risky, at least gave them a chance.
+
+"OK Bucky, I guess you're right", Bob decided. "Let's head towards the main
+cavern. Maybe in the confusion we can get past to the teleporter."
+
+"Are you sure? It seems pretty dangerous" Bucky said, his worry for Bob now
+overriding his rationality. 
+
+"Yes, I think it's the safest way. If we stay here we're bound to be found."
+
+The matter decided, they took off running for the main cavern. As they
+approached the sounds of what was clearly a battle -- for the moment at least
+-- became louder. When they came to the mouth of the tunnel they stopped to
+assess the situation. It was chaos. The same boars that had attacked their
+village had found the caverns and were waging war on the caverns. As Bob
+watched the caverners boldy fought against the boars, striking many down.
+However, many of the caverners were already bleeding from wounds where they had
+been gored by the razor sharp tusks of the boars.
+
+Bob saw the tunnel that led to the teleporter which Azeala had pointed out
+previously. There was no way that they could get to it. The hoard of boars was 
+positioned exactly so as to block anyone from escaping by that route.
+Bob was about to tell Bucky that they had better turn back and try to hide
+somewhere in the vast network of tunnels. Maybe the caverners would kill enough
+boars that they would have insufficient troops to conduct a thorough search.
+Maybe they could find another escape route. Being here was clearly futile, and
+dangerous.
+
+But before Bob could say this a voice rang out loudly in the cavern.
+
+"Fall back!" a loud voice said, clearly directed at the caverners.
+
+Bob watched as all the caverners fled into tunnels, and the boars, momentarily
+confused at the sudden disengagment did not pursue them.
+
+The woman who had spoken was the only caverner left in the large main cavern.
+Although she was facing the boars all alone, she did not look scarred, only
+resolute. 
+
+She held out a thin sword, lined with diamas, and it suddenly burst into
+flames. She pointed it at a section of the horde of boars and an enormous
+fireball eminated from her sword, its heading aligned with the orientation of
+her sword. The concentrated beam of flame completely disintegrated the boars
+that it hit. The rest of the boars were shooken from their brief moment of
+shock -- it had taken very little time for the Fire Levancer to shoot her
+fireball -- and charged her. The cavern was imersed in flames as she fought
+them off. Looking on, as Bob knew every other person in the caverns was, he
+noticed that the fire levancer was glowing -- not the orangish-red glow of a
+fire but a soft white glow. 
+
+As he watched she sliced through countless boars with her glowing blade, which
+seemed to easily pass through their bodies, and completely disintegrate them.
+
+It was a stunning display of power. However, Bob also noticed that the battle
+was not one-sided. The occasional boar would get a hit in on her. She was
+bleeding from several cuts on her arms and legs. However, she kept going until
+the last boar was disintegrated. Everything was still for a moment. The woman
+turned around, and although there was no way she could know where he was, she
+seemed to look straight at him, as if she knew him.
+
+"More will come." She whispered, her voice amplified by the emptiness of the
+cavern. "Go. Now."
+
+Then she fell over, dead from loss of blood.
+The people emerged from the tunnels and headed towards the teleporters. No
+one talked, although many quietly sobbed. 
+
+Everyone decided to leave the caverns, the fire levancer was right, they were
+not safe anymore.
+
+Bob and Bucky got in the fast moving line of people walking up to the
+teleporter to storm land. When it was their turn they ran up to the huge
+platform and stepped through the shimmering teleporter.
+
+They emerged into storm land, and waited for Mercury and Azeala, who they hoped
+would soon emerge from the teleporter to give them guidance. Eventually they
+did, looking slightly beat up from the attack of the boars, but not seriously
+injured. 
+
+"Follow me" Azeala said quietly, and she led them to a shelter where they spent
+the night.
+
 - Azeala introduces Bob to a mentor in the storm land
 - Bob does some prep before facing Leviathan
 - Bob faces Leviathan, gets key
