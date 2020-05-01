@@ -231,7 +231,8 @@ function checkKeys() {
 		player.lastDir = 1;
 	}
   if(keyIsDown(87) || keyIsDown(38)) // W / UP
-    player.superjump();
+    player.jump();
+    // player.superjump();
   if (keyIsDown(32))	// space
     player.jump();
 

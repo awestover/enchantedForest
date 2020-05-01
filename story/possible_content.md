@@ -39,8 +39,5 @@ Faintly, in the distance, he heard a rushing stream. How could he not have
 heard it before? The hiker began to understand. He quietly thanked the old man,
 and walked, not in a rush, to the stream, hopped from pebble to pebble, stone
 to stone, and arrived at the water, where he filled the cup and drank.
-Kevin Hsu
-
-
 
 

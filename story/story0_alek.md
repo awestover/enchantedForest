@@ -1,5 +1,4 @@
-# Prologue
-## Scorching wind
+# Chapter 0
 
 The world was on fire. 
 

@@ -1,4 +1,4 @@
 {
-  "bg-color": "#f0f000",
-  "weather": ["snow"]
+  "bg-color": "#000000",
+  "weather": ["rain", "thunder"]
 }

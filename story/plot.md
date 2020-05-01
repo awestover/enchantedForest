@@ -75,7 +75,7 @@ Characters (in order of levantic abilities):
   - Mivoen: Bitter (shark bit his right leg off), prosthetic leg -> reluctant to teach bob -> protecting people while fighting the shark -> easy to hate, make bob do hard stuff that's good for him
   - Azalea (weak levantic powers): descendant of rand, worships him, cares for the "cause"
 
-  - Mercury: sarcastic, direct
+  - Mercury: sarcastic, direct. Mercury's "life debt" to Azeala: he was trapped in a burning house because something fell on his chest, (from which he suffered permenant damage: hence he has trouble hiking, and a weird laugh) and she got him out of it. Just burning for no special reason. 
   - Buchanan: optimistic, loyal
 
 Magic system: 
