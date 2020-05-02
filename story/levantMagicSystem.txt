@@ -34,3 +34,14 @@
   - Dark Levancy:
     * teleportation, necromancy, inducing insanity, shadow-based aura causes chip damage over time
 
+
+Basic Levancy: tossing raw bursts of power around, basically throwing stones at people
+The makros technique: chain basic levancy for more control, more finnese
+
+Example: 
+With basic levancy, you can make your sword burst into flames, throw fireballs at people
+With the makros technique, you can make your fireballs track targets, loop around them, explode into a pillar of fire shielding you in a pentagon formation like you are a kickass spawn of hell
+
+Known makros technique users: Rand, Malimost, Nodnull, jumpy_dude, (eventually) Bob
+
+
