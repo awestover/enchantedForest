@@ -51,11 +51,13 @@ Chapter 7
   - Boss fight kill Buchanan, leading to Bob resenting rand and mivoen and the entire crew
 
 Chapter 8
-  - Shadowland
+  - Shadowland (jumpydude fortress)
   - meet jumpydude
 
 Chapter 9
-  - Defeat malimost at dragon fire
+  - find 3rd key at fire land
+  - Defeat malimost at convergence point at all three regions
+
 
 Chapter 10
   - Buchanan returns
