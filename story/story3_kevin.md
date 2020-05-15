@@ -32,9 +32,11 @@ He's making that face again. Bob only smiles like that when he's thinking of doi
 
 ---------------------
 
-A hooded figure materialized out of the shadows, leaping towards Nodnull's legion with supernatural grace. They drew two blades mid-air, one glistening obsidian, the other translucent white, burning in a dark shade of lilac instead of the usual levantic aura. Whirling the daggers, the figure sliced through the legion with incredible precision, bringing down opponents with a few swift strikes. The hood fell off, revealing a young man with delicate features and pale hair. 
+*somehow kienan finds them*
 
-Without any visible moment from the man, a pentagon flared beneath his feet, wreathing him in shadows. They adhered to him like armor, binding themselves to the linen robes he wore. He flipped his blades again, this time stronger, faster, blazing even brighter than before. The unidentified man grinned, feral and unnerving, filled with brutality and savage delight. His expression promised pain and misery to whomever dared challenge him. 
+A hooded figure materialized out of the shadows, leaping towards Nodnull's legion with supernatural grace. They drew two blades mid-air, one glistening obsidian, the other translucent white, burning in a dark shade of lilac instead of the usual levantic aura. Whirling the daggers, the figure sliced through the legion with incredible precision, dispatching opponents with a few swift strikes. The hood fell off, revealing a young man with delicate features and pale hair. 
+
+Without any visible movement from the man, a pentagon flared beneath his feet, wreathing him in shadows. They adhered to him like armor, binding themselves to the linen robes he wore. He flipped his blades again, this time stronger, faster, blazing even brighter than before. The unidentified man grinned, feral and unnerving, filled with brutality and savage delight. His expression promised pain and misery to whomever dared challenge him. 
 
 Bob sucked in a breath; he could *feel* the immense levantic power emanating from the man, almost overwhelming him even at a distance. The man was undoubtedly a levancer, and yet it was levancy like he had never seen before. Nodnull's skill with levancy was already mind-blowing, and surpassed Mivoen by leagues. But this... this was on the level of the gods. 
 
@@ -81,6 +83,7 @@ Kienan smiled sadly/in defeat/defeatedly. Bob thought he looked like someone who
 "One day. One day, when the time is right, come find me."
 "For now, you have your own journey to undergo. "
 *reveals terioth's weakness*
+*gives him an artifact*, gauntlet, vine disintergrates upon touch
 
 He melted into the shadows, and was gone. 
 
@@ -89,7 +92,30 @@ He melted into the shadows, and was gone.
 -------------------------------
 
 *fights the terioth guardian*
+with the gauntlet, he almost kills the terioth,
+a fire demon sent by Malimost kills the smaller terioth
+
 *Bucky dies, from the terioth + traps Malimost set*
+fire demon can do illusion magic (dark levancy) 
+
+
+
+
+Last time we were stupid. You're better off without us. We'll just sit back for this one. 
+*takes on terioth alone*
+shit this time it's differnt
+Bucky gets his ass handed to him
+oh shit this time is different. 
+
+
+uses dark levancy instinctually, from observing kienan
+slams the ground with dark levancy, nothing ever grows again
+
+terioth is a brontosaurus that creates earthquakes by stomping, and shoots vines out of their mouths. 
+
+
+They're going to realize that he's using dark levancy
+
 
 Bucky wouldn't have wanted you to do this. 
 Bucky is *dead*. He is *dead*, and it is *my* gods-damned fault, because my levancy wasn't enough to save him. 
@@ -104,5 +130,16 @@ Bob forced himself to draw in a deep breath. "And face it," he said. "I couldn't
 If learning from Kienan is what it takes to get revenge for Bucky, then so be it.
 
 
+two persepctives; kienan and bob, azalea and mercury go searching for bucky
+
+
+go back to mivoen, he tells the duo that bucky's dead
+"noooooo he will not learn to use the force correctly"
+
+mivoen, azalea, mercury go save bucky from nodnull
+
+
+
+"it was a mercy. She was already dead."
 
 

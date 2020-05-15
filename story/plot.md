@@ -46,9 +46,20 @@ Chapter 6
   - retrieve item that allows bob to fight underwater
   - fight the leviathan guarding the scroll/key
 
+  - mercury bit by the leviathan
+  - leviathan venom needs to be cured by a plant in plant land
+
+  - a backstory for mortal diamas
+  - villainfy the rich guy (classic eat-the-rich story)
+
+  - azalea knows XY who lives in a poor village, and tells them to go for the rich guy because XY resents him
+  - breaks into mansion and steals cure (diamas for mortals)
+  - rich guy's daughter/son/wife dies because the cure was taken away
+  - rich guy redemption arc revenge for his daughter
+
 Chapter 7
   - encounter malimost's minions upon stepping into plant land
-  - Boss fight kill Buchanan, leading to Bob resenting rand and mivoen and the entire crew
+  - Boss fight kills Buchanan, leading to Bob resenting rand and mivoen and the entire crew
 
 Chapter 8
   - Shadowland (jumpydude fortress)

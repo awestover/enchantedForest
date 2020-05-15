@@ -219,6 +219,13 @@ Malimost looked down upon his work at the tower.
 The world was on fire. 
 
 
+
+
+
+
+> -From the Levantic Chronicles, Chapter The Last
+
+
 # Chapter 1
 
 "Get up!" Bucky's deep voice pierced through Bob's dream of llamas grazing on a field.

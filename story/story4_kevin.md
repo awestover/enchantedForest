@@ -15,8 +15,12 @@ The glyphs, the gestures, the notions of thoughts; those are the building blocks
 Shouldn't you be sharing these concepts with azalea as well?
 
 
-Kienan paused, seemingly calculating how much he should reveal. 
-Azalea has... certain qualities that makes her a bad candidate for initiation. She is too trusting in her family heritage, overly zealous in following Rand's path. Rand's arrogance and sense of righteousness was his downfall, and gave Malimost control over the Lampyridae Citadel. Rand believed that he had to maintain his position as the supreme levancer, that he alone contained an impeccable/flawless sense of morality. He ran a dictorship on levancy, entrusting himself with the role of being the sole guardian of the levant. 
+Kienan paused, uncertain how much he should reveal. 
+
+I don't want to ruin your image of your friend. 
+It's fine. Go ahead. 
+
+Azalea has... certain qualities that makes her a bad candidate for initiation. She is too trusting in her family heritage, overly zealous in following Rand's path. Rand's arrogance and sense of righteousness were his downfall, and gave Malimost control over the Lampyridae Citadel. Rand believed that he had to maintain his position as the supreme levancer, that he alone contained an impeccable/flawless sense of morality. He ran a dictorship on levancy, entrusting himself with the role of being the sole guardian of the levant. 
 
 Bob hesitated. Here is the most knowledgable levancer that remains free of Malimost's influence, basically telling him that everything Azalea and her order had taught him was wrong. 
 
@@ -34,18 +38,25 @@ Kienan's voice turned hard.
 In the end, he took away her levancy. Nannerl was exiled from the Lampyridae Citadel and Silenced, out of Rand's fear that she would tell the other acolytes of her discoveries. He Silenced me as well, long ago, against my will when he first rose to power. There were no other levancers capable of breaking the Silencing other than Malimost or Rand himself. Until you came along. And that, is why I had you retrieve the artifact, and why it is insufficient to say that I am not particularly fond of Rand / simply *dislike* Rand / I hoard a deep dislike for Rand. 
 
 
-It is called dark levancy, yes. But just because we derive our powers from the night and the shadows does not mean that it is evil. Why should the night be seen as any more malicious than fire or water?
+It is called dark levancy, yes. But just because we derive our powers from the night and the shadows does not mean that it is evil. Why should the night be seen as any more malicious than fire or water or earth?
+*compares to light levancy instead*
 
 Rand shunned and slandered dark levancy's name, for no reason other than that he himself could never seem to master it. 
-He portrayed it's usage as a great atrocity, reserved for villains in his story, such as me and malimost. In truth, Malimost prefers fire levancy, being particularly adept at it due to his physiological features, only employing shadow levancy occasionally. 
+He portrayed it's usage as a great atrocity, reserved for villains in his narrative/story, such as myself and malimost. In truth, Malimost prefers fire levancy, being particularly adept at it due to his physiological features, only employing shadow levancy occasionally. 
 
 
 *training + instructions*
 *plunders village and kills guards for the greater good*
+
+he killed the guards with a flick of his wrist. they were dead before they could even blink. 
+He felt nothing from the murderous action, because "they were in the way."
+
 *steals potion from sick villager to save Kienan*
 *carnival scene*
 *bob gets wings*
 *gives Bob artifact that was left by Nannerl*
+
+After all... what is necromancy, other than a more intense form of healing?
 
 Take it. Take the power. Rand, the levant, this cruel, cruel world. they took everything from you. It's your turn now. 
 When the world no longer offers enough you adequate amounts of power, you learn to take it for yourself.
