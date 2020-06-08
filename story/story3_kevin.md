@@ -18,6 +18,7 @@ Bucky drew his weapon. "Dragon!" he cried
 Bubbles barked. 
 "Did she... did she just bark?"
 "You named your fire-breathing dragon 'bubbles'"
+*bubbles the storm elemental dragon snorts/sneezes bubbles out of her nose*
 
 No! I did not do xxx!
 why do you always assume that I do the worst things?
@@ -36,7 +37,7 @@ He's making that face again. Bob only smiles like that when he's thinking of doi
 
 A hooded figure materialized out of the shadows, leaping towards Nodnull's legion with supernatural grace. They drew two blades mid-air, one glistening obsidian, the other translucent white, burning in a dark shade of lilac instead of the usual levantic aura. Whirling the daggers, the figure sliced through the legion with incredible precision, dispatching opponents with a few swift strikes. The hood fell off, revealing a young man with delicate features and pale hair. 
 
-Without any visible movement from the man, a pentagon flared beneath his feet, wreathing him in shadows. They adhered to him like armor, binding themselves to the linen robes he wore. He flipped his blades again, this time stronger, faster, blazing even brighter than before. The unidentified man grinned, feral and unnerving, filled with brutality and savage delight. His expression promised pain and misery to whomever dared challenge him. 
+Without any visible movement from the man, a pentagon flared beneath his feet, wreathing him in shadows. They adhered to him like armor, binding themselves to the linen robes he wore. He flipped his blades again, this time stronger, faster, blazing even intensely than before. The unidentified man grinned, feral and unnerving, filled with brutality and savage delight. His expression promised pain and misery to whomever dared challenge him. 
 
 Bob sucked in a breath; he could *feel* the immense levantic power emanating from the man, almost overwhelming him even at a distance. The man was undoubtedly a levancer, and yet it was levancy like he had never seen before. Nodnull's skill with levancy was already mind-blowing, and surpassed Mivoen by leagues. But this... this was on the level of the gods. 
 
@@ -88,6 +89,7 @@ Kienan smiled sadly/in defeat/defeatedly. Bob thought he looked like someone who
 He melted into the shadows, and was gone. 
 
 
+"Coward..." Mercury muttered. "Terioths are natural predators of the fae. Their agility and strength mean nothing to terioths."
 
 -------------------------------
 
@@ -107,9 +109,36 @@ shit this time it's differnt
 Bucky gets his ass handed to him
 oh shit this time is different. 
 
-
+*bucky dies*
 uses dark levancy instinctually, from observing kienan
+
+The world stopped. His best friend since childhood, the one person in the entire world who understood him completely. Gone. 
+How strange it felt, something he had assumed was a constant in his life to disappear in mere moments. 
+The undying optimisim, the anchor that had prevented him from sinking into darkness and sadness, now cracked and broken. He would never talk to Bucky again, never listen to another one of his jokes or taste the horrible thing he called blueberry oatmeal. 
+
+All the healing levancy in the world wouldn't be enough to heal the pain he felt, wouldn't be able to revitalize him from the despair and anguish he felt from the depths of himself. 
+
+The terioth roared, accompanied by Azalea and Mercury's howls of sorrow ringing around the cavern, dragging Bob back to reality. Time resumed again, the world now harsher, crueler, darker without the person he held so dear to his heart. 
+
+Bob screamed. There was nothing dignified about it; it was ugly, raw, and animal. Azalea and Mercury paused, disturbed by gutteral cry and the rabid look in his eyes. Bob didn't care. Nothing mattered anymore. Even the terioth hesitated, astonished that such a tiny creature could pronounce/produce a terrible, terrible sound/voice like that.
+
+He charged the Terioth, thrusting his arm forward and channelling all the rage in his broken, shattered heart, all the hate reserved for the world that took everything away from him. Shadows erupted around him, shadows like the ones Kienan had summoned. But these were darker, even more wild and violent, as if the levancy reflected/resonated with his frenzied state of mind. They formed a sihloutte around him, mirroring his movements, an avatar of death incarnate. Bob grappled the terioth with the unbanked power coursing through him, his nightmarish aura shredding at its scales. 
+
+The terioth wailed in pain. Bob bared his teeth and bellowed back at the beast. He knocked the terioth to the ground, whipping his unrelenting power at it repeatedly. Everything within a 10-meter radius of him blackened and died, plants and animals alike. The terioth swiped at Bob, a pitful attempt at defending itself. His satchel broke, and the vials of diamas spilled onto the ground. The diamas revived patches of plants and earth it came in contact with, only for them to be struck down again by Bob's hurls of power. He slammed the terioth with levancy, the cloyingly sweet scent of death coupled with the flowery verbana of healing levancy surrouding the air. 
+
+The terioth's panicked screams echoed in the caverns, the once-mighty beast reduced to a mangled, pathetic mess curled on the floor.
+"Bob, stop! Just end the terioth, stop torturing it!"
+Bob turned to face Mercury, his voice surprisingly steady. 
+"No" he said calmly/with a cold expression. "It deserves to feel what I feel."
+
+He continued on. 
+
+It was pain in its purest form, man and beast in sync, performing a symphony of unbearable agony. Scraps of memories between him and Bucky flashed before his eyes: 
+
+
+
 slams the ground with dark levancy, nothing ever grows again
+His vials spilled on the ground, the diamas rejuvinating/healing the plants around him as bob punished the earth and the terioth
 
 terioth is a brontosaurus that creates earthquakes by stomping, and shoots vines out of their mouths. 
 
@@ -121,7 +150,7 @@ Bucky wouldn't have wanted you to do this.
 Bucky is *dead*. He is *dead*, and it is *my* gods-damned fault, because my levancy wasn't enough to save him. 
 He would want me to stay away from Kienan? WELL I WANT HIM TO BE ALIVE. WE CAN'T ALL GET WHAT WE WANT. 
 
-Bob forced himself to draw in a deep breath. "And face it," he said. "I couldn't even take on Nodnull and his legion. How am I supposed to defeat Malimost? Meditate until I transcend into godhood?"
+Bob forced himself to draw in a deep breath. "And admit it," he said. "I couldn't even take on Nodnull and his legion. How am I supposed to defeat Malimost? Meditate until I transcend into godhood?"
 
 "You have to trust Rand. You have to trust that Paragon is going to be enough to help you overpower Malimost." Azalea whispered. "You can't do this. You're Rand's heir. He left everything for you. You're the hero everyone's been waiting decades for, and going to Kienan goes against everything he's ever taught us."
 
