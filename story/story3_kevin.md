@@ -114,31 +114,66 @@ uses dark levancy instinctually, from observing kienan
 
 The world stopped. His best friend since childhood, the one person in the entire world who understood him completely. Gone. 
 How strange it felt, something he had assumed was a constant in his life to disappear in mere moments. 
-The undying optimisim, the anchor that had prevented him from sinking into darkness and sadness, now cracked and broken. He would never talk to Bucky again, never listen to another one of his jokes or taste the horrible thing he called blueberry oatmeal. 
+The undying optimisim, the anchor that had prevented him from
+sinking into darkness and sadness, now cracked and broken. He
+would never talk to Bucky again, never listen to another one of
+his jokes or taste the horrible thing he called blueberry
+oatmeal. 
 
-All the healing levancy in the world wouldn't be enough to heal the pain he felt, wouldn't be able to revitalize him from the despair and anguish he felt from the depths of himself. 
+All the healing levancy in the world wouldn't be enough to heal
+the pain he felt, wouldn't be able to revitalize him from the
+despair and anguish he felt from the depths of himself. 
 
-The terioth roared, accompanied by Azalea and Mercury's howls of sorrow ringing around the cavern, dragging Bob back to reality. Time resumed again, the world now harsher, crueler, darker without the person he held so dear to his heart. 
+The terioth roared, accompanied by Azalea and Mercury's howls of
+sorrow ringing around the cavern, dragging Bob back to reality.
+Time resumed again, the world now harsher, crueler, darker
+without the person he held so dear to his heart. 
 
-Bob screamed. There was nothing dignified about it; it was ugly, raw, and animal. Azalea and Mercury paused, disturbed by gutteral cry and the rabid look in his eyes. Bob didn't care. Nothing mattered anymore. Even the terioth hesitated, astonished that such a tiny creature could pronounce/produce a terrible, terrible sound/voice like that.
+Bob screamed. There was nothing dignified about it; it was ugly,
+raw, and animal. Azalea and Mercury paused, disturbed by gutteral
+cry and the rabid look in his eyes. Bob didn't care. Nothing
+mattered anymore. Even the terioth hesitated, astonished that
+such a tiny creature could produce a terrible, terrible sound
+like that.
 
-He charged the Terioth, thrusting his arm forward and channelling all the rage in his broken, shattered heart, all the hate reserved for the world that took everything away from him. Shadows erupted around him, shadows like the ones Kienan had summoned. But these were darker, even more wild and violent, as if the levancy reflected/resonated with his frenzied state of mind. They formed a sihloutte around him, mirroring his movements, an avatar of death incarnate. Bob grappled the terioth with the unbanked power coursing through him, his nightmarish aura shredding at its scales. 
+He charged the Terioth, thrusting his arm forward and channelling
+all the rage in his broken, shattered heart, all the hate
+reserved for the world that took everything away from him.
+Shadows erupted around him, shadows like the ones Kienan had
+summoned. But these were darker, even more wild and violent, as
+if the levancy resonated with his frenzied state of
+mind. They formed a silhouette around him, mirroring his
+movements, an avatar of death incarnate. Bob grappled the terioth
+with the unbanked power coursing through him, his nightmarish
+aura shredding at its scales. 
 
-The terioth wailed in pain. Bob bared his teeth and bellowed back at the beast. He knocked the terioth to the ground, whipping his unrelenting power at it repeatedly. Everything within a 10-meter radius of him blackened and died, plants and animals alike. The terioth swiped at Bob, a pitful attempt at defending itself. His satchel broke, and the vials of diamas spilled onto the ground. The diamas revived patches of plants and earth it came in contact with, only for them to be struck down again by Bob's hurls of power. He slammed the terioth with levancy, the cloyingly sweet scent of death coupled with the flowery verbana of healing levancy surrouding the air. 
+The terioth wailed in pain. Bob bared his teeth and bellowed back
+at the beast. He knocked the terioth to the ground, whipping his
+unrelenting power at it repeatedly. Everything within a 10-meter
+radius of him blackened and died, plants and animals alike. The
+terioth swiped at Bob, a pitiful attempt at defending itself. His
+satchel broke, and the vials of diamas spilled onto the ground.
+The diamas revived patches of plants and earth it came in contact
+with, only for them to be struck down again by Bob's hurls of
+power. He slammed the terioth with levancy, the cloyingly sweet
+scent of death coupled with the flowery verbena of healing
+levancy surrounding the air. 
 
-The terioth's panicked screams echoed in the caverns, the once-mighty beast reduced to a mangled, pathetic mess curled on the floor.
+The terioth's panicked screams echoed in the caverns, the
+once-mighty beast reduced to a mangled, pathetic mess curled on
+the floor.
 "Bob, stop! Just end the terioth, stop torturing it!"
 Bob turned to face Mercury, his voice surprisingly steady. 
 "No" he said calmly/with a cold expression. "It deserves to feel what I feel."
 
 He continued on. 
 
-It was pain in its purest form, man and beast in sync, performing a symphony of unbearable agony. Scraps of memories between him and Bucky flashed before his eyes: 
-
-
+It was pain in its purest form, man and beast in sync, performing
+a symphony of unbearable agony. Scraps of memories between him
+and Bucky flashed before his eyes: 
 
 slams the ground with dark levancy, nothing ever grows again
-His vials spilled on the ground, the diamas rejuvinating/healing the plants around him as bob punished the earth and the terioth
+His vials spilled on the ground, the diamas rejuvenating/healing the plants around him as bob punished the earth and the terioth
 
 terioth is a brontosaurus that creates earthquakes by stomping, and shoots vines out of their mouths. 
 
