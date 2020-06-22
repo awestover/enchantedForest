@@ -1,0 +1,16 @@
+{
+	"jumpydude": { 
+    "attrs":{}
+  },
+	"unicorn": { 
+    "attrs":{}
+  },
+	"ninja": { 
+    "attrs":{}
+  },
+	"boar": { 
+    "attrs":{
+      "flies": true
+    }
+  }
+}
