@@ -239,23 +239,27 @@ Quick access displays clickable 10 items
 
 ## Interface design
 
-quest list
-	-quest details
+popup
+	-inventory list
+		-item description card
+	armor list
+		-armor description card
+	charm list
+		-charm description card
+	weapons list
+		-weapon description card
+	magic list
+		-magic description card
+
+	quest list
+		-quest description card
+	shop list
+		-item description card
+	stats list (upgrade interface; points granted upon level up)
+
+dialogue box
 quick access
 	-9 shortcut items
-
-inventory list
-	-item list
-		-item details
-	armor list
-		-armor details
-	charm list
-		-charm details
-	weapons list
-		-weapon details
-	magic list
-		-magic details
-stats list (upgrade interface; points granted upon level up)
 
 
 ------------------
