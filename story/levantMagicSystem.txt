@@ -44,4 +44,32 @@ With the makros technique, you can make your fireballs track targets, loop aroun
 
 Known makros technique users: Rand, Malimost, Nodnull, jumpy_dude, (eventually) Bob
 
+# magic power levels
+
+Everyone has some innate connection to the levant.
+However, only some few people have a strong enough connection
+that they can actually call consciously on the power of the
+levant. 
+
+Some people have **affinities** mainly for a single type of
+levancy. These people can still make limited use of the other
+types of levancy, but it is very weak.
+A person's affinity is often linked to their geographic region of
+birth.
+
+People that are especially powerful are able to use all types of
+levancy with no difficulty, but they still often have a learned
+affinity, maybe more accurately called preference, for a certain
+type of levancy. This is due mainly to practice.
+
+Note that levancy connection is kinda random. In particular it is
+not inherited.
+
+# origin of everything 
+
+Levancy has allways existed. It was never created. 
+However, time does not extend infinitely far backwards. 
+Time started, and at the same time levancy started. 
+The levancy created stuff. Why? Cuz it felt like it.
+So then the enchanted forest came into being, and all the 
 
