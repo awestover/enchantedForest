@@ -79,7 +79,8 @@ Bob stared at Bucky. Azalea and Mercury could recite miles of evidence from the 
 
 "I can't."
 
-Kienan smiled sadly/in defeat/defeatedly. Bob thought he looked like someone who has been struck down multiple times, by life and grief and rumors. He wondered if he had made the right choice. 
+Kienan smiled sadly, as if he was disapointed in himself for
+failing to convince Bob. Bob thought he looked like someone who has been struck down multiple times, by life and grief and rumors. He wondered if he had made the right choice. 
 
 "One day. One day, when the time is right, come find me."
 "For now, you have your own journey to undergo. "
@@ -106,14 +107,47 @@ fire demon can do illusion magic (dark levancy)
 Last time we were stupid. You're better off without us. We'll just sit back for this one. 
 *takes on terioth alone*
 shit this time it's differnt
-Bucky gets his ass handed to him
+Bob gets his ass handed to him
 oh shit this time is different. 
+The Terioth was barely affected by Bob's levancy.
+The Terioth struck Bob down. 
+"Bob!!!!" Bob heard Bucky shout from the side.
+Out of the corner of his left eye, vision partially obscured by blood
+streaming across his face from a large gash on his forehead, Bob
+saw the Terioth charge forward. It was almost upon him.
+Bob was scared, but felt a kind of peace. 
+*Bucky will have the good sense to run. At least Mercury and
+Azeala will force him to. I think they'll be able to get along
+without me. It will probably be hard for Bucky. But maybe it's
+better this way. I've brought a lot of hardship on him.*
+Bob focussed his vision again on the approaching Terioth and
+forced a smile upon his face...
+Which was then completely shattered as the unthinkable happened.
+Bob stared with horror as he watched Bucky, running from his
+hiding spot towards the Terioth screaming.
+Mid-stride Bucky launched a sharp rock at the Terioth, which hit
+its head. 
 
-*bucky dies*
-uses dark levancy instinctually, from observing kienan
+Some combination of Bucky's auditory and physical stimulus caused
+the Terioth to turn in a massive arc in its charge, veering away
+from Bob and towards Bucky.
 
-The world stopped. His best friend since childhood, the one person in the entire world who understood him completely. Gone. 
-How strange it felt, something he had assumed was a constant in his life to disappear in mere moments. 
+"Bucky!!!!" Bob shouted in despair. 
+Bucky's purpose, distracting the Terioth accomplished, he
+attempted a retreat, but the Terioth was too fast.
+Bob pelted the Terioth with Levancy, while using wind levancy to
+rush towards it.
+
+While Bob was still over a thousand units of distance away the
+Terioth caught up to Bucky.
+The Terioth's tusk went straight through the center of Bucky's
+chest. The Terioth then slowed down and shook Bucky off of it's
+tusk, and started to come back for Bob.
+
+The world stopped. His best friend since childhood, the one
+person in the entire world who understood him completely. Gone.
+How strange it felt, something he had assumed was a constant in
+his life to disappear in mere moments. 
 The undying optimisim, the anchor that had prevented him from
 sinking into darkness and sadness, now cracked and broken. He
 would never talk to Bucky again, never listen to another one of
@@ -131,7 +165,8 @@ without the person he held so dear to his heart.
 
 Bob screamed. There was nothing dignified about it; it was ugly,
 raw, and animal. Azalea and Mercury paused, disturbed by gutteral
-cry and the rabid look in his eyes. Bob didn't care. Nothing
+cry and the rabid look in his eyes. Bob didn't notice; he
+wouldn't have cared even if he had. Nothing
 mattered anymore. Even the terioth hesitated, astonished that
 such a tiny creature could produce a terrible, terrible sound
 like that.
@@ -181,7 +216,7 @@ terioth is a brontosaurus that creates earthquakes by stomping, and shoots vines
 They're going to realize that he's using dark levancy
 
 
-Bucky wouldn't have wanted you to do this. 
+"Bucky wouldn't have wanted you to do this. " Azeala shouted
 Bucky is *dead*. He is *dead*, and it is *my* gods-damned fault, because my levancy wasn't enough to save him. 
 He would want me to stay away from Kienan? WELL I WANT HIM TO BE ALIVE. WE CAN'T ALL GET WHAT WE WANT. 
 
@@ -192,18 +227,21 @@ Bob forced himself to draw in a deep breath. "And admit it," he said. "I couldn'
 "I am not *heir* to that sodden old man, nor anyone else," he spat.
 "I am my own person, and I will forge my legacy out of blood and violence if I have to."
 If learning from Kienan is what it takes to get revenge for Bucky, then so be it.
+Don't follow, or I'll assume you do so to try and kill me because
+I have deviated from your plans, and I'll act accordingly.
 
+Bob turned away, and then flew off on channeled wind.
 
-two persepctives; kienan and bob, azalea and mercury go searching for bucky
-
+[next up: two persepctives; kienan and bob, azalea and mercury go
+searching for bucky
 
 go back to mivoen, he tells the duo that bucky's dead
 "noooooo he will not learn to use the force correctly"
 
-mivoen, azalea, mercury go save bucky from nodnull
+mivoen, azalea, mercury go save bucky from nodnull]
 
 
 
-"it was a mercy. She was already dead."
+kienen: "it was a mercy. She was already dead."
 
 
