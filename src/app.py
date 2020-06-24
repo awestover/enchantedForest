@@ -1,5 +1,4 @@
-
-from flask import Flask, render_template, request, jsonify, redirect, url_for, session, make_response
+from flask import Flask, request, jsonify, redirect, session
 import json
 import os
 from flask_pymongo import PyMongo
@@ -11,12 +10,16 @@ mongo = PyMongo(app)
 
 @app.route("/")
 def index():
-	return render_template("index.html")
+	return app.send_static_file('index.html')
 
 @app.route("/hello")
 def hello():
 	return "hello"
 
+@app.route("/testjquery")
+def testjquery():
+	print("genius")
+	return ""
 
 if __name__ == "__main__":
 	app.run(host="0.0.0.0", port="5000", debug=True)
