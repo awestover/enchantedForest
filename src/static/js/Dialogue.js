@@ -34,20 +34,20 @@ class Dialogue { // TODO: should maybe have different types of dialogue (e.g. tr
 		player.movementLocked = false;
 
 		// Makes the player exit dialogue upon finishing trade
-		// $("#portraitImg").attr("src", "data/avatars/empty.png");
+		// $("#portraitImg").attr("src", "/static/data/avatars/empty.png");
 		// $("#dialogueTextWrapper").css("display", "none");
 		// inventoryList[display.currentInventoryIndex].show();
 	}
 
 	clearBox(){
-		$("#portraitImg").attr("src", "data/avatars/empty.png");
+		$("#portraitImg").attr("src", "/static/data/avatars/empty.png");
 		$("#dialogueTextWrapper").css("display", "none");
 		this.inDialogue = false;
 		inventoryList[display.currentInventoryIndex].show();
 	}
 	showBox(){
 		inventoryList[display.currentInventoryIndex].hide();
-		$("#portraitImg").attr("src", `data/avatars/${this.npcName}.png`);
+		$("#portraitImg").attr("src", `/static/data/avatars/${this.npcName}.png`);
 		
 		this.inDialogue = true;
 		player.movementLocked = true;

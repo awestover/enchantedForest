@@ -17,9 +17,6 @@ class QuestSystem {
 
 	showQuestInfo(questId) {
 		this.inInfoMode = true;
-		$("#questHeader").hide();
-		$("#questList").hide();
-		$("#questInfoPage").show();
 
 		let questName = questId.slice(0, -4);
 		let questType = quest_data[questName]["task"]["type"];
@@ -37,15 +34,14 @@ class QuestSystem {
 			description += `${quest_data[questName]["rewards"]["xp"]} xp`;
 
 		$("#questDescription").html(description);
-		// $("#portraitImg").attr('src', itemSrc);
 	}
 
-	hideQuestInfo() {
-		this.inInfoMode = false;
-		$("#portraitImg").attr('src', 'data/avatars/empty.png');
-		$("#questInfoPage").hide();
-		$("#questHeader").show();
-		$("#questList").show();
-	}
+	// hideQuestInfo() {
+	//     this.inInfoMode = false;
+	//     $("#portraitImg").attr('src', 'data/avatars/empty.png');
+	//     $("#questInfoPage").hide();
+	//     $("#questHeader").show();
+	//     $("#questList").show();
+	// }
 
 }

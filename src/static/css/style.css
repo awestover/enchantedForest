@@ -149,41 +149,6 @@ body {
 	float: left;
 }
 
-
-#questContainer {
-	height: 19vh;
-}
-
-#questHeader{
-	margin-top: 0.5em;
-	font-size: 1.6em;
-	text-align: center; 
-}
-
-#questContainer ul {
-	float: center;
-	padding-left: 1vw;
-	padding-right: 1vw;
-}
-
-#questContainer li {
-	width: 10.5vw;
-	font-size: 1em;
-	border: 1px solid pink;
-	border-radius: 5px;
-	list-style-type: none;
-	padding-left: 0.5vw;
-	padding-right: 0.5vw;
-	margin-bottom: 0.5em;
-	margin-top: 0.5em;
-
-	font-weight: bold;
-}
-
-#questContainer li:hover {
-	cursor: pointer;
-}
-
 #questBannerContainer {
   display: none;
 	margin-left: 25vw; 
@@ -252,31 +217,97 @@ body {
 	margin: 0.5vw;
 }
 
-#questInfoPage {
-	margin: 0.5vw;
-  display: inline-block;
-	width: 100%;
-	position: fixed;
-	top: 80%;
-	left: 13%;
 
-	width: 60%;
-	height: auto;
-	/* background-color: blue; */
+/* ============================ */
+
+.wrapper {
+	position: absolute;
+	z-index: 9999;
+	top: 12%;
+	left: 27%;
+	width: 50%;
+	height: 50%;
+}
+
+#gridDisplay {
+	width: 60vh;
+	height: 60vh;
+	background-color: rgba(255, 255, 255, 0.5);
+	border: 3px solid white;
+	border-radius: 2%;
+
+	display: inline-block;
+	float: left;
+	margin: 5px;
+}
+
+#cardContainer {
+	width: 30vh;
+	height: 40vh;
+	background-color: rgba(255, 255, 255, 0.5);
+	border: 3px solid white;
+	border-radius: 2%;
+
+	display: inline-block;
+	float: left;
+	margin: 5px;
+}
+
+
+#questContainer {
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+
+#questHeader{
+	width: 100%;
+	margin-top: 0.5em;
+	font-size: 1.6em;
+	text-align: center; 
+	background-color: lightgrey;
+}
+
+#questContainer ul {
+	float: center;
+	padding: 6%;
+	padding-top: 0;
+}
+
+#questContainer li {
+	width: 10.5vw;
+	font-size: 1em;
+	border: 1px solid pink;
+	border-radius: 5px;
+	list-style-type: none;
+	padding-left: 0.5vw;
+	padding-right: 0.5vw;
+	margin-bottom: 0.5em;
+	margin-top: 0.5em;
+	text-align: left;
+
+	font-weight: bold;
+}
+
+#questContainer li:hover {
+	cursor: pointer;
+}
+
+#questInfoPage {
+	text-align: center;
 }
 
 #questTitle {
-	font-size: 2em;
-	text-align: center;
-	width: 48vw;
-	margin-bottom: 1%;
+	width: 80%;
+	margin-top: 0.5em;
+	font-size: 1.4em;
+	text-align: center; 
 }
 
 #questDescription {
-	font-size: 1.2em;
+	padding: 6%;
 	text-align: left;
 	width: 75%;
 	float: left;
 }
-
 

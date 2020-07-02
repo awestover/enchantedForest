@@ -7,13 +7,15 @@ class HUD {
   }
   loadImgs(){
     for(let img in this.imgs){
-      this.imgs[img] = loadImage(`data/interface/${img}.png`);
+      this.imgs[img] = loadImage(`/static/data/interface/${img}.png`);
     }
   }
   render(){
     push();// so the colors don't bleed, and so the text/rect align/mode doesn't bleed
     textAlign(LEFT);
     rectMode(CORNER);
+		fill(255,255,255,100);
+		rect(-width/2+20, -height/2+10, 250, 200)
 
     // render lives
     for (let i = 0; i < player.lives; i++){

@@ -77,13 +77,14 @@ function windAtTime(){
 
 function loadRoom(roomName){
 	$("#questBannerContainer").hide();
-	$("#questInfoPage").hide();
+    // $("#questInfoPage").hide();
+    $(".wrapper").hide();
   currentRoom = roomName;
   loadingRoom = true;
   data = null;
   mobs = [];
-  roomImage = loadImage(`data/maps/rooms/${roomName}/tilemap.png`);
-  $.getJSON(`data/maps/rooms/${roomName}/traits.json`, function(returnData){
+  roomImage = loadImage(`/static/data/maps/rooms/${roomName}/tilemap.png`);
+  $.getJSON(`/static/data/maps/rooms/${roomName}/traits.json`, function(returnData){
     roomTraits = returnData;
     bgColor = color(roomTraits["bg-color"]);
     if(roomTraits.weather.includes("rain")){
@@ -102,7 +103,7 @@ function loadRoom(roomName){
       }
     }
   });
-  $.getJSON(`data/maps/rooms/${roomName}/map.json`, function(returnData){
+  $.getJSON(`/static/data/maps/rooms/${roomName}/map.json`, function(returnData){
     data = returnData;
     mapTileDims.x = data.layers.collision[0].length;
     mapTileDims.y = data.layers.collision.length;
@@ -165,34 +166,34 @@ function setup(){
   createCanvas(window.innerWidth, window.innerHeight);
 
   // inserting dijkstras
-  batImg = loadImage("data/avatars/transflybird.gif");
+  batImg = loadImage("/static/data/avatars/transflybird.gif");
   batpos = createVector(3*blockSize,3*blockSize);
   goalPos = createVector((mapTileDims.x-0.5-5)*blockSize, 0.5*blockSize);
 
   display.loadImgs();
   init_toload.push("sprites");
-  $.getJSON("data/sprites.json", function(tmpdata){
+  $.getJSON("/static/data/sprites.json", function(tmpdata){
     sprite_data = tmpdata;
     removeElts(init_toload, "sprites");
     player = new Player(0, +64);
-    player.spritesheet = loadImage("data/avatars/bob.png");
+    player.spritesheet = loadImage("/static/data/avatars/bob.png");
   });
   init_toload.push("quests");
-  $.getJSON("data/quests.json", function(tmpdata){
+  $.getJSON("/static/data/quests.json", function(tmpdata){
     quest_data = tmpdata;
     removeElts(init_toload, "quests");
   });
   init_toload.push("npcs");
-  $.getJSON("data/npcs.json", function(tmpdata){
+  $.getJSON("/static/data/npcs.json", function(tmpdata){
     npc_data = tmpdata;
     removeElts(init_toload, "npcs");
   });
   for(let section in stats){
     init_toload.push(section);
-    $.getJSON(`data/stats/${section}.json`, function(tmpdata){
+    $.getJSON(`/static/data/stats/${section}.json`, function(tmpdata){
       stats[section] = tmpdata;
       for(let thing in stats[section]){
-        stats[section][thing].img = loadImage(`data/${section}/${thing}.png`);
+        stats[section][thing].img = loadImage(`/static/data/${section}/${thing}.png`);
       }
       removeElts(init_toload, section);
     });
@@ -206,7 +207,7 @@ function setup(){
   textAlign(CENTER);
 
 	inventoryList.push($("#itemContainer"));
-	inventoryList.push($("#questContainer"));
+	// inventoryList.push($("#questContainer"));
 
 	for (let inventoryElement in inventoryList)
 		inventoryList[inventoryElement].hide();
@@ -269,9 +270,9 @@ function keyReleased() {
 	else if (keyCode === 13)	// enter
 		dialogue.montage();
 	else if (keyCode === 81)	// q
-		display.prevInventory();
+        $(".wrapper").show();
 	else if (keyCode === 69)	// e
-		display.nextInventory();
+        $(".wrapper").hide();
 	else if (keyCode === 27) {	// esc
 		display.exitInfoMode();
 	}

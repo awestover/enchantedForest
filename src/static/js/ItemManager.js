@@ -16,7 +16,7 @@ class ItemManager {
 		let cell = row.insertCell();
 		cell.id = itemType+"ItemCell";
 		let img = document.createElement("IMG");
-		img.src = "data/items/"+itemType+".png";
+		img.src = "/static/data/items/"+itemType+".png";
     img.setAttribute("onclick", "itemManager.showItemInfo(this.src)");
 
 		let text = document.createTextNode("1");
@@ -65,7 +65,7 @@ class ItemManager {
 
 	hideItemInfo() {
 		this.inInfoMode = false;
-		$("#portraitImg").attr('src', 'data/avatars/empty.png');
+		$("#portraitImg").attr('src', '/static/data/avatars/empty.png');
 		$("#itemInfoPage").hide();
 		$("#itemTable").show();
 	}
