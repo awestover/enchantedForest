@@ -77,7 +77,8 @@ function windAtTime(){
 
 function loadRoom(roomName){
 	$("#questBannerContainer").hide();
-	$("#questInfoPage").hide();
+    // $("#questInfoPage").hide();
+    $(".wrapper").hide();
   currentRoom = roomName;
   loadingRoom = true;
   data = null;
@@ -206,7 +207,7 @@ function setup(){
   textAlign(CENTER);
 
 	inventoryList.push($("#itemContainer"));
-	inventoryList.push($("#questContainer"));
+	// inventoryList.push($("#questContainer"));
 
 	for (let inventoryElement in inventoryList)
 		inventoryList[inventoryElement].hide();
@@ -269,9 +270,9 @@ function keyReleased() {
 	else if (keyCode === 13)	// enter
 		dialogue.montage();
 	else if (keyCode === 81)	// q
-		display.prevInventory();
+        $(".wrapper").show();
 	else if (keyCode === 69)	// e
-		display.nextInventory();
+        $(".wrapper").hide();
 	else if (keyCode === 27) {	// esc
 		display.exitInfoMode();
 	}
