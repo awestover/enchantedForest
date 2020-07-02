@@ -1,0 +1,10 @@
+{
+  "levantersKeep": {
+    "teleporterA": "llamaPlains",
+    "teleporterB": "llamaPlains"
+  },
+  "llamaPlains": {
+    "teleporterA": "levantersKeep",
+    "teleporterB": "levantersKeep"
+  }
+}
