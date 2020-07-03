@@ -493,7 +493,8 @@ function draw(){
       if(data.layers.roomstuff[y][x] != TILE_NAMES_TO_IDS["empty"]){
         if(player.hitBlock(x, y)){
           if(data.layers.roomstuff[y][x] == TILE_NAMES_TO_IDS["checkpoint"]){
-            $.notify("yo you are at a checkpoint good job!!!!");
+            $.notify("yo you are at a checkpoint good job!!!!", "success"); // TODO: actually do somehting here lol
+            player.spawn();
             return;
           }
           for (let i in TELEPORTER_NAMES) {
