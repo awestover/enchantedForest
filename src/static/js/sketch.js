@@ -41,8 +41,12 @@ let stats = {
 let quest_data = {};
 let npc_data = {};
 let sprite_data = {};
+let teleporter_data = {};
 let ct = 0;
 let manaRegenFrames = 5;
+
+// teleporterA in roomX is linked with teleporterA in roomY where teleporterA says in data/teleporter.json that it links to roomY
+const TELEPORTER_NAMES = ["teleporterA", "teleporterB", "teleporterC", "teleporterD", "teleporterE"];
 
 // inserting dijkstras
 let goalPos;
@@ -75,10 +79,11 @@ function windAtTime(){
   return createVector(xSpeed, abs(xSpeed)*0.1);
 }
 
-function loadRoom(roomName){
+function loadRoom(roomName, spawn_loc){
+
 	$("#questBannerContainer").hide();
-    // $("#questInfoPage").hide();
-    $(".wrapper").hide();
+  // $("#questInfoPage").hide();
+  $(".wrapper").hide();
   currentRoom = roomName;
   loadingRoom = true;
   data = null;
@@ -107,6 +112,10 @@ function loadRoom(roomName){
     data = returnData;
     mapTileDims.x = data.layers.collision[0].length;
     mapTileDims.y = data.layers.collision.length;
+
+    const physical_spawn_loc = blockCenter(spawn_loc.x, spawn_loc.y);
+    player.pos.x = physical_spawn_loc.x + 2*blockSize; // TODO: mildly sketchy
+    player.pos.y = physical_spawn_loc.y;
 
     let tileIds = Object.keys(data.tiles);
     for(let k in tileIds){
@@ -188,6 +197,11 @@ function setup(){
     npc_data = tmpdata;
     removeElts(init_toload, "npcs");
   });
+  init_toload.push("teleporters");
+  $.getJSON("/static/data/teleporters.json", function(tmpdata){
+    teleporter_data = tmpdata;
+    removeElts(init_toload, "teleporters");
+  });
   for(let section in stats){
     init_toload.push(section);
     $.getJSON(`/static/data/stats/${section}.json`, function(tmpdata){
@@ -232,8 +246,8 @@ function checkKeys() {
 		player.lastDir = 1;
 	}
   if(keyIsDown(87) || keyIsDown(38)) // W / UP
-    player.jump();
-    // player.superjump();
+    player.superjump();
+    // player.jump();
   if (keyIsDown(32))	// space
     player.jump();
 
@@ -471,12 +485,22 @@ function draw(){
     for(let i in boundingTiles){
       let x = boundingTiles[i].x;
       let y = boundingTiles[i].y;
-      if(data.layers.npcs[y][x] != TILE_NAMES_TO_IDS["empty"]){
+      if(data.layers.roomstuff[y][x] != TILE_NAMES_TO_IDS["empty"]){
         if(player.hitBlock(x, y)){
-          if(data.layers.npcs[y][x] == TILE_NAMES_TO_IDS["teleporter"]){
-            // teleporter1, teleporter2, teleporter3 then in maps/rooms/x/traits.json store all the teleporters 
-            loadRoom("llamaPlains");
+          if(data.layers.roomstuff[y][x] == TILE_NAMES_TO_IDS["checkpoint"]){
+            $.notify("yo you are at a checkpoint good job!!!!");
             return;
+          }
+          for (let i in TELEPORTER_NAMES) {
+            if(data.layers.roomstuff[y][x] == TILE_NAMES_TO_IDS[TELEPORTER_NAMES[i]]){
+              const new_room = teleporter_data[currentRoom][TELEPORTER_NAMES[i]]["to"];
+              const spawn_loc = teleporter_data[new_room][TELEPORTER_NAMES[i]]["location_of_this_teleporter"];
+              $.notify("spawn_loc: " + "x: "+ spawn_loc.x + "y: " + spawn_loc.y);
+
+              $.notify(`TELEPORTING TO ${new_room} teleporter ${TELEPORTER_NAMES[i]}`);
+              loadRoom(new_room, spawn_loc);
+              return;
+            }
           }
         }
       }
@@ -529,7 +553,7 @@ function draw(){
     text("LOADING", 0, 0);
     if(!triggered_initial_room_load && init_toload.length == 0){
       triggered_initial_room_load = true;
-      loadRoom(currentRoom);
+      loadRoom(currentRoom, {"x": floor(mapTileDims.x/2), "y": floor(mapTileDims.y/2)}); // TODO: this should be where the last save point was
     }
   }
 

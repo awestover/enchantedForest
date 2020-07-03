@@ -1,10 +1,34 @@
 {
-  "levantersKeep": {
-    "teleporterA": "llamaPlains",
-    "teleporterB": "llamaPlains"
-  },
-  "llamaPlains": {
-    "teleporterA": "levantersKeep",
-    "teleporterB": "levantersKeep"
-  }
+    "levantersKeep": {
+        "teleporterA": {
+            "to": "llamaPlains",
+            "location_of_this_teleporter": {
+                "x": 31,
+                "y": 13
+            }
+        },
+        "teleporterB": {
+            "to": "llamaPlains",
+            "location_of_this_teleporter": {
+                "x": 19,
+                "y": 6
+            }
+        }
+    },
+    "llamaPlains": {
+        "teleporterA": {
+            "to": "levantersKeep",
+            "location_of_this_teleporter": {
+                "x": 7,
+                "y": 5
+            }
+        },
+        "teleporterB": {
+            "to": "levantersKeep",
+            "location_of_this_teleporter": {
+                "x": 237,
+                "y": 13
+            }
+        }
+    }
 }
