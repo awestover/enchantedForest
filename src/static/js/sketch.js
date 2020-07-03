@@ -79,7 +79,7 @@ function windAtTime(){
   return createVector(xSpeed, abs(xSpeed)*0.1);
 }
 
-function loadRoom(roomName, spawn_loc){
+function loadRoom(roomName, spawn_loc, spit_direction){
 
 	$("#questBannerContainer").hide();
   // $("#questInfoPage").hide();
@@ -113,8 +113,13 @@ function loadRoom(roomName, spawn_loc){
     mapTileDims.x = data.layers.collision[0].length;
     mapTileDims.y = data.layers.collision.length;
 
-    const physical_spawn_loc = blockCenter(spawn_loc.x, spawn_loc.y);
-    player.pos.x = physical_spawn_loc.x + 2*blockSize; // TODO: mildly sketchy
+    if(!spit_direction){
+      spit_direction = 0;
+    }
+    let physical_spawn_loc = blockCenter(spawn_loc.x, spawn_loc.y);
+    physical_spawn_loc.y -= 1;
+    player.vel.x = Math.abs(player.vel.x) * spit_direction;
+    player.pos.x = physical_spawn_loc.x + 2*blockSize*spit_direction; // TODO: mildly sketchy
     player.pos.y = physical_spawn_loc.y;
 
     let tileIds = Object.keys(data.tiles);
@@ -494,11 +499,12 @@ function draw(){
           for (let i in TELEPORTER_NAMES) {
             if(data.layers.roomstuff[y][x] == TILE_NAMES_TO_IDS[TELEPORTER_NAMES[i]]){
               const new_room = teleporter_data[currentRoom][TELEPORTER_NAMES[i]]["to"];
-              const spawn_loc = teleporter_data[new_room][TELEPORTER_NAMES[i]]["location_of_this_teleporter"];
+              const spawn_loc = teleporter_data[new_room][TELEPORTER_NAMES[i]]["location"];
+              const spit_direction = teleporter_data[new_room][TELEPORTER_NAMES[i]]["spit_direction_for_incoming_user"]
               $.notify("spawn_loc: " + "x: "+ spawn_loc.x + "y: " + spawn_loc.y);
 
               $.notify(`TELEPORTING TO ${new_room} teleporter ${TELEPORTER_NAMES[i]}`);
-              loadRoom(new_room, spawn_loc);
+              loadRoom(new_room, spawn_loc, spit_direction);
               return;
             }
           }

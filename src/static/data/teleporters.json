@@ -2,14 +2,16 @@
     "levantersKeep": {
         "teleporterA": {
             "to": "llamaPlains",
-            "location_of_this_teleporter": {
+            "spit_direction_for_incoming_user": -1,
+            "location": {
                 "x": 31,
                 "y": 13
             }
         },
         "teleporterB": {
             "to": "llamaPlains",
-            "location_of_this_teleporter": {
+            "spit_direction_for_incoming_user": -1,
+            "location": {
                 "x": 19,
                 "y": 6
             }
@@ -18,14 +20,16 @@
     "llamaPlains": {
         "teleporterA": {
             "to": "levantersKeep",
-            "location_of_this_teleporter": {
+            "spit_direction_for_incoming_user": -1,
+            "location": {
                 "x": 7,
                 "y": 5
             }
         },
         "teleporterB": {
             "to": "levantersKeep",
-            "location_of_this_teleporter": {
+            "spit_direction_for_incoming_user": -1,
+            "location": {
                 "x": 237,
                 "y": 13
             }

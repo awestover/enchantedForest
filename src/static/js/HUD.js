@@ -15,7 +15,8 @@ class HUD {
     textAlign(LEFT);
     rectMode(CORNER);
 		fill(255,255,255,100);
-		rect(-width/2+20, -height/2+10, 250, 200)
+    noStroke();
+		rect(-width/2+20-10, -height/2+10, 250+20, 200)
 
     // render lives
     for (let i = 0; i < player.lives; i++){
