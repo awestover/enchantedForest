@@ -105,50 +105,6 @@ body {
 	height: auto;
 }
 
-#itemInfoPage {
-	margin: 0.5vw;
-  display: inline-block;
-	width: 100%;
-	position: fixed;
-	top: 80%;
-	left: 13%;
-
-	width: 60%;
-	height: auto;
-}
-
-#itemTitle {
-	font-size: 2em;
-	text-align: center;
-	width: 48vw;
-	float: left;
-	margin-bottom: 1%;
-}
-
-#itemUseButton {
-	font-size: 1em;
-	text-align: center;
-	width: 5vw;
-
-	padding: 0.2em;
-	margin-right: 2vw;
-	float: right;
-	background-color: #00FFF2;
-	border-radius: 10px;
-	opacity: 100%;
-}
-
-#itemUseButton:hover {
-	cursor: pointer;
-}
-
-#itemDescription {
-	font-size: 1.2em;
-	text-align: left;
-	width: 75%;
-	float: left;
-}
-
 #questBannerContainer {
   display: none;
 	margin-left: 25vw; 
@@ -232,7 +188,8 @@ body {
 #gridDisplay {
 	width: 60vh;
 	height: 60vh;
-	background-color: rgba(255, 255, 255, 0.5);
+	background-color: rgba(0, 0, 0, 0.5);
+	color: white;
 	border: 3px solid white;
 	border-radius: 2%;
 
@@ -251,6 +208,7 @@ body {
 	display: inline-block;
 	float: left;
 	margin: 5px;
+	text-align: center;
 }
 
 
@@ -266,6 +224,7 @@ body {
 	font-size: 1.6em;
 	text-align: center; 
 	background-color: lightgrey;
+	color: black;
 }
 
 #questContainer ul {
@@ -293,21 +252,36 @@ body {
 	cursor: pointer;
 }
 
-#questInfoPage {
-	text-align: center;
-}
-
-#questTitle {
+#infoCardTitle {
 	width: 80%;
 	margin-top: 0.5em;
 	font-size: 1.4em;
 	text-align: center; 
 }
 
-#questDescription {
+#infoCardDescription {
 	padding: 6%;
 	text-align: left;
 	width: 75%;
 	float: left;
 }
+
+#itemUseButton {
+	font-size: 1em;
+	text-align: center;
+	width: 5vw;
+	height: 1.4em;
+	padding: 0.2em;
+	margin: 0;
+	display: block;
+	background-color: #00FFF2;
+	border: none;
+	border-radius: 10px;
+	opacity: 100%;
+}
+
+#itemUseButton:hover {
+	cursor: pointer;
+}
+
 

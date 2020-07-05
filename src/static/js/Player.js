@@ -60,7 +60,7 @@ class Player extends Entity {
         }
 
 				if (questSystem.inInfoMode) {
-					$("#questTitle").text(`<<${questName}>> (${this.questProgress[questName]}/${questQuantity} ${questType}ed)`);
+					$("#infoCardTitle").text(`<<${questName}>> (${this.questProgress[questName]}/${questQuantity} ${questType}ed)`);
 				}
       }
     }

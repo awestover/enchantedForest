@@ -76,9 +76,9 @@ function windAtTime(){
 }
 
 function loadRoom(roomName){
-	$("#questBannerContainer").hide();
-    // $("#questInfoPage").hide();
-    $(".wrapper").hide();
+  $("#questBannerContainer").hide();
+  display.clearDescriptionCard();
+  $(".wrapper").hide();
   currentRoom = roomName;
   loadingRoom = true;
   data = null;
@@ -207,12 +207,12 @@ function setup(){
   textAlign(CENTER);
 
 	inventoryList.push($("#itemContainer"));
-	// inventoryList.push($("#questContainer"));
+    inventoryList.push($("#questContainer"));
 
 	for (let inventoryElement in inventoryList)
 		inventoryList[inventoryElement].hide();
 	inventoryList[0].show();
-	$("#itemInfoPage").hide();
+	// $("#itemInfoPage").hide();
 
 	for (let i = 0; i < 10; i++) {
 		quickAccessItems[i] = null;
@@ -237,73 +237,78 @@ function checkKeys() {
   if (keyIsDown(32))	// space
     player.jump();
 
-	if (keyIsDown(16)) {
-		player.lockQuickAccess = true;
-		if (keyCode === 48)	// 0
-			itemManager.setQuickAccess(0);
-		else if (keyCode === 49)	// 1
-			itemManager.setQuickAccess(1);
-		else if (keyCode === 50)	// 2
-			itemManager.setQuickAccess(2);
-		else if (keyCode === 51)	// 3
-			itemManager.setQuickAccess(3);
-		else if (keyCode === 52)	// 4
-			itemManager.setQuickAccess(4);
-		else if (keyCode === 53)	// 5
-			itemManager.setQuickAccess(5);
-		else if (keyCode === 54)	// 6 
-			itemManager.setQuickAccess(6);
-		else if (keyCode === 55)	// 7
-			itemManager.setQuickAccess(7);
-		else if (keyCode === 56)	// 8
-			itemManager.setQuickAccess(8);
-		else if (keyCode === 57)	// 9
-			itemManager.setQuickAccess(9);
-	}
+  if (keyIsDown(16)) {
+    player.lockQuickAccess = true;
+    if (keyCode === 48)	// 0
+      itemManager.setQuickAccess(0);
+    else if (keyCode === 49)	// 1
+      itemManager.setQuickAccess(1);
+    else if (keyCode === 50)	// 2
+      itemManager.setQuickAccess(2);
+    else if (keyCode === 51)	// 3
+      itemManager.setQuickAccess(3);
+    else if (keyCode === 52)	// 4
+      itemManager.setQuickAccess(4);
+    else if (keyCode === 53)	// 5
+      itemManager.setQuickAccess(5);
+    else if (keyCode === 54)	// 6 
+      itemManager.setQuickAccess(6);
+    else if (keyCode === 55)	// 7
+      itemManager.setQuickAccess(7);
+    else if (keyCode === 56)	// 8
+      itemManager.setQuickAccess(8);
+    else if (keyCode === 57)	// 9
+      itemManager.setQuickAccess(9);
+  }
 }
 
 function keyReleased() {
-	if (keyCode === 88)				// x
-		player.fireballAttack();
-	else if (keyCode === 67)	// c
-		player.coinshotAttack();
-	else if (keyCode === 13)	// enter
-		dialogue.montage();
-	else if (keyCode === 81)	// q
-        $(".wrapper").show();
-	else if (keyCode === 69)	// e
-        $(".wrapper").hide();
-	else if (keyCode === 27) {	// esc
-		display.exitInfoMode();
-	}
-	else if (keyCode === 16){
-		setTimeout(function (){
-			player.lockQuickAccess = false;
-		}, 500);
-	}
+  if (keyCode === 88)				// x
+    player.fireballAttack();
+  else if (keyCode === 67)	// c
+    player.coinshotAttack();
+  else if (keyCode === 13)	// enter
+    dialogue.montage();
+  else if (keyCode === 87){	// w
+    if($('.wrapper:visible').length){
+      $(".wrapper").hide();
+      display.clearDescriptionCard();
+    }
+    else
+      $(".wrapper").show();
+  }
+  else if (keyCode === 81)	// q
+    display.prevInventory();
+  else if (keyCode === 69)	// e
+    display.nextInventory();
+  else if (keyCode === 16){
+    setTimeout(function (){
+      player.lockQuickAccess = false;
+    }, 500);
+  }
 
-	if (!player.lockQuickAccess) {
-		if (keyCode === 48)	// 0
-			itemManager.quickAccess1();
-		else if (keyCode === 49)	// 1
-			itemManager.quickAccess1();
-		else if (keyCode === 50)	// 2
-			itemManager.quickAccess2();
-		else if (keyCode === 51)	// 3
-			itemManager.quickAccess3();
-		else if (keyCode === 52)	// 4
-			itemManager.quickAccess4();
-		else if (keyCode === 53)	// 5
-			itemManager.quickAccess5();
-		else if (keyCode === 54)	// 6 
-			itemManager.quickAccess6();
-		else if (keyCode === 55)	// 7
-			itemManager.quickAccess7();
-		else if (keyCode === 56)	// 8
-			itemManager.quickAccess8();
-		else if (keyCode === 57)	// 9
-			itemManager.quickAccess9();
-	}
+  if (!player.lockQuickAccess) {
+    if (keyCode === 48)	// 0
+      itemManager.quickAccess1();
+    else if (keyCode === 49)	// 1
+      itemManager.quickAccess1();
+    else if (keyCode === 50)	// 2
+      itemManager.quickAccess2();
+    else if (keyCode === 51)	// 3
+      itemManager.quickAccess3();
+    else if (keyCode === 52)	// 4
+      itemManager.quickAccess4();
+    else if (keyCode === 53)	// 5
+      itemManager.quickAccess5();
+    else if (keyCode === 54)	// 6 
+      itemManager.quickAccess6();
+    else if (keyCode === 55)	// 7
+      itemManager.quickAccess7();
+    else if (keyCode === 56)	// 8
+      itemManager.quickAccess8();
+    else if (keyCode === 57)	// 9
+      itemManager.quickAccess9();
+  }
 }
 
 function blockCenter(x, y){

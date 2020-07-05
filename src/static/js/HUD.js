@@ -54,19 +54,18 @@ class HUD {
 	}
 
 	nextInventory(){
-		this.exitInfoMode();
 		inventoryList[this.currentInventoryIndex].hide();
 		this.rotateInventory(1);
 		inventoryList[this.currentInventoryIndex].show();
 	}
 	prevInventory(){
-		this.exitInfoMode();
 		inventoryList[this.currentInventoryIndex].hide();
 		this.rotateInventory(-1);
 		inventoryList[this.currentInventoryIndex].show();
 	}
 
 	rotateInventory(direction) {
+      display.clearDescriptionCard();
 		this.currentInventoryIndex += direction;
 		if (direction == 1 && this.currentInventoryIndex > inventoryList.length-1)
 			this.currentInventoryIndex = 0;
@@ -74,11 +73,44 @@ class HUD {
 			this.currentInventoryIndex = inventoryList.length-1;
 	}
 
-	exitInfoMode() {
-		if (itemManager.inInfoMode)
-			itemManager.hideItemInfo();
-		else if (questSystem.inInfoMode)
-			questSystem.hideQuestInfo();
-	}
+  showInventoryObjectInfo(questId, type) {
+    if (type === "quest"){
+      $("#itemUseButton").hide();
+
+      let questName = questId.slice(0, -4);
+      let questType = quest_data[questName]["task"]["type"];
+      let questSpecies = quest_data[questName]["task"]["species"];
+      let questQuantity = quest_data[questName]["task"]["quantity"];
+      let questProgress = player.questProgress[questName];
+      let description = `${questType} x${questQuantity} ${questSpecies}(s).`;
+      description += "<br>Rewards: ";
+
+      if (questProgress === undefined)
+        questProgress = 0;
+
+      $("#infoCardTitle").text(`<<${questName}>> (${questProgress}/${questQuantity} ${questType}ed)`);
+      if ("xp" in quest_data[questName]["rewards"]) 
+        description += `${quest_data[questName]["rewards"]["xp"]} xp`;
+
+      $("#infoCardDescription").html(description);
+    }
+    else if (type === "item") {
+      $("#itemUseButton").show();
+      let itemName = questId.replace(/^.*[\\\/]/, '').split('.').slice(0, -1).join('.')     // get filename without extension
+      itemManager.showInfoName = itemName;
+      let itemIndex = itemManager.searchItemIndex(itemName);
+      let itemQuantity = player.items[itemIndex]["quantity"];
+
+      $("#infoCardTitle").text("<<" + itemName + ">> x" + itemQuantity);
+      $("#infoCardDescription").text(stats["items"][itemName]["description"]);
+      $("#itemUseButton").attr("onclick", `itemManager.useItem(itemManager.showInfoName);`);
+    }
+  }
+
+  clearDescriptionCard(){
+    $("#infoCardTitle").text("");
+    $("#infoCardDescription").html("");
+    $("#itemUseButton").hide();
+  }
 
 }

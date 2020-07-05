@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <title>EnchantedForest</title>
     <link rel="stylesheet" href="/static/css/style.css" type="text/css" media="screen">
-		<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
 
   </head>
   <body>
@@ -14,7 +13,6 @@
 		<script src="/static/libs/tinyqueue.min.js" charset="utf-8"></script>
 		<script src="/static/libs/notify.min.js" charset="utf-8"></script>
 		<script src="/static/libs/vue.js" charset="utf-8"></script>
-		<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script> -->
 
 
 		<script src="/static/js/graphAlgs.js" charset="utf-8"></script>
@@ -29,9 +27,7 @@
 		<script src="/static/js/sketch.js" charset="utf-8"></script>
 
 		<div id="inventoryContainer" class="HUDContainer">
-
 			<img id="portraitImg" src="/static/data/avatars/empty.png">
-
 			<div id="dialougeContainer">
 				<div id="dialogueTextWrapper">
 					<div id="dialogueText">
@@ -41,17 +37,7 @@
 				</div>
 			</div>
 
-			<div id="itemContainer">
-			<table id="itemTable" class="itemCell"></table>
-
-			<div id="itemInfoPage">
-				<div id="itemTitle"></div>
-				<div id="itemUseButton">USE</div>
-				<div id="itemDescription"></div>
-			</div>
 		</div>
-
-	</div>
 
 	<div id="quickAccessContainer" class="HUDContainer">
 			<table id="quickAccessTable" class="itemCell">
@@ -86,18 +72,25 @@
 	<div class="wrapper">
 
 		<div id="gridDisplay">
+
+			<div id="itemContainer">
+				<div id="questHeader">Items</div>
+				<table id="itemTable" class="itemCell"></table>
+			</div>
+
 			<div id="questContainer">
 				<div id="questHeader">Quests</div>
 				<ul id="questList"></ul>
 			</div>
+
 		</div>
+
 		<div id="cardContainer">
-			<div id="questInfoPage">
-				<center>
-					<div id="questTitle"></div>
-					<div id="questDescription"></div>
-				</center>
-			</div>
+			<center>
+				<div id="infoCardTitle"></div>
+				<div id="infoCardDescription"></div>
+				<button id="itemUseButton">USE</button>
+			</center>
 		</div>
 
 	</div>

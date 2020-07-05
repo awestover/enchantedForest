@@ -1,34 +1,32 @@
 class ItemManager {
   constructor(){
-		this.showInfoName;
-		this.inInfoMode = false;
+    this.showInfoName;
   }
 
 	createItem(itemType){
-		let itemTable = document.getElementById("itemTable");
-		let row;
-		if(player.items.length % 5 == 1)
-		// if(player.items.length % 2 == 1)
-			row = itemTable.insertRow();
-		else
-			row = itemTable.rows[itemTable.rows.length-1];
+      let itemTable = document.getElementById("itemTable");
+      let row;
+      if(player.items.length % 5 == 1)
+        row = itemTable.insertRow();
+      else
+        row = itemTable.rows[itemTable.rows.length-1];
 
-		let cell = row.insertCell();
-		cell.id = itemType+"ItemCell";
-		let img = document.createElement("IMG");
-		img.src = "/static/data/items/"+itemType+".png";
-    img.setAttribute("onclick", "itemManager.showItemInfo(this.src)");
+      let cell = row.insertCell();
+      cell.id = itemType+"ItemCell";
+      let img = document.createElement("IMG");
+      img.src = "/static/data/items/"+itemType+".png";
+      img.setAttribute("onclick", "display.showInventoryObjectInfo(this.src, 'item')");
 
-		let text = document.createTextNode("1");
-		let div = document.createElement("div");
-		div.className = "itemSubscript";
-		div.id = itemType+"ItemCellText";
-		div.appendChild(text);
+      let text = document.createTextNode("1");
+      let div = document.createElement("div");
+      div.className = "itemSubscript";
+      div.id = itemType+"ItemCellText";
+      div.appendChild(text);
 
-		cell.appendChild(img);
-		cell.appendChild(div);
+      cell.appendChild(img);
+      cell.appendChild(div);
 
-		$.notify(`item \"${itemType}\" acquired!`, "success");
+      $.notify(`item \"${itemType}\" acquired!`, "success");
 	}
 
 	incrementItem(itemType, itemQuantity){
@@ -46,30 +44,6 @@ class ItemManager {
 		return itemIndex;
 	}
 
-	showItemInfo(itemSrc) {
-		// get filename without extension
-		let itemName = itemSrc.replace(/^.*[\\\/]/, '').split('.').slice(0, -1).join('.')
-		this.inInfoMode = true;
-		this.showInfoName = itemName;
-		let itemIndex = this.searchItemIndex(itemName);
-		let itemQuantity = player.items[itemIndex]["quantity"];
-
-		$("#itemTable").hide();
-		$("#itemInfoPage").show();
-
-		$("#itemTitle").text("<<" + itemName + ">> x" + itemQuantity);
-		$("#itemDescription").text(stats["items"][itemName]["description"]);
-		$("#itemUseButton").attr("onclick", `itemManager.useItem(itemManager.showInfoName);`);
-		$("#portraitImg").attr('src', itemSrc);
-	}
-
-	hideItemInfo() {
-		this.inInfoMode = false;
-		$("#portraitImg").attr('src', '/static/data/avatars/empty.png');
-		$("#itemInfoPage").hide();
-		$("#itemTable").show();
-	}
-
 	useItem(itemName) {
 		let itemIndex = this.searchItemIndex(itemName);
 		if (itemIndex == player.items.length || player.items[itemIndex]["quantity"] <= 0)
@@ -78,14 +52,14 @@ class ItemManager {
 		player.items[itemIndex]["quantity"]--;
 		let itemQuantity = player.items[itemIndex]["quantity"];
 
-		$("#itemTitle").text("<<"+itemName+">> x"+(itemQuantity));
+		$("#infoCardTitle").text("<<"+itemName+">> x"+(itemQuantity));
 		$(("#"+itemName+"ItemCellText")).text((itemQuantity));
 
 		this.updateQuickAccessQuantity(itemName, itemQuantity);
 		this.applyEffects(itemName);
 
 		if (itemQuantity === 0) {
-			this.hideItemInfo();
+            display.clearDescriptionCard();
 			player.items.splice(itemIndex, 1);
 			$(("#"+itemName+"ItemCell")).remove();
 		}
