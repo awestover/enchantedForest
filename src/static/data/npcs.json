@@ -1,10 +1,12 @@
 {
   "levantersKeep": {
     "dawg": {
+      "type": "questgiver",
       "proposeQuest": "gettingStarted",
       "dialogue": "heyo, im an npc"
     },
     "bear": {
+      "type": "merchant",
       "proposeTrade": {"item": "gem", "cost": "10"},
       "dialogue": "long live theland. theland!! Buy my stuff too."
     }

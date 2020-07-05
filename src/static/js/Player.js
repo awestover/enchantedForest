@@ -26,7 +26,7 @@ class Player extends Entity {
         }
       }
       this.quests.push(quest);
-			questSystem.addQuest(quest);
+      questSystem.addQuest(quest);
       $.notify(`new quest ${quest} assigned!`, "success");
     }
     else{
@@ -36,8 +36,8 @@ class Player extends Entity {
   }
 
   spawn(){
-      this.pos.mult(0);
-      this.vel.mult(0);
+    this.pos.mult(0);
+    this.vel.mult(0);
   }
   levelup(){
     this.xp -= levelupReqXP[this.level];
@@ -48,9 +48,9 @@ class Player extends Entity {
   handleMobKill(mob_species){
     this.xp += 10;
     for(let i in this.quests){
-			let questName = this.quests[i];
-			let questType = quest_data[questName].task.type;
-			let questQuantity = quest_data[questName]["task"]["quantity"];
+      let questName = this.quests[i];
+      let questType = quest_data[questName].task.type;
+      let questQuantity = quest_data[questName]["task"]["quantity"];
       if(questType == "hunt" && quest_data[questName].task.species == mob_species){
         if(this.questProgress.hasOwnProperty(questName)){ // NOTE: this is much nicer than try catch imo :)
           this.questProgress[questName] += 1;
@@ -59,43 +59,41 @@ class Player extends Entity {
           this.questProgress[questName] = 1;
         }
 
-				if (questSystem.inInfoMode) {
-					$("#infoCardTitle").text(`<<${questName}>> (${this.questProgress[questName]}/${questQuantity} ${questType}ed)`);
-				}
+        $("#infoCardTitle").text(`<<${questName}>> (${this.questProgress[questName]}/${questQuantity} ${questType}ed)`);
       }
     }
   }
 
-	repositionProjectile(xPos){
-		return this.pos.x + this.lastDir * blockSize;
-	}
-	fireballAttack(){
-		let species = "fireball";
-		if (this.mana >= stats.weapons[species]["manaCost"])
-			this.projectiles.push(new Projectile(this.repositionProjectile(this.pos.x), this.pos.y, species));
-	}
-	coinshotAttack(){
-		let species = "coinshot";
-		if (this.mana >= stats.weapons[species]["manaCost"])
-			this.projectiles.push(new Projectile(this.repositionProjectile(this.pos.x), this.pos.y-blockSize/2, species));
-	}
+  repositionProjectile(xPos){
+    return this.pos.x + this.lastDir * blockSize;
+  }
+  fireballAttack(){
+    let species = "fireball";
+    if (this.mana >= stats.weapons[species]["manaCost"])
+      this.projectiles.push(new Projectile(this.repositionProjectile(this.pos.x), this.pos.y, species));
+  }
+  coinshotAttack(){
+    let species = "coinshot";
+    if (this.mana >= stats.weapons[species]["manaCost"])
+      this.projectiles.push(new Projectile(this.repositionProjectile(this.pos.x), this.pos.y-blockSize/2, species));
+  }
 
   pickupItem(itemSpecies){
     for(let i in this.items){
       if(this.items[i].species == itemSpecies){
         this.items[i].quantity += 1;
-				itemManager.incrementItem(itemSpecies, this.items[i].quantity);
-				return false;
+        itemManager.incrementItem(itemSpecies, this.items[i].quantity);
+        return false;
       }
     }
     // if this is an item we don't already have any of
     this.items.push({"species": itemSpecies, "quantity": 1});
-		itemManager.createItem(itemSpecies);
+    itemManager.createItem(itemSpecies);
   }
 
   handleQuestCompletion(quest){
     player.xp += quest_data[quest].rewards.xp;
-		questSystem.removeQuest(quest);
+    questSystem.removeQuest(quest);
   }
 
   checkForQuestCompletion(){

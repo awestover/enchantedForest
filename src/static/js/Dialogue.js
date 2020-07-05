@@ -63,7 +63,7 @@ class Dialogue { // TODO: should maybe have different types of dialogue (e.g. tr
 
       this.montage();
       if(this.questName.length > 0){
-        $("#questBannerAcceptButton").attr("onclick", `player.assignQuest('${this.npcData.proposeQuest}'); dialogue.hideQuestBanner();`);
+        $("#questBannerAcceptButton").attr("onclick", `dialogue.hideQuestBanner(); player.assignQuest('${this.npcData.proposeQuest}');`);
         $("#questBannerDeclineButton").attr("onclick", `dialogue.hideQuestBanner();`);
       }
       else if(this.trade !== null){

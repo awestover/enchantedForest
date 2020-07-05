@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.2" tiledversion="1.2.4" name="tileset" tilewidth="32" tileheight="32" tilecount="17" columns="0">
+<tileset version="1.2" tiledversion="1.2.4" name="tileset" tilewidth="32" tileheight="32" tilecount="22" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0">
   <properties>
@@ -49,12 +49,6 @@
   </properties>
   <image width="32" height="32" source="gimpTiles/dogProfilePic.png"/>
  </tile>
- <tile id="8">
-  <properties>
-   <property name="name" value="teleporter"/>
-  </properties>
-  <image width="32" height="32" source="gimpTiles/teleporter.png"/>
- </tile>
  <tile id="9">
   <properties>
    <property name="name" value="mob:jumpydude"/>
@@ -102,5 +96,41 @@
    <property name="name" value="mob:boar"/>
   </properties>
   <image width="32" height="25" source="gimpTiles/boarSpawnPoint.png"/>
+ </tile>
+ <tile id="21">
+  <properties>
+   <property name="name" value="teleporterA"/>
+  </properties>
+  <image width="32" height="32" source="gimpTiles/teleporter.png"/>
+ </tile>
+ <tile id="22">
+  <properties>
+   <property name="name" value="teleporterB"/>
+  </properties>
+  <image width="32" height="32" source="gimpTiles/teleporter.png"/>
+ </tile>
+ <tile id="23">
+  <properties>
+   <property name="name" value="teleporterC"/>
+  </properties>
+  <image width="32" height="32" source="gimpTiles/teleporter.png"/>
+ </tile>
+ <tile id="24">
+  <properties>
+   <property name="name" value="teleporterD"/>
+  </properties>
+  <image width="32" height="32" source="gimpTiles/teleporter.png"/>
+ </tile>
+ <tile id="25">
+  <properties>
+   <property name="name" value="teleporterE"/>
+  </properties>
+  <image width="32" height="32" source="gimpTiles/teleporter.png"/>
+ </tile>
+ <tile id="26">
+  <properties>
+   <property name="name" value="checkpoint"/>
+  </properties>
+  <image width="32" height="32" source="gimpTiles/checkpoint.png"/>
  </tile>
 </tileset>

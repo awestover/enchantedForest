@@ -65,3 +65,17 @@ with open(os.path.join(room, "tilemap.tmx"), "r") as f:
 with open(os.path.join(room, "map.json"), "w") as f:
     json.dump(output, f)
 
+with open("../teleporters.json", "r") as f:
+    teleporter_data = json.load(f)
+real_room_name = os.path.split(os.path.split(room)[0])[1]
+
+roomstuff = output["layers"]["roomstuff"]
+for i in range(len(roomstuff)):
+    for j in range(len(roomstuff[i])):
+        tile_name = output["tiles"][roomstuff[i][j]]["tilename"]
+        if "teleporter" in tile_name:
+            teleporter_data[real_room_name][tile_name]["location_of_this_teleporter"] = {"x": j, "y": i}
+
+with open("../teleporters.json", "w") as f:
+    json.dump(teleporter_data, f, indent=4)
+
