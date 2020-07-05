@@ -77,6 +77,7 @@ function windAtTime(){
 
 function loadRoom(roomName){
   $("#questBannerContainer").hide();
+  $("#conversationContainer").hide();
   display.clearDescriptionCard();
   $(".wrapper").hide();
   currentRoom = roomName;
@@ -505,7 +506,7 @@ function draw(){
     pop(); // outside of this pop, the camera perspective translate doesnt happen, use this for things that you want absolutely positioned
 
     if (lost)
-			display.showLoseScreen();
+      display.showLoseScreen();
 
     if(lastDialogueBoxToShow === null)
       player.movementLocked = false;
@@ -516,11 +517,11 @@ function draw(){
       }
       else{
         try {
-					dialogue.npcName = dialogueBoxToShow;
-					dialogue.npcData = npc_data[currentRoom][dialogueBoxToShow];
+          dialogue.npcName = dialogueBoxToShow;
+          dialogue.npcData = npc_data[currentRoom][dialogueBoxToShow];
         } catch (e) {
-					dialogue.npcName = dialogueBoxToShow;
-					dialogue.npcData = {};
+          dialogue.npcName = dialogueBoxToShow;
+          dialogue.npcData = {};
         }
       }
     }

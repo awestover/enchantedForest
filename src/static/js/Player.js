@@ -5,16 +5,16 @@ class Player extends Entity {
     this.xp = 0;
     this.coins = 100;
     this.coincap = 1000;
-		this.mana = 100;
-		this.mana = 999999;
+    this.mana = 100;
+    this.mana = 999999;
     this.manacap = 1000;
-		this.projectiles = [];
+    this.projectiles = [];
     this.items = []; // list of {"type": "XX", "quantity": x}
     this.quests = []; // ["gettingStarted", ... ]
     this.questProgress = {}; // "gettingStarted": 5 (mobs killed / potions collected / whatever (if the quest has some numerical thing attached to it, otherwise make this binary))
     this.completedQuests = [];
-		this.movementLocked = false;
-		this.lockQuickAccess = false;
+    this.movementLocked = false;
+    this.lockQuickAccess = false;
   }
 
   assignQuest(quest){

@@ -17,7 +17,7 @@ body {
 	position: fixed;
 }
 
-#inventoryContainer {
+#conversationContainer {
 	bottom: 0;
 	height: 19vh;
 	width: 72vw;
@@ -26,14 +26,14 @@ body {
 	margin-bottom: 1vh;
 }
 
-#inventoryContainer div {
+#conversationContainer div {
 	overflow-y: scroll;
 	scrollbar-width: none; /* Firefox */
 	-ms-overflow-style: none;  /* Internet Explorer 10+ */
 	color: white;
 }
 
-#inventoryContainer div::-webkit-scrollbar { /* WebKit */
+#conversationContainer div::-webkit-scrollbar { /* WebKit */
 	width: 0;
 	height: 0;
 }
