@@ -39,7 +39,7 @@ class Entity {
 
   superjump(){ // note: this can go through stuff... probably not a real feature, rather development tool
     if (!this.falling){ 
-      this.vel.y -= 2*jumpImpulse;
+      this.vel.y -= 1.4*jumpImpulse;
       this.falling = true;
     }
   }

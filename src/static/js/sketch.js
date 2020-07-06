@@ -250,7 +250,7 @@ function checkKeys() {
     player.vel.x = Math.min(player.vel.x+moveAccel, player.maxVel.x);
 		player.lastDir = 1;
 	}
-  if(keyIsDown(87) || keyIsDown(38)) // W / UP
+  if(keyIsDown(38)) // UP
     player.superjump();
     // player.jump();
   if (keyIsDown(32))	// space
@@ -505,8 +505,11 @@ function draw(){
           for (let i in TELEPORTER_NAMES) {
             if(data.layers.roomstuff[y][x] == TILE_NAMES_TO_IDS[TELEPORTER_NAMES[i]]){
               const new_room = teleporter_data[currentRoom][TELEPORTER_NAMES[i]]["to"];
-              const spawn_loc = teleporter_data[new_room][TELEPORTER_NAMES[i]]["location"];
+              console.log(new_room);
+              const spawn_loc = teleporter_data[new_room][TELEPORTER_NAMES[i]]["location_of_this_teleporter"];
+              console.log(spawn_loc);
               const spit_direction = teleporter_data[new_room][TELEPORTER_NAMES[i]]["spit_direction_for_incoming_user"]
+              console.log(spit_direction);
               $.notify("spawn_loc: " + "x: "+ spawn_loc.x + "y: " + spawn_loc.y);
 
               $.notify(`TELEPORTING TO ${new_room} teleporter ${TELEPORTER_NAMES[i]}`);

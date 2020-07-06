@@ -76,6 +76,7 @@ Note: most of these arguments are optional. Kind of. Well there are defaults tha
 "startRoom": [
   {
     "name": "dawg",
+    "type": "questDealer" / "merchant" / "talker"
     "proposeQuest": "gettingStarted",
     "dialogue": "heyo, im an npc"
   }

@@ -15,6 +15,8 @@ class Player extends Entity {
     this.completedQuests = [];
     this.movementLocked = false;
     this.lockQuickAccess = false;
+
+    this.maxVel.x = 5; // TODO: this might be dumb
   }
 
   assignQuest(quest){
