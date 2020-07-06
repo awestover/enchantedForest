@@ -1,16 +1,17 @@
 class Dialogue { // TODO: should maybe have different types of dialogue (e.g. trade dialogude, quest dialogue...)
   constructor(){
-		this.inDialogue = false;
-		this.dialogueIndex = 0;
-		this.npcName = "";
 
-		this.questName = "";
-		this.questDetails = null;
+    // these parameters are updated whenever you open a new dialogue
+    this.inDialogue = false;
+    this.dialogueIndex = 0;
+    this.questName = "";
+    this.currentType = null;
 
+    this.npcName = "";
+    this.questDetails = null;
     this.trade = null;
-		this.script = null;
-
-		this.shouldDisplayBanner = false;
+    this.script = null;
+    this.shouldDisplayBanner = false;
   }
 
 	displayTradeBanner(){ // TODO: change the name of the banner stuff so that it's not just for quests
@@ -53,6 +54,8 @@ class Dialogue { // TODO: should maybe have different types of dialogue (e.g. tr
       player.movementLocked = true;
       this.dialogueIndex = 0;
 
+      this.type = this.npcData.type;
+
       this.questName = this.npcData.proposeQuest || "";
       if(this.questName.length > 0)
         this.questDetails = {...quest_data[this.npcData.proposeQuest]};
@@ -88,7 +91,10 @@ class Dialogue { // TODO: should maybe have different types of dialogue (e.g. tr
 
       // End of dialogue
       if(this.dialogueIndex > this.script.length){
-        if(this.questName.length > 0){
+        if (this.type === "talker"){
+          player.movementLocked = false;
+        } 
+        else if(this.type === "questDealer"){
           if(!player.quests.includes(this.questName) && 
             !player.completedQuests.includes(this.questName)){
             this.displayQuestBanner();
@@ -96,7 +102,7 @@ class Dialogue { // TODO: should maybe have different types of dialogue (e.g. tr
           else
             player.movementLocked = false;
         }
-        else if(this.trade !== null && this.shouldDisplayBanner){
+        else if(this.type === "merchant" && this.shouldDisplayBanner){
           this.displayTradeBanner();
           this.shouldDisplayBanner = false;
         }
@@ -110,7 +116,7 @@ class Dialogue { // TODO: should maybe have different types of dialogue (e.g. tr
 		let words = fulltext.split(" ");
 		let finaltext = [];
 		let currentLength = 0;
-		let maxLength = 15;
+		let maxLength = 250;
 		let tempstr = "";
 
 		for(let i = 0; i < words.length; i++){

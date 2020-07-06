@@ -1,7 +1,7 @@
 {
   "levantersKeep": {
     "dawg": {
-      "type": "questgiver",
+      "type": "questDealer",
       "proposeQuest": "gettingStarted",
       "dialogue": "heyo, im an npc"
     },
