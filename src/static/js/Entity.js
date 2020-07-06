@@ -32,7 +32,7 @@ class Entity {
     this.seekPath = [];
     this.seekPathTimer = 0;
 
-		this.lives = 4;
+    this.lives = 4;
     this.falling = false;
 		this.lastDir = 1;
   }
