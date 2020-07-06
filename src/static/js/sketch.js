@@ -89,6 +89,8 @@ function loadRoom(roomName, spawn_loc, spit_direction){
   data = null;
   mobs = [];
   roomImage = loadImage(`/static/data/maps/rooms/${roomName}/tilemap.png`);
+  fallingParticles = [];
+  bolts = [];
   $.getJSON(`/static/data/maps/rooms/${roomName}/traits.json`, function(returnData){
     roomTraits = returnData;
     bgColor = color(roomTraits["bg-color"]);
@@ -505,11 +507,8 @@ function draw(){
           for (let i in TELEPORTER_NAMES) {
             if(data.layers.roomstuff[y][x] == TILE_NAMES_TO_IDS[TELEPORTER_NAMES[i]]){
               const new_room = teleporter_data[currentRoom][TELEPORTER_NAMES[i]]["to"];
-              console.log(new_room);
               const spawn_loc = teleporter_data[new_room][TELEPORTER_NAMES[i]]["location_of_this_teleporter"];
-              console.log(spawn_loc);
               const spit_direction = teleporter_data[new_room][TELEPORTER_NAMES[i]]["spit_direction_for_incoming_user"]
-              console.log(spit_direction);
               $.notify("spawn_loc: " + "x: "+ spawn_loc.x + "y: " + spawn_loc.y);
 
               $.notify(`TELEPORTING TO ${new_room} teleporter ${TELEPORTER_NAMES[i]}`);
