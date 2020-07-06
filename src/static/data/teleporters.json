@@ -46,7 +46,7 @@
     "littleCave": {
         "teleporterC": {
             "to": "llamaPlains",
-            "spit_direction_for_incoming_user": -1,
+            "spit_direction_for_incoming_user": 1,
             "location_of_this_teleporter": {
                 "x": 1,
                 "y": 6
