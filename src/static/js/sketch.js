@@ -137,7 +137,7 @@ function loadRoom(roomName, spawn_loc, spit_direction){
       spit_direction = 0;
     }
     let physical_spawn_loc = blockCenter(spawn_loc.x, spawn_loc.y);
-    physical_spawn_loc.y += 1;
+    physical_spawn_loc.y -= blockSize;
     player.vel.x = Math.abs(player.vel.x) * spit_direction;
     player.pos.x = physical_spawn_loc.x + 2*blockSize*spit_direction; // TODO: mildly sketchy
     player.pos.y = physical_spawn_loc.y;
@@ -558,7 +558,7 @@ function draw(){
     text("LOADING", 0, 0);
     if(!triggered_initial_room_load && init_toload.length == 0){
       triggered_initial_room_load = true;
-      loadRoom(currentRoom, {"x": floor(mapTileDims.x/2), "y": floor(mapTileDims.y/2)}); // TODO: this should be where the last save point was
+      loadRoom(currentRoom, {"x": floor(mapTileDims.x/2), "y": floor(mapTileDims.y/2) + 1}); // TODO: this should be where the last save point was
     }
   }
 
