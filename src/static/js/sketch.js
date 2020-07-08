@@ -14,17 +14,20 @@ const levelupReqXP = [
 
 const KEY_CODE_TABLE = {
   "up": 38, 
-  "left": LEFT_ARROW, 
-  "right": RIGHT_ARROW, 
+  "left": 37, 
+  "right": 39, 
   "space": 32,
   "shift": 16, 
   "enter": 13, 
   "0": 48, 
   "a": 65, 
+  "d": 68, 
   "c": 67, 
   "q": 81, 
   "w": 87, 
-  "x": 88
+  "x": 88,
+  "u": 85, 
+  "e": 69
 }
 
 let smoothedFrameRateEstimate = 60;
@@ -492,7 +495,7 @@ function draw(){
               const new_room = cur_teleporter["to"];
               const spawn_loc = cur_teleporter["location_of_this_teleporter"];
               const spit_direction = cur_teleporter["spit_direction_for_incoming_user"];
-              const automatically_teleport = cur_teleporter["automatically_teleport"];
+              const automatically_teleports = cur_teleporter["automatically_teleports"];
 
               if(automatically_teleport || keyIsDown(KEY_CODE_TABLE["up"])){
                 $.notify("spawn_loc: " + "x: "+ spawn_loc.x + "y: " + spawn_loc.y);
