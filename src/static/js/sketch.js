@@ -12,6 +12,21 @@ const levelupReqXP = [
   4030,4040,4050,4060,4070,4080,4090,4100
 ];
 
+const KEY_CODE_TABLE = {
+  "up": 38, 
+  "left": LEFT_ARROW, 
+  "right": RIGHT_ARROW, 
+  "space": 32,
+  "shift": 16, 
+  "enter": 13, 
+  "0": 48, 
+  "a": 65, 
+  "c": 67, 
+  "q": 81, 
+  "w": 87, 
+  "x": 88, 
+}
+
 let smoothedFrameRateEstimate = 60;
 let frameRateSmootherLambda = 0.01;
 
