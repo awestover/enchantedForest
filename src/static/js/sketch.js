@@ -137,7 +137,7 @@ function loadRoom(roomName, spawn_loc, spit_direction){
       spit_direction = 0;
     }
     let physical_spawn_loc = blockCenter(spawn_loc.x, spawn_loc.y);
-    physical_spawn_loc.y -= 1;
+    physical_spawn_loc.y -= 2;
     player.vel.x = Math.abs(player.vel.x) * spit_direction;
     player.pos.x = physical_spawn_loc.x + 2*blockSize*spit_direction; // TODO: mildly sketchy
     player.pos.y = physical_spawn_loc.y;
