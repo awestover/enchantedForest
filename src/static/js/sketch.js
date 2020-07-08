@@ -13,8 +13,18 @@ const levelupReqXP = [
 ];
 
 const KEY_CODE_TABLE = {
-  "UP": 
-  "A": 65, 
+  "up": 38, 
+  "left": LEFT_ARROW, 
+  "right": RIGHT_ARROW, 
+  "space": 32,
+  "shift": 16, 
+  "enter": 13, 
+  "0": 48, 
+  "a": 65, 
+  "c": 67, 
+  "q": 81, 
+  "w": 87, 
+  "x": 88
 }
 
 let smoothedFrameRateEstimate = 60;
