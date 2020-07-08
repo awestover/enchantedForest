@@ -493,11 +493,12 @@ function draw(){
             if(data.layers.roomstuff[y][x] == TILE_NAMES_TO_IDS[TELEPORTER_NAMES[i]]){
               const cur_teleporter = teleporter_data[currentRoom][TELEPORTER_NAMES[i]];
               const new_room = cur_teleporter["to"];
-              const spawn_loc = cur_teleporter["location_of_this_teleporter"];
-              const spit_direction = cur_teleporter["spit_direction_for_incoming_user"];
+              const new_teleporter = teleporter_data[new_room][TELEPORTER_NAMES[i]];
+              const spawn_loc = new_teleporter["location_of_this_teleporter"];
+              const spit_direction = new_teleporter["spit_direction_for_incoming_user"];
               const automatically_teleports = cur_teleporter["automatically_teleports"];
 
-              if(automatically_teleport || keyIsDown(KEY_CODE_TABLE["up"])){
+              if(automatically_teleports || keyIsDown(KEY_CODE_TABLE["up"])){
                 $.notify("spawn_loc: " + "x: "+ spawn_loc.x + "y: " + spawn_loc.y);
 
                 $.notify(`TELEPORTING TO ${new_room} teleporter ${TELEPORTER_NAMES[i]}`);
