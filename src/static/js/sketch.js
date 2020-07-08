@@ -12,6 +12,11 @@ const levelupReqXP = [
   4030,4040,4050,4060,4070,4080,4090,4100
 ];
 
+const KEY_CODE_TABLE = {
+  "UP": 
+  "A": 65, 
+}
+
 let smoothedFrameRateEstimate = 60;
 let frameRateSmootherLambda = 0.01;
 
@@ -244,53 +249,38 @@ function checkKeys() {
 	if (player.movementLocked)
 		return;
 
-  if (keyIsDown(LEFT_ARROW) || keyIsDown(65)){ // LEFT / A
+  if (keyIsDown(KEY_CODE_TABLE["left"]) || keyIsDown(KEY_CODE_TABLE["a"])){
     player.vel.x = Math.max(player.vel.x-moveAccel, -player.maxVel.x);
 		player.lastDir = -1;
 	}
-  else if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)){ // RIGHT / D
+  else if (keyIsDown(KEY_CODE_TABLE["right"]) || keyIsDown(KEY_CODE_TABLE["d"])){
     player.vel.x = Math.min(player.vel.x+moveAccel, player.maxVel.x);
 		player.lastDir = 1;
 	}
-  if(keyIsDown(38)) // UP
+  if(keyIsDown(KEY_CODE_TABLE["u"]))
     player.superjump();
-    // player.jump();
-  if (keyIsDown(32))	// space
+
+  if (keyIsDown(KEY_CODE_TABLE["space"]))
     player.jump();
 
-  if (keyIsDown(16)) {
+  if (keyIsDown(KEY_CODE_TABLE["shift"])) {
     player.lockQuickAccess = true;
-    if (keyCode === 48)	// 0
-      itemManager.setQuickAccess(0);
-    else if (keyCode === 49)	// 1
-      itemManager.setQuickAccess(1);
-    else if (keyCode === 50)	// 2
-      itemManager.setQuickAccess(2);
-    else if (keyCode === 51)	// 3
-      itemManager.setQuickAccess(3);
-    else if (keyCode === 52)	// 4
-      itemManager.setQuickAccess(4);
-    else if (keyCode === 53)	// 5
-      itemManager.setQuickAccess(5);
-    else if (keyCode === 54)	// 6 
-      itemManager.setQuickAccess(6);
-    else if (keyCode === 55)	// 7
-      itemManager.setQuickAccess(7);
-    else if (keyCode === 56)	// 8
-      itemManager.setQuickAccess(8);
-    else if (keyCode === 57)	// 9
-      itemManager.setQuickAccess(9);
+    for (var i = 0; i < 10; i++) {
+      if(keyCode === KEY_CODE_TABLE["0"] + i){
+        itemManager.setQuickAccess(i);
+      }
+    }
   }
 }
 
 function keyReleased() {
-  if (keyCode === 88)				// x
+  if (keyCode === KEY_CODE_TABLE["x"])
     player.fireballAttack();
-  else if (keyCode === 67)	// c
+  else if (keyCode === KEY_CODE_TABLE["c"])	
     player.coinshotAttack();
-  else if (keyCode === 13)	// enter
+  else if (keyCode === KEY_CODE_TABLE["enter"])
     dialogue.montage();
-  else if (keyCode === 87){	// w
+  else if (keyCode === KEY_CODE_TABLE["w"]){
     if($('.wrapper:visible').length){
       $(".wrapper").hide();
       display.clearDescriptionCard();
@@ -298,37 +288,19 @@ function keyReleased() {
     else
       $(".wrapper").show();
   }
-  else if (keyCode === 81)	// q
+  else if (keyCode === KEY_CODE_TABLE["q"])
     display.prevInventory();
-  else if (keyCode === 69)	// e
+  else if (keyCode === KEY_CODE_TABLE["e"])	
     display.nextInventory();
-  else if (keyCode === 16){
-    setTimeout(function (){
-      player.lockQuickAccess = false;
-    }, 500);
+  else if (keyCode === KEY_CODE_TABLE["shift"]){
+    setTimeout(()=>{ player.lockQuickAccess = false; }, 500);
   }
 
   if (!player.lockQuickAccess) {
-    if (keyCode === 48)	// 0
-      itemManager.quickAccess1();
-    else if (keyCode === 49)	// 1
-      itemManager.quickAccess1();
-    else if (keyCode === 50)	// 2
-      itemManager.quickAccess2();
-    else if (keyCode === 51)	// 3
-      itemManager.quickAccess3();
-    else if (keyCode === 52)	// 4
-      itemManager.quickAccess4();
-    else if (keyCode === 53)	// 5
-      itemManager.quickAccess5();
-    else if (keyCode === 54)	// 6 
-      itemManager.quickAccess6();
-    else if (keyCode === 55)	// 7
-      itemManager.quickAccess7();
-    else if (keyCode === 56)	// 8
-      itemManager.quickAccess8();
-    else if (keyCode === 57)	// 9
-      itemManager.quickAccess9();
+    for (var i = 0; i < 10; i++) {
+      if (keyCode === KEY_CODE_TABLE["0"] + i)
+        itemManager.quickAccess(i);
+    }
   }
 }
 
@@ -506,14 +478,19 @@ function draw(){
           }
           for (let i in TELEPORTER_NAMES) {
             if(data.layers.roomstuff[y][x] == TILE_NAMES_TO_IDS[TELEPORTER_NAMES[i]]){
-              const new_room = teleporter_data[currentRoom][TELEPORTER_NAMES[i]]["to"];
-              const spawn_loc = teleporter_data[new_room][TELEPORTER_NAMES[i]]["location_of_this_teleporter"];
-              const spit_direction = teleporter_data[new_room][TELEPORTER_NAMES[i]]["spit_direction_for_incoming_user"]
-              $.notify("spawn_loc: " + "x: "+ spawn_loc.x + "y: " + spawn_loc.y);
+              const cur_teleporter = teleporter_data[currentRoom][TELEPORTER_NAMES[i]];
+              const new_room = cur_teleporter["to"];
+              const spawn_loc = cur_teleporter["location_of_this_teleporter"];
+              const spit_direction = cur_teleporter["spit_direction_for_incoming_user"];
+              const automatically_teleport = cur_teleporter["automatically_teleport"];
 
-              $.notify(`TELEPORTING TO ${new_room} teleporter ${TELEPORTER_NAMES[i]}`);
-              loadRoom(new_room, spawn_loc, spit_direction);
-              return;
+              if(automatically_teleport || keyIsDown(KEY_CODE_TABLE["up"])){
+                $.notify("spawn_loc: " + "x: "+ spawn_loc.x + "y: " + spawn_loc.y);
+
+                $.notify(`TELEPORTING TO ${new_room} teleporter ${TELEPORTER_NAMES[i]}`);
+                loadRoom(new_room, spawn_loc, spit_direction);
+                return;
+              }
             }
           }
         }

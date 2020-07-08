@@ -91,15 +91,7 @@ class ItemManager {
 		$(("#quickAccess"+value)).siblings().text(itemQuantity);
 	}
 
-	quickAccess0() { this.useItem(quickAccessItems[0]); }
-	quickAccess1() { this.useItem(quickAccessItems[1]); }
-	quickAccess2() { this.useItem(quickAccessItems[2]); }
-	quickAccess3() { this.useItem(quickAccessItems[3]); }
-	quickAccess4() { this.useItem(quickAccessItems[4]); }
-	quickAccess5() { this.useItem(quickAccessItems[5]); }
-	quickAccess6() { this.useItem(quickAccessItems[6]); }
-	quickAccess7() { this.useItem(quickAccessItems[7]); }
-	quickAccess8() { this.useItem(quickAccessItems[8]); }
-	quickAccess9() { this.useItem(quickAccessItems[9]); }
+
+  quickAccess(i) { this.useItem(quickAccessItems[i]); }
 
 }
