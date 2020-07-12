@@ -19,6 +19,7 @@ const KEY_CODE_TABLE = {
   "space": 32,
   "shift": 16, 
   "enter": 13, 
+  "escape": 27,
   "0": 48, 
   "a": 65, 
   "d": 68, 
@@ -100,6 +101,7 @@ function windAtTime(){
 function loadRoom(roomName, spawn_loc, spit_direction){
   $("#questBannerContainer").hide();
   $("#conversationContainer").hide();
+  $("#shopContainer").hide();
   display.clearDescriptionCard();
   $(".wrapper").hide();
   currentRoom = roomName;
@@ -293,12 +295,14 @@ function keyReleased() {
     player.coinshotAttack();
   else if (keyCode === KEY_CODE_TABLE["enter"])
     dialogue.montage();
+  else if (keyCode === KEY_CODE_TABLE["escape"]){
+    if (dialogue.currentType === "merchant")
+      dialogue.exitShopMenu();
+    $(".wrapper").hide();
+    display.clearDescriptionCard();
+  }
   else if (keyCode === KEY_CODE_TABLE["w"]){
-    if($('.wrapper:visible').length){
-      $(".wrapper").hide();
-      display.clearDescriptionCard();
-    }
-    else
+    if (dialogue.currentType != "merchant")
       $(".wrapper").show();
   }
   else if (keyCode === KEY_CODE_TABLE["q"])

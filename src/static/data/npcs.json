@@ -7,7 +7,7 @@
     },
     "bear": {
       "type": "merchant",
-      "proposeTrade": {"item": "gem", "cost": "10"},
+      "proposeTrade": ["potion", "gem"],
       "dialogue": "long live theland. theland!! Buy my stuff too."
     }
   }, 

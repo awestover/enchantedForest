@@ -1,6 +1,7 @@
 class ItemManager {
   constructor(){
     this.showInfoName;
+    this.showItemCost;
   }
 
   createItem(itemType){

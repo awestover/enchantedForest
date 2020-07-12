@@ -3,7 +3,7 @@ class HUD {
     this.imgs = {
       "hearts": null
     };
-		this.currentInventoryIndex = 0;
+    this.currentInventoryIndex = 0;
   }
   loadImgs(){
     for(let img in this.imgs){
@@ -74,11 +74,11 @@ class HUD {
       this.currentInventoryIndex = inventoryList.length-1;
   }
 
-  showInventoryObjectInfo(questId, type) {
+  showInventoryObjectInfo(objectId, type) {
     if (type === "quest"){
-      $("#itemUseButton").hide();
+      $("#infoCardButton").hide();
 
-      let questName = questId.slice(0, -4);
+      let questName = objectId.slice(0, -4);
       let questType = quest_data[questName]["task"]["type"];
       let questSpecies = quest_data[questName]["task"]["species"];
       let questQuantity = quest_data[questName]["task"]["quantity"];
@@ -96,22 +96,42 @@ class HUD {
       $("#infoCardDescription").html(description);
     }
     else if (type === "item") {
-      $("#itemUseButton").show();
-      let itemName = questId.replace(/^.*[\\\/]/, '').split('.').slice(0, -1).join('.')     // get filename without extension
+      $("#infoCardButton").show();
+      $("#infoCardButton").text("USE");
+      let itemName = objectId.replace(/^.*[\\\/]/, '').split('.').slice(0, -1).join('.')     // get filename without extension
       itemManager.showInfoName = itemName;
       let itemIndex = itemManager.searchItemIndex(itemName);
       let itemQuantity = player.items[itemIndex]["quantity"];
 
       $("#infoCardTitle").text("<<" + itemName + ">> x" + itemQuantity);
       $("#infoCardDescription").text(stats["items"][itemName]["description"]);
-      $("#itemUseButton").attr("onclick", `itemManager.useItem(itemManager.showInfoName);`);
+      $("#infoCardButton").attr("onclick", `itemManager.useItem(itemManager.showInfoName);`);
+    }
+    else if(type === "shop"){
+      $("#infoCardButton").show();
+      $("#infoCardButton").text("BUY");
+      let itemName = objectId.slice(0, -4)
+      itemManager.showInfoName = itemName;
+      itemManager.showInfoCost = stats["items"][itemName]["description"];
+      $("#infoCardTitle").text("<<" + itemName + ">>");
+      $("#infoCardDescription").text(itemManager.showInfoCost);
+      $("#infoCardButton").attr("onclick", `dialogue.performTrade();`);
     }
   }
 
   clearDescriptionCard(){
     $("#infoCardTitle").text("");
     $("#infoCardDescription").html("");
-    $("#itemUseButton").hide();
+    $("#infoCardButton").hide();
+  }
+
+  addShopItem(itemName){
+    let itemCost = stats["items"][itemName]["cost"];
+    let li = $("<li/>")
+      .attr("id", (itemName+"List"))
+      .attr("onclick", "display.showInventoryObjectInfo(this.id, 'shop')")
+      .text(`$${itemCost} ${itemName}`)
+      .appendTo($("#shopList"));
   }
 
 }

@@ -212,13 +212,13 @@ body {
 }
 
 
-#questContainer {
+.list-style-menu-container {
 	display: block;
 	width: 100%;
 	text-align: center;
 }
 
-#questHeader{
+.list-style-menu-header {
 	width: 100%;
 	margin-top: 0.5em;
 	font-size: 1.6em;
@@ -227,13 +227,13 @@ body {
 	color: black;
 }
 
-#questContainer ul {
+.list-style-menu-container ul {
 	float: center;
 	padding: 6%;
 	padding-top: 0;
 }
 
-#questContainer li {
+.list-style-menu-container li {
 	width: 10.5vw;
 	font-size: 1em;
 	border: 1px solid pink;
@@ -248,7 +248,7 @@ body {
 	font-weight: bold;
 }
 
-#questContainer li:hover {
+.list-style-menu-container li:hover {
 	cursor: pointer;
 }
 
@@ -266,7 +266,7 @@ body {
 	float: left;
 }
 
-#itemUseButton {
+#infoCardButton {
 	font-size: 1em;
 	text-align: center;
 	width: 5vw;
@@ -280,7 +280,7 @@ body {
 	opacity: 100%;
 }
 
-#itemUseButton:hover {
+#infoCardButton:hover {
 	cursor: pointer;
 }
 
