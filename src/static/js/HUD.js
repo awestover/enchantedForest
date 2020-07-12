@@ -46,33 +46,33 @@ class HUD {
     rect(-width/2+20, -height/2 + 150, 250*player.mana/player.manacap, 25);
     pop();
   }
-	showLoseScreen(){
-		fill(128, 128, 128, 100);
-		rect(0,0,width,height);
-		fill(0, 255, 255);
-		textSize(60);
-		text("You Lose", 0, 0);
-	}
+  showLoseScreen(){
+    fill(128, 128, 128, 100);
+    rect(0,0,width,height);
+    fill(0, 255, 255);
+    textSize(60);
+    text("You Lose", 0, 0);
+  }
 
-	nextInventory(){
-		inventoryList[this.currentInventoryIndex].hide();
-		this.rotateInventory(1);
-		inventoryList[this.currentInventoryIndex].show();
-	}
-	prevInventory(){
-		inventoryList[this.currentInventoryIndex].hide();
-		this.rotateInventory(-1);
-		inventoryList[this.currentInventoryIndex].show();
-	}
+  nextInventory(){
+    inventoryList[this.currentInventoryIndex].hide();
+    this.rotateInventory(1);
+    inventoryList[this.currentInventoryIndex].show();
+  }
+  prevInventory(){
+    inventoryList[this.currentInventoryIndex].hide();
+    this.rotateInventory(-1);
+    inventoryList[this.currentInventoryIndex].show();
+  }
 
-	rotateInventory(direction) {
-      display.clearDescriptionCard();
-		this.currentInventoryIndex += direction;
-		if (direction == 1 && this.currentInventoryIndex > inventoryList.length-1)
-			this.currentInventoryIndex = 0;
-		else if (direction == -1 && this.currentInventoryIndex < 0)
-			this.currentInventoryIndex = inventoryList.length-1;
-	}
+  rotateInventory(direction) {
+    display.clearDescriptionCard();
+    this.currentInventoryIndex += direction;
+    if (direction == 1 && this.currentInventoryIndex > inventoryList.length-1)
+      this.currentInventoryIndex = 0;
+    else if (direction == -1 && this.currentInventoryIndex < 0)
+      this.currentInventoryIndex = inventoryList.length-1;
+  }
 
   showInventoryObjectInfo(questId, type) {
     if (type === "quest"){

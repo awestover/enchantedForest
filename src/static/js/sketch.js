@@ -245,31 +245,31 @@ function setup(){
   ellipseMode(CENTER);
   textAlign(CENTER);
 
-	inventoryList.push($("#itemContainer"));
-    inventoryList.push($("#questContainer"));
+  inventoryList.push($("#itemContainer"));
+  inventoryList.push($("#questContainer"));
 
-	for (let inventoryElement in inventoryList)
-		inventoryList[inventoryElement].hide();
-	inventoryList[0].show();
-	// $("#itemInfoPage").hide();
+  for (let inventoryElement in inventoryList)
+    inventoryList[inventoryElement].hide();
+  inventoryList[0].show();
+  // $("#itemInfoPage").hide();
 
-	for (let i = 0; i < 10; i++) {
-		quickAccessItems[i] = null;
-	}
+  for (let i = 0; i < 10; i++) {
+    quickAccessItems[i] = null;
+  }
 }
 
 function checkKeys() {
-	if (player.movementLocked)
-		return;
+  if (player.movementLocked)
+    return;
 
   if (keyIsDown(KEY_CODE_TABLE["left"]) || keyIsDown(KEY_CODE_TABLE["a"])){
     player.vel.x = Math.max(player.vel.x-moveAccel, -player.maxVel.x);
-		player.lastDir = -1;
-	}
+    player.lastDir = -1;
+  }
   else if (keyIsDown(KEY_CODE_TABLE["right"]) || keyIsDown(KEY_CODE_TABLE["d"])){
     player.vel.x = Math.min(player.vel.x+moveAccel, player.maxVel.x);
-		player.lastDir = 1;
-	}
+    player.lastDir = 1;
+  }
   if(keyIsDown(KEY_CODE_TABLE["u"]))
     player.superjump();
 
@@ -563,7 +563,7 @@ function draw(){
   }
 
   pop(); // translate to screen center is 0,0
-  
+
   push(); // dont let the font bleed out
   fill(0);
   stroke(0);

@@ -34,7 +34,7 @@ class Entity {
 
     this.lives = 4;
     this.falling = false;
-		this.lastDir = 1;
+    this.lastDir = 1;
   }
 
   superjump(){ // note: this can go through stuff... probably not a real feature, rather development tool
@@ -80,63 +80,63 @@ class Entity {
     }
   }
 
-	// this is a bit more lenient in terms of dy, and a bit stricter in terms of dx than just hitsBlock
-	onBlock(x, y){
-		let bcenter = blockCenter(x, y);
-		let dx = this.pos.x + this.collision_offset.x - bcenter.x;
-		let dy = this.pos.y + this.collision_offset.y - bcenter.y;
-		let xIntersectSize = blockSize/2 + this.collision_dims.x/2 - Math.abs(dx);
-		let yIntersectSize = blockSize/2 + this.collision_dims.y/2 - Math.abs(dy);
+  // this is a bit more lenient in terms of dy, and a bit stricter in terms of dx than just hitsBlock
+  onBlock(x, y){
+    let bcenter = blockCenter(x, y);
+    let dx = this.pos.x + this.collision_offset.x - bcenter.x;
+    let dy = this.pos.y + this.collision_offset.y - bcenter.y;
+    let xIntersectSize = blockSize/2 + this.collision_dims.x/2 - Math.abs(dx);
+    let yIntersectSize = blockSize/2 + this.collision_dims.y/2 - Math.abs(dy);
 
-		if (dy < 0 && xIntersectSize > (1+collisionTollerence)*this.maxVel.x){
-			if(yIntersectSize > -(1+collisionTollerence)*this.maxVel.y){
-				return true;
-			}
-		}
-		return false;
+    if (dy < 0 && xIntersectSize > (1+collisionTollerence)*this.maxVel.x){
+      if(yIntersectSize > -(1+collisionTollerence)*this.maxVel.y){
+        return true;
+      }
+    }
+    return false;
 
-	}
+  }
 
-	barrierViolation(x, y){
-		let bcenter = blockCenter(x, y);
-		let dx = this.pos.x + this.collision_offset.x - bcenter.x;
-		let dy = this.pos.y + this.collision_offset.y - bcenter.y;
-		let xIntersectSize = blockSize/2 + this.collision_dims.x/2 - Math.abs(dx);
-		let yIntersectSize = blockSize/2 + this.collision_dims.y/2 - Math.abs(dy);
+  barrierViolation(x, y){
+    let bcenter = blockCenter(x, y);
+    let dx = this.pos.x + this.collision_offset.x - bcenter.x;
+    let dy = this.pos.y + this.collision_offset.y - bcenter.y;
+    let xIntersectSize = blockSize/2 + this.collision_dims.x/2 - Math.abs(dx);
+    let yIntersectSize = blockSize/2 + this.collision_dims.y/2 - Math.abs(dy);
     let hitdata = {"hit": false, "xfix": 0, "yfix": 0};
 
-		if (xIntersectSize > 0 && yIntersectSize > 0){
-			let barelyXCollision = xIntersectSize < this.maxVel.x*(1+collisionTollerence);
-			let barelyYCollision = yIntersectSize < this.maxVel.y*(1+collisionTollerence);
+    if (xIntersectSize > 0 && yIntersectSize > 0){
+      let barelyXCollision = xIntersectSize < this.maxVel.x*(1+collisionTollerence);
+      let barelyYCollision = yIntersectSize < this.maxVel.y*(1+collisionTollerence);
 
-			if(barelyXCollision){ // left/right border violation
+      if(barelyXCollision){ // left/right border violation
         hitdata["hit"] = true;
-				hitdata["xfix"] = Math.sign(dx)*xIntersectSize;
-			}
-			if(barelyYCollision){ // top/bottom border violation
+        hitdata["xfix"] = Math.sign(dx)*xIntersectSize;
+      }
+      if(barelyYCollision){ // top/bottom border violation
         hitdata["hit"] = true;
-				hitdata["yfix"] = Math.sign(dy)*yIntersectSize;
-			}
-		}
-		return hitdata; 
-	}
+        hitdata["yfix"] = Math.sign(dy)*yIntersectSize;
+      }
+    }
+    return hitdata; 
+  }
 
-	hitRect(otherpos, otherdims){
-		let dx = this.pos.x + this.collision_offset.x - otherpos.x;
-		let dy = this.pos.y + this.collision_offset.y - otherpos.y;
-		let xIntersectSize = otherdims.x/2 + this.collision_dims.x/2 - Math.abs(dx);
-		let yIntersectSize = otherdims.y/2 + this.collision_dims.y/2 - Math.abs(dy);
+  hitRect(otherpos, otherdims){
+    let dx = this.pos.x + this.collision_offset.x - otherpos.x;
+    let dy = this.pos.y + this.collision_offset.y - otherpos.y;
+    let xIntersectSize = otherdims.x/2 + this.collision_dims.x/2 - Math.abs(dx);
+    let yIntersectSize = otherdims.y/2 + this.collision_dims.y/2 - Math.abs(dy);
     return xIntersectSize > 0 && yIntersectSize > 0;
-	}
+  }
 
-	hitBlock(x, y){
-		let bcenter = blockCenter(x, y);
-		let dx = this.pos.x + this.collision_offset.x - bcenter.x;
-		let dy = this.pos.y + this.collision_offset.y - bcenter.y;
-		let xIntersectSize = blockSize/2 + this.collision_dims.x/2 - Math.abs(dx);
-		let yIntersectSize = blockSize/2 + this.collision_dims.y/2 - Math.abs(dy);
+  hitBlock(x, y){
+    let bcenter = blockCenter(x, y);
+    let dx = this.pos.x + this.collision_offset.x - bcenter.x;
+    let dy = this.pos.y + this.collision_offset.y - bcenter.y;
+    let xIntersectSize = blockSize/2 + this.collision_dims.x/2 - Math.abs(dx);
+    let yIntersectSize = blockSize/2 + this.collision_dims.y/2 - Math.abs(dy);
     return xIntersectSize > 0 && yIntersectSize > 0;
-	}
+  }
 
   update(){
     if(this.falling && !this.flies)
@@ -227,25 +227,25 @@ class Entity {
   offTheGrid(){
     let extraTolerance = 5;
     return (this.pos.x + this.collision_offset.x - this.collision_dims.x*extraTolerance > mapTileDims.x*blockSize/2 || 
-       this.pos.x + this.collision_offset.x + this.collision_dims.x*extraTolerance < -mapTileDims.x*blockSize/2 || 
-       this.pos.y + this.collision_offset.y - this.collision_dims.y*extraTolerance > mapTileDims.y*blockSize/2 || 
-       this.pos.y + this.collision_offset.y + this.collision_dims.y*extraTolerance < -mapTileDims.y*blockSize/2);
+      this.pos.x + this.collision_offset.x + this.collision_dims.x*extraTolerance < -mapTileDims.x*blockSize/2 || 
+      this.pos.y + this.collision_offset.y - this.collision_dims.y*extraTolerance > mapTileDims.y*blockSize/2 || 
+      this.pos.y + this.collision_offset.y + this.collision_dims.y*extraTolerance < -mapTileDims.y*blockSize/2);
   }
 
   dumbSeek(){
-      if(Math.random() < 0.001)
-        this.jump();
-      if(Math.random() < 0.1){
-        if(this.vel.x != 0){
-          if(Math.random() < 0.9)
-            this.vel.x = Math.sign(this.vel.x)*this.maxVel.x;
-          else
-            this.vel.x = -Math.sign(this.vel.x)*this.maxVel.x;
-        }
-        else{
-            this.vel.x = Math.sign(Math.random() - 0.5)*this.maxVel.x;
-        }
+    if(Math.random() < 0.001)
+      this.jump();
+    if(Math.random() < 0.1){
+      if(this.vel.x != 0){
+        if(Math.random() < 0.9)
+          this.vel.x = Math.sign(this.vel.x)*this.maxVel.x;
+        else
+          this.vel.x = -Math.sign(this.vel.x)*this.maxVel.x;
       }
+      else{
+        this.vel.x = Math.sign(Math.random() - 0.5)*this.maxVel.x;
+      }
+    }
   }
 
   flySeek(playerpos){

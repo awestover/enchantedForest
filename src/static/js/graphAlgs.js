@@ -16,9 +16,9 @@ function xyDictToVec(xyDict){
 
 function dijkstra(collision, startLoc, goalLoc){
   if(startLoc.x >= collision[0].length || startLoc.x < 0
-   || goalLoc.x >= collision[0].length || goalLoc.x < 0
-   || startLoc.y >= collision.length || startLoc.y < 0
-   || goalLoc.y >= collision.length || goalLoc.y < 0){
+    || goalLoc.x >= collision[0].length || goalLoc.x < 0
+    || startLoc.y >= collision.length || startLoc.y < 0
+    || goalLoc.y >= collision.length || goalLoc.y < 0){
     return [];
   }
 

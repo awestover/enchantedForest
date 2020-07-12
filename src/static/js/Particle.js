@@ -16,8 +16,8 @@ class Particle {
     push();
     noStroke();
     if(this.type == "snow"){
-    fill(255,250,250,100); // snow #fffafa
-    ellipse(this.pos.x, this.pos.y, this.r*2, this.r*2);
+      fill(255,250,250,100); // snow #fffafa
+      ellipse(this.pos.x, this.pos.y, this.r*2, this.r*2);
     }
     else if (this.type == "rain"){
       fill(175,195,204); // rain #afc3cc

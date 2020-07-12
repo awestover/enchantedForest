@@ -14,123 +14,123 @@ class Dialogue { // TODO: should maybe have different types of dialogue (e.g. tr
     this.shouldDisplayBanner = false;
   }
 
-	displayTradeBanner(){ // TODO: change the name of the banner stuff so that it's not just for quests
-		$("#questBannerContainer").show();
-		$("#questBannerTitle").text(`A ${this.trade.item} for ${this.trade.cost} coins`);
-		$("#questBannerAcceptButton").focus();
-	}
+  displayTradeBanner(){ // TODO: change the name of the banner stuff so that it's not just for quests
+    $("#questBannerContainer").show();
+    $("#questBannerTitle").text(`A ${this.trade.item} for ${this.trade.cost} coins`);
+    $("#questBannerAcceptButton").focus();
+  }
 
-	displayQuestBanner(){
-        $("#questBannerContainer").show();
-		$("#questBannerTitle").text(`<<${this.questName}>>`);
-		if(this.questDetails["task"]["type"] === "hunt"){
-			$("#questBannerObjectives").text(`Objective: Hunt x${this.questDetails["task"]["quantity"]} ${this.questDetails["task"]["species"]}`);
-		}
-		$("#questBannerRewards").text("Rewards: " + this.questDetails["rewards"]["xp"] + " xp");
-		$("#questBannerRewards").text(`Rewards: ${this.questDetails["rewards"]["xp"]} xp`);
-		$("#questBannerAcceptButton").focus();
-	}
-	hideQuestBanner(){
-        $("#questBannerContainer").hide();
-		player.movementLocked = false;
-
-		// Makes the player exit dialogue upon finishing trade
-		// $("#portraitImg").attr("src", "/static/data/avatars/empty.png");
-		// $("#dialogueTextWrapper").css("display", "none");
-		// inventoryList[display.currentInventoryIndex].show();
-	}
-
-	clearBox(){
-		$("#portraitImg").attr("src", "/static/data/avatars/empty.png");
-		$("#dialogueTextWrapper").css("display", "none");
-		this.inDialogue = false;
-		inventoryList[display.currentInventoryIndex].show();
-	}
-	showBox(){
-      $("#conversationContainer").show();
-      $("#portraitImg").attr("src", `/static/data/avatars/${this.npcName}.png`);
-
-      this.inDialogue = true;
-      player.movementLocked = true;
-      this.dialogueIndex = 0;
-
-      this.type = this.npcData.type;
-
-      this.questName = this.npcData.proposeQuest || "";
-      if(this.questName.length > 0)
-        this.questDetails = {...quest_data[this.npcData.proposeQuest]};
-
-      this.trade = this.npcData.proposeTrade;
-
-      this.script = this.spliceScript(this.npcName + ": " + this.npcData.dialogue);
-
-      this.montage();
-      if(this.questName.length > 0){
-        $("#questBannerAcceptButton").attr("onclick", `dialogue.hideQuestBanner(); player.assignQuest('${this.npcData.proposeQuest}');`);
-        $("#questBannerDeclineButton").attr("onclick", `dialogue.hideQuestBanner();`);
-      }
-      else if(this.trade !== null){
-        this.shouldDisplayBanner = true;
-        $("#questBannerAcceptButton").attr("onclick", `dialogue.performTrade(${JSON.stringify(this.npcData.proposeTrade)}); dialogue.hideQuestBanner();`);
-        $("#questBannerDeclineButton").attr("onclick", `dialogue.hideQuestBanner();`);
-      }
-      $("#dialogueTextWrapper").css("display", "inline-block");
+  displayQuestBanner(){
+    $("#questBannerContainer").show();
+    $("#questBannerTitle").text(`<<${this.questName}>>`);
+    if(this.questDetails["task"]["type"] === "hunt"){
+      $("#questBannerObjectives").text(`Objective: Hunt x${this.questDetails["task"]["quantity"]} ${this.questDetails["task"]["species"]}`);
     }
+    $("#questBannerRewards").text("Rewards: " + this.questDetails["rewards"]["xp"] + " xp");
+    $("#questBannerRewards").text(`Rewards: ${this.questDetails["rewards"]["xp"]} xp`);
+    $("#questBannerAcceptButton").focus();
+  }
+  hideQuestBanner(){
+    $("#questBannerContainer").hide();
+    player.movementLocked = false;
 
-	montage(){
+    // Makes the player exit dialogue upon finishing trade
+    // $("#portraitImg").attr("src", "/static/data/avatars/empty.png");
+    // $("#dialogueTextWrapper").css("display", "none");
+    // inventoryList[display.currentInventoryIndex].show();
+  }
+
+  clearBox(){
+    $("#portraitImg").attr("src", "/static/data/avatars/empty.png");
+    $("#dialogueTextWrapper").css("display", "none");
+    this.inDialogue = false;
+    inventoryList[display.currentInventoryIndex].show();
+  }
+  showBox(){
+    $("#conversationContainer").show();
+    $("#portraitImg").attr("src", `/static/data/avatars/${this.npcName}.png`);
+
+    this.inDialogue = true;
+    player.movementLocked = true;
+    this.dialogueIndex = 0;
+
+    this.type = this.npcData.type;
+
+    this.questName = this.npcData.proposeQuest || "";
+    if(this.questName.length > 0)
+      this.questDetails = {...quest_data[this.npcData.proposeQuest]};
+
+    this.trade = this.npcData.proposeTrade;
+
+    this.script = this.spliceScript(this.npcName + ": " + this.npcData.dialogue);
+
+    this.montage();
+    if(this.questName.length > 0){
+      $("#questBannerAcceptButton").attr("onclick", `dialogue.hideQuestBanner(); player.assignQuest('${this.npcData.proposeQuest}');`);
+      $("#questBannerDeclineButton").attr("onclick", `dialogue.hideQuestBanner();`);
+    }
+    else if(this.trade !== null){
+      this.shouldDisplayBanner = true;
+      $("#questBannerAcceptButton").attr("onclick", `dialogue.performTrade(${JSON.stringify(this.npcData.proposeTrade)}); dialogue.hideQuestBanner();`);
+      $("#questBannerDeclineButton").attr("onclick", `dialogue.hideQuestBanner();`);
+    }
+    $("#dialogueTextWrapper").css("display", "inline-block");
+  }
+
+  montage(){
     if (lastDialogueBoxToShow === null) {
       $.notify("no npcs near enough to talk to");
       return;
     }
-      if(!this.inDialogue && lastDialogueBoxToShow!=null){
-        this.showBox();
-        return;
-      }
-      $("#dialogueText").text(this.script[this.dialogueIndex]);
-      this.dialogueIndex++;
+    if(!this.inDialogue && lastDialogueBoxToShow!=null){
+      this.showBox();
+      return;
+    }
+    $("#dialogueText").text(this.script[this.dialogueIndex]);
+    this.dialogueIndex++;
 
-      // End of dialogue
-      if(this.dialogueIndex > this.script.length){
-        if (this.type === "talker"){
-          player.movementLocked = false;
-        } 
-        else if(this.type === "questDealer"){
-          if(!player.quests.includes(this.questName) && 
-            !player.completedQuests.includes(this.questName)){
-            this.displayQuestBanner();
-          }
-          else
-            player.movementLocked = false;
-        }
-        else if(this.type === "merchant" && this.shouldDisplayBanner){
-          this.displayTradeBanner();
-          this.shouldDisplayBanner = false;
+    // End of dialogue
+    if(this.dialogueIndex > this.script.length){
+      if (this.type === "talker"){
+        player.movementLocked = false;
+      } 
+      else if(this.type === "questDealer"){
+        if(!player.quests.includes(this.questName) && 
+          !player.completedQuests.includes(this.questName)){
+          this.displayQuestBanner();
         }
         else
           player.movementLocked = false;
-        $("#conversationContainer").hide();
       }
+      else if(this.type === "merchant" && this.shouldDisplayBanner){
+        this.displayTradeBanner();
+        this.shouldDisplayBanner = false;
+      }
+      else
+        player.movementLocked = false;
+      $("#conversationContainer").hide();
     }
+  }
 
-	spliceScript(fulltext){
-		let words = fulltext.split(" ");
-		let finaltext = [];
-		let currentLength = 0;
-		let maxLength = 250;
-		let tempstr = "";
+  spliceScript(fulltext){
+    let words = fulltext.split(" ");
+    let finaltext = [];
+    let currentLength = 0;
+    let maxLength = 250;
+    let tempstr = "";
 
-		for(let i = 0; i < words.length; i++){
-			if((currentLength + words[i].length + 1) > maxLength){
-				finaltext.push(JSON.parse(JSON.stringify(tempstr)));
-				tempstr = "";
-				currentLength = 0;
-			}
-			tempstr += (words[i] + " ");
-			currentLength += (words[i].length + 1);
-		}
-		finaltext.push(JSON.parse(JSON.stringify(tempstr)));
-		return finaltext;
-	}
+    for(let i = 0; i < words.length; i++){
+      if((currentLength + words[i].length + 1) > maxLength){
+        finaltext.push(JSON.parse(JSON.stringify(tempstr)));
+        tempstr = "";
+        currentLength = 0;
+      }
+      tempstr += (words[i] + " ");
+      currentLength += (words[i].length + 1);
+    }
+    finaltext.push(JSON.parse(JSON.stringify(tempstr)));
+    return finaltext;
+  }
 
   performTrade(data){
     if(player.coins >= data.cost){
@@ -139,14 +139,14 @@ class Dialogue { // TODO: should maybe have different types of dialogue (e.g. tr
     }
     else{
       $.notify("Insufficient coins to make the trade!!!");
-        if(this.questName.length > 0){
-          if(!player.quests.includes(this.questName) && 
-            !player.completedQuests.includes(this.questName)){
-            this.displayQuestBanner();
-          }
-          else
-            player.movementLocked = false;
+      if(this.questName.length > 0){
+        if(!player.quests.includes(this.questName) && 
+          !player.completedQuests.includes(this.questName)){
+          this.displayQuestBanner();
         }
+        else
+          player.movementLocked = false;
+      }
       else if(this.trade !== null && this.shouldDisplayBanner){
         this.displayTradeBanner();
         this.shouldDisplayBanner = false;
