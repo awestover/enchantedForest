@@ -1,4 +1,14 @@
 {
+  "tutorial": {
+    "prereqs": [],
+    "rewards":{"xp": 10000},
+    "task": { 
+      "type": "hunt",
+      "species": "boar",
+      "quantity": 2
+    },
+    "followups": []
+  },
   "gettingStarted": {
     "prereqs": [],
     "rewards":{"xp": 10000},

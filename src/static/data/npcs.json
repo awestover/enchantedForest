@@ -1,4 +1,11 @@
 {
+	"bobsTown_tutorial": {
+    "dawg": {
+      "type": "questDealer",
+      "proposeQuest": "tutorial",
+      "dialogue": "heyo, im an npc. Press <space> to jump, <w> to open the menu, <esc> to exit the menu, <enter> to talk to npcs (although you probably already knew that), and <x> to shoot magic fireballs ayyyyyy."
+    }
+  }, 
   "levantersKeep": {
     "dawg": {
       "type": "questDealer",

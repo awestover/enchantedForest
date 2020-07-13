@@ -1,4 +1,15 @@
 {
+    "bobsTown_tutorial": {
+        "teleporterE": {
+            "to": "levantersKeep",
+            "spit_direction_for_incoming_user": 1,
+            "automatically_teleports": false,
+            "location_of_this_teleporter": {
+                "x": 22,
+                "y": 6
+            }
+        }
+    },
     "levantersKeep": {
         "teleporterA": {
             "to": "llamaPlains",
@@ -16,6 +27,15 @@
             "location_of_this_teleporter": {
                 "x": 19,
                 "y": 6
+            }
+        },
+        "teleporterE": {
+            "to": "bobsTown_tutorial",
+            "spit_direction_for_incoming_user": 1,
+            "automatically_teleports": false,
+            "location_of_this_teleporter": {
+                "x": 19,
+                "y": 13
             }
         }
     },
