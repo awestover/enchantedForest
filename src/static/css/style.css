@@ -181,12 +181,12 @@ body {
 	z-index: 9999;
 	top: 12%;
 	left: 27%;
-	width: 50%;
+	width: 60%;
 	height: 50%;
 }
 
 #gridDisplay {
-	width: 60vh;
+	width: 50vh;
 	height: 60vh;
 	background-color: rgba(0, 0, 0, 0.5);
 	color: white;

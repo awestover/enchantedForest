@@ -305,10 +305,14 @@ function keyReleased() {
     if (dialogue.currentType != "merchant")
       $(".wrapper").show();
   }
-  else if (keyCode === KEY_CODE_TABLE["q"])
-    display.prevInventory();
-  else if (keyCode === KEY_CODE_TABLE["e"])	
-    display.nextInventory();
+  else if (keyCode === KEY_CODE_TABLE["q"]){
+    if (dialogue.currentType != "merchant")
+      display.prevInventory();
+  }
+  else if (keyCode === KEY_CODE_TABLE["e"])	{
+    if (dialogue.currentType != "merchant")
+      display.nextInventory();
+  }
   else if (keyCode === KEY_CODE_TABLE["shift"]){
     setTimeout(()=>{ player.lockQuickAccess = false; }, 500);
   }
