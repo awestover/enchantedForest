@@ -508,8 +508,9 @@ function draw(){
               const automatically_teleports = cur_teleporter["automatically_teleports"];
 
               if(automatically_teleports || keyIsDown(KEY_CODE_TABLE["up"])){
+                if (cur_teleporter["prereq_quest"] && !player.completedQuests.includes(cur_teleporter["prereq_quest"]))
+                  return;
                 $.notify("spawn_loc: " + "x: "+ spawn_loc.x + "y: " + spawn_loc.y);
-
                 $.notify(`TELEPORTING TO ${new_room} teleporter ${TELEPORTER_NAMES[i]}`);
                 loadRoom(new_room, spawn_loc, spit_direction);
                 return;
