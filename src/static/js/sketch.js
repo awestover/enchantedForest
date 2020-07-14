@@ -318,7 +318,7 @@ function keyReleased() {
     setTimeout(()=>{ player.lockQuickAccess = false; }, 500);
   }
 
-  if (!player.lockQuickAccess) {
+  if (player && !player.lockQuickAccess) {
     for (var i = 0; i < 10; i++) {
       if (keyCode === KEY_CODE_TABLE["0"] + i)
         itemManager.quickAccess(i);
