@@ -77,7 +77,13 @@ Note: most of these arguments are optional. Kind of. Well there are defaults tha
   {
     "name": "dawg",
     "type": "questDealer" / "merchant" / "talker"
-    "proposeQuest": "gettingStarted",
+    "proposeQuest": ["gettingStarted", "quest2"], // quests listed in order of prereqs
+    "dialogue": "heyo, im an npc"
+  },
+  {
+    "name": "dawg",
+    "type": "merchant"
+    "proposeTrade": ["gem", "dragon"], // items to sell 
     "dialogue": "heyo, im an npc"
   }
 ]
