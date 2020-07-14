@@ -1,4 +1,4 @@
-class Dialogue { // TODO: should maybe have different types of dialogue (e.g. trade dialogude, quest dialogue...)
+class Dialogue { 
   constructor(){
 
     // these parameters are updated whenever you open a new dialogue
@@ -40,21 +40,38 @@ class Dialogue { // TODO: should maybe have different types of dialogue (e.g. tr
     $("#portraitImg").attr("src", `/static/data/avatars/${this.npcName}.png`);
     $(".wrapper").hide();
 
+    let dialogue = this.npcData.dialogue;
     player.movementLocked = true;
     this.inDialogue = true;
     this.dialogueIndex = 0;
     this.currentType = this.npcData.type;
-    this.script = this.spliceScript(this.npcName + ": " + this.npcData.dialogue);
+
+    console.log(this.currentType);
 
     if(this.currentType == "questDealer"){
-      this.questName = this.npcData.proposeQuest;
-      this.questDetails = {...quest_data[this.npcData.proposeQuest]};
-      $("#questBannerAcceptButton").attr("onclick", `dialogue.hideQuestBanner(); player.assignQuest('${this.npcData.proposeQuest}');`);
+      const allQuests = this.npcData.proposeQuest;
+      console.log(allQuests);
+      for(let i = 0; i < allQuests.length; i++){
+        this.questName = allQuests[i];
+        dialogue = this.npcData.dialogue[i];
+        console.log(dialogue);
+        if(!player.completedQuests.includes( this.questName ))
+          break;
+      }
+      console.log(this.questName);
+      console.log(quest_data[this.questName]);
+
+      this.questDetails = {...quest_data[this.questName]};
+      $("#questBannerAcceptButton").attr("onclick", `dialogue.hideQuestBanner(); player.assignQuest('${this.questName}');`);
       $("#questBannerDeclineButton").attr("onclick", `dialogue.hideQuestBanner();`);
+
     }
     else if(this.currentType == "merchant"){
       this.tradeData = this.npcData.proposeTrade;
     }
+
+    this.script = this.spliceScript(this.npcName + ": " + dialogue);
+
     this.montage();
     $("#dialogueTextWrapper").css("display", "inline-block");
   }
