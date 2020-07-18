@@ -1,13 +1,15 @@
 class Player extends Entity {
   constructor(xPos, yPos){ // TODO: eventually most of this data should be read in from a player.json file which stores the players progress...
     super(xPos, yPos, "player");
-    this.lives = 10;
+    // this.lives = 10;
+    this.health = 100;
+		this.maxHealth = 100;
+
     this.level = 0;
     this.xp = 0;
     this.coins = 100;
     this.coincap = 1000;
     this.mana = 100;
-    this.mana = 999999;
     this.manacap = 1000;
     this.projectiles = [];
     this.items = []; // list of {"type": "XX", "quantity": x}
@@ -19,6 +21,14 @@ class Player extends Entity {
 
     this.maxVel.x = 5; // TODO: this might be dumb
   }
+
+	changeHealth(value){
+		let temp = this.health + value;
+		if (temp > this.maxHealth)
+			this.health = this.maxHealth;
+		else if (temp < 0)
+			this.health = 0;
+	}
 
   assignQuest(quest){
     if(!this.quests.includes(quest) && !this.completedQuests.includes(quest)){

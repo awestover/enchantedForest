@@ -1,104 +1,3 @@
-const blockSize = 32;
-const gravity = 0.2;
-const friction = 0.06;
-const moveAccel = 0.3;
-const jumpImpulse = 7;
-const collisionTollerence = 0.0001;
-const levelupReqXP = [
-  100, 1000, 2000, 4000,4010,4020,
-  4030,4040,4050,4060,4070,4080,4090,4100,
-  4030,4040,4050,4060,4070,4080,4090,4100,
-  4030,4040,4050,4060,4070,4080,4090,4100,
-  4030,4040,4050,4060,4070,4080,4090,4100
-];
-
-const KEY_CODE_TABLE = {
-  "up": 38, 
-  "left": 37, 
-  "right": 39, 
-  "space": 32,
-  "shift": 16, 
-  "enter": 13, 
-  "escape": 27,
-  "0": 48, 
-  "a": 65, 
-  "d": 68, 
-  "c": 67, 
-  "q": 81, 
-  "w": 87, 
-  "x": 88,
-  "u": 85, 
-  "e": 69
-}
-
-let smoothedFrameRateEstimate = 60;
-let frameRateSmootherLambda = 0.01;
-
-let roomImage;
-let currentRoom = "levantersKeep";
-// let currentRoom = "bobsTown_tutorial";
-let data;
-let roomTraits = {};
-let cameraSeeking = false, lost = false;
-const TILE_TYPES = ["mob", "npc", "item"];
-const DYNAMIC_TILE_TYPES = ["mob", "item"];
-let TILE_NAMES_TO_IDS = {}; // {"black": "2", "collision": "1", ...}
-let TILE_IDS_TO_NAMES = {}; // {"2": "black", "1": "collision", ...}
-let TILE_TYPE_TO_NAMES = {}; // {"item": ["item:gem", "item:potion", ...],...}
-let mapTileDims = new p5.Vector(32,32); // really read this in from a file
-let cameraPos = new p5.Vector(0,0);
-let player;
-let itemManager = new ItemManager();
-let questSystem = new QuestSystem();
-let display = new HUD();
-let dialogue = new Dialogue();
-let mobs = [], items = [];
-let stats = {
-  "weapons": {},
-  "items": {},
-  "mobs": {}
-}
-let quest_data = {};
-let npc_data = {};
-let sprite_data = {};
-let teleporter_data = {};
-let ct = 0;
-let manaRegenFrames = 5;
-
-// teleporterA in roomX is linked with teleporterA in roomY where teleporterA says in data/teleporter.json that it links to roomY
-const TELEPORTER_NAMES = ["teleporterA", "teleporterB", "teleporterC", "teleporterD", "teleporterE"];
-
-// inserting dijkstras
-let goalPos;
-let path = [];
-let batpos;
-let batImg;
-let pathProgressCt = 30;
-let pathProgressCap = 30;
-let batHeading = new p5.Vector(0,0);
-
-let inventoryList = [];
-
-let lastDialogueBoxToShow = null;
-const npcCollisionTolerence = 1.5;
-
-// this makes sure that we load the "asset" jsons before trying to load the world 
-let init_toload = []; // names of jsons e.g. "map" (don't give the .json, or the prefix)
-let triggered_initial_room_load = false;
-let loadingRoom = true;
-let quickAccessItems = [];
-
-let bgColor = "#ffffff";
-
-// weather
-let bolts = [];
-let fallingParticles = [];
-let windCt = 0; // cool thought: maybe if this wind is strong enough it should affect the player as well....
-function windAtTime(){
-  let xSpeed = 3*(Math.pow(sin(windCt), 70)*Math.sign(Math.sin(windCt)));
-  return createVector(xSpeed, abs(xSpeed)*0.1);
-}
-
 function loadRoom(roomName, spawn_loc, spit_direction){
   $("#questBannerContainer").hide();
   $("#conversationContainer").hide();
@@ -184,19 +83,21 @@ function loadRoom(roomName, spawn_loc, spit_direction){
       }
     }
     loadingRoom = false;
+
+		if(first_load){
+			first_load = false;
+			setInterval(() => {
+				goalPos.x = player.pos.x; 
+				goalPos.y = player.pos.y;
+
+				const startLoc = posToTileIdx(batpos.x, batpos.y);
+				const goalLoc = posToTileIdx(goalPos.x, goalPos.y);
+				path = dijkstra(data.layers.collision, startLoc, goalLoc);
+				batHeading.mult(0);
+			}, 3000);
+		}
+
   });
-}
-
-function removeElts(arr, elt){
-  for(let i = arr.length-1; i >= 0; i--){
-    if(arr[i] === elt){
-      arr.splice(i, 1);
-    }
-  }
-}
-
-String.prototype.chopPrefix = function(prefix){
-  return this.substr(this.indexOf(prefix)+prefix.length);
 }
 
 function setup(){
@@ -208,24 +109,20 @@ function setup(){
   goalPos = createVector((mapTileDims.x-0.5-5)*blockSize, 0.5*blockSize);
 
   display.loadImgs();
-  init_toload.push("sprites");
   $.getJSON("/static/data/sprites.json", function(tmpdata){
     sprite_data = tmpdata;
     removeElts(init_toload, "sprites");
     player = new Player(0, +64);
     player.spritesheet = loadImage("/static/data/avatars/bob.png");
   });
-  init_toload.push("quests");
   $.getJSON("/static/data/quests.json", function(tmpdata){
     quest_data = tmpdata;
     removeElts(init_toload, "quests");
   });
-  init_toload.push("npcs");
   $.getJSON("/static/data/npcs.json", function(tmpdata){
     npc_data = tmpdata;
     removeElts(init_toload, "npcs");
   });
-  init_toload.push("teleporters");
   $.getJSON("/static/data/teleporters.json", function(tmpdata){
     teleporter_data = tmpdata;
     removeElts(init_toload, "teleporters");
@@ -240,6 +137,14 @@ function setup(){
       removeElts(init_toload, section);
     });
   }
+
+	init_toload.push();
+	$.get("/getdata", {}, (lud)=>{
+		console.log(lud);
+		$.notify("yayyyyy, you logged int", "success");
+		loaded_user_data = lud;
+		removeElts(init_toload, "loaded_user_data");
+	});
 
   // all shapes must be specified as (x,y,w,h) [[yay symmetry]]
   // note: for even more symmetry, I'm having 0,0 be the center of everything. woohoo
@@ -449,7 +354,7 @@ function draw(){
         if(mobs[i].hitRect(player.pos, player.dims)){
           if(Math.random() < 0.005){
             $.notify("You've been badly wounded by an impact mob :P");
-            player.lives -= 1;
+            player.health -= 10;
           }
         }
 
@@ -525,10 +430,10 @@ function draw(){
     player.update();
 
     if(player.pos.y > blockSize*mapTileDims.y/2){
-      player.lives -= 1;
+      player.health -= 10;
       player.spawn();
     }
-    if(player.lives <= 0)
+    if(player.health <= 0)
       lost = true;
     if(player.xp >= levelupReqXP[player.level]){
       player.levelup();
@@ -568,7 +473,7 @@ function draw(){
     text("LOADING", 0, 0);
     if(!triggered_initial_room_load && init_toload.length == 0){
       triggered_initial_room_load = true;
-      loadRoom(currentRoom, {"x": floor(mapTileDims.x/2), "y": floor(mapTileDims.y/2) + 1}); // TODO: this should be where the last save point was
+			loadRoom(currentRoom, {"x": floor(mapTileDims.x/2), "y": floor(mapTileDims.y/2) + 1}); 
     }
   }
 
@@ -582,14 +487,4 @@ function draw(){
   text("FR"+Math.round(smoothedFrameRateEstimate,1), width-100,100);
   pop();
 }
-
-setInterval(function(){
-  goalPos.x = player.pos.x; 
-  goalPos.y = player.pos.y;
-
-  const startLoc = posToTileIdx(batpos.x, batpos.y);
-  const goalLoc = posToTileIdx(goalPos.x, goalPos.y);
-  path = dijkstra(data.layers.collision, startLoc, goalLoc);
-  batHeading.mult(0);
-}, 3000);
 

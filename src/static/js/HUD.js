@@ -1,7 +1,7 @@
 class HUD {
   constructor(){
     this.imgs = {
-      "hearts": null
+      // "hearts": null
     };
     this.currentInventoryIndex = 0;
   }
@@ -19,9 +19,9 @@ class HUD {
 		rect(-width/2+20-10, -height/2+10, 250+20, 200)
 
     // render lives
-    for (let i = 0; i < player.lives; i++){
-      image(this.imgs.hearts, -width/2+50*(i+1), -height/2+50, 50, 50);
-    }
+    // for (let i = 0; i < player.lives; i++){
+    //   image(this.imgs.hearts, -width/2+50*(i+1), -height/2+50, 50, 50);
+    // }
     fill(0);
     textSize(30);
     // TODO: visual representations for these?
@@ -30,20 +30,29 @@ class HUD {
       "XP: " + player.xp + " / " + levelupReqXP[player.level],
       "Coins: " + player.coins, 
 			"Mana: " + player.mana,
+			"Health: " + player.health + " / " + player.maxHealth,
     ]
     for(let i=0; i < txtMsgs.length; i++){
       text(txtMsgs[i], -width/2 + 25, -height/2 + 100+ 25*i);
     }
     noFill();
+
     rect(-width/2+20, -height/2 + 100, 250, 25);
     // rect(-width/2+20, -height/2 + 125, 250, 25);
     rect(-width/2+20, -height/2 + 150, 250, 25);
+
     fill(255,0,0,100);
     rect(-width/2+20, -height/2 + 100, 250*player.xp/levelupReqXP[player.level], 25);
+
     // fill(255,223,0,100);
     // rect(-width/2+20, -height/2 + 125, 250*player.coins/player.coincap, 25);
+	
     fill(0,0,255,100);
     rect(-width/2+20, -height/2 + 150, 250*player.mana/player.manacap, 25);
+
+    fill(0,255,0,100);
+    rect(-width/2+20, -height/2 + 175, 250*player.health/player.maxHealth, 25);
+
     pop();
   }
   showLoseScreen(){
@@ -112,9 +121,10 @@ class HUD {
       $("#infoCardButton").text("BUY");
       let itemName = objectId.slice(0, -4)
       itemManager.showInfoName = itemName;
-      itemManager.showInfoCost = stats["items"][itemName]["description"];
+      itemManager.showInfoCost = stats["items"][itemName]["cost"];
+			let itemDescription = stats["items"][itemName]["description"];
       $("#infoCardTitle").text("<<" + itemName + ">>");
-      $("#infoCardDescription").text(itemManager.showInfoCost);
+      $("#infoCardDescription").text(itemDescription);
       $("#infoCardButton").attr("onclick", `dialogue.performTrade();`);
     }
   }

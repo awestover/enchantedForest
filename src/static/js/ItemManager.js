@@ -74,8 +74,11 @@ class ItemManager {
 
   applyEffects(itemName) {
     try {
-      if ("lives" in stats["items"][itemName])
-        player.lives += stats["items"][itemName]["lives"];
+			if ("health" in stats["items"][itemName]){
+
+				player.changeHealth(stats["items"][itemName]["health"])
+        // player.health += stats["items"][itemName]["health"];
+			}
       if ("mana" in stats["items"][itemName])
         player.mana += stats["items"][itemName]["mana"];
     } catch (e) {}

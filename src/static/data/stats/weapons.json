@@ -7,6 +7,6 @@
 	"coinshot": {
 		"damage": 10,
 		"velocity": 15, 
-		"manaCost": 2
+		"manaCost": 7
 	}
 }
