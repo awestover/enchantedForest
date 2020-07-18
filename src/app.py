@@ -10,6 +10,8 @@ app.secret_key = os.environ.get("ALEK_SECRET_KEY")
 app.config["MONGO_URI"] = "mongodb://0.0.0.0:27017/enchanted_forest_user_data"
 mongo = PyMongo(app)
 
+USING_MONGO = False
+
 @app.route("/")
 @app.route("/index")
 def index():
@@ -80,6 +82,9 @@ def savedata():
 
 @app.route("/getdata", methods=("GET",))
 def getdata():
+    if not USING_MONGO:
+        return jsonify({"username": "admin", "pwd_hash": "admin", "checkpoint_room": "llamaPlains", "health": 50, "coins": 100, "mana": 100, "completedQuests": [], "level": 1, "xp": 10, "items": []})
+
     username = session.get("username")
     if not username:
         return jsonify({"error": "user not found"})
