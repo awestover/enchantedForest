@@ -138,12 +138,13 @@ function setup(){
     });
   }
 
-	init_toload.push();
 	$.get("/getdata", {}, (lud)=>{
 		console.log(lud);
 		$.notify("yayyyyy, you logged int", "success");
 		loaded_user_data = lud;
 		removeElts(init_toload, "loaded_user_data");
+		currentRoom = loaded_user_data.checkpoint_room;
+		player.health = parseInt(lud.health);
 	});
 
   // all shapes must be specified as (x,y,w,h) [[yay symmetry]]
@@ -399,8 +400,24 @@ function draw(){
       if(data.layers.roomstuff[y][x] != TILE_NAMES_TO_IDS["empty"]){
         if(player.hitBlock(x, y)){
           if(data.layers.roomstuff[y][x] == TILE_NAMES_TO_IDS["checkpoint"]){
+
+						$.get("/savedata", {
+								"checkpoint_room": currentRoom, 
+								"health": player.health, 
+								"coins": player.coins, 
+								"mana": player.mana, 
+								"completedQuests": player.completedQuests, 
+								"level": player.level, 
+								"xp": player.xp, 
+								"items": player.items
+						}, ()=>{
+							$.notify("save from server finished!!!!");
+						});
+
             $.notify("yo you are at a checkpoint good job!!!!", "success"); // TODO: actually do somehting here lol
-            player.spawn();
+
+						// player.changeHealth(player.maxHealth);
+						player.spawn();
             return;
           }
           for (let i in TELEPORTER_NAMES) {

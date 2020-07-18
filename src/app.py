@@ -20,7 +20,7 @@ def index():
 @app.route("/admin")
 def admin():
     session["username"] = "admin"
-    return redirect(url_for("/index"))
+    return redirect(url_for("index"))
 
 @app.route("/start")
 @app.route("/startScreen")
@@ -36,7 +36,17 @@ def createAccount():
         return jsonify({"status": "error", "messsage": "username taken"})
 
     pwd_hash = sha256_crypt.hash(request.form.get("pwd"))
-    mongo.db.users.insert_one({"username": username, "pwd_hash": pwd_hash, "data": {}})
+    mongo.db.users.insert_one({"username": username, "pwd_hash": pwd_hash, "data": {
+        "checkpoint_room" : "llamaPlains", 
+        "health" : 50,
+        "coins" : 100,
+        "mana" : 100, 
+        "completedQuests" : [ ], 
+        "level" : 1, 
+        "xp" : 10, 
+        "items" : [ ] 
+        }
+    })
     return jsonify({"status": "success", "messsage": "account created"})
 
 @app.route("/login", methods=("POST",))
@@ -62,18 +72,9 @@ def savedata():
         return jsonify({"status": "error", "messsage": "that username does not have an account associated with it. maybe you speeled yourname wrong or something"})
     user_data = user_data[0]
 
-    # TODO: fix this
-    mongo.db.users.update_one( {"username": username }, {"$set": {"username": username, "pwd_hash": sha256_crypt.hash("yo")}})
+    mongo.db.users.update_one( {"username": username }, {"$set": {"username": username, "pwd_hash": user_data["pwd_hash"], "data": request.args.to_dict()}})
     
-    # real update function:
-    #- username
-    #- password
-    #- last room of checkpoint
-    #- health
-    #- coins
-    #- mana 
-    #- completedQuests
-    #- level
+    # {"username": "admin", "pwd_hash": "admin", "checkpoint_room": "llamaPlains", "health": 50, "coins": 100, "mana": 100, "completedQuests": [], "level": 1, "xp": 10, "items": []}
 
     return "I updated your pwd for you, your welcome"
 
