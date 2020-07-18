@@ -22,13 +22,15 @@ class Player extends Entity {
     this.maxVel.x = 5; // TODO: this might be dumb
   }
 
-	changeHealth(value){
-		let temp = this.health + value;
-		if (temp > this.maxHealth)
-			this.health = this.maxHealth;
-		else if (temp < 0)
-			this.health = 0;
-	}
+  changeHealth(value){
+    let temp = this.health + value;
+    if (temp > this.maxHealth)
+      this.health = this.maxHealth;
+    else if (temp < 0)
+      this.health = 0;
+    else 
+      this.health = temp
+  }
 
   assignQuest(quest){
     if(!this.quests.includes(quest) && !this.completedQuests.includes(quest)){

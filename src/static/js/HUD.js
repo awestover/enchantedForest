@@ -14,9 +14,9 @@ class HUD {
     push();// so the colors don't bleed, and so the text/rect align/mode doesn't bleed
     textAlign(LEFT);
     rectMode(CORNER);
-		fill(255,255,255,100);
+    fill(255,255,255,100);
     noStroke();
-		rect(-width/2+20-10, -height/2+10, 250+20, 200)
+    rect(-width/2+20-10, -height/2+10, 250+20, 200)
 
     // render lives
     // for (let i = 0; i < player.lives; i++){
@@ -29,8 +29,8 @@ class HUD {
       "Level: " + player.level,
       "XP: " + player.xp + " / " + levelupReqXP[player.level],
       "Coins: " + player.coins, 
-			"Mana: " + player.mana,
-			"Health: " + player.health + " / " + player.maxHealth,
+      "Mana: " + player.mana,
+      "Health: " + player.health + " / " + player.maxHealth,
     ]
     for(let i=0; i < txtMsgs.length; i++){
       text(txtMsgs[i], -width/2 + 25, -height/2 + 100+ 25*i);
@@ -46,7 +46,7 @@ class HUD {
 
     // fill(255,223,0,100);
     // rect(-width/2+20, -height/2 + 125, 250*player.coins/player.coincap, 25);
-	
+
     fill(0,0,255,100);
     rect(-width/2+20, -height/2 + 150, 250*player.mana/player.manacap, 25);
 
@@ -122,7 +122,7 @@ class HUD {
       let itemName = objectId.slice(0, -4)
       itemManager.showInfoName = itemName;
       itemManager.showInfoCost = stats["items"][itemName]["cost"];
-			let itemDescription = stats["items"][itemName]["description"];
+      let itemDescription = stats["items"][itemName]["description"];
       $("#infoCardTitle").text("<<" + itemName + ">>");
       $("#infoCardDescription").text(itemDescription);
       $("#infoCardButton").attr("onclick", `dialogue.performTrade();`);

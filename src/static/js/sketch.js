@@ -354,7 +354,7 @@ function draw(){
         if(mobs[i].hitRect(player.pos, player.dims)){
           if(Math.random() < 0.005){
             $.notify("You've been badly wounded by an impact mob :P");
-            player.health -= 10;
+            player.changeHealth(-10);
           }
         }
 
@@ -430,7 +430,7 @@ function draw(){
     player.update();
 
     if(player.pos.y > blockSize*mapTileDims.y/2){
-      player.health -= 10;
+      player.changeHealth(-10);
       player.spawn();
     }
     if(player.health <= 0)

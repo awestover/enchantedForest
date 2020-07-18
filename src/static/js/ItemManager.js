@@ -73,12 +73,11 @@ class ItemManager {
   }
 
   applyEffects(itemName) {
+    $.notify("changing health " + stats["items"][itemName]["health"]);
+    // console.log("changing health " + stats["items"][itemName]);
     try {
-			if ("health" in stats["items"][itemName]){
-
-				player.changeHealth(stats["items"][itemName]["health"])
-        // player.health += stats["items"][itemName]["health"];
-			}
+      if ("health" in stats["items"][itemName])
+        player.changeHealth(stats["items"][itemName]["health"]);
       if ("mana" in stats["items"][itemName])
         player.mana += stats["items"][itemName]["mana"];
     } catch (e) {}
