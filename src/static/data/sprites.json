@@ -14,7 +14,7 @@
   },
   "ninja": {
     "numframes": {"cols": 4, "rows": 2},
-    "total_dims": [41,48]
+    "total_dims": [64, 64]
   },
   "unicorn": {
     "numframes": {"cols": 4, "rows": 2},

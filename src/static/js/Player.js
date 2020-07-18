@@ -3,7 +3,7 @@ class Player extends Entity {
     super(xPos, yPos, "player");
     // this.lives = 10;
     this.health = 100;
-		this.maxHealth = 100;
+    this.maxHealth = 100;
 
     this.level = 0;
     this.xp = 0;
