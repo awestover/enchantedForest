@@ -285,8 +285,11 @@ function draw(){
 
   push();
   translate(width/2, height/2);
-  if (typeof(bgColor) != "string")
+  try {
     image(bgColor, 0, 0, width, height);
+  } catch (e) {
+    background(bgColor);
+  }
 
   if(!loadingRoom){
     ct++;
