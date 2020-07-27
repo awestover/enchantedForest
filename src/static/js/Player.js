@@ -41,6 +41,10 @@ class Player extends Entity {
       }
       this.quests.push(quest);
       questSystem.addQuest(quest);
+      if(quest == "tutorial"){
+        // disable damage before talking to NPC
+        tutorial_damage_disabled = false;
+      }
       $.notify(`new quest ${quest} assigned!`, "success");
     }
     else{

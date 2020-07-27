@@ -1,4 +1,9 @@
 function loadRoom(roomName, spawn_loc, spit_direction){
+
+  if (roomName == "bobsTown_tutorial" && !player.completedQuests.includes("tutorial")){
+    tutorial_damage_disabled = true;
+  }
+
   $("#questBannerContainer").hide();
   $("#conversationContainer").hide();
   $("#shopContainer").hide();
@@ -217,11 +222,13 @@ function checkKeys() {
 }
 
 function keyReleased() {
-  if (keyCode === KEY_CODE_TABLE["x"])
-    player.fireballAttack();
-  else if (keyCode === KEY_CODE_TABLE["c"])	
-    player.coinshotAttack();
-  else if (keyCode === KEY_CODE_TABLE["enter"])
+  if(!tutorial_damage_disabled){
+    if (keyCode === KEY_CODE_TABLE["x"])
+      player.fireballAttack();
+    else if (keyCode === KEY_CODE_TABLE["c"])	
+      player.coinshotAttack();
+  }
+  if (keyCode === KEY_CODE_TABLE["enter"])
     dialogue.montage();
   else if (keyCode === KEY_CODE_TABLE["escape"]){
     if (dialogue.currentType === "merchant")

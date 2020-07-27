@@ -15,6 +15,8 @@ const levelupReqXP = [
 let loaded_user_data = {};
 let first_load = true;
 
+let tutorial_damage_disabled = false;
+
 const KEY_CODE_TABLE = {
   "up": 38, 
   "left": 37, 
