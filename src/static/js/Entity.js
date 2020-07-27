@@ -32,7 +32,7 @@ class Entity {
     this.seekPath = [];
     this.seekPathTimer = 0;
 
-    this.lives = 4;
+    this.health = 4;
     this.falling = false;
     this.lastDir = 1;
   }
@@ -55,8 +55,8 @@ class Entity {
     push();
     fill(255);
     if(this.type=="mob"){ // health bar
-      if(this.lives > 0)
-        text(this.lives, this.pos.x, this.pos.y-this.dims.y*0.75);
+      if(this.health > 0)
+        text(this.health, this.pos.x, this.pos.y-this.dims.y*0.75);
     }
     pop();
     renderPath(this.seekPath);

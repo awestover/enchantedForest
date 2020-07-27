@@ -1,7 +1,6 @@
 class Player extends Entity {
   constructor(xPos, yPos) {
     super(xPos, yPos, "player");
-    // this.lives = 10;
     this.health = 100;
     this.maxHealth = 100;
 
@@ -19,7 +18,7 @@ class Player extends Entity {
     this.movementLocked = false;
     this.lockQuickAccess = false;
 
-    this.maxVel.x = 5; // TODO: this might be dumb
+    this.maxVel.x = 4;
   }
 
   changeHealth(value){

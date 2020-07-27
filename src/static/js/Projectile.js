@@ -8,7 +8,7 @@ class Projectile extends Entity{
 
     this.spritesheet = stats.weapons[this.species].img;
     this.vel = new p5.Vector(stats.weapons[this.species]["velocity"]*this.dir, 0);
-    this.lives = -1;
+    this.health = -1;
     player.mana -= stats.weapons[this.species]["manaCost"];
   }
 
