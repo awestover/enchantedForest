@@ -399,27 +399,29 @@ function draw(){
       let y = boundingTiles[i].y;
       if(data.layers.roomstuff[y][x] != TILE_NAMES_TO_IDS["empty"]){
         if(player.hitBlock(x, y)){
-          if(data.layers.roomstuff[y][x] == TILE_NAMES_TO_IDS["checkpoint"]){
+          if(keyIsDown(KEY_CODE_TABLE["enter"])){
+            if(data.layers.roomstuff[y][x] == TILE_NAMES_TO_IDS["checkpoint"]){
+              $.get("/savedata", {
+                  "checkpoint_room": currentRoom, 
+                  "health": player.health, 
+                  "coins": player.coins, 
+                  "mana": player.mana, 
+                  "completedQuests": player.completedQuests, 
+                  "level": player.level, 
+                  "xp": player.xp, 
+                  "items": player.items
+              }, ()=>{
+                $.notify("save from server finished!!!!");
+              });
 
-						$.get("/savedata", {
-								"checkpoint_room": currentRoom, 
-								"health": player.health, 
-								"coins": player.coins, 
-								"mana": player.mana, 
-								"completedQuests": player.completedQuests, 
-								"level": player.level, 
-								"xp": player.xp, 
-								"items": player.items
-						}, ()=>{
-							$.notify("save from server finished!!!!");
-						});
+              $.notify("yo you are at a checkpoint good job!!!!", "success"); // TODO: actually do somehting here lol
 
-            $.notify("yo you are at a checkpoint good job!!!!", "success"); // TODO: actually do somehting here lol
-
-						// player.changeHealth(player.maxHealth);
-						player.spawn();
-            return;
+              // player.changeHealth(player.maxHealth);
+              player.spawn();
+              return;
+            }
           }
+
           for (let i in TELEPORTER_NAMES) {
             if(data.layers.roomstuff[y][x] == TILE_NAMES_TO_IDS[TELEPORTER_NAMES[i]]){
               const cur_teleporter = teleporter_data[currentRoom][TELEPORTER_NAMES[i]];
