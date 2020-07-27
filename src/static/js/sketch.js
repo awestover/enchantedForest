@@ -331,7 +331,7 @@ function draw(){
         player.projectiles[i].update();
         for (let j in mobs){
           if(player.projectiles[i].hitRect(mobs[j].pos, mobs[j].dims)){
-            mobs[j].health -= 2;
+            mobs[j].health -= player.projectiles[i].damage;
             if(mobs[j].health <= 0){
               player.handleMobKill(mobs[j].species); // really just add a field to the json for this...
             }

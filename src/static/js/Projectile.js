@@ -6,6 +6,7 @@ class Projectile extends Entity{
     this.dir = player.lastDir; // what if mobs have projectiles... -> add this as a todo to the readme
     this.lastDir = this.dir;
 
+    this.damage = stats.weapons[this.species].damage;
     this.spritesheet = stats.weapons[this.species].img;
     this.vel = new p5.Vector(stats.weapons[this.species]["velocity"]*this.dir, 0);
     this.health = -1;
