@@ -16,12 +16,14 @@ function loadRoom(roomName, spawn_loc, spit_direction){
     roomTraits = returnData;
     
     // console.log(roomTraits);
-    // if(roomTraits["bg-img"]){
-    //   bgColor  = loadImage(`/static/data/maps/rooms/${roomName}/${roomTraits["bg-img"]}`);
-    // } 
-    // else{
+    if(roomTraits["bg-img"]){
+      bgColor = loadImage(`/static/data/maps/rooms/${roomName}/${roomTraits["bg-img"]}`, (result) => {
+        bgColor.resize(width, height);
+      });
+    } 
+    else{
       bgColor = color(roomTraits["bg-color"]);
-    // }
+    }
 
     if(roomTraits.weather.includes("rain")){
       for(let i = 0; i < 100; i++){
@@ -280,8 +282,11 @@ function cameraSeek(){
 }
 
 function draw(){
+
   push();
   translate(width/2, height/2);
+  if (typeof(bgColor) != "string")
+    image(bgColor, 0, 0, width, height);
 
   if(!loadingRoom){
     ct++;
@@ -289,7 +294,6 @@ function draw(){
       player.mana = min(player.manacap, player.mana+1);
     }
 
-    background(bgColor);
     push();
     // translate(-player.pos.x, -player.pos.y);
     // translate(-cameraPos.x, -cameraPos.y);

@@ -1,11 +1,11 @@
 {
 	"fireball": {
-		"damage": 10,
+		"damage": 15,
 		"velocity": 10, 
 		"manaCost": 10
 	}, 
 	"coinshot": {
-		"damage": 1,
+		"damage": 2,
 		"velocity": 15, 
 		"manaCost": 0
 	}
