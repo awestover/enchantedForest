@@ -16,7 +16,7 @@ class HUD {
     rectMode(CORNER);
     fill(255,255,255,100);
     noStroke();
-    rect(-width/2+20-10, -height/2+10, 250+20, 200)
+    rect(-width/2+20-10, -height/2+10, 250+20, 160);
 
     // render lives
     // for (let i = 0; i < player.lives; i++){
@@ -24,34 +24,34 @@ class HUD {
     // }
     fill(0);
     textSize(30);
-    // TODO: visual representations for these?
     let txtMsgs = [
+      "Health: " + player.health + " / " + player.maxHealth,
+      "Mana: " + player.mana,
       "Level: " + player.level,
       "XP: " + player.xp + " / " + levelupReqXP[player.level],
       "Coins: " + player.coins, 
-      "Mana: " + player.mana,
-      "Health: " + player.health + " / " + player.maxHealth,
     ]
     for(let i=0; i < txtMsgs.length; i++){
-      text(txtMsgs[i], -width/2 + 25, -height/2 + 100+ 25*i);
+      text(txtMsgs[i], -width/2 + 25, -height/2 + 50+ 25*i);
     }
-    noFill();
 
-    rect(-width/2+20, -height/2 + 100, 250, 25);
-    // rect(-width/2+20, -height/2 + 125, 250, 25);
-    rect(-width/2+20, -height/2 + 150, 250, 25);
 
     fill(255,0,0,100);
-    rect(-width/2+20, -height/2 + 100, 250*player.xp/levelupReqXP[player.level], 25);
-
-    // fill(255,223,0,100);
-    // rect(-width/2+20, -height/2 + 125, 250*player.coins/player.coincap, 25);
+    rect(-width/2+20, -height/2 + 25, 250*player.health/player.maxHealth, 25);
 
     fill(0,0,255,100);
-    rect(-width/2+20, -height/2 + 150, 250*player.mana/player.manacap, 25);
+    rect(-width/2+20, -height/2 + 50, 250*player.mana/player.manacap, 25);
+
+    noFill();
+    rect(-width/2+20, -height/2 + 75, 250, 25);
 
     fill(0,255,0,100);
-    rect(-width/2+20, -height/2 + 175, 250*player.health/player.maxHealth, 25);
+    rect(-width/2+20, -height/2 + 100, 250*player.xp/levelupReqXP[player.level], 25);
+
+    fill(255,223,0,100);
+    rect(-width/2+20, -height/2 + 125, 250*player.coins/player.coincap, 25);
+
+
 
     pop();
   }
