@@ -1,4 +1,5 @@
 {
   "bg-color": "#69806f",
-  "weather": ["rain", "thunder"]
+  "weather": ["rain", "thunder"], 
+	"bg-img": "cave.png"
 }

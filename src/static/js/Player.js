@@ -40,6 +40,7 @@ class Player extends Entity {
         }
       }
       this.quests.push(quest);
+      this.questProgress[quest] = 0;
       questSystem.addQuest(quest);
       $.notify(`new quest ${quest} assigned!`, "success");
     }

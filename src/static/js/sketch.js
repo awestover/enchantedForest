@@ -15,7 +15,6 @@ function loadRoom(roomName, spawn_loc, spit_direction){
   $.getJSON(`/static/data/maps/rooms/${roomName}/traits.json`, function(returnData){
     roomTraits = returnData;
     
-    // console.log(roomTraits);
     if(roomTraits["bg-img"]){
       bgColor = loadImage(`/static/data/maps/rooms/${roomName}/${roomTraits["bg-img"]}`, (result) => {
         bgColor.resize(width, height);
@@ -166,6 +165,7 @@ function setup(){
 		removeElts(init_toload, "loaded_user_data");
 		currentRoom = loaded_user_data.checkpoint_room;
 		player.health = parseInt(lud.health);
+		player.completedQuests = lud.completedQuests;
 	});
 
   // all shapes must be specified as (x,y,w,h) [[yay symmetry]]
