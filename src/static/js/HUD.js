@@ -18,10 +18,6 @@ class HUD {
     noStroke();
     rect(-width/2+20-10, -height/2+10, 250+20, 160);
 
-    // render lives
-    // for (let i = 0; i < player.lives; i++){
-    //   image(this.imgs.hearts, -width/2+50*(i+1), -height/2+50, 50, 50);
-    // }
     fill(0);
     textSize(30);
     let txtMsgs = [

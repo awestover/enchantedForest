@@ -339,8 +339,8 @@ function draw(){
         player.projectiles[i].update();
         for (let j in mobs){
           if(player.projectiles[i].hitRect(mobs[j].pos, mobs[j].dims)){
-            mobs[j].lives -= 2;
-            if(mobs[j].lives <= 0){
+            mobs[j].health -= player.projectiles[i].damage;
+            if(mobs[j].health <= 0){
               player.handleMobKill(mobs[j].species); // really just add a field to the json for this...
             }
             player.projectiles[i].exist = false;
@@ -367,7 +367,7 @@ function draw(){
     }
 
     for(let i=mobs.length-1; i >= 0; i--){
-      if(mobs[i].lives > 0){
+      if(mobs[i].health > 0){
         mobs[i].render();
 
         // TEMPORARY: impact mobs (all mobs)
@@ -388,7 +388,7 @@ function draw(){
         mobs[i].handleMapCollisions();
         mobs[i].update();
         if(mobs[i].pos.y > blockSize*mapTileDims.y/2){
-          mobs[i].lives = 0;
+          mobs[i].health = 0;
         }
       }
       else{
