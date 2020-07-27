@@ -6,7 +6,9 @@
     "attrs":{}
   },
 	"ninja": { 
-    "attrs":{}
+    "attrs":{
+      "health": 10
+    }
   },
 	"boar": { 
     "attrs":{

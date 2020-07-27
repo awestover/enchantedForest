@@ -1,5 +1,5 @@
 class Player extends Entity {
-  constructor(xPos, yPos){ // TODO: eventually most of this data should be read in from a player.json file which stores the players progress...
+  constructor(xPos, yPos) {
     super(xPos, yPos, "player");
     // this.lives = 10;
     this.health = 100;
