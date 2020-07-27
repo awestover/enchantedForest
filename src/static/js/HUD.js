@@ -26,10 +26,10 @@ class HUD {
     textSize(30);
     let txtMsgs = [
       "Health: " + player.health + " / " + player.maxHealth,
-      "Mana: " + player.mana,
-      "Level: " + player.level,
+      "Mana: " + player.mana + " / " + player.manacap,
       "XP: " + player.xp + " / " + levelupReqXP[player.level],
-      "Coins: " + player.coins, 
+      "Coins: " + player.coins + " / " + player.coincap, 
+      "Level: " + player.level
     ]
     for(let i=0; i < txtMsgs.length; i++){
       text(txtMsgs[i], -width/2 + 25, -height/2 + 50+ 25*i);
@@ -42,14 +42,15 @@ class HUD {
     fill(0,0,255,100);
     rect(-width/2+20, -height/2 + 50, 250*player.mana/player.manacap, 25);
 
-    noFill();
-    rect(-width/2+20, -height/2 + 75, 250, 25);
-
     fill(0,255,0,100);
-    rect(-width/2+20, -height/2 + 100, 250*player.xp/levelupReqXP[player.level], 25);
+    rect(-width/2+20, -height/2 + 75, 250*player.xp/levelupReqXP[player.level], 25);
 
     fill(255,223,0,100);
-    rect(-width/2+20, -height/2 + 125, 250*player.coins/player.coincap, 25);
+    rect(-width/2+20, -height/2 + 100, 250*player.coins/player.coincap, 25);
+
+    noFill();
+    rect(-width/2+20, -height/2 + 125, 250, 25);
+
 
 
 
