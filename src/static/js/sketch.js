@@ -169,8 +169,8 @@ function setup(){
 		loaded_user_data = lud;
 		removeElts(init_toload, "loaded_user_data");
 		currentRoom = loaded_user_data.checkpoint_room;
-		player.health = lud.health;
-		player.completedQuests = lud.completedQuests;
+		player.health = loaded_user_data.health;
+		player.completedQuests = loaded_user_data.completedQuests;
 	});
 
   // all shapes must be specified as (x,y,w,h) [[yay symmetry]]
