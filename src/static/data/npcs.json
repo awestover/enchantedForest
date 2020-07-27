@@ -3,19 +3,21 @@
     "dawg": {
       "type": "questDealer",
       "proposeQuest": ["tutorial"],
-      "dialogue": ["heyo, im an npc. Press <space> to jump, <w> to open the menu, <esc> to exit the menu, <enter> to talk to npcs (although you probably already knew that), and <x> to shoot magic fireballs ayyyyyy."]
+      "dialogue": ["Hello Bob, I'm Azeala. Watch out! Some boars are about to attack you. I know you're new to your levantic powers, so let me quickly tell you how to use them. Press <space> to jump, <w> to open the menu, <esc> to exit the menu, <enter> to talk to npcs (although you probably already knew that), <x> to shoot magic fireballs, and <c> to shoot coins. go kill some boars, and then go through the teleporter (that will unlock when you finish my quest) and find me in Levanter's Keep. Copolla?"]
     }
   }, 
   "levantersKeep": {
     "dawg": {
       "type": "questDealer",
-      "proposeQuest": ["gettingStarted", "quest2"],
-      "dialogue": ["heyo, im an npc", "brooooo this is the second quest"]
+      "proposeQuest": ["gettingStarted", 
+        "quest2"],
+      "dialogue": ["Nice to see you again Bob. I'm glad you were able to deal with those boars (with my help of course). I'm sorry for your loss. I know you must be devestated that everyone you've ever known, with the exception of your loyal friend Bucky was just murdered. You must be wondering why. I think that you should go attack some of the unicorns that were attacking your village, and see if they know anything about why your village was murdered.", 
+        "Hmmm, you found out from attacking the unicorns that they were led by a Kirin to attack your village? I know only one person that Kirin's work for: Malimost. Yes that's right. You want revenge for your village's murder? Kill the Kirin. It will be dangerous though, you'll want to talk to mercury first to get some weapons."]
     },
     "bear": {
       "type": "merchant",
       "proposeTrade": ["potion", "gem"],
-      "dialogue": "long live theland. theland!! Buy my stuff too."
+      "dialogue": "Hi, I'm Mercury. I'll sell you some equipment to get you prepared for your fight."
     }
   }, 
   "llamaPlains": {
