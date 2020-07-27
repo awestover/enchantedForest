@@ -4,7 +4,7 @@
     "rewards":{"xp": 10000},
     "task": { 
       "type": "hunt",
-      "species": "boar",
+      "species": "ninja",
       "quantity": 2
     },
     "followups": []

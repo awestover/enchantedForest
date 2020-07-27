@@ -38,8 +38,8 @@ let smoothedFrameRateEstimate = 60;
 let frameRateSmootherLambda = 0.01;
 
 let roomImage;
-let currentRoom = "levantersKeep";
-// let currentRoom = "bobsTown_tutorial";
+// let currentRoom = "levantersKeep";
+let currentRoom = "bobsTown_tutorial";
 let data;
 let roomTraits = {};
 let cameraSeeking = false, lost = false;

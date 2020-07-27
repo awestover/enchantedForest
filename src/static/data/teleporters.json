@@ -4,10 +4,10 @@
             "to": "levantersKeep",
             "spit_direction_for_incoming_user": 1,
             "automatically_teleports": false,
-						"prereq_quest": "tutorial", 
+            "prereq_quest": "tutorial",
             "location_of_this_teleporter": {
-                "x": 22,
-                "y": 6
+                "x": 47,
+                "y": 4
             }
         }
     },

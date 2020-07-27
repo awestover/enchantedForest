@@ -84,18 +84,28 @@ function loadRoom(roomName, spawn_loc, spit_direction){
     }
     loadingRoom = false;
 
-		if(first_load){
-			first_load = false;
-			setInterval(() => {
-				goalPos.x = player.pos.x; 
-				goalPos.y = player.pos.y;
+    if(first_load){
+      first_load = false;
+      setInterval(() => {
+        goalPos.x = player.pos.x; 
+        goalPos.y = player.pos.y;
 
-				const startLoc = posToTileIdx(batpos.x, batpos.y);
-				const goalLoc = posToTileIdx(goalPos.x, goalPos.y);
-				path = dijkstra(data.layers.collision, startLoc, goalLoc);
-				batHeading.mult(0);
-			}, 3000);
-		}
+        const startLoc = posToTileIdx(batpos.x, batpos.y);
+        const goalLoc = posToTileIdx(goalPos.x, goalPos.y);
+        path = dijkstra(data.layers.collision, startLoc, goalLoc);
+        batHeading.mult(0);
+      }, 3000);
+    }
+
+    if (!player.completedQuests.includes("tutorial") && currentRoom === "bobsTown_tutorial"){
+      let explanationText = "Bob has always been a humble llama herder. Until one day... the boars attacked his village. <br> And thus, his grand journey of magic and levancy began.<br>Please approach the NPC navigating with &lt;a&gt; and &lt;d&gt; <br> Press &lt;Enter&gt; to talk to them."
+      $("#questBannerContainer").show();
+      $("#questBannerTitle").text("Hello World!");
+      $("#questBannerObjectives").html(explanationText);
+      $("#questBannerAcceptButton").focus();
+      $("#questBannerAcceptButton").attr("onclick", `dialogue.hideQuestBanner();`);
+      $("#questBannerDeclineButton").attr("onclick", `dialogue.hideQuestBanner();`);
+    }
 
   });
 }
