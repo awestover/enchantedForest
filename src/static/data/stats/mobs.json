@@ -1,18 +1,23 @@
 {
 	"jumpydude": { 
-    "attrs":{}
+    "attrs":{
+      "health": 40
+     }
   },
 	"unicorn": { 
-    "attrs":{}
+    "attrs":{
+      "health": 100
+    }
   },
 	"ninja": { 
     "attrs":{
-      "health": 10
+      "health": 80
     }
   },
 	"boar": { 
     "attrs":{
-      "flies": true
+      "flies": true,
+      "health": 30
     }
   }
 }
