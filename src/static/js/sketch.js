@@ -14,7 +14,15 @@ function loadRoom(roomName, spawn_loc, spit_direction){
   bolts = [];
   $.getJSON(`/static/data/maps/rooms/${roomName}/traits.json`, function(returnData){
     roomTraits = returnData;
-    bgColor = color(roomTraits["bg-color"]);
+    
+    // console.log(roomTraits);
+    // if(roomTraits["bg-img"]){
+    //   bgColor  = loadImage(`/static/data/maps/rooms/${roomName}/${roomTraits["bg-img"]}`);
+    // } 
+    // else{
+      bgColor = color(roomTraits["bg-color"]);
+    // }
+
     if(roomTraits.weather.includes("rain")){
       for(let i = 0; i < 100; i++){
         fallingParticles.push(new Particle("rain"));
