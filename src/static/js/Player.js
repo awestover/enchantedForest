@@ -31,6 +31,11 @@ class Player extends Entity {
       this.health = temp
   }
 
+	changeCoin(value){
+    let temp = this.coins + value;
+		this.coins = (temp > this.coincap) ? this.coincap : temp;
+	}
+
   assignQuest(quest){
     if(!this.quests.includes(quest) && !this.completedQuests.includes(quest)){
       for(let i in quest_data[quest].prereqs){
@@ -61,7 +66,7 @@ class Player extends Entity {
   levelup(){
     this.xp -= levelupReqXP[this.level];
     this.level += 1;
-    this.coins += 1000;
+		this.changeCoin(1000);
   }
 
   handleMobKill(mob_species){
