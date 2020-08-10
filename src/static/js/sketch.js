@@ -1,5 +1,7 @@
 function loadRoom(roomName, spawn_loc, spit_direction){
-
+  loadingRoom = true;
+	room_load_checklist.push("bg-img");
+	room_load_checklist.push("map");
   if (roomName == "bobsTown_tutorial" && !player.completedQuests.includes("tutorial")){
     tutorial_damage_disabled = true;
   }
@@ -11,7 +13,6 @@ function loadRoom(roomName, spawn_loc, spit_direction){
   $(".wrapper").hide();
 	username = null;
   currentRoom = roomName;
-  loadingRoom = true;
   data = null;
   mobs = [];
   items = [];
@@ -24,10 +25,12 @@ function loadRoom(roomName, spawn_loc, spit_direction){
     if(roomTraits["bg-img"]){
       bgColor = loadImage(`/static/data/maps/rooms/${roomName}/${roomTraits["bg-img"]}`, (result) => {
         bgColor.resize(width, height);
+				removeElts(room_load_checklist, "bg-img");
       });
     } 
     else{
       bgColor = color(roomTraits["bg-color"]);
+			removeElts(room_load_checklist, "bg-img");
     }
 
     if(roomTraits.weather.includes("rain")){
@@ -98,30 +101,7 @@ function loadRoom(roomName, spawn_loc, spit_direction){
         }
       }
     }
-    loadingRoom = false;
-
-    if(first_load){
-      first_load = false;
-      setInterval(() => {
-        goalPos.x = player.pos.x; 
-        goalPos.y = player.pos.y;
-
-        const startLoc = posToTileIdx(batpos.x, batpos.y);
-        const goalLoc = posToTileIdx(goalPos.x, goalPos.y);
-        path = dijkstra(data.layers.collision, startLoc, goalLoc);
-        batHeading.mult(0);
-      }, 3000);
-    }
-
-    if (!player.completedQuests.includes("tutorial") && currentRoom === "bobsTown_tutorial"){
-      let explanationText = "Bob has always been a humble llama herder. Until one day... the boars attacked his village. <br> And thus, his grand journey of magic and levancy began.<br>Please approach the NPC navigating with &lt;a&gt; and &lt;d&gt; <br> Press &lt;Enter&gt; to talk to them."
-      $("#questBannerContainer").show();
-      $("#questBannerTitle").text("Hello World!");
-      $("#questBannerObjectives").html(explanationText);
-      $("#questBannerAcceptButton").focus();
-      $("#questBannerAcceptButton").attr("onclick", `dialogue.hideQuestBanner();`);
-      $("#questBannerDeclineButton").attr("onclick", `dialogue.hideQuestBanner();`);
-    }
+		removeElts(room_load_checklist, "map");
 
   });
 }
@@ -165,18 +145,21 @@ function setup(){
   }
 
 	$.get("/getusername", {}, (username)=>{
-		this.username = username;
+		player.username = username;
 		$('#username').text(username);
-	});
 
-	$.get("/getdata", {}, (lud)=>{
-		console.log(lud);
-		$.notify("yayyyyy, you logged int", "success");
-		loaded_user_data = lud.data;
-		removeElts(init_toload, "loaded_user_data");
-		currentRoom = loaded_user_data.checkpoint_room;
-		player.health = loaded_user_data.health;
-		player.completedQuests = loaded_user_data.completedQuests;
+
+		if(player.username == "admin"){
+			$.notify("ADMIN, special powers being applied (extra health, coins, mana, speed, jump)", "info");
+			player.maxHealth = 1000;
+			player.health = 1000;
+			player.manacap = 5000;
+			player.mana = 5000;
+			this.coincap = 5000;
+			player.coins = 5000;
+			player.maxVel.x = 10;
+			player.maxVel.y = 7;
+		}
 	});
 
   // all shapes must be specified as (x,y,w,h) [[yay symmetry]]
@@ -197,6 +180,27 @@ function setup(){
   for (let i = 0; i < 10; i++) {
     quickAccessItems[i] = null;
   }
+
+	$.get("/getdata", {}, (lud)=>{
+		console.log(lud);
+
+		// special case data extraction
+		currentRoom = lud.checkpoint_room;
+		delete lud.checkpoint_room;
+
+    for(let i in lud.items){
+			itemManager.createItem(lud.items[i].species);
+    }
+		delete lud.items;
+
+		// dump the rest of the stuff into player
+		for(let trait in lud){
+			player[trait] = lud[trait];
+		}
+
+		removeElts(init_toload, "loaded_user_data");
+	});
+
 }
 
 function checkKeys() {
@@ -304,6 +308,8 @@ function draw(){
     background(bgColor);
   }
 
+	// yes this is a label, which enables a goto. yes this is sligtly scary
+	full_draw_loop:
   if(!loadingRoom){
     ct++;
     if(ct % manaRegenFrames == 0){
@@ -452,12 +458,9 @@ function draw(){
               }), ()=>{
                 $.notify("save from server finished!!!!");
               });
-
-              $.notify("yo you are at a checkpoint good job!!!!", "success"); // TODO: actually do somehting here lol
-
-              // player.changeHealth(player.maxHealth);
+              $.notify("yo you are at a checkpoint good job!!!!", "success");
               player.spawn();
-              return;
+              break full_draw_loop;
             }
           }
 
@@ -471,12 +474,14 @@ function draw(){
               const automatically_teleports = cur_teleporter["automatically_teleports"];
 
               if(automatically_teleports || keyIsDown(KEY_CODE_TABLE["up"])){
-                if (cur_teleporter["prereq_quest"] && !player.completedQuests.includes(cur_teleporter["prereq_quest"]))
-                  return;
+								if (cur_teleporter["prereq_quest"] && !player.completedQuests.includes(cur_teleporter["prereq_quest"])){
+									$.notify("you must complete a prereq quest before using this teleporter!", "error");
+									break;
+								}	
                 $.notify("spawn_loc: " + "x: "+ spawn_loc.x + "y: " + spawn_loc.y);
                 $.notify(`TELEPORTING TO ${new_room} teleporter ${TELEPORTER_NAMES[i]}`);
                 loadRoom(new_room, spawn_loc, spit_direction);
-                return;
+								break full_draw_loop;
               }
             }
           }
@@ -493,9 +498,8 @@ function draw(){
     }
     if(player.health <= 0)
       lost = true;
-    if(player.xp >= levelupReqXP[player.level]){
+    if(player.xp >= levelupReqXP[player.level])
       player.levelup();
-    }
 
     checkKeys();
     cameraSeek();
@@ -533,6 +537,33 @@ function draw(){
       triggered_initial_room_load = true;
 			loadRoom(currentRoom, {"x": floor(mapTileDims.x/2), "y": floor(mapTileDims.y/2) + 1}); 
     }
+		else if(triggered_initial_room_load && init_toload.length == 0 && room_load_checklist.length == 0){
+			loadingRoom = false;
+			if(first_load){
+				first_load = false;
+				setInterval(() => {
+					goalPos.x = player.pos.x; 
+					goalPos.y = player.pos.y;
+
+					const startLoc = posToTileIdx(batpos.x, batpos.y);
+					const goalLoc = posToTileIdx(goalPos.x, goalPos.y);
+					if(data)
+						path = dijkstra(data.layers.collision, startLoc, goalLoc);
+					batHeading.mult(0);
+				}, 3000);
+			}
+
+			if (player && !player.completedQuests.includes("tutorial") && currentRoom === "bobsTown_tutorial"){
+				let explanationText = "Bob has always been a humble llama herder. Until one day... the boars attacked his village. <br> And thus, his grand journey of magic and levancy began.<br>Please approach the NPC navigating with &lt;a&gt; and &lt;d&gt; <br> Press &lt;Enter&gt; to talk to them."
+				$("#questBannerContainer").show();
+				$("#questBannerTitle").text("Hello World!");
+				$("#questBannerObjectives").html(explanationText);
+				$("#questBannerAcceptButton").focus();
+				$("#questBannerAcceptButton").attr("onclick", `dialogue.hideQuestBanner();`);
+				$("#questBannerDeclineButton").attr("onclick", `dialogue.hideQuestBanner();`);
+			}
+		}
+
   }
 
   pop(); // translate to screen center is 0,0

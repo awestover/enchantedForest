@@ -111,7 +111,6 @@ class Player extends Entity {
       }
     }
     // if this is an item we don't already have any of
-    this.items.push({"species": itemSpecies, "quantity": 1});
     itemManager.createItem(itemSpecies);
   }
 

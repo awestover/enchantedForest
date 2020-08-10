@@ -13,9 +13,7 @@ const levelupReqXP = [
   4030,4040,4050,4060,4070,4080,4090,4100
 ];
 
-let loaded_user_data = {};
 let first_load = true;
-
 let tutorial_damage_disabled = false;
 
 const KEY_CODE_TABLE = {
@@ -89,6 +87,8 @@ const npcCollisionTolerence = 1.5;
 
 // this makes sure that we load the "asset" jsons before trying to load the world 
 let init_toload = ["sprites", "quests", "npcs", "teleporters", "loaded_user_data"];
+// stuff to load before releasing the LOADING screen
+let room_load_checklist = []; 
 let triggered_initial_room_load = false;
 let loadingRoom = true;
 let quickAccessItems = [];

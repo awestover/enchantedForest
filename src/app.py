@@ -45,13 +45,13 @@ def createAccount():
         "username": username, 
         "pwd_hash": pwd_hash, 
         "data": {
-            "checkpoint_room" : "llamaPlains", 
+            "checkpoint_room" : "bobsTown_tutorial", 
             "health" : 50,
-            "coins" : 100,
-            "mana" : 100, 
+            "coins" : 00,
+            "mana" : 0, 
             "completedQuests" : [ ], 
             "level" : 1, 
-            "xp" : 10, 
+            "xp" : 0, 
             "items" : [ ] 
             }
         })
@@ -113,9 +113,6 @@ def getusername():
 def getdata():
     if not USING_MONGO:
         return jsonify({
-            "username": "admin", 
-            "pwd_hash": "$5$rounds=535000$6trFK8w.j1IpeQAO$BvzzWZ.LO6RyylCX4rJ3.u7PPs.vU7siaoygkWvDVB5", 
-            "data": {
                 "checkpoint_room": "bobsTown_tutorial", 
                 "health": 50, 
                 "coins": 100, 
@@ -124,7 +121,6 @@ def getdata():
                 "level": 1, 
                 "xp": 10, 
                 "items": []
-                }
             })
 
     username = session.get("username")
