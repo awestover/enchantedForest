@@ -35,32 +35,46 @@ def createAccount():
 
     same_username_users = mongo.db.users.find( {"username": request.form.get("username") } ) 
     if any(True for _ in same_username_users):
-        return jsonify({"status": "error", "messsage": "username taken"})
+        return jsonify({
+            "status": "error", 
+            "messsage": "username taken"
+            })
 
     pwd_hash = sha256_crypt.hash(request.form.get("pwd"))
-    mongo.db.users.insert_one({"username": username, "pwd_hash": pwd_hash, "data": {
-        "checkpoint_room" : "llamaPlains", 
-        "health" : 50,
-        "coins" : 100,
-        "mana" : 100, 
-        "completedQuests" : [ ], 
-        "level" : 1, 
-        "xp" : 10, 
-        "items" : [ ] 
-        }
-    })
-    return jsonify({"status": "success", "messsage": "account created"})
+    mongo.db.users.insert_one({
+        "username": username, 
+        "pwd_hash": pwd_hash, 
+        "data": {
+            "checkpoint_room" : "llamaPlains", 
+            "health" : 50,
+            "coins" : 100,
+            "mana" : 100, 
+            "completedQuests" : [ ], 
+            "level" : 1, 
+            "xp" : 10, 
+            "items" : [ ] 
+            }
+        })
+
+    session["username"] = username
+    return redirect(url_for("index"))
 
 @app.route("/login", methods=("POST",))
 def login():
     username = request.form.get("username")
     user_data = [x for x in mongo.db.users.find( {"username": username } )]
     if len(user_data) == 0:
-        return jsonify({"status": "error", "messsage": "that username does not have an account associated with it. maybe you speeled yourname wrong or something"})
+        return jsonify({
+            "status": "error", 
+            "messsage": "that username does not have an account associated with it. maybe you speeled yourname wrong or something"
+            })
     user_data = user_data[0]
 
     if not sha256_crypt.verify(request.form.get("pwd"), user_data["pwd_hash"]):
-        return jsonify({"status": "error", "messsage": "bad password"})
+        return jsonify({
+            "status": "error", 
+            "messsage": "bad password"
+            })
 
     session["username"] = username
     return redirect(url_for("index"))
@@ -77,14 +91,19 @@ def savedata():
 
     user_data = [x for x in mongo.db.users.find( {"username": username } )]
     if len(user_data) == 0:
-        return jsonify({"status": "error", "messsage": "that username does not have an account associated with it. maybe you speeled yourname wrong or something"})
+        return jsonify({
+            "status": "error", 
+            "messsage": "that username does not have an account associated with it. maybe you speeled yourname wrong or something"
+            })
     user_data = user_data[0]
 
-    mongo.db.users.update_one( {"username": username }, {"$set": {"username": username, "pwd_hash": user_data["pwd_hash"], "data": request.args.to_dict()}})
-    
-    # {"username": "admin", "pwd_hash": "admin", "checkpoint_room": "llamaPlains", "health": 50, "coins": 100, "mana": 100, "completedQuests": [], "level": 1, "xp": 10, "items": []}
-
-    return "I updated your pwd for you, your welcome"
+    mongo.db.users.update_one( {"username": username }, {"$set": {
+        "username": username, 
+        "pwd_hash": user_data["pwd_hash"], 
+        "data": json.loads([x for x in request.args][0])
+        }})
+   
+    return {"status":"success"}
 
 @app.route("/getusername", methods=("GET",))
 def getusername():
@@ -93,18 +112,43 @@ def getusername():
 @app.route("/getdata", methods=("GET",))
 def getdata():
     if not USING_MONGO:
-        return jsonify({"username": "admin", "pwd_hash": "admin", "checkpoint_room": "bobsTown_tutorial", "health": 50, "coins": 100, "mana": 300, "completedQuests": ["tutorial"], "level": 1, "xp": 10, "items": []})
+        return jsonify({
+            "username": "admin", 
+            "pwd_hash": "$5$rounds=535000$6trFK8w.j1IpeQAO$BvzzWZ.LO6RyylCX4rJ3.u7PPs.vU7siaoygkWvDVB5", 
+            "data": {
+                "checkpoint_room": "bobsTown_tutorial", 
+                "health": 50, 
+                "coins": 100, 
+                "mana": 300, 
+                "completedQuests": ["tutorial"], 
+                "level": 1, 
+                "xp": 10, 
+                "items": []
+                }
+            })
 
     username = session.get("username")
     if not username:
-        return jsonify({"error": "user not found"})
+        return jsonify({
+            "status": "error", 
+            "message": "user not found"
+            })
 
     user_data = [x for x in mongo.db.users.find( {"username": username } )]
     if len(user_data) == 0:
-        return jsonify({"status": "error", "messsage": "that username does not have an account associated with it. maybe you speeled yourname wrong or something"})
+        return jsonify({
+            "status": "error", 
+            "messsage": "that username does not have an account associated with it. maybe you speeled yourname wrong or something"
+            })
     user_data = user_data[0]
 
     return jsonify(user_data["data"])
+
+@app.route("/leaderboard", methods=("GET", ))
+def leaderboard():
+    if not USING_MONGO:
+        return jsonify({"admin": "10"}) # username: level
+    return jsonify({x["username"]: x["data"]["level"] for x in mongo.db.users.find({})})
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port="5000", debug=True)

@@ -1,3 +1,4 @@
+let player;
 const blockSize = 32;
 const gravity = 0.2;
 const friction = 0.06;
@@ -52,7 +53,6 @@ let TILE_IDS_TO_NAMES = {}; // {"2": "black", "1": "collision", ...}
 let TILE_TYPE_TO_NAMES = {}; // {"item": ["item:gem", "item:potion", ...],...}
 let mapTileDims = new p5.Vector(32,32); // really read this in from a file
 let cameraPos = new p5.Vector(0,0);
-let player;
 let itemManager = new ItemManager();
 let questSystem = new QuestSystem();
 let display = new HUD();

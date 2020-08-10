@@ -172,7 +172,7 @@ function setup(){
 	$.get("/getdata", {}, (lud)=>{
 		console.log(lud);
 		$.notify("yayyyyy, you logged int", "success");
-		loaded_user_data = lud;
+		loaded_user_data = lud.data;
 		removeElts(init_toload, "loaded_user_data");
 		currentRoom = loaded_user_data.checkpoint_room;
 		player.health = loaded_user_data.health;
@@ -440,7 +440,7 @@ function draw(){
         if(player.hitBlock(x, y)){
           if(keyIsDown(KEY_CODE_TABLE["enter"])){
             if(data.layers.roomstuff[y][x] == TILE_NAMES_TO_IDS["checkpoint"]){
-              $.get("/savedata", {
+              $.get("/savedata", JSON.stringify({
                   "checkpoint_room": currentRoom, 
                   "health": player.health, 
                   "coins": player.coins, 
@@ -449,7 +449,7 @@ function draw(){
                   "level": player.level, 
                   "xp": player.xp, 
                   "items": player.items
-              }, ()=>{
+              }), ()=>{
                 $.notify("save from server finished!!!!");
               });
 
