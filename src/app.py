@@ -16,7 +16,7 @@ USING_MONGO = False
 @app.route("/index")
 def index():
     if not session.get("username"):
-        return redirect(url_for("/start"))
+        return redirect(url_for("startScreen"))
     return app.send_static_file('index.html')
 
 @app.route("/admin")
@@ -65,6 +65,12 @@ def login():
     session["username"] = username
     return redirect(url_for("index"))
 
+@app.route("/logout", methods=("GET",))
+def logout():
+    if session.get("username"): 
+        del session["username"]
+    return redirect(url_for("index"))
+
 @app.route("/savedata", methods=("GET",))
 def savedata():
     username = session["username"]
@@ -79,6 +85,10 @@ def savedata():
     # {"username": "admin", "pwd_hash": "admin", "checkpoint_room": "llamaPlains", "health": 50, "coins": 100, "mana": 100, "completedQuests": [], "level": 1, "xp": 10, "items": []}
 
     return "I updated your pwd for you, your welcome"
+
+@app.route("/getusername", methods=("GET",))
+def getusername():
+    return session.get("username")
 
 @app.route("/getdata", methods=("GET",))
 def getdata():

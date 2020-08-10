@@ -9,6 +9,7 @@ function loadRoom(roomName, spawn_loc, spit_direction){
   $("#shopContainer").hide();
   display.clearDescriptionCard();
   $(".wrapper").hide();
+	username = null;
   currentRoom = roomName;
   loadingRoom = true;
   data = null;
@@ -162,6 +163,11 @@ function setup(){
       removeElts(init_toload, section);
     });
   }
+
+	$.get("/getusername", {}, (username)=>{
+		this.username = username;
+		$('#username').text(username);
+	});
 
 	$.get("/getdata", {}, (lud)=>{
 		console.log(lud);

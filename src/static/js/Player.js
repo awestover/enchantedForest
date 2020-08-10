@@ -7,7 +7,7 @@ class Player extends Entity {
     this.level = 0;
     this.xp = 0;
     this.coins = 100;
-    this.coincap = 1000;
+    this.coincap = 5000;
     this.mana = 100;
     this.manacap = 1000;
     this.projectiles = [];
