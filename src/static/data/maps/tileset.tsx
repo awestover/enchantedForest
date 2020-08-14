@@ -101,31 +101,31 @@
   <properties>
    <property name="name" value="teleporterA"/>
   </properties>
-  <image width="32" height="32" source="gimpTiles/teleporter.png"/>
+  <image width="32" height="32" source="gimpTiles/teleporterA.png"/>
  </tile>
  <tile id="22">
   <properties>
    <property name="name" value="teleporterB"/>
   </properties>
-  <image width="32" height="32" source="gimpTiles/teleporter.png"/>
+  <image width="32" height="32" source="gimpTiles/teleporterB.png"/>
  </tile>
  <tile id="23">
   <properties>
    <property name="name" value="teleporterC"/>
   </properties>
-  <image width="32" height="32" source="gimpTiles/teleporter.png"/>
+  <image width="32" height="32" source="gimpTiles/teleporterC.png"/>
  </tile>
  <tile id="24">
   <properties>
    <property name="name" value="teleporterD"/>
   </properties>
-  <image width="32" height="32" source="gimpTiles/teleporter.png"/>
+  <image width="32" height="32" source="gimpTiles/teleporterD.png"/>
  </tile>
  <tile id="25">
   <properties>
    <property name="name" value="teleporterE"/>
   </properties>
-  <image width="32" height="32" source="gimpTiles/teleporter.png"/>
+  <image width="32" height="32" source="gimpTiles/teleporterE.png"/>
  </tile>
  <tile id="26">
   <properties>

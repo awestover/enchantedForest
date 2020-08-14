@@ -79,5 +79,29 @@
                 "y": 6
             }
         }
+    }, 
+    "mivoens_house": {
+        "teleporterC": {
+            "to": "stormland_mountain",
+            "spit_direction_for_incoming_user": 1,
+            "automatically_teleports": true
+        }
+    },
+    "stormland_mountain": {
+        "teleporterC": {
+            "to": "mivoens_house",
+            "spit_direction_for_incoming_user": 1,
+            "automatically_teleports": true
+        },
+        "teleporterA": {
+            "to": "stormland_mountain",
+            "spit_direction_for_incoming_user": 1,
+            "automatically_teleports": true
+        }, 
+        "teleporterB": {
+            "to": "stormland_mountain",
+            "spit_direction_for_incoming_user": 1,
+            "automatically_teleports": true
+        }
     }
 }
