@@ -120,7 +120,7 @@
             }
         },
         "teleporterD": {
-            "to": "levantersKeeps",
+            "to": "levantersKeep",
             "spit_direction_for_incoming_user": 1,
             "automatically_teleports": true,
             "location_of_this_teleporter": {
