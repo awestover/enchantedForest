@@ -1,0 +1,16 @@
+body{ 
+	background-image: url("/static/login_bg.png");
+}
+
+#accountforms {
+	margin-top: 100px;
+	padding: 40px;
+	background-color: rgba(200, 200, 200, 0.9);
+}
+
+#leaderboard {
+	margin-top: 100px;
+	padding: 40px;
+	background-color: rgba(200, 200, 200, 0.9);
+	overflow: scroll;
+}

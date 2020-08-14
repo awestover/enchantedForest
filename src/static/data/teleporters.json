@@ -24,7 +24,7 @@
         "teleporterB": {
             "to": "llamaPlains",
             "spit_direction_for_incoming_user": -1,
-            "automatically_teleports": true,
+            "automatically_teleports": false,
             "location_of_this_teleporter": {
                 "x": 19,
                 "y": 6

@@ -5,6 +5,9 @@ class ItemManager {
   }
 
   createItem(itemType){
+    player.items.push({"species": itemType, "quantity": 1});
+    $.notify(`item \"${itemType}\" acquired!`, "success");
+
     let itemTable = document.getElementById("itemTable");
     let row;
     if(player.items.length % 5 == 1)
@@ -26,8 +29,6 @@ class ItemManager {
 
     cell.appendChild(img);
     cell.appendChild(div);
-
-    $.notify(`item \"${itemType}\" acquired!`, "success");
   }
 
   incrementItem(itemType, itemQuantity){

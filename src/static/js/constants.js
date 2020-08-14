@@ -1,3 +1,4 @@
+let player;
 const blockSize = 32;
 const gravity = 0.2;
 const friction = 0.06;
@@ -12,9 +13,7 @@ const levelupReqXP = [
   4030,4040,4050,4060,4070,4080,4090,4100
 ];
 
-let loaded_user_data = {};
 let first_load = true;
-
 let tutorial_damage_disabled = false;
 
 const KEY_CODE_TABLE = {
@@ -52,7 +51,6 @@ let TILE_IDS_TO_NAMES = {}; // {"2": "black", "1": "collision", ...}
 let TILE_TYPE_TO_NAMES = {}; // {"item": ["item:gem", "item:potion", ...],...}
 let mapTileDims = new p5.Vector(32,32); // really read this in from a file
 let cameraPos = new p5.Vector(0,0);
-let player;
 let itemManager = new ItemManager();
 let questSystem = new QuestSystem();
 let display = new HUD();
@@ -89,6 +87,8 @@ const npcCollisionTolerence = 1.5;
 
 // this makes sure that we load the "asset" jsons before trying to load the world 
 let init_toload = ["sprites", "quests", "npcs", "teleporters", "loaded_user_data"];
+// stuff to load before releasing the LOADING screen
+let room_load_checklist = []; 
 let triggered_initial_room_load = false;
 let loadingRoom = true;
 let quickAccessItems = [];
