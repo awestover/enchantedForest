@@ -30,6 +30,15 @@
                 "y": 6
             }
         },
+        "teleporterD": {
+            "to": "stormland_mountain",
+            "spit_direction_for_incoming_user": 1,
+            "automatically_teleports": true,
+            "location_of_this_teleporter": {
+                "x": 1,
+                "y": 2
+            }
+        },
         "teleporterE": {
             "to": "bobsTown_tutorial",
             "spit_direction_for_incoming_user": 1,
@@ -79,29 +88,45 @@
                 "y": 6
             }
         }
-    }, 
+    },
     "mivoens_house": {
         "teleporterC": {
             "to": "stormland_mountain",
             "spit_direction_for_incoming_user": 1,
-            "automatically_teleports": true
+            "automatically_teleports": true,
+            "location_of_this_teleporter": {
+                "x": 14,
+                "y": 6
+            }
         }
     },
     "stormland_mountain": {
         "teleporterC": {
             "to": "mivoens_house",
             "spit_direction_for_incoming_user": 1,
-            "automatically_teleports": true
+            "automatically_teleports": true,
+            "location_of_this_teleporter": {
+                "x": 31,
+                "y": 30
+            }
         },
         "teleporterA": {
             "to": "stormland_mountain",
+            "spit_direction_for_incoming_user": -1,
+            "automatically_teleports": true,
+            "location_of_this_teleporter": {
+                "x": 31,
+                "y": 6
+            }
+        },
+        "teleporterD": {
+            "to": "levanters",
             "spit_direction_for_incoming_user": 1,
-            "automatically_teleports": true
-        }, 
-        "teleporterB": {
-            "to": "stormland_mountain",
-            "spit_direction_for_incoming_user": 1,
-            "automatically_teleports": true
+            "automatically_teleports": true,
+            "location_of_this_teleporter": {
+                "x": 4,
+                "y": 26
+            }
         }
     }
 }
