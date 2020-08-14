@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.2" tiledversion="1.2.4" name="tileset" tilewidth="32" tileheight="32" tilecount="22" columns="0">
+<tileset version="1.4" tiledversion="1.4.1" name="tileset" tilewidth="32" tileheight="32" tilecount="22" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0">
   <properties>
@@ -101,31 +101,31 @@
   <properties>
    <property name="name" value="teleporterA"/>
   </properties>
-  <image width="32" height="32" source="gimpTiles/teleporter.png"/>
+  <image width="32" height="32" source="gimpTiles/teleporterA.png"/>
  </tile>
  <tile id="22">
   <properties>
    <property name="name" value="teleporterB"/>
   </properties>
-  <image width="32" height="32" source="gimpTiles/teleporter.png"/>
+  <image width="32" height="32" source="gimpTiles/teleporterB.png"/>
  </tile>
  <tile id="23">
   <properties>
    <property name="name" value="teleporterC"/>
   </properties>
-  <image width="32" height="32" source="gimpTiles/teleporter.png"/>
+  <image width="32" height="32" source="gimpTiles/teleporterC.png"/>
  </tile>
  <tile id="24">
   <properties>
    <property name="name" value="teleporterD"/>
   </properties>
-  <image width="32" height="32" source="gimpTiles/teleporter.png"/>
+  <image width="32" height="32" source="gimpTiles/teleporterD.png"/>
  </tile>
  <tile id="25">
   <properties>
    <property name="name" value="teleporterE"/>
   </properties>
-  <image width="32" height="32" source="gimpTiles/teleporter.png"/>
+  <image width="32" height="32" source="gimpTiles/teleporterE.png"/>
  </tile>
  <tile id="26">
   <properties>
