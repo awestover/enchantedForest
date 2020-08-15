@@ -5,7 +5,8 @@ class Mob extends Entity {
 
   die(){
     $.notify("You seem a decent fellow. I hate to die.", "info");
-    items.push(new Entity(mob.pos.x+50, mob.pos.y, "gem", "item"));
+    items.push(new Item(this.pos.x+50, this.pos.y, "potion", "item"));
+    items.push(new Entity(this.pos.x+50, this.pos.y, "potion", "item"));
   }
 
 }

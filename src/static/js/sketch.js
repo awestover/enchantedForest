@@ -96,8 +96,7 @@ function loadRoom(roomName, spawn_loc, spit_direction){
 
         if(TILE_TYPE_TO_NAMES["item"].includes(TILE_IDS_TO_NAMES[data.layers["items"][y][x]])){
           let tile_type = TILE_IDS_TO_NAMES[data.layers["items"][y][x]].substring(("item"+":").length);
-          items.push(new Entity(bc.x, bc.y, tile_type, "item"));
-          items[items.length-1].spritesheet = stats["items"][tile_type].img;
+          items.push(new Item(bc.x, bc.y, tile_type));
         }
       }
     }
