@@ -3,4 +3,10 @@ class Mob extends Entity {
     super(xPos, yPos, spriteName, "mob");
   }
 
+  die(){
+    $.notify("You seem a decent fellow. I hate to die.", "info");
+    items.push(new Entity(mob.pos.x+50, mob.pos.y, "gem", "item"));
+  }
+
 }
+

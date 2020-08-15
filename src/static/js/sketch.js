@@ -417,7 +417,8 @@ function draw(){
           mobs[i].health = 0;
         }
       }
-      else{
+      else{ // mobs.health <= 0
+        mobs[i].die();
         mobs.splice(i, 1);
       }
     }
