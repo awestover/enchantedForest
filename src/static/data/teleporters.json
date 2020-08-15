@@ -92,7 +92,7 @@
     "mivoens_house": {
         "teleporterC": {
             "to": "stormland_mountain",
-            "spit_direction_for_incoming_user": 1,
+            "spit_direction_for_incoming_user": -1,
             "automatically_teleports": true,
             "location_of_this_teleporter": {
                 "x": 14,
@@ -103,7 +103,7 @@
     "stormland_mountain": {
         "teleporterC": {
             "to": "mivoens_house",
-            "spit_direction_for_incoming_user": 1,
+            "spit_direction_for_incoming_user": -1,
             "automatically_teleports": true,
             "location_of_this_teleporter": {
                 "x": 31,
