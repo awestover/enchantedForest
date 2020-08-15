@@ -4,7 +4,7 @@ class Item extends Entity {
     this.loadSpriteSheet();
   }
   loadSpriteSheet(){
-    this.spritesheet = stats["items"][this.type].img;
+    this.spritesheet = stats["items"][this.species].img;
   }
 }
 
