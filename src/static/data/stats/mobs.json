@@ -22,7 +22,8 @@
   }, 
 	"jumpydudeBoss": { 
     "attrs":{
-      "health": 1000
+      "health": 5555,
+      "damage": 30
     }
   }
 }

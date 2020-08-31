@@ -1,6 +1,7 @@
 class Mob extends Entity {
   constructor(xPos, yPos, spriteName) {
     super(xPos, yPos, spriteName, "mob");
+    this.damage = 10;
   }
 
   die(){

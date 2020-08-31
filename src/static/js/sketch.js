@@ -400,7 +400,7 @@ function draw(){
         if(mobs[i].hitRect(player.pos, player.dims)){
           if(Math.random() < 0.005){
             $.notify("You've been badly wounded by an impact mob :P");
-            player.changeHealth(-10);
+            player.changeHealth(-mobs[i].damage);
           }
         }
 
