@@ -115,8 +115,8 @@
             "spit_direction_for_incoming_user": 1,
             "automatically_teleports": true,
             "location_of_this_teleporter": {
-                "x": 1,
-                "y": 1
+                "x": 15,
+                "y": 2
             }
         }
     },
