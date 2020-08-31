@@ -1,5 +1,8 @@
 function loadRoom(roomName, spawn_loc, spit_direction){
-
+  if(roomName == "bossRoom"){
+    player.mana = 0;
+    $.notify("BOSSS FIGHTTTTT; mana cleared!", "info");
+  }
   loadingRoom = true;
 	room_load_checklist.push("bg-img");
 	room_load_checklist.push("map");
@@ -573,7 +576,6 @@ function draw(){
 				$("#questBannerDeclineButton").attr("onclick", `dialogue.hideQuestBanner();`);
 			}
 		}
-
   }
 
   pop(); // translate to screen center is 0,0
