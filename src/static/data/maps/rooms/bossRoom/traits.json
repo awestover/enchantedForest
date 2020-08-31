@@ -1,0 +1,5 @@
+{
+  "bg-color": "#32A", 
+  "weather": ["rain", "thunder"], 
+	"bg-img": "vim.png"
+}
