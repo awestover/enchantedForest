@@ -1,6 +1,7 @@
 # enchantedForest
 
 ![Game Play Image](gameplayimg.png)
+![Another game play image](gameplayimg2.png)
 
 This game gets its _roots_ from ancient Norse Mythology. Maybe.
 
@@ -8,6 +9,7 @@ This game gets its _roots_ from ancient Norse Mythology. Maybe.
 
 ## Movement
 - A/LEFT, D/RIGHT, space
+
 ## moves
 - c: coinshot
 - x: fireball
@@ -330,6 +332,5 @@ Collect
   - gems
   - abilities
   - weapons/armor/parts of an artifact
-
 
 
