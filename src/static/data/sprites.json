@@ -23,7 +23,7 @@
     "collision_dims": [64,64],
     "pixel_dims": [64,64]
   },
-  "jumpydudeBOSS": {
+  "jumpydudeBoss": {
     "numframes": {"cols": 1, "rows": 1},
     "collision_offset": [0,0],
     "total_dims": [256,512],

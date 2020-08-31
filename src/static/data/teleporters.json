@@ -112,7 +112,7 @@
     "bossRoom": {
         "teleporterA": {
             "to": "mivoens_house",
-            "spit_direction_for_incoming_user": -1,
+            "spit_direction_for_incoming_user": 1,
             "automatically_teleports": true,
             "location_of_this_teleporter": {
                 "x": 1,
@@ -142,7 +142,7 @@
         "teleporterD": {
             "to": "levantersKeep",
             "spit_direction_for_incoming_user": 1,
-            "automatically_teleports": true,
+            "automatically_teleports": false,
             "location_of_this_teleporter": {
                 "x": 4,
                 "y": 26

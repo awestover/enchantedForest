@@ -19,5 +19,10 @@
       "flies": true,
       "health": 30
     }
+  }, 
+	"jumpydudeBoss": { 
+    "attrs":{
+      "health": 1000
+    }
   }
 }
