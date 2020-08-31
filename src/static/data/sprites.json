@@ -26,9 +26,9 @@
   "jumpydudeBoss": {
     "numframes": {"cols": 1, "rows": 1},
     "collision_offset": [0,0],
-    "total_dims": [256,512],
-    "collision_dims": [256,512],
-    "pixel_dims": [256,512]
+    "total_dims": [128,256],
+    "collision_dims": [128,256],
+    "pixel_dims": [128,256]
   },
   "dragonInsignia": {
     "total_dims": [32,32]

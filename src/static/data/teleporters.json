@@ -101,7 +101,7 @@
         },
         "teleporterA": {
             "to": "bossRoom",
-            "spit_direction_for_incoming_user": -1,
+            "spit_direction_for_incoming_user": 1,
             "automatically_teleports": false,
             "location_of_this_teleporter": {
                 "x": 1,
