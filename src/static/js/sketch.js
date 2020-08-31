@@ -1,4 +1,5 @@
 function loadRoom(roomName, spawn_loc, spit_direction){
+
   loadingRoom = true;
 	room_load_checklist.push("bg-img");
 	room_load_checklist.push("map");
@@ -33,19 +34,21 @@ function loadRoom(roomName, spawn_loc, spit_direction){
 			removeElts(room_load_checklist, "bg-img");
     }
 
-    if(roomTraits.weather.includes("rain")){
-      for(let i = 0; i < 100; i++){
-        fallingParticles.push(new Particle("rain"));
+    if(roomTraits.weather){
+      if(roomTraits.weather.includes("rain")){
+        for(let i = 0; i < 100; i++){
+          fallingParticles.push(new Particle("rain"));
+        }
       }
-    }
-    if(roomTraits.weather.includes("thunder")){
-      for(let i = 0; i < 2; i++){
-        bolts.push(new LightningBolt());
+      if(roomTraits.weather.includes("thunder")){
+        for(let i = 0; i < 2; i++){
+          bolts.push(new LightningBolt());
+        }
       }
-    }
-    if(roomTraits.weather.includes("snow")){
-      for(let i = 0; i < 100; i++){
-        fallingParticles.push(new Particle("snow"));
+      if(roomTraits.weather.includes("snow")){
+        for(let i = 0; i < 100; i++){
+          fallingParticles.push(new Particle("snow"));
+        }
       }
     }
   });
@@ -140,6 +143,12 @@ function setup(){
         stats[section][thing].img = loadImage(`/static/data/${section}/${thing}.png`);
       }
       removeElts(init_toload, section);
+      if(section == "items"){
+        // default items
+        itemManager.initQuickAccess(1, "potion");
+        itemManager.initQuickAccess(2, "gem");
+        itemManager.initQuickAccess(3, "dragonInsignia");
+      }
     });
   }
 

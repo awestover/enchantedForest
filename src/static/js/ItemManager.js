@@ -95,6 +95,12 @@ class ItemManager {
     $(("#quickAccess"+value)).siblings().text(itemQuantity);
   }
 
+  initQuickAccess(index, itemType) { // trust  that value is  in {0,1,2,..., 9}
+    quickAccessItems[index] = itemType;
+    $(("#quickAccess"+index)).attr('src', stats["items"][itemType]["imgPaths"]);
+    let itemQuantity = 0;
+    $(("#quickAccess"+index)).siblings().text(itemQuantity);
+  }
 
   quickAccess(i) { this.useItem(quickAccessItems[i]); }
 
