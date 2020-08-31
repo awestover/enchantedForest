@@ -156,8 +156,9 @@ function setup(){
 			player.mana = 5000;
 			this.coincap = 5000;
 			player.coins = 5000;
-			player.maxVel.x = 10;
-			player.maxVel.y = 7;
+			// player.maxVel.x = 10;
+      player.maxVel.x = 5;
+			player.maxVel.y = 5;
 		}
 	});
 
